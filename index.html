@@ -973,6 +973,73 @@
       .app-card { max-width: 280px; }
       .full-view-card { max-width: 480px; }
     }
+
+    /* NEW: next page top title & tag styles */
+    .next-page-top-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1e562a, #2c4c3b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+      line-height: 1.3;
+      padding: 0 4px;
+    }
+    .next-page-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 10px;
+      margin: 8px 0 12px 0;
+    }
+    .next-page-tag-row .nptag {
+      background: linear-gradient(135deg, #0a2e1d, #1a6e3a);
+      color: #e8f5e9;
+      padding: 3px 12px;
+      border-radius: 40px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      border: 1px solid #ffcf8a;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .next-page-tag-row .nptag.gold { background: linear-gradient(135deg, #f59e0b, #f97316); color: #0a0a0a; border-color: #ffcf8a; }
+    .next-page-tag-row .nptag.blue { background: linear-gradient(135deg, #2563eb, #06b6d4); color: #fff; border-color: #93c5fd; }
+    .next-page-tag-row .nptag.pink { background: linear-gradient(135deg, #db2777, #f472b6); color: #fff; border-color: #f9a8d4; }
+    .next-page-tag-row .nptag.purple { background: linear-gradient(135deg, #7c3aed, #a78bfa); color: #fff; border-color: #c4b5fd; }
+    .next-page-tag-row .nptag.cyan { background: linear-gradient(135deg, #0891b2, #22d3ee); color: #fff; border-color: #67e8f9; }
+
+    /* Premium LED download button */
+    .led-download-btn {
+      display: block;
+      width: 100%;
+      padding: 14px 10px;
+      border: none;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #22c55e, #06b6d4, #eab308, #22c55e);
+      background-size: 300% 300%;
+      animation: ledGlow 3s ease infinite;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.4);
+      box-shadow: 0 0 25px rgba(34,197,94,0.4), 0 0 50px rgba(6,182,212,0.2), 0 0 80px rgba(234,179,8,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+    }
+    .led-download-btn:hover {
+      transform: scale(0.98);
+      box-shadow: 0 0 35px rgba(34,197,94,0.6), 0 0 70px rgba(6,182,212,0.3), 0 0 100px rgba(234,179,8,0.2);
+    }
+    @keyframes ledGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
   </style>
 </head>
 <body>
@@ -1205,6 +1272,124 @@
       (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="led-icon-small blue"></span><strong>${n}</strong> – ₹${b} Diwa 777 Bonus<br>Play slots, spin & win, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="led-icon-small yellow"></span><strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} cashback.</div></div>`
     ];
 
+    // 55 different title models for above the photo
+    const titleModels = [
+      (n,b) => `${n} Yono APK Download & Get ₹${b} Bonus Free`,
+      (n,b) => `${n} (Yono) Download {BONUS ₹${b}} FREE | ${n} Apps`,
+      (n,b) => `🎯 ${n} – ₹${b} Welcome Bonus | Download Now`,
+      (n,b) => `🔥 ${n} APK | Get ₹${b} Free Cash + 100% Bonus`,
+      (n,b) => `🚀 ${n} – ₹${b} Joining Bonus | Play & Win Real Money`,
+      (n,b) => `💰 ${n} | ₹${b} Signup Bonus + Fast Withdrawal`,
+      (n,b) => `🎰 ${n} – ₹${b} Free Spin Bonus | Download APK`,
+      (n,b) => `⭐ ${n} Yono | ₹${b} Bonus + Daily Rewards`,
+      (n,b) => `🏆 ${n} – ₹${b} Welcome Offer | Play Now`,
+      (n,b) => `✨ ${n} APK | ₹${b} Instant Bonus & 24/7 Support`,
+      (n,b) => `🎁 ${n} – ₹${b} Free Cash | Download & Earn`,
+      (n,b) => `💎 ${n} Yono | ₹${b} Bonus + VIP Rewards`,
+      (n,b) => `📱 ${n} – ₹${b} Signup Bonus | Secure & Fast`,
+      (n,b) => `🌟 ${n} | ₹${b} Free Bonus + 100% Cashback`,
+      (n,b) => `🎯 ${n} APK Download – ₹${b} Welcome Bonus`,
+      (n,b) => `🔥 ${n} – ₹${b} Joining Bonus | Play Slots & Rummy`,
+      (n,b) => `💰 ${n} Yono | ₹${b} Free Cash + Withdraw ₹100`,
+      (n,b) => `🚀 ${n} – ₹${b} Bonus | Download & Start Winning`,
+      (n,b) => `🎰 ${n} | ₹${b} Free Spins + Daily Jackpot`,
+      (n,b) => `⭐ ${n} APK – ₹${b} Signup Bonus | Trusted App`,
+      (n,b) => `🏆 ${n} Yono | ₹${b} Bonus + Fast UPI Payouts`,
+      (n,b) => `✨ ${n} – ₹${b} Welcome Offer | Play & Earn`,
+      (n,b) => `🎁 ${n} | ₹${b} Free Cash + Loyalty Rewards`,
+      (n,b) => `💎 ${n} APK – ₹${b} Bonus | 24/7 Support`,
+      (n,b) => `📱 ${n} Yono | ₹${b} Signup Bonus + Secure`,
+      (n,b) => `🌟 ${n} – ₹${b} Free Bonus | Download Now`,
+      (n,b) => `🎯 ${n} | ₹${b} Welcome Bonus + Daily Offers`,
+      (n,b) => `🔥 ${n} APK – ₹${b} Joining Bonus | Play Real`,
+      (n,b) => `💰 ${n} Yono | ₹${b} Free Cash + Instant Withdrawal`,
+      (n,b) => `🚀 ${n} – ₹${b} Bonus | Best Slots & Rummy`,
+      (n,b) => `🎰 ${n} | ₹${b} Free Spins + Mega Jackpot`,
+      (n,b) => `⭐ ${n} APK – ₹${b} Signup Bonus | Trusted`,
+      (n,b) => `🏆 ${n} Yono | ₹${b} Bonus + VIP Perks`,
+      (n,b) => `✨ ${n} – ₹${b} Welcome Offer | Play & Win`,
+      (n,b) => `🎁 ${n} | ₹${b} Free Cash + Cashback`,
+      (n,b) => `💎 ${n} APK – ₹${b} Bonus | 24/7 Help`,
+      (n,b) => `📱 ${n} Yono | ₹${b} Signup Bonus + Safe`,
+      (n,b) => `🌟 ${n} – ₹${b} Free Bonus | Download Now`,
+      (n,b) => `🎯 ${n} | ₹${b} Welcome Bonus + Daily Jackpot`,
+      (n,b) => `🔥 ${n} APK – ₹${b} Joining Bonus | Play`,
+      (n,b) => `💰 ${n} Yono | ₹${b} Free Cash + Fast Payout`,
+      (n,b) => `🚀 ${n} – ₹${b} Bonus | Best Gaming App`,
+      (n,b) => `🎰 ${n} | ₹${b} Free Spins + Lucky Rewards`,
+      (n,b) => `⭐ ${n} APK – ₹${b} Signup Bonus | Top Rated`,
+      (n,b) => `🏆 ${n} Yono | ₹${b} Bonus + VIP Support`,
+      (n,b) => `✨ ${n} – ₹${b} Welcome Offer | Earn Real`,
+      (n,b) => `🎁 ${n} | ₹${b} Free Cash + Loyalty Bonus`,
+      (n,b) => `💎 ${n} APK – ₹${b} Bonus | 24/7 Service`,
+      (n,b) => `📱 ${n} Yono | ₹${b} Signup Bonus + Secure`,
+      (n,b) => `🌟 ${n} – ₹${b} Free Bonus | Download & Play`,
+      (n,b) => `🎯 ${n} | ₹${b} Welcome Bonus + Daily Cash`,
+      (n,b) => `🔥 ${n} APK – ₹${b} Joining Bonus | Win Big`,
+      (n,b) => `💰 ${n} Yono | ₹${b} Free Cash + Instant Pay`,
+      (n,b) => `🚀 ${n} – ₹${b} Bonus | Best Slots & Games`,
+      (n,b) => `🎰 ${n} | ₹${b} Free Spins + Jackpot Chance`
+    ];
+
+    // 55 different tag row patterns (above photo)
+    const tagRowPatterns = [
+      (n,b) => `<span class="nptag gold">🔥 Jackpot</span><span class="nptag">${n}</span><span class="nptag blue">₹${b} Bonus</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">Welcome Bonus</span><span class="nptag cyan">₹${b}</span>`,
+      (n,b) => `<span class="nptag pink">Best Info</span><span class="nptag">${n}</span><span class="nptag gold">₹${b}</span>`,
+      (n,b) => `<span class="nptag">Download</span><span class="nptag gold">${n}</span><span class="nptag blue">₹${b}</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag purple">VIP</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag cyan">Fast Withdrawal</span><span class="nptag gold">₹${b}</span>`,
+      (n,b) => `<span class="nptag gold">Jackpot</span><span class="nptag">${n}</span><span class="nptag pink">₹${b}</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b} Bonus</span><span class="nptag blue">Trusted</span>`,
+      (n,b) => `<span class="nptag cyan">₹${b}</span><span class="nptag">${n}</span><span class="nptag gold">Welcome</span>`,
+      (n,b) => `<span class="nptag gold">Best APK</span><span class="nptag">${n}</span><span class="nptag purple">₹${b}</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag pink">Free Cash</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag cyan">Instant Withdraw</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">Jackpot</span><span class="nptag blue">₹${b}</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag pink">VIP</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b} Bonus</span><span class="nptag purple">Top Rated</span>`,
+      (n,b) => `<span class="nptag gold">Welcome</span><span class="nptag">${n}</span><span class="nptag cyan">₹${b}</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag blue">Fast Payout</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag pink">Jackpot</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag purple">Secure</span>`,
+      (n,b) => `<span class="nptag gold">Best Deal</span><span class="nptag">${n}</span><span class="nptag cyan">₹${b}</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag blue">24/7 Support</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag pink">Free Spin</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">Jackpot</span><span class="nptag purple">₹${b}</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag cyan">VIP Rewards</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag pink">Cashback</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag blue">Trusted</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag purple">Fast</span>`,
+      (n,b) => `<span class="nptag gold">Welcome</span><span class="nptag">${n}</span><span class="nptag cyan">₹${b}</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag pink">Jackpot</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag blue">VIP</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag purple">Best</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag cyan">Free Cash</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag pink">Support</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag blue">Jackpot</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag purple">VIP</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag cyan">Cashback</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag pink">Free Spin</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag blue">Trusted</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag purple">Fast</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag pink">Welcome</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag cyan">Jackpot</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag blue">VIP</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag purple">Best</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag cyan">Support</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag pink">Free Cash</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag blue">Jackpot</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag purple">VIP</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag cyan">Cashback</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag pink">Free Spin</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag blue">Trusted</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag purple">Fast</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag pink">Welcome</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag cyan">Jackpot</span>`,
+      (n,b) => `<span class="nptag gold">₹${b}</span><span class="nptag">${n}</span><span class="nptag blue">VIP</span>`,
+      (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag purple">Best</span>`
+    ];
+
     function createTagsHTML(appName, bonusNum, appIndex) {
       const modelFn = tagModelList[appIndex % tagModelList.length];
       const bonusArr = [];
@@ -1256,7 +1441,6 @@
 
       const whyContent = useHindi ? `<ul><li><strong>आकर्षक वेलकम बोनस:</strong> नए उपयोगकर्ताओं के लिए ₹${bonusArr[11]} तक</li><li><strong>तेज़ UPI निकासी</strong> प्रणाली त्वरित प्रसंस्करण समय के साथ</li><li><strong>गेम की विस्तृत श्रृंखला</strong> जिसमें रम्मी, स्लॉट, बिंगो और स्पिन गेम शामिल हैं</li><li><strong>स्मूथ और ऑप्टिमाइज़्ड</strong> प्रदर्शन अधिकांश Android डिवाइस पर</li><li><strong>नियमित अपडेट</strong> नई सुविधाओं, ऑफ़र और सुधारों के साथ</li><li><strong>सरल और उपयोगकर्ता के अनुकूल</strong> इंटरफ़ेस शुरुआती और नियमित खिलाड़ियों के लिए</li></ul>` : `<ul><li><strong>Attractive welcome bonus</strong> of up to ₹${bonusArr[11]} for new users</li><li><strong>Fast UPI withdrawal</strong> system with quick processing time</li><li><strong>Wide range of games</strong> including rummy, slots, bingo and spin games</li><li><strong>Smooth and optimized</strong> performance on most Android devices</li><li><strong>Regular updates</strong> with new features, offers and improvements</li><li><strong>Simple and user-friendly</strong> interface for beginners and regular players</li></ul>`;
 
-      // Add the new "Best APK download super fast Withdrawal" tag at the top (without ⚠️)
       const superFastTag = `<div class="tag-box" style="border-left: 4px solid #f59e0b; background: #fffbeb;"><div class="tag-content"><a href="https://www.earntp.com/gold/jm9n7r" target="_blank" class="super-fast-tag">Best APK download super fast Withdrawal</a> – Click to download now!</div></div><div class="tag-divider"></div>`;
 
       return `
@@ -1381,9 +1565,15 @@
       gridDiv.classList.add('hidden');
       downloadContainer.classList.remove('hidden');
       
-      // Build FULL VIEW CARD – app name appears below image, normal size
+      // Get unique title and tag row for this app
+      const titleStr = titleModels[selectedIndex % titleModels.length](selectedApp.name, bonusNum);
+      const tagRowStr = tagRowPatterns[selectedIndex % tagRowPatterns.length](selectedApp.name, bonusNum);
+      
+      // Build FULL VIEW CARD with title above photo, tags above photo, bonus variable position
       const fullViewHtml = `
         <div class="full-view-card" id="fullViewCard">
+          <div class="next-page-top-title">${titleStr}</div>
+          <div class="next-page-tag-row">${tagRowStr}</div>
           <div class="app-icon-large">
             <img src="${selectedApp.img}" alt="${selectedApp.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/96?text=App'">
           </div>
@@ -1402,7 +1592,7 @@
             <div class="badge-item"><span class="badge-label">Min Withdrawal:</span> <span class="badge-value withdraw">${selectedApp.withdrawal}</span></div>
           </div>
 
-          <a href="${selectedApp.downloadUrl}" target="_blank" class="download-btn-large">DOWNLOAD ${selectedApp.name}</a>
+          <button class="led-download-btn" onclick="window.open('${selectedApp.downloadUrl}','_blank')">🚀 DOWNLOAD ${selectedApp.name}</button>
 
           <div class="desc-box">
             <strong>${description}</strong>
