@@ -1041,19 +1041,42 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* premium icon replacements - no emojis */
-    .icon-star { color: #f59e0b; }
-    .icon-download { color: #3b82f6; }
-    .icon-shield { color: #22c55e; }
-    .icon-info { color: #8b5cf6; }
-    .icon-wallet { color: #06b6d4; }
-    .icon-tag { color: #ec4899; }
-    .icon-arrow { color: #6b7280; }
-    .icon-check { color: #22c55e; }
-    .icon-close { color: #ef4444; }
-    .icon-bonus { color: #f59e0b; }
-    .icon-withdraw { color: #3b82f6; }
-    .icon-vip { color: #8b5cf6; }
+    /* premium vector icons - no emojis, no images */
+    .icon-vector {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      margin: 0 2px;
+      vertical-align: middle;
+    }
+    .icon-vector svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .icon-vector.gold svg { stroke: #f59e0b; filter: drop-shadow(0 0 4px #f59e0b); }
+    .icon-vector.green svg { stroke: #22c55e; filter: drop-shadow(0 0 4px #22c55e); }
+    .icon-vector.blue svg { stroke: #3b82f6; filter: drop-shadow(0 0 4px #3b82f6); }
+    .icon-vector.red svg { stroke: #dc2626; filter: drop-shadow(0 0 4px #dc2626); }
+    .icon-vector.purple svg { stroke: #8b5cf6; filter: drop-shadow(0 0 4px #8b5cf6); }
+    .icon-vector.cyan svg { stroke: #06b6d4; filter: drop-shadow(0 0 4px #06b6d4); }
+    .icon-vector.gold-green svg { stroke: #f59e0b; filter: drop-shadow(0 0 4px #f59e0b); }
+    .icon-vector.gold-green svg + svg { stroke: #22c55e; filter: drop-shadow(0 0 4px #22c55e); }
+    .icon-vector.red-gold svg { stroke: #dc2626; filter: drop-shadow(0 0 4px #dc2626); }
+    .icon-vector.red-gold svg + svg { stroke: #f59e0b; filter: drop-shadow(0 0 4px #f59e0b); }
+
+    .next-page-icon-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
   </style>
 </head>
 <body>
@@ -1248,106 +1271,106 @@
       return { ratingClass: 'rating-green', sizeClass: 'size-cyan', votesClass: 'votes-dark', bonusClass: 'bonus-red' };
     }
 
-    // 55 tag models – each one different, mix Hindi/English positions
+    // 55 tag models – each one different, mix Hindi/English positions - no emojis, using vector icon classes
     const tagModelList = [
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${b} इंस्टेंट बोनस पाएं!<br>Play Rummy, Teen Patti & slots. सुरक्षित निकासी ₹100 से। Start earning real cash – डाउनलोड करें! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-info">ⓘ</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस अनलॉक करें!<br>रोमांचक गेम खेलें। Fast withdrawals via UPI. Trusted by millions – अभी खेलना शुरू करें! ₹${bArr[2]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-tag">🏷️</span> <strong>${n}</strong> – Get ₹${b} Welcome Bonus!<br>रोमांचक रम्मी टेबल, daily rewards, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-bonus">💰</span> <strong>${n}</strong> – ₹${bArr[1]} वेलकम बोनस<br>Build sequences, join cash tournaments & daily mystery rewards. सुरक्षित गेमिंग – आज ही जीतना शुरू करें! ₹${bArr[2]} daily. ₹${bArr[3]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vip">👑</span> <strong>${n}</strong> – Get ₹${b} Welcome Bonus!<br>Enjoy thrilling casino games, daily rewards update, and fast UPI withdrawals. ${n} gives you free cash on signup! ₹${bArr[0]} extra. ₹${bArr[1]} refer bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-check">✔️</span> <strong>${n}</strong> – ₹${bArr[2]} Bonus<br>दैनिक लॉगिन बोनस, daily earnings, instant bank transfers. ${n} loyalty rewards. ₹${bArr[3]} cashback. ₹${bArr[4]} spin.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-download">⬇️</span> <strong>नया अपडेट ${n}</strong> – ₹${b} वेलकम बोनस पाएं!<br>रोमांचक स्लॉट मशीन, daily rewards, fast withdrawals. ${n} gives free cash! ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक लॉगिन बोनस, cashback earnings, instant withdrawal. New update available! ₹${bArr[2]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-shield">🛡️</span> <strong>${n}</strong> – ₹${b} joining bonus!<br>Spin, play & win with premium slots. Fast payouts and 24/7 support. ₹${bArr[0]} free spins.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-wallet">💳</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, quick UPI withdrawals, round-the-clock support. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-check">✔️</span> <strong>${n}</strong> – ₹${b} Welcome Offer<br>Play casino games, slots & more. Fast withdrawals, secure platform, daily rewards. ₹${bArr[0]} daily bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-info">ⓘ</span> <strong>${n}</strong> – ₹${bArr[1]} Bonus<br>Daily bonuses, instant UPI withdrawals, VIP rewards. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${b} साइनअप बोनस<br>Play Rummy, Ludo & more. सुरक्षित लेनदेन, instant withdrawals. ₹${bArr[0]} refer bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-bonus">💰</span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonus, loyalty rewards. ₹${bArr[2]} cashback.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vip">👑</span> <strong>${n}</strong> – ₹${b} Welcome Bonus<br>रम्मी टेबल, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-shield">🛡️</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>Build sequences, join cash tournaments & daily mystery rewards. Safe gaming! ₹${bArr[2]} daily. ₹${bArr[3]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-download">⬇️</span> <strong>${n}</strong> – ₹${b} जॉइनिंग बोनस<br>रम्मी, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily reward.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-tag">🏷️</span> <strong>${n}</strong> – ₹${bArr[1]} फीचर्स<br>दैनिक बोनस, instant UPI withdrawals, loyalty rewards. ₹${bArr[2]} bonus. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-wallet">💳</span> <strong>${n}</strong> – ₹${b} Love Bonus<br>Play rummy with love, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses, loyalty rewards. ₹${bArr[2]} cashback.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-check">✔️</span> <strong>${n}</strong> – ₹${b} स्पिन बोनस<br>Spin, play & win with premium games. Fast payouts and 24/7 support. ₹${bArr[0]} free spins.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-info">ⓘ</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, cash, quick UPI withdrawals. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-bonus">💰</span> <strong>${n}</strong> – ₹${b} Top Bonus<br>Play rummy, slots & more. Fast withdrawals, secure platform, daily rewards. ₹${bArr[0]} extra cash.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vip">👑</span> <strong>${n}</strong> – ₹${bArr[1]} Features<br>Daily bonuses, instant UPI withdrawals, loyalty rewards. ₹${bArr[2]} cashback. ₹${bArr[3]} spin. ₹${bArr[4]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-shield">🛡️</span> <strong>${n}</strong> – ₹${b} Hello Bonus<br>Play rummy, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses, loyalty rewards. ₹${bArr[2]} cashback.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-download">⬇️</span> <strong>${n}</strong> – ₹${b} 365 बोनस<br>365 days play rummy, daily tournaments, fast UPI withdrawals. ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-tag">🏷️</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>Build sequences, join cash tournaments. ₹${bArr[2]} daily reward. ₹${bArr[3]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-wallet">💳</span> <strong>${n}</strong> – ₹${b} गोल्ड बोनस<br>Teen Patti, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily. ₹${bArr[1]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-check">✔️</span> <strong>${n}</strong> – ₹${bArr[2]} फीचर्स<br>दैनिक बोनस, instant UPI withdrawals. ₹${bArr[3]} loyalty. ₹${bArr[4]} cashback.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${b} मास्टर बोनस<br>Play Teen Patti, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-info">ⓘ</span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses, loyalty rewards. ₹${bArr[2]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vip">👑</span> <strong>${n}</strong> – ₹${b} Yono Bonus<br>रम्मी, slots & more. Fast withdrawals, secure platform, daily rewards. ₹${bArr[0]} daily reward.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-shield">🛡️</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>Build sequences, join cash tournaments. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-download">⬇️</span> <strong>${n}</strong> – ₹${b} Winner Bonus<br>Play slots, win real money, withdraw instantly. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-bonus">💰</span> <strong>${n}</strong> – ₹${bArr[1]} Features<br>Daily bonuses, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} spin.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-tag">🏷️</span> <strong>${n}</strong> – ₹${b} गुड बोनस<br>Play slots, daily rewards, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-wallet">💳</span> <strong>${n}</strong> – ₹${b} Diwa Bonus<br>Play slots, spin & win, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-check">✔️</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, quick UPI withdrawals. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${b} गो-गो बोनस<br>रम्मी, daily tournaments, fast UPI withdrawals. ₹${bArr[0]} daily.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-info">ⓘ</span> <strong>${n}</strong> – ₹${bArr[1]} फीचर्स<br>दैनिक बोनस, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vip">👑</span> <strong>${n}</strong> – ₹${b} Joy Bonus<br>Play rummy, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-shield">🛡️</span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} cashback.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-download">⬇️</span> <strong>${n}</strong> – ₹${b} स्पिन गोल्ड बोनस<br>Spin, play & win with premium games. Fast payouts and 24/7 support. ₹${bArr[0]} free spins.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-bonus">💰</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, cash, quick UPI withdrawals. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-tag">🏷️</span> <strong>${n}</strong> – ₹${b} Bingo Bonus<br>Play Bingo, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${bArr[1]} Features<br>Daily bonuses, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-wallet">💳</span> <strong>${n}</strong> – ₹${b} Yes Bonus<br>Spin, play & win with premium games. Fast payouts and 24/7 support. ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-check">✔️</span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${b} Arcade Bonus<br>Play arcade games, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-info">ⓘ</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>Daily bonuses, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vip">👑</span> <strong>${n}</strong> – ₹${b} SVIP बोनस<br>Casino games, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-shield">🛡️</span> <strong>${n}</strong> – ₹${bArr[1]} फीचर्स<br>दैनिक बोनस, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-download">⬇️</span> <strong>${n}</strong> – ₹${b} OK Bonus<br>Play rummy, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-bonus">💰</span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses, loyalty rewards. ₹${bArr[2]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-tag">🏷️</span> <strong>${n}</strong> – ₹${b} हिंद बोनस<br>Play slots, spin & win, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, quick UPI withdrawals. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-wallet">💳</span> <strong>${n}</strong> – ₹${b} Bet Bonus<br>Betting games, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-check">✔️</span> <strong>${n}</strong> – ₹${bArr[1]} Features<br>Daily bonuses, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${b} बॉस बोनस<br>Play rummy, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-info">ⓘ</span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vip">👑</span> <strong>${n}</strong> – ₹${b} योनो 777 बोनस<br>Play slots, spin & win, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-shield">🛡️</span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, quick UPI withdrawals. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-download">⬇️</span> <strong>${n}</strong> – ₹${b} VIP बोनस<br>VIP games, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-bonus">💰</span> <strong>${n}</strong> – ₹${bArr[1]} फीचर्स<br>दैनिक बोनस, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
-      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-tag">🏷️</span> <strong>${n}</strong> – ₹${b} Diwa 777 Bonus<br>Play slots, spin & win, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-star">★</span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} cashback.</div></div>`
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${b} इंस्टेंट बोनस पाएं!<br>Play Rummy, Teen Patti & slots. सुरक्षित निकासी ₹100 से। Start earning real cash – डाउनलोड करें! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस अनलॉक करें!<br>रोमांचक गेम खेलें। Fast withdrawals via UPI. Trusted by millions – अभी खेलना शुरू करें! ₹${bArr[2]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – Get ₹${b} Welcome Bonus!<br>रोमांचक रम्मी टेबल, daily rewards, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} वेलकम बोनस<br>Build sequences, join cash tournaments & daily mystery rewards. सुरक्षित गेमिंग – आज ही जीतना शुरू करें! ₹${bArr[2]} daily. ₹${bArr[3]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> <strong>${n}</strong> – Get ₹${b} Welcome Bonus!<br>Enjoy thrilling casino games, daily rewards update, and fast UPI withdrawals. ${n} gives you free cash on signup! ₹${bArr[0]} extra. ₹${bArr[1]} refer bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${bArr[2]} Bonus<br>दैनिक लॉगिन बोनस, daily earnings, instant bank transfers. ${n} loyalty rewards. ₹${bArr[3]} cashback. ₹${bArr[4]} spin.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> <strong>नया अपडेट ${n}</strong> – ₹${b} वेलकम बोनस पाएं!<br>रोमांचक स्लॉट मशीन, daily rewards, fast withdrawals. ${n} gives free cash! ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक लॉगिन बोनस, cashback earnings, instant withdrawal. New update available! ₹${bArr[2]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${b} joining bonus!<br>Spin, play & win with premium slots. Fast payouts and 24/7 support. ₹${bArr[0]} free spins.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, quick UPI withdrawals, round-the-clock support. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${b} Welcome Offer<br>Play casino games, slots & more. Fast withdrawals, secure platform, daily rewards. ₹${bArr[0]} daily bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} Bonus<br>Daily bonuses, instant UPI withdrawals, VIP rewards. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> <strong>${n}</strong> – ₹${b} साइनअप बोनस<br>Play Rummy, Ludo & more. सुरक्षित लेनदेन, instant withdrawals. ₹${bArr[0]} refer bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonus, loyalty rewards. ₹${bArr[2]} cashback.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${b} Welcome Bonus<br>रम्मी टेबल, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>Build sequences, join cash tournaments & daily mystery rewards. Safe gaming! ₹${bArr[2]} daily. ₹${bArr[3]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span> <strong>${n}</strong> – ₹${b} जॉइनिंग बोनस<br>रम्मी, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily reward.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} फीचर्स<br>दैनिक बोनस, instant UPI withdrawals, loyalty rewards. ₹${bArr[2]} bonus. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span> <strong>${n}</strong> – ₹${b} Love Bonus<br>Play rummy with love, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses, loyalty rewards. ₹${bArr[2]} cashback.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${b} स्पिन बोनस<br>Spin, play & win with premium games. Fast payouts and 24/7 support. ₹${bArr[0]} free spins.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, cash, quick UPI withdrawals. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${b} Top Bonus<br>Play rummy, slots & more. Fast withdrawals, secure platform, daily rewards. ₹${bArr[0]} extra cash.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} Features<br>Daily bonuses, instant UPI withdrawals, loyalty rewards. ₹${bArr[2]} cashback. ₹${bArr[3]} spin. ₹${bArr[4]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> <strong>${n}</strong> – ₹${b} Hello Bonus<br>Play rummy, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses, loyalty rewards. ₹${bArr[2]} cashback.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${b} 365 बोनस<br>365 days play rummy, daily tournaments, fast UPI withdrawals. ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>Build sequences, join cash tournaments. ₹${bArr[2]} daily reward. ₹${bArr[3]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> <strong>${n}</strong> – ₹${b} गोल्ड बोनस<br>Teen Patti, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily. ₹${bArr[1]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span> <strong>${n}</strong> – ₹${bArr[2]} फीचर्स<br>दैनिक बोनस, instant UPI withdrawals. ₹${bArr[3]} loyalty. ₹${bArr[4]} cashback.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${b} मास्टर बोनस<br>Play Teen Patti, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses, loyalty rewards. ₹${bArr[2]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span> <strong>${n}</strong> – ₹${b} Yono Bonus<br>रम्मी, slots & more. Fast withdrawals, secure platform, daily rewards. ₹${bArr[0]} daily reward.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>Build sequences, join cash tournaments. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span> <strong>${n}</strong> – ₹${b} Winner Bonus<br>Play slots, win real money, withdraw instantly. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} Features<br>Daily bonuses, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} spin.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> <strong>${n}</strong> – ₹${b} गुड बोनस<br>Play slots, daily rewards, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${b} Diwa Bonus<br>Play slots, spin & win, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, quick UPI withdrawals. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${b} गो-गो बोनस<br>रम्मी, daily tournaments, fast UPI withdrawals. ₹${bArr[0]} daily.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} फीचर्स<br>दैनिक बोनस, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> <strong>${n}</strong> – ₹${b} Joy Bonus<br>Play rummy, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} cashback.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> <strong>${n}</strong> – ₹${b} स्पिन गोल्ड बोनस<br>Spin, play & win with premium games. Fast payouts and 24/7 support. ₹${bArr[0]} free spins.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, cash, quick UPI withdrawals. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${b} Bingo Bonus<br>Play Bingo, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} Features<br>Daily bonuses, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${b} Yes Bonus<br>Spin, play & win with premium games. Fast payouts and 24/7 support. ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${b} Arcade Bonus<br>Play arcade games, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>Daily bonuses, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> <strong>${n}</strong> – ₹${b} SVIP बोनस<br>Casino games, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} फीचर्स<br>दैनिक बोनस, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span> <strong>${n}</strong> – ₹${b} OK Bonus<br>Play rummy, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses, loyalty rewards. ₹${bArr[2]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${b} हिंद बोनस<br>Play slots, spin & win, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, quick UPI withdrawals. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${b} Bet Bonus<br>Betting games, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} Features<br>Daily bonuses, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${b} बॉस बोनस<br>Play rummy, daily tournaments, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> <strong>${n}</strong> – ₹${b} योनो 777 बोनस<br>Play slots, spin & win, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} bonus.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} बोनस<br>दैनिक मुफ्त स्पिन, quick UPI withdrawals. ₹${bArr[2]} events. ₹${bArr[3]} loyalty.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span> <strong>${n}</strong> – ₹${b} VIP बोनस<br>VIP games, slots & more. Fast withdrawals, secure platform. ₹${bArr[0]} daily.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} फीचर्स<br>दैनिक बोनस, instant UPI withdrawals. ₹${bArr[2]} loyalty. ₹${bArr[3]} cashback. ₹${bArr[4]} welcome.</div></div>`,
+      (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> <strong>${n}</strong> – ₹${b} Diwa 777 Bonus<br>Play slots, spin & win, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} refer.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="icon-vector blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span> <strong>${n}</strong> – ₹${bArr[1]} रिवॉर्ड<br>कैशबैक, daily login bonuses. ₹${bArr[2]} cashback.</div></div>`
     ];
 
-    // 55 different title models for above the photo
+    // 55 different title models for above the photo - no emojis
     const titleModels = [
       (n,b) => `${n} Yono APK Download & Get ₹${b} Bonus Free`,
       (n,b) => `${n} (Yono) Download {BONUS ₹${b}} FREE | ${n} Apps`,
-      (n,b) => `🎯 ${n} – ₹${b} Welcome Bonus | Download Now`,
-      (n,b) => `🔥 ${n} APK | Get ₹${b} Free Cash + 100% Bonus`,
-      (n,b) => `🚀 ${n} – ₹${b} Joining Bonus | Play & Win Real Money`,
-      (n,b) => `💰 ${n} | ₹${b} Signup Bonus + Fast Withdrawal`,
-      (n,b) => `🎰 ${n} – ₹${b} Free Spin Bonus | Download APK`,
-      (n,b) => `⭐ ${n} Yono | ₹${b} Bonus + Daily Rewards`,
-      (n,b) => `🏆 ${n} – ₹${b} Welcome Offer | Play Now`,
-      (n,b) => `✨ ${n} APK | ₹${b} Instant Bonus & 24/7 Support`,
-      (n,b) => `🎁 ${n} – ₹${b} Free Cash | Download & Earn`,
-      (n,b) => `💎 ${n} Yono | ₹${b} Bonus + VIP Rewards`,
-      (n,b) => `📱 ${n} – ₹${b} Signup Bonus | Secure & Fast`,
-      (n,b) => `🌟 ${n} | ₹${b} Free Bonus + 100% Cashback`,
-      (n,b) => `🎯 ${n} APK Download – ₹${b} Welcome Bonus`,
-      (n,b) => `🔥 ${n} – ₹${b} Joining Bonus | Play Slots & Rummy`,
-      (n,b) => `💰 ${n} Yono | ₹${b} Free Cash + Withdraw ₹100`,
-      (n,b) => `🚀 ${n} – ₹${b} Bonus | Download & Start Winning`,
-      (n,b) => `🎰 ${n} | ₹${b} Free Spins + Daily Jackpot`,
-      (n,b) => `⭐ ${n} APK – ₹${b} Signup Bonus | Trusted App`,
-      (n,b) => `🏆 ${n} Yono | ₹${b} Bonus + Fast UPI Payouts`,
-      (n,b) => `✨ ${n} – ₹${b} Welcome Offer | Play & Earn`,
-      (n,b) => `🎁 ${n} | ₹${b} Free Cash + Loyalty Rewards`,
-      (n,b) => `💎 ${n} APK – ₹${b} Bonus | 24/7 Support`,
-      (n,b) => `📱 ${n} Yono | ₹${b} Signup Bonus + Secure`,
-      (n,b) => `🌟 ${n} – ₹${b} Free Bonus | Download Now`,
-      (n,b) => `🎯 ${n} | ₹${b} Welcome Bonus + Daily Offers`,
-      (n,b) => `🔥 ${n} APK – ₹${b} Joining Bonus | Play Real`,
-      (n,b) => `💰 ${n} Yono | ₹${b} Free Cash + Instant Withdrawal`,
-      (n,b) => `🚀 ${n} – ₹${b} Bonus | Best Slots & Rummy`,
-      (n,b) => `🎰 ${n} | ₹${b} Free Spins + Mega Jackpot`,
-      (n,b) => `⭐ ${n} APK – ₹${b} Signup Bonus | Trusted`,
-      (n,b) => `🏆 ${n} Yono | ₹${b} Bonus + VIP Perks`,
-      (n,b) => `✨ ${n} – ₹${b} Welcome Offer | Play & Win`,
-      (n,b) => `🎁 ${n} | ₹${b} Free Cash + Cashback`,
-      (n,b) => `💎 ${n} APK – ₹${b} Bonus | 24/7 Help`,
-      (n,b) => `📱 ${n} Yono | ₹${b} Signup Bonus + Safe`,
-      (n,b) => `🌟 ${n} – ₹${b} Free Bonus | Download Now`,
-      (n,b) => `🎯 ${n} | ₹${b} Welcome Bonus + Daily Jackpot`,
-      (n,b) => `🔥 ${n} APK – ₹${b} Joining Bonus | Play`,
-      (n,b) => `💰 ${n} Yono | ₹${b} Free Cash + Fast Payout`,
-      (n,b) => `🚀 ${n} – ₹${b} Bonus | Best Gaming App`,
-      (n,b) => `🎰 ${n} | ₹${b} Free Spins + Lucky Rewards`,
-      (n,b) => `⭐ ${n} APK – ₹${b} Signup Bonus | Top Rated`,
-      (n,b) => `🏆 ${n} Yono | ₹${b} Bonus + VIP Support`,
-      (n,b) => `✨ ${n} – ₹${b} Welcome Offer | Earn Real`,
-      (n,b) => `🎁 ${n} | ₹${b} Free Cash + Loyalty Bonus`,
-      (n,b) => `💎 ${n} APK – ₹${b} Bonus | 24/7 Service`,
-      (n,b) => `📱 ${n} Yono | ₹${b} Signup Bonus + Secure`,
-      (n,b) => `🌟 ${n} – ₹${b} Free Bonus | Download & Play`,
-      (n,b) => `🎯 ${n} | ₹${b} Welcome Bonus + Daily Cash`,
-      (n,b) => `🔥 ${n} APK – ₹${b} Joining Bonus | Win Big`,
-      (n,b) => `💰 ${n} Yono | ₹${b} Free Cash + Instant Pay`,
-      (n,b) => `🚀 ${n} – ₹${b} Bonus | Best Slots & Games`,
-      (n,b) => `🎰 ${n} | ₹${b} Free Spins + Jackpot Chance`
+      (n,b) => `${n} – ₹${b} Welcome Bonus | Download Now`,
+      (n,b) => `${n} APK | Get ₹${b} Free Cash + 100% Bonus`,
+      (n,b) => `${n} – ₹${b} Joining Bonus | Play & Win Real Money`,
+      (n,b) => `${n} | ₹${b} Signup Bonus + Fast Withdrawal`,
+      (n,b) => `${n} – ₹${b} Free Spin Bonus | Download APK`,
+      (n,b) => `${n} Yono | ₹${b} Bonus + Daily Rewards`,
+      (n,b) => `${n} – ₹${b} Welcome Offer | Play Now`,
+      (n,b) => `${n} APK | ₹${b} Instant Bonus & 24/7 Support`,
+      (n,b) => `${n} – ₹${b} Free Cash | Download & Earn`,
+      (n,b) => `${n} Yono | ₹${b} Bonus + VIP Rewards`,
+      (n,b) => `${n} – ₹${b} Signup Bonus | Secure & Fast`,
+      (n,b) => `${n} | ₹${b} Free Bonus + 100% Cashback`,
+      (n,b) => `${n} APK Download – ₹${b} Welcome Bonus`,
+      (n,b) => `${n} – ₹${b} Joining Bonus | Play Slots & Rummy`,
+      (n,b) => `${n} Yono | ₹${b} Free Cash + Withdraw ₹100`,
+      (n,b) => `${n} – ₹${b} Bonus | Download & Start Winning`,
+      (n,b) => `${n} | ₹${b} Free Spins + Daily Jackpot`,
+      (n,b) => `${n} APK – ₹${b} Signup Bonus | Trusted App`,
+      (n,b) => `${n} Yono | ₹${b} Bonus + Fast UPI Payouts`,
+      (n,b) => `${n} – ₹${b} Welcome Offer | Play & Earn`,
+      (n,b) => `${n} | ₹${b} Free Cash + Loyalty Rewards`,
+      (n,b) => `${n} APK – ₹${b} Bonus | 24/7 Support`,
+      (n,b) => `${n} Yono | ₹${b} Signup Bonus + Secure`,
+      (n,b) => `${n} – ₹${b} Free Bonus | Download Now`,
+      (n,b) => `${n} | ₹${b} Welcome Bonus + Daily Offers`,
+      (n,b) => `${n} APK – ₹${b} Joining Bonus | Play Real`,
+      (n,b) => `${n} Yono | ₹${b} Free Cash + Instant Withdrawal`,
+      (n,b) => `${n} – ₹${b} Bonus | Best Slots & Rummy`,
+      (n,b) => `${n} | ₹${b} Free Spins + Mega Jackpot`,
+      (n,b) => `${n} APK – ₹${b} Signup Bonus | Trusted`,
+      (n,b) => `${n} Yono | ₹${b} Bonus + VIP Perks`,
+      (n,b) => `${n} – ₹${b} Welcome Offer | Play & Win`,
+      (n,b) => `${n} | ₹${b} Free Cash + Cashback`,
+      (n,b) => `${n} APK – ₹${b} Bonus | 24/7 Help`,
+      (n,b) => `${n} Yono | ₹${b} Signup Bonus + Safe`,
+      (n,b) => `${n} – ₹${b} Free Bonus | Download Now`,
+      (n,b) => `${n} | ₹${b} Welcome Bonus + Daily Jackpot`,
+      (n,b) => `${n} APK – ₹${b} Joining Bonus | Play`,
+      (n,b) => `${n} Yono | ₹${b} Free Cash + Fast Payout`,
+      (n,b) => `${n} – ₹${b} Bonus | Best Gaming App`,
+      (n,b) => `${n} | ₹${b} Free Spins + Lucky Rewards`,
+      (n,b) => `${n} APK – ₹${b} Signup Bonus | Top Rated`,
+      (n,b) => `${n} Yono | ₹${b} Bonus + VIP Support`,
+      (n,b) => `${n} – ₹${b} Welcome Offer | Earn Real`,
+      (n,b) => `${n} | ₹${b} Free Cash + Loyalty Bonus`,
+      (n,b) => `${n} APK – ₹${b} Bonus | 24/7 Service`,
+      (n,b) => `${n} Yono | ₹${b} Signup Bonus + Secure`,
+      (n,b) => `${n} – ₹${b} Free Bonus | Download & Play`,
+      (n,b) => `${n} | ₹${b} Welcome Bonus + Daily Cash`,
+      (n,b) => `${n} APK – ₹${b} Joining Bonus | Win Big`,
+      (n,b) => `${n} Yono | ₹${b} Free Cash + Instant Pay`,
+      (n,b) => `${n} – ₹${b} Bonus | Best Slots & Games`,
+      (n,b) => `${n} | ₹${b} Free Spins + Jackpot Chance`
     ];
 
-    // 55 different tag row patterns (above photo)
+    // 55 different tag row patterns (above photo) - no emojis
     const tagRowPatterns = [
-      (n,b) => `<span class="nptag gold">🔥 Jackpot</span><span class="nptag">${n}</span><span class="nptag blue">₹${b} Bonus</span>`,
+      (n,b) => `<span class="nptag gold">Jackpot</span><span class="nptag">${n}</span><span class="nptag blue">₹${b} Bonus</span>`,
       (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">Welcome Bonus</span><span class="nptag cyan">₹${b}</span>`,
       (n,b) => `<span class="nptag pink">Best Info</span><span class="nptag">${n}</span><span class="nptag gold">₹${b}</span>`,
       (n,b) => `<span class="nptag">Download</span><span class="nptag gold">${n}</span><span class="nptag blue">₹${b}</span>`,
@@ -1404,6 +1427,31 @@
       (n,b) => `<span class="nptag">${n}</span><span class="nptag gold">₹${b}</span><span class="nptag purple">Best</span>`
     ];
 
+    // vector icon sets for above photo - premium UI icons, no emojis
+    const iconSets = [
+      (idx) => {
+        const sets = [
+          // 1 icon
+          `<span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>`,
+          `<span class="icon-vector blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>`,
+          `<span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>`,
+          `<span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span>`,
+          `<span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>`,
+          `<span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>`,
+          // 2 icons
+          `<span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>`,
+          `<span class="icon-vector blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>`,
+          `<span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>`,
+          `<span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span><span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>`,
+          // 3 icons
+          `<span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><span class="icon-vector blue"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>`,
+          `<span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="icon-vector purple"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>`,
+          `<span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>`,
+        ];
+        return sets[idx % sets.length];
+      }
+    ];
+
     function createTagsHTML(appName, bonusNum, appIndex) {
       const modelFn = tagModelList[appIndex % tagModelList.length];
       const bonusArr = [];
@@ -1419,19 +1467,19 @@
       else if (langMode === 3) useHindi = false;
       else useHindi = (appIndex % 2 === 0);
       
-      const faqTitle = useHindi ? '❓ अक्सर पूछे जाने वाले प्रश्न' : '❓ Frequently Asked Questions';
-      const overviewTitle = useHindi ? `📖 अवलोकन – ${appName}` : `📖 Overview – ${appName}`;
-      const featuresTitle = useHindi ? `✨ ${appName} ऐप की विशेषताएं और लाभ` : `✨ ${appName} App Features & Benefits`;
-      const downloadTitle = useHindi ? `📥 ${appName} कैसे डाउनलोड और इंस्टॉल करें` : `📥 How to Download & Install ${appName}`;
-      const safetyTitle = useHindi ? `🔒 ${appName} सुरक्षा और सुरक्षा` : `🔒 ${appName} Safety & Security`;
-      const whyTitle = useHindi ? `✅ ${appName} ऐप क्यों चुनें?` : `✅ Why Choose ${appName} App?`;
+      const faqTitle = useHindi ? 'अक्सर पूछे जाने वाले प्रश्न' : 'Frequently Asked Questions';
+      const overviewTitle = useHindi ? `अवलोकन – ${appName}` : `Overview – ${appName}`;
+      const featuresTitle = useHindi ? `${appName} ऐप की विशेषताएं और लाभ` : `${appName} App Features & Benefits`;
+      const downloadTitle = useHindi ? `${appName} कैसे डाउनलोड और इंस्टॉल करें` : `How to Download & Install ${appName}`;
+      const safetyTitle = useHindi ? `${appName} सुरक्षा और सुरक्षा` : `${appName} Safety & Security`;
+      const whyTitle = useHindi ? `${appName} ऐप क्यों चुनें?` : `Why Choose ${appName} App?`;
       
-      const faqTitleLed = faqTitle.replace('❓', '<span class="icon-info">ⓘ</span>');
-      const overviewTitleLed = overviewTitle.replace('📖', '<span class="icon-star">★</span>');
-      const featuresTitleLed = featuresTitle.replace('✨', '<span class="icon-tag">🏷️</span>');
-      const downloadTitleLed = downloadTitle.replace('📥', '<span class="icon-download">⬇️</span>');
-      const safetyTitleLed = safetyTitle.replace('🔒', '<span class="icon-shield">🛡️</span>');
-      const whyTitleLed = whyTitle.replace('✅', '<span class="icon-check">✔️</span>');
+      const faqTitleLed = `<span class="icon-vector purple"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span> ${faqTitle}`;
+      const overviewTitleLed = `<span class="icon-vector gold"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span> ${overviewTitle}`;
+      const featuresTitleLed = `<span class="icon-vector cyan"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> ${featuresTitle}`;
+      const downloadTitleLed = `<span class="icon-vector blue"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span> ${downloadTitle}`;
+      const safetyTitleLed = `<span class="icon-vector green"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span> ${safetyTitle}`;
+      const whyTitleLed = `<span class="icon-vector red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span> ${whyTitle}`;
       
       const faqContent = useHindi ? `
         <div class="faq-item"><div class="faq-q">1. ${appName} एपीके क्या है?</div><div class="faq-a">${appName} APP APK एक बेहतरीन एप्लिकेशन है जो उपयोगकर्ताओं को ₹${bonusArr[0]} का साइन-अप बोनस प्रदान करता है। इस गेम में शानदार बोनस प्रोग्राम है, और आप पूरी पोस्ट पढ़कर अधिक जान सकते हैं। इसके अलावा, ${appName} APK एक लोकप्रिय स्लॉट गेम है जिसमें न्यूनतम निकासी ₹100 है।</div></div>
@@ -1582,10 +1630,13 @@
       // Get unique title and tag row for this app
       const titleStr = titleModels[selectedIndex % titleModels.length](selectedApp.name, bonusNum);
       const tagRowStr = tagRowPatterns[selectedIndex % tagRowPatterns.length](selectedApp.name, bonusNum);
+      // Get icon set (1-3 icons) based on app index
+      const iconSet = iconSets[0](selectedIndex);
       
       // Build FULL VIEW CARD with title above photo, tags above photo, bonus variable position
       const fullViewHtml = `
         <div class="full-view-card" id="fullViewCard">
+          <div class="next-page-icon-row">${iconSet}</div>
           <div class="next-page-top-title">${titleStr}</div>
           <div class="next-page-tag-row">${tagRowStr}</div>
           <div class="app-icon-large">
