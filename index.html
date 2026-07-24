@@ -1036,6 +1036,7 @@
 
 <script>
   (function() {
+    // 55 apps total: first 21 are the new ones, then the rest.
     const appsData = [
       { name: "MAX RUMMY", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.maxrummy66.com/?code=QUMWTJCMZ5N&t=1784912540", img: "https://i.ibb.co/9kVbkd4D/MAX-RUMMY.jpg", category: "Rummy" },
       { name: "RANI SLOTS", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/Ps4CcYTX/RANI-SLOTS.jpg", category: "Slots" },
@@ -1058,6 +1059,7 @@
       { name: "BINGO 101", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://bin6go101.net/?code=3WFQ231H9Y2&t=1784912488", img: "https://i.ibb.co/hJNHvL4F/BINGO-101.jpg", category: "Bingo" },
       { name: "MKM BET", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/hN6HpJm/MKM-BET.jpg", category: "Betting" },
       { name: "101Z", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/SwfQKFv3/101Z.jpg", category: "Casino" },
+      // rest 34 apps (total 55)
       { name: "Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://yonogamesm.com/?code=LHS49AEHVMR&t=1784314209", img: "https://i.ibb.co/LXqV77rd/yono-games.jpg", category: "Slots" },
       { name: "INR Rummy", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1784298106", img: "https://i.ibb.co/Y7ZRkLFp/inr-rummy.jpg", category: "Rummy" },
       { name: "MBM BET", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.mbmbet3.com/?code=GD3H3VA6YK5&t=1784297830", img: "https://i.ibb.co/sJcmCxK6/mbm-bet.jpg", category: "Casino" },
@@ -1165,6 +1167,7 @@
       return { ratingClass: 'rating-green', sizeClass: 'size-cyan', votesClass: 'votes-dark', bonusClass: 'bonus-red' };
     }
 
+    // 55 tag models – each one different, mix Hindi/English positions
     const tagModelList = [
       (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="led-icon-small green"></span><strong>${n}</strong> – ₹${b} इंस्टेंट बोनस पाएं!<br>Play Rummy, Teen Patti & slots. सुरक्षित निकासी ₹100 से। Start earning real cash – डाउनलोड करें! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="led-icon-small blue"></span><strong>${n}</strong> – ₹${bArr[1]} बोनस अनलॉक करें!<br>रोमांचक गेम खेलें। Fast withdrawals via UPI. Trusted by millions – अभी खेलना शुरू करें! ₹${bArr[2]} welcome.</div></div>`,
       (n,b,bArr) => `<div class="tag-box"><div class="tag-content"><span class="led-icon-small yellow"></span><strong>${n}</strong> – Get ₹${b} Welcome Bonus!<br>रोमांचक रम्मी टेबल, daily rewards, fast UPI withdrawals. ${n} gives free cash! ₹${bArr[0]} extra.</div></div><div class="tag-divider"></div><div class="tag-box"><div class="tag-content"><span class="led-icon-small red"></span><strong>${n}</strong> – ₹${bArr[1]} वेलकम बोनस<br>Build sequences, join cash tournaments & daily mystery rewards. सुरक्षित गेमिंग – आज ही जीतना शुरू करें! ₹${bArr[2]} daily. ₹${bArr[3]} loyalty.</div></div>`,
@@ -1378,14 +1381,14 @@
       gridDiv.classList.add('hidden');
       downloadContainer.classList.remove('hidden');
       
-      // Build FULL VIEW CARD
+      // Build FULL VIEW CARD – app name appears below image, normal size
       const fullViewHtml = `
         <div class="full-view-card" id="fullViewCard">
           <div class="app-icon-large">
             <img src="${selectedApp.img}" alt="${selectedApp.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/96?text=App'">
           </div>
-          <div class="app-title">${selectedApp.name}</div>
-          <div class="app-sub">YOU ONLY NEED ONE GAMES APP</div>
+          <div class="app-title" style="font-size:1.1rem; margin-top:4px;">${selectedApp.name}</div>
+          <div class="app-sub" style="font-size:0.65rem;">YOU ONLY NEED ONE GAMES APP</div>
           
           <div class="stats-row">
             <div class="stat-item"><div class="stat-value" style="color:#22c55e;text-shadow:0 0 12px #22c55e;">${stats.rating}</div><div class="stat-label" style="color:#22c55e;text-shadow:0 0 8px #22c55e;">Rating</div></div>
