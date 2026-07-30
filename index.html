@@ -1,3 +1,4 @@
+0000
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,7 @@
     body { background: #f5f7fc; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
     .container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; overflow: hidden; }
 
+    /* ===== SUPER FAST TRANSITIONS (NO DELAYS) ===== */
     #mainGrid, #detailView { transition: none !important; }
     #mainGrid.hidden { display: none !important; opacity: 0 !important; }
     #detailView.hidden { display: none !important; opacity: 0 !important; }
@@ -110,7 +112,6 @@
     .telegram-btn .corner-led.br { bottom: -1px; right: -1px; color: #ffff00; background: #ffff00; animation-delay:1.8s; }
 
     @keyframes ledPulseSlow { 0%,100%{ opacity:0.5; transform:scale(0.8); } 50%{ opacity:1; transform:scale(1.2); box-shadow:0 0 10px currentColor; } }
-    @keyframes ledSlowSpinRound { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
     .marquee-container { background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); padding: 6px 0; overflow: hidden; border-bottom: 1px solid #e9edf4; }
     .marquee-container marquee { color: #ffffff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
@@ -277,8 +278,9 @@
 
     .footer-note { padding: 10px; text-align: center; color: #94a3b8; font-size: 0.5rem; border-top: 1px solid #e9edf4; }
 
+    /* ---- static pages (about/contact/disclaimer) full width, no gap ---- */
     .static-page {
-      display: none;
+      display: none;          /* hidden by default; shown via JS */
       flex-direction: column;
       padding: 16px 14px;
       background: #ffffff;
@@ -306,36 +308,34 @@
     .static-page ul li {
       margin-bottom: 4px;
     }
+    /* static back button */
     .static-back-wrap {
-      margin-top: 24px;
+      margin-top: 16px;
       display: flex;
-      justify-content: flex-start;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
     .static-back-btn {
+      background: #eef2ff;
+      border: none;
+      padding: 6px 18px 6px 12px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      color: #1e293b;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #f1f5f9;
-      border: 1px solid #d1d5db;
-      padding: 8px 16px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      color: #1e293b;
-      cursor: pointer;
-      transition: 0.1s ease;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: background 0.1s;
     }
-    .static-back-btn:active { transform: scale(0.95); }
-    .static-back-btn svg {
-      width: 18px;
-      height: 18px;
-      fill: none;
-      stroke: #1e293b;
-      stroke-width: 2.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+    .static-back-btn:active { transform: scale(0.95); background: #dbeafe; }
+    .static-back-btn svg { width: 16px; height: 16px; fill: #1e293b; }
 
+    /* overlay */
     .info-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(3px); z-index: 99; justify-content: center; align-items: center; }
     .info-card { background: white; max-width: 400px; width: 90%; padding: 20px 18px; border-radius: 28px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
     .info-card h2 { font-size: 1.2rem; margin-bottom: 8px; color: #0b1e33; }
@@ -463,14 +463,14 @@
     <span class="nav-small" id="disclaimerNav">⚠️ Disclaimer</span>
   </div>
 
-  <!-- STATIC PAGES: only content, no extra tags/sections -->
+  <!-- STATIC PAGES: directly below nav, full width -->
   <div id="aboutPage" class="static-page">
     <h2>📖 About All Yono App Site</h2>
     <p>All Yono App Site (also known as All Yono Apk / All Yono New / All Yono Games) is a curated platform listing 45+ top gaming apps including Teen Patti, Rummy, Slots, and Casino. We provide direct download links and bonus details for each app.</p>
     <p style="margin-top:8px;">Our goal is to help you discover the best real cash games in India. All listed apps offer sign-up bonuses, secure UPI withdrawals, and a great gaming experience.</p>
     <div class="static-back-wrap">
-      <button class="static-back-btn" id="aboutBackBtn">
-        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      <button class="static-back-btn" data-nav="home">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
         Back to Home
       </button>
     </div>
@@ -482,8 +482,8 @@
     <p><strong>Telegram:</strong> @allyonoappsite</p>
     <p style="margin-top:8px;">For any queries, feedback or support, feel free to reach out. We respond within 24 hours.</p>
     <div class="static-back-wrap">
-      <button class="static-back-btn" id="contactBackBtn">
-        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      <button class="static-back-btn" data-nav="home">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
         Back to Home
       </button>
     </div>
@@ -494,8 +494,8 @@
     <p>All Yono App Site does not host or operate any of the games listed. We only provide information and referral links. Users are advised to check the terms and conditions of each app. Play responsibly.</p>
     <p style="margin-top:8px;">This site is for informational purposes only. All third-party trademarks and logos are property of their respective owners.</p>
     <div class="static-back-wrap">
-      <button class="static-back-btn" id="disclaimerBackBtn">
-        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      <button class="static-back-btn" data-nav="home">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
         Back to Home
       </button>
     </div>
@@ -637,7 +637,7 @@
   <div class="footer-note">All Yono App Site • All Yono Apk • All Yono New • All Yono Games • 45+ Games • ₹45 Bonus • ₹100 Withdrawal</div>
 </div>
 
-<!-- OVERLAY -->
+<!-- OVERLAY (kept for compatibility) -->
 <div class="info-overlay" id="infoOverlay">
   <div class="info-card">
     <h2 id="overlayTitle">About</h2>
@@ -648,7 +648,7 @@
 
 <script>
   (function() {
-    // ---------- GAME DATA ----------
+    // ---------- GAME DATA (same as before) ----------
     const games = [
       { name: "All Yono App Site", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", altName: "567 Slots Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -717,16 +717,14 @@
     const contactPage = document.getElementById('contactPage');
     const disclaimerPage = document.getElementById('disclaimerPage');
 
-    document.getElementById('aboutBackBtn').addEventListener('click', goHome);
-    document.getElementById('contactBackBtn').addEventListener('click', goHome);
-    document.getElementById('disclaimerBackBtn').addEventListener('click', goHome);
-
     const overlay = document.getElementById('infoOverlay');
     const overlayClose = document.getElementById('overlayClose');
 
+    // close overlay if open
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
 
+    // ---------- helpers ----------
     function hideAllStatic() {
       aboutPage.classList.remove('visible');
       contactPage.classList.remove('visible');
@@ -735,7 +733,6 @@
     function hideAllNavActive() {
       [homeNav, aboutNav, contactNav, disclaimerNav].forEach(el => el.classList.remove('active'));
     }
-
     function showMainGrid() {
       detailView.style.display = 'none';
       detailView.classList.remove('show');
@@ -746,7 +743,6 @@
       hideAllStatic();
       window.scrollTo({ top: 0 });
     }
-
     function showDetailView() {
       mainGrid.style.display = 'none';
       mainGrid.classList.remove('show');
@@ -758,21 +754,20 @@
       window.scrollTo({ top: 0 });
     }
 
-    function goHome() {
+    // ---------- navigation clicks ----------
+    homeNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
-      homeNav.classList.add('active');
+      this.classList.add('active');
       showMainGrid();
       history.pushState(null, null, location.href);
-    }
-
-    // navigation clicks
-    homeNav.addEventListener('click', goHome);
+    });
 
     aboutNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
       this.classList.add('active');
+      // hide game views, show about
       mainGrid.style.display = 'none';
       mainGrid.classList.add('hidden');
       detailView.style.display = 'none';
@@ -811,9 +806,27 @@
       history.pushState(null, null, location.href);
     });
 
-    backBtn.addEventListener('click', goHome);
+    // ----- static back buttons (go home) -----
+    document.querySelectorAll('.static-back-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (overlay.style.display === 'flex') overlay.style.display = 'none';
+        hideAllNavActive();
+        homeNav.classList.add('active');
+        showMainGrid();
+        history.pushState(null, null, location.href);
+      });
+    });
 
-    // render grid
+    // ---------- back button (from detail) ----------
+    backBtn.addEventListener('click', function() {
+      if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
+      showMainGrid();
+      hideAllNavActive();
+      homeNav.classList.add('active');
+      history.pushState(null, null, location.href);
+    });
+
+    // ---------- render game grid ----------
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
@@ -859,7 +872,7 @@
     }
     renderGrid();
 
-    // show detail
+    // ---------- show detail (same as before) ----------
     function showDetail(game) {
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
@@ -942,6 +955,7 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
 
+      // tags
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -974,6 +988,7 @@
         tagsContainer.appendChild(tag);
       });
 
+      // related
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       uniqueGames.filter(g => g.name !== game.name).forEach(g => {
@@ -1018,15 +1033,16 @@
 
       showDetailView();
       hideAllNavActive();
+      homeNav.classList.remove('active'); // no nav active in detail
     }
 
-    // TOC toggle
+    // ---------- TOC toggle ----------
     document.getElementById('tocToggle').addEventListener('click', function() {
       document.getElementById('tocBody').classList.toggle('open');
       document.getElementById('tocArrow').classList.toggle('open');
     });
 
-    // share
+    // ---------- share ----------
     document.getElementById('shareBtn').addEventListener('click', function() {
       const shareUrl = 'https://www.earntp.com/gold/jm9n7r';
       if (navigator.share) {
@@ -1040,12 +1056,21 @@
       }
     });
 
-    // popstate
+    // ---------- popstate (back/forward) ----------
     window.addEventListener('popstate', function(e) {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
-      if (detailView.style.display === 'block') { goHome(); return; }
+      // if detail is visible, go back to main
+      if (detailView.style.display === 'block') {
+        showMainGrid();
+        hideAllNavActive();
+        homeNav.classList.add('active');
+        return;
+      }
+      // if static page visible, go home
       if (aboutPage.classList.contains('visible') || contactPage.classList.contains('visible') || disclaimerPage.classList.contains('visible')) {
-        goHome();
+        showMainGrid();
+        hideAllNavActive();
+        homeNav.classList.add('active');
         return;
       }
     });
