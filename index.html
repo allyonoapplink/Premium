@@ -1,3 +1,6 @@
+
+00pp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -209,14 +212,14 @@
     }
     .led-icon.glow-bg { box-shadow: 0 0 20px rgba(0,255,0,0.15), 0 0 40px rgba(0,200,255,0.05); }
 
-    /* ---- static pages: clean white, only content + back ---- */
+    /* ---- static pages: CLEAN white, ONLY content + back button ---- */
     .static-page {
       display: none;
       flex-direction: column;
-      padding: 20px 16px 16px 16px;
+      padding: 20px 16px 30px 16px;
       background: #ffffff;
       width: 100%;
-      min-height: 60vh;
+      min-height: 70vh;
     }
     .static-page.visible {
       display: flex;
@@ -225,23 +228,21 @@
       font-size: 1.25rem;
       font-weight: 700;
       color: #0b1e33;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .static-page p {
       font-size: 0.9rem;
       line-height: 1.7;
       color: #1e293b;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .static-page p strong {
       color: #0b1e33;
     }
 
-    /* ---- back button for static pages (uniform) ---- */
+    /* ---- back button: simple, no border-top, no extra wrapper ---- */
     .static-back-wrap {
-      margin-top: 28px;
-      padding-top: 14px;
-      border-top: 1px solid #eef2f6;
+      margin-top: 32px;
       display: flex;
       justify-content: center;
     }
@@ -318,6 +319,7 @@
       .static-back-btn svg { width: 16px; height: 16px; }
       .static-page h2 { font-size: 1.05rem; }
       .static-page p { font-size: 0.8rem; }
+      .static-page { padding: 16px 14px 24px 14px; }
     }
   </style>
 </head>
@@ -415,7 +417,9 @@
     <span class="nav-small" id="disclaimerNav">⚠️ Disclaimer</span>
   </div>
 
-  <!-- STATIC PAGES: clean white background, only content + back button -->
+  <!-- ============================================================ -->
+  <!-- STATIC PAGES – ONLY CONTENT + BACK BUTTON, NOTHING ELSE       -->
+  <!-- ============================================================ -->
   <div id="aboutPage" class="static-page">
     <h2>📖 About All Yono App Site</h2>
     <p>All Yono App Site (also known as All Yono Apk / All Yono New / All Yono Games) is a curated platform listing 45+ top gaming apps including Teen Patti, Rummy, Slots, and Casino. We provide direct download links and bonus details for each app.</p>
@@ -705,7 +709,7 @@
       window.scrollTo({ top: 0 });
     }
 
-    // ---------- goHome (used by nav & back buttons) ----------
+    // ---------- goHome ----------
     function goHome() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -1000,7 +1004,7 @@
       }
     });
 
-    // ---------- popstate (back/forward) ----------
+    // ---------- popstate ----------
     window.addEventListener('popstate', function(e) {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
       if (detailView.style.display === 'block') {
