@@ -19,7 +19,6 @@
     body { background: #f5f7fc; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
     .container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; overflow: hidden; }
 
-    /* ===== SUPER FAST TRANSITIONS (NO DELAYS) ===== */
     #mainGrid, #detailView { transition: none !important; }
     #mainGrid.hidden { display: none !important; opacity: 0 !important; }
     #detailView.hidden { display: none !important; opacity: 0 !important; }
@@ -111,6 +110,7 @@
     .telegram-btn .corner-led.br { bottom: -1px; right: -1px; color: #ffff00; background: #ffff00; animation-delay:1.8s; }
 
     @keyframes ledPulseSlow { 0%,100%{ opacity:0.5; transform:scale(0.8); } 50%{ opacity:1; transform:scale(1.2); box-shadow:0 0 10px currentColor; } }
+    @keyframes ledSlowSpinRound { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
     .marquee-container { background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); padding: 6px 0; overflow: hidden; border-bottom: 1px solid #e9edf4; }
     .marquee-container marquee { color: #ffffff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
@@ -277,7 +277,6 @@
 
     .footer-note { padding: 10px; text-align: center; color: #94a3b8; font-size: 0.5rem; border-top: 1px solid #e9edf4; }
 
-    /* ---- static pages (about/contact/disclaimer) full width, no extra cards or tags ---- */
     .static-page {
       display: none;
       flex-direction: column;
@@ -307,7 +306,6 @@
     .static-page ul li {
       margin-bottom: 4px;
     }
-    /* back button inside static pages */
     .static-back-wrap {
       margin-top: 24px;
       display: flex;
@@ -338,7 +336,6 @@
       stroke-linejoin: round;
     }
 
-    /* overlay */
     .info-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(3px); z-index: 99; justify-content: center; align-items: center; }
     .info-card { background: white; max-width: 400px; width: 90%; padding: 20px 18px; border-radius: 28px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
     .info-card h2 { font-size: 1.2rem; margin-bottom: 8px; color: #0b1e33; }
@@ -466,12 +463,11 @@
     <span class="nav-small" id="disclaimerNav">⚠️ Disclaimer</span>
   </div>
 
-  <!-- STATIC PAGES: only content, no extra games/tags/related -->
+  <!-- STATIC PAGES: only content, no extra tags/sections -->
   <div id="aboutPage" class="static-page">
     <h2>📖 About All Yono App Site</h2>
     <p>All Yono App Site (also known as All Yono Apk / All Yono New / All Yono Games) is a curated platform listing 45+ top gaming apps including Teen Patti, Rummy, Slots, and Casino. We provide direct download links and bonus details for each app.</p>
     <p style="margin-top:8px;">Our goal is to help you discover the best real cash games in India. All listed apps offer sign-up bonuses, secure UPI withdrawals, and a great gaming experience.</p>
-    <!-- only about content, no extra tags -->
     <div class="static-back-wrap">
       <button class="static-back-btn" id="aboutBackBtn">
         <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
@@ -641,7 +637,7 @@
   <div class="footer-note">All Yono App Site • All Yono Apk • All Yono New • All Yono Games • 45+ Games • ₹45 Bonus • ₹100 Withdrawal</div>
 </div>
 
-<!-- OVERLAY (kept for compatibility) -->
+<!-- OVERLAY -->
 <div class="info-overlay" id="infoOverlay">
   <div class="info-card">
     <h2 id="overlayTitle">About</h2>
@@ -652,7 +648,7 @@
 
 <script>
   (function() {
-    // ---------- GAME DATA (unchanged) ----------
+    // ---------- GAME DATA ----------
     const games = [
       { name: "All Yono App Site", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", altName: "567 Slots Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -721,7 +717,6 @@
     const contactPage = document.getElementById('contactPage');
     const disclaimerPage = document.getElementById('disclaimerPage');
 
-    // back buttons inside static pages
     document.getElementById('aboutBackBtn').addEventListener('click', goHome);
     document.getElementById('contactBackBtn').addEventListener('click', goHome);
     document.getElementById('disclaimerBackBtn').addEventListener('click', goHome);
@@ -771,7 +766,7 @@
       history.pushState(null, null, location.href);
     }
 
-    // ---------- navigation clicks ----------
+    // navigation clicks
     homeNav.addEventListener('click', goHome);
 
     aboutNav.addEventListener('click', function() {
@@ -816,10 +811,9 @@
       history.pushState(null, null, location.href);
     });
 
-    // ---------- back button (from detail) ----------
     backBtn.addEventListener('click', goHome);
 
-    // ---------- render game grid ----------
+    // render grid
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
@@ -865,7 +859,7 @@
     }
     renderGrid();
 
-    // ---------- show detail (unchanged) ----------
+    // show detail
     function showDetail(game) {
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
@@ -1026,13 +1020,13 @@
       hideAllNavActive();
     }
 
-    // ---------- TOC toggle ----------
+    // TOC toggle
     document.getElementById('tocToggle').addEventListener('click', function() {
       document.getElementById('tocBody').classList.toggle('open');
       document.getElementById('tocArrow').classList.toggle('open');
     });
 
-    // ---------- share ----------
+    // share
     document.getElementById('shareBtn').addEventListener('click', function() {
       const shareUrl = 'https://www.earntp.com/gold/jm9n7r';
       if (navigator.share) {
@@ -1046,7 +1040,7 @@
       }
     });
 
-    // ---------- popstate ----------
+    // popstate
     window.addEventListener('popstate', function(e) {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
       if (detailView.style.display === 'block') { goHome(); return; }
