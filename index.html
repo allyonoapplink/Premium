@@ -209,64 +209,57 @@
     }
     .led-icon.glow-bg { box-shadow: 0 0 20px rgba(0,255,0,0.15), 0 0 40px rgba(0,200,255,0.05); }
 
-    /* ---- static pages: clean white, only content + back button ---- */
-    .static-page {
-      display: none;
-      flex-direction: column;
-      padding: 20px 16px 30px 16px;
-      background: #ffffff;
-      width: 100%;
-      min-height: 70vh;
-    }
-    .static-page.visible {
-      display: flex;
-    }
-    .static-page h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #0b1e33;
-      margin-bottom: 14px;
-    }
-    .static-page p {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: #1e293b;
-      margin-bottom: 8px;
-    }
-    .static-page p strong {
-      color: #0b1e33;
-    }
+    .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
+    .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .tag-grid { display: flex; flex-direction: column; gap: 6px; }
+    .tag-box { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; }
+    .tag-box .tag-head { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; }
+    .tag-box .tag-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
 
-    .static-back-wrap {
-      margin-top: 32px;
-      display: flex;
-      justify-content: center;
-    }
-    .static-back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      padding: 8px 22px 8px 18px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      color: #0b1e33;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-    .static-back-btn:active {
-      transform: scale(0.96);
-      background: #e2e8f0;
-    }
-    .static-back-btn svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      fill: #0b1e33;
-    }
+    .faq-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
+    .faq-section .faq-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .faq-grid { display: flex; flex-direction: column; gap: 6px; }
+    .faq-box { background: #f8fafc; border-radius: 12px; padding: 10px 12px; border: 1px solid #e9edf4; }
+    .faq-box .faq-q { font-weight: 700; font-size: 0.75rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+    .faq-box .faq-a { font-size: 0.65rem; color: #334155; line-height: 1.5; }
+
+    .toc-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
+    .toc-header { display: flex; justify-content: space-between; align-items: center; background: white; padding: 10px 14px; border-radius: 12px; border: 1px solid #e9edf4; cursor: pointer; }
+    .toc-header:active { transform: scale(0.97); }
+    .toc-header .toc-left { display: flex; align-items: center; gap: 8px; }
+    .toc-header .toc-left .toc-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #1a1a1a; box-shadow: 0 0 15px rgba(255,0,0,0.1); }
+    .toc-header .toc-left .toc-icon .inner { font-size: 0.6rem; font-weight: 800; color: #fff; }
+    .toc-header .toc-left .toc-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; }
+    .toc-header .toc-right { font-size: 1.2rem; color: #64748b; transition: transform 0.3s ease; }
+    .toc-header .toc-right.open { transform: rotate(180deg); }
+    .toc-body { display: none; margin-top: 8px; gap: 6px; flex-direction: column; }
+    .toc-body.open { display: flex; }
+    .toc-item { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; }
+    .toc-item .toc-item-head { font-weight: 700; font-size: 0.78rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+    .toc-item .toc-item-head .num { background: #1e293b; color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 700; flex-shrink: 0; }
+    .toc-item .toc-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
+    .toc-item .toc-content ul { list-style: none; padding: 0; margin: 3px 0 0 0; }
+    .toc-item .toc-content ul li { padding: 2px 0; font-size: 0.7rem; color: #334155; }
+    .toc-item .toc-content ul li::before { content: "• "; color: #2563eb; font-weight: 700; }
+
+    .game-tags-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
+    .game-tags-section .game-tags-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .game-tags-container { display: flex; flex-wrap: wrap; gap: 6px; }
+    .game-tag { background: #eef2ff; color: #2563eb; padding: 4px 10px; border-radius: 40px; font-size: 0.55rem; font-weight: 600; border: 1px solid #b3c8e6; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+    .game-tag:active { transform: scale(0.95); background: #dbeafe; }
+
+    .related-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
+    .related-title { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .related-grid { display: flex; flex-direction: column; gap: 5px; }
+    .related-item { display: flex; align-items: center; gap: 6px; padding: 5px 8px; background: #f8fafc; border-radius: 10px; border: 1px solid #e9edf4; cursor: pointer; }
+    .related-item:active { transform: scale(0.97); }
+    .related-item img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; display: block; }
+    .related-item .rinfo { flex: 1; display: flex; flex-direction: column; gap: 0px; }
+    .related-item .rname { font-weight: 600; font-size: 0.6rem; color: #0b1e33; }
+    .related-item .rname .alt { font-weight: 400; font-size: 0.45rem; color: #6b7280; }
+    .related-item .rbonus { font-size: 0.45rem; color: #2563eb; font-weight: 600; }
+    .related-item .rwithdraw { font-size: 0.4rem; color: #0a0a0a; font-weight: 500; }
+    .related-item .rdownload { background: #00bcd4; color: white; border: none; padding: 2px 8px; border-radius: 40px; font-weight: 600; font-size: 0.4rem; white-space: nowrap; cursor: pointer; }
 
     #mainGrid { display: flex; flex-direction: column; gap: 6px; padding: 8px; }
     .card { background: white; border-radius: 12px; padding: 8px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; gap: 8px; border: 1px solid #e9edf4; cursor: pointer; position: relative; overflow: hidden; }
@@ -284,7 +277,38 @@
 
     .footer-note { padding: 10px; text-align: center; color: #94a3b8; font-size: 0.5rem; border-top: 1px solid #e9edf4; }
 
-    /* overlay (kept for compatibility) */
+    /* ---- static pages (about/contact/disclaimer) full width, no gap ---- */
+    .static-page {
+      display: none;          /* hidden by default; shown via JS */
+      flex-direction: column;
+      padding: 16px 14px;
+      background: #ffffff;
+      width: 100%;
+      min-height: 60vh;
+    }
+    .static-page.visible {
+      display: flex;
+    }
+    .static-page h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0b1e33;
+      margin-bottom: 8px;
+    }
+    .static-page p, .static-page li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #1e293b;
+    }
+    .static-page ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+    .static-page ul li {
+      margin-bottom: 4px;
+    }
+
+    /* overlay */
     .info-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(3px); z-index: 99; justify-content: center; align-items: center; }
     .info-card { background: white; max-width: 400px; width: 90%; padding: 20px 18px; border-radius: 28px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
     .info-card h2 { font-size: 1.2rem; margin-bottom: 8px; color: #0b1e33; }
@@ -311,11 +335,10 @@
       .card-number { width: 16px; height: 16px; font-size: 0.4rem; top: 2px; left: 2px; }
       .card-img { margin-left: 14px; width: 34px; height: 34px; }
       .telegram-btn .corner-led { width: 4px; height: 4px; }
-      .static-back-btn { font-size: 0.7rem; padding: 6px 16px 6px 14px; }
-      .static-back-btn svg { width: 16px; height: 16px; }
-      .static-page h2 { font-size: 1.05rem; }
-      .static-page p { font-size: 0.8rem; }
-      .static-page { padding: 16px 14px 24px 14px; }
+      .led-icon { width: 20px; height: 20px; }
+      .led-icon .inner-icon { font-size: 0.45rem; }
+      .game-tag { font-size: 0.45rem; padding: 3px 8px; }
+      .related-item .rname { font-size: 0.5rem; }
     }
   </style>
 </head>
@@ -413,42 +436,24 @@
     <span class="nav-small" id="disclaimerNav">⚠️ Disclaimer</span>
   </div>
 
-  <!-- STATIC PAGES – ONLY CONTENT + BACK BUTTON -->
+  <!-- STATIC PAGES: directly below nav, full width, no extra containers -->
   <div id="aboutPage" class="static-page">
     <h2>📖 About All Yono App Site</h2>
     <p>All Yono App Site (also known as All Yono Apk / All Yono New / All Yono Games) is a curated platform listing 45+ top gaming apps including Teen Patti, Rummy, Slots, and Casino. We provide direct download links and bonus details for each app.</p>
-    <p>Our goal is to help you discover the best real cash games in India. All listed apps offer sign-up bonuses, secure UPI withdrawals, and a great gaming experience.</p>
-    <div class="static-back-wrap">
-      <button class="static-back-btn" id="aboutBackBtn">
-        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-        Back to Home
-      </button>
-    </div>
+    <p style="margin-top:8px;">Our goal is to help you discover the best real cash games in India. All listed apps offer sign-up bonuses, secure UPI withdrawals, and a great gaming experience.</p>
   </div>
 
   <div id="contactPage" class="static-page">
     <h2>📬 Contact</h2>
     <p><strong>Email:</strong> support@allyonoappsite.com</p>
     <p><strong>Telegram:</strong> @allyonoappsite</p>
-    <p>For any queries, feedback or support, feel free to reach out. We respond within 24 hours.</p>
-    <div class="static-back-wrap">
-      <button class="static-back-btn" id="contactBackBtn">
-        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-        Back to Home
-      </button>
-    </div>
+    <p style="margin-top:8px;">For any queries, feedback or support, feel free to reach out. We respond within 24 hours.</p>
   </div>
 
   <div id="disclaimerPage" class="static-page">
     <h2>⚠️ Disclaimer</h2>
     <p>All Yono App Site does not host or operate any of the games listed. We only provide information and referral links. Users are advised to check the terms and conditions of each app. Play responsibly.</p>
-    <p>This site is for informational purposes only. All third-party trademarks and logos are property of their respective owners.</p>
-    <div class="static-back-wrap">
-      <button class="static-back-btn" id="disclaimerBackBtn">
-        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-        Back to Home
-      </button>
-    </div>
+    <p style="margin-top:8px;">This site is for informational purposes only. All third-party trademarks and logos are property of their respective owners.</p>
   </div>
 
   <!-- MAIN GRID (games) -->
@@ -587,7 +592,7 @@
   <div class="footer-note">All Yono App Site • All Yono Apk • All Yono New • All Yono Games • 45+ Games • ₹45 Bonus • ₹100 Withdrawal</div>
 </div>
 
-<!-- OVERLAY (kept for compatibility) -->
+<!-- OVERLAY (kept for compatibility, but not used for static pages) -->
 <div class="info-overlay" id="infoOverlay">
   <div class="info-card">
     <h2 id="overlayTitle">About</h2>
@@ -598,7 +603,7 @@
 
 <script>
   (function() {
-    // ---------- GAME DATA ----------
+    // ---------- GAME DATA (same as before) ----------
     const games = [
       { name: "All Yono App Site", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", altName: "567 Slots Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -670,6 +675,7 @@
     const overlay = document.getElementById('infoOverlay');
     const overlayClose = document.getElementById('overlayClose');
 
+    // close overlay if open
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
 
@@ -703,22 +709,20 @@
       window.scrollTo({ top: 0 });
     }
 
-    // ---------- goHome ----------
-    function goHome() {
+    // ---------- navigation clicks ----------
+    homeNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
-      homeNav.classList.add('active');
+      this.classList.add('active');
       showMainGrid();
       history.pushState(null, null, location.href);
-    }
-
-    // ---------- navigation clicks ----------
-    homeNav.addEventListener('click', goHome);
+    });
 
     aboutNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
       this.classList.add('active');
+      // hide game views, show about
       mainGrid.style.display = 'none';
       mainGrid.classList.add('hidden');
       detailView.style.display = 'none';
@@ -757,15 +761,13 @@
       history.pushState(null, null, location.href);
     });
 
-    // ---------- static page back buttons ----------
-    document.getElementById('aboutBackBtn').addEventListener('click', goHome);
-    document.getElementById('contactBackBtn').addEventListener('click', goHome);
-    document.getElementById('disclaimerBackBtn').addEventListener('click', goHome);
-
     // ---------- back button (from detail) ----------
     backBtn.addEventListener('click', function() {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
-      goHome();
+      showMainGrid();
+      hideAllNavActive();
+      homeNav.classList.add('active');
+      history.pushState(null, null, location.href);
     });
 
     // ---------- render game grid ----------
@@ -814,7 +816,7 @@
     }
     renderGrid();
 
-    // ---------- show detail ----------
+    // ---------- show detail (same as before) ----------
     function showDetail(game) {
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
@@ -975,7 +977,7 @@
 
       showDetailView();
       hideAllNavActive();
-      homeNav.classList.remove('active');
+      homeNav.classList.remove('active'); // no nav active in detail
     }
 
     // ---------- TOC toggle ----------
@@ -998,15 +1000,21 @@
       }
     });
 
-    // ---------- popstate ----------
+    // ---------- popstate (back/forward) ----------
     window.addEventListener('popstate', function(e) {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
+      // if detail is visible, go back to main
       if (detailView.style.display === 'block') {
-        goHome();
+        showMainGrid();
+        hideAllNavActive();
+        homeNav.classList.add('active');
         return;
       }
+      // if static page visible, go home
       if (aboutPage.classList.contains('visible') || contactPage.classList.contains('visible') || disclaimerPage.classList.contains('visible')) {
-        goHome();
+        showMainGrid();
+        hideAllNavActive();
+        homeNav.classList.add('active');
         return;
       }
     });
