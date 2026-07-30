@@ -277,6 +277,38 @@
 
     .footer-note { padding: 10px; text-align: center; color: #94a3b8; font-size: 0.5rem; border-top: 1px solid #e9edf4; }
 
+    /* ---- static pages (about/contact/disclaimer) full width, no gap ---- */
+    .static-page {
+      display: none;          /* hidden by default; shown via JS */
+      flex-direction: column;
+      padding: 16px 14px;
+      background: #ffffff;
+      width: 100%;
+      min-height: 60vh;
+    }
+    .static-page.visible {
+      display: flex;
+    }
+    .static-page h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0b1e33;
+      margin-bottom: 8px;
+    }
+    .static-page p, .static-page li {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #1e293b;
+    }
+    .static-page ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+    .static-page ul li {
+      margin-bottom: 4px;
+    }
+
+    /* overlay */
     .info-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(3px); z-index: 99; justify-content: center; align-items: center; }
     .info-card { background: white; max-width: 400px; width: 90%; padding: 20px 18px; border-radius: 28px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
     .info-card h2 { font-size: 1.2rem; margin-bottom: 8px; color: #0b1e33; }
@@ -396,18 +428,38 @@
     </marquee>
   </div>
 
-  <!-- NAV -->
+  <!-- NAV ROW: HOME | ABOUT | CONTACT | DISCLAIMER -->
   <div class="nav-row-small">
     <span class="nav-small active" id="homeNav">🏠 Home</span>
-    <span class="nav-small" data-target="about">About</span>
-    <span class="nav-small" data-target="contact">Contact</span>
-    <span class="nav-small" data-target="disclaimer">Disclaimer</span>
+    <span class="nav-small" id="aboutNav">📖 About</span>
+    <span class="nav-small" id="contactNav">📬 Contact</span>
+    <span class="nav-small" id="disclaimerNav">⚠️ Disclaimer</span>
   </div>
 
-  <!-- MAIN GRID -->
+  <!-- STATIC PAGES: directly below nav, full width, no extra containers -->
+  <div id="aboutPage" class="static-page">
+    <h2>📖 About All Yono App Site</h2>
+    <p>All Yono App Site (also known as All Yono Apk / All Yono New / All Yono Games) is a curated platform listing 45+ top gaming apps including Teen Patti, Rummy, Slots, and Casino. We provide direct download links and bonus details for each app.</p>
+    <p style="margin-top:8px;">Our goal is to help you discover the best real cash games in India. All listed apps offer sign-up bonuses, secure UPI withdrawals, and a great gaming experience.</p>
+  </div>
+
+  <div id="contactPage" class="static-page">
+    <h2>📬 Contact</h2>
+    <p><strong>Email:</strong> support@allyonoappsite.com</p>
+    <p><strong>Telegram:</strong> @allyonoappsite</p>
+    <p style="margin-top:8px;">For any queries, feedback or support, feel free to reach out. We respond within 24 hours.</p>
+  </div>
+
+  <div id="disclaimerPage" class="static-page">
+    <h2>⚠️ Disclaimer</h2>
+    <p>All Yono App Site does not host or operate any of the games listed. We only provide information and referral links. Users are advised to check the terms and conditions of each app. Play responsibly.</p>
+    <p style="margin-top:8px;">This site is for informational purposes only. All third-party trademarks and logos are property of their respective owners.</p>
+  </div>
+
+  <!-- MAIN GRID (games) -->
   <div id="mainGrid" class="show"></div>
 
-  <!-- DETAIL VIEW -->
+  <!-- DETAIL VIEW (game detail) -->
   <div id="detailView" class="hidden" style="display:none;">
     <div class="game-detail-header">
       <button class="back-btn" id="backBtn">← Back</button>
@@ -540,7 +592,7 @@
   <div class="footer-note">All Yono App Site • All Yono Apk • All Yono New • All Yono Games • 45+ Games • ₹45 Bonus • ₹100 Withdrawal</div>
 </div>
 
-<!-- OVERLAY -->
+<!-- OVERLAY (kept for compatibility, but not used for static pages) -->
 <div class="info-overlay" id="infoOverlay">
   <div class="info-card">
     <h2 id="overlayTitle">About</h2>
@@ -551,6 +603,7 @@
 
 <script>
   (function() {
+    // ---------- GAME DATA (same as before) ----------
     const games = [
       { name: "All Yono App Site", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", altName: "567 Slots Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -611,50 +664,30 @@
     const detailView = document.getElementById('detailView');
     const backBtn = document.getElementById('backBtn');
     const homeNav = document.getElementById('homeNav');
+    const aboutNav = document.getElementById('aboutNav');
+    const contactNav = document.getElementById('contactNav');
+    const disclaimerNav = document.getElementById('disclaimerNav');
+
+    const aboutPage = document.getElementById('aboutPage');
+    const contactPage = document.getElementById('contactPage');
+    const disclaimerPage = document.getElementById('disclaimerPage');
+
     const overlay = document.getElementById('infoOverlay');
-    const overlayTitle = document.getElementById('overlayTitle');
-    const overlayContent = document.getElementById('overlayContent');
     const overlayClose = document.getElementById('overlayClose');
 
-    const contentMap = {
-      about: { title: '📖 About All Yono App Site', text: 'All Yono App Site (also known as All Yono Apk / All Yono New / All Yono Games) is a curated platform listing 45+ top gaming apps including Teen Patti, Rummy, Slots, and Casino. We provide direct download links and bonus details for each app.' },
-      contact: { title: '📬 Contact', text: 'For any queries, feedback or support, you can reach us via email: support@allyonoappsite.com. You can also connect with us on Telegram: @allyonoappsite.' },
-      disclaimer: { title: '⚠️ Disclaimer', text: 'All Yono App Site does not host or operate any of the games listed. We only provide information and referral links. Users are advised to check the terms and conditions of each app. Play responsibly.' }
-    };
+    // close overlay if open
+    overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
 
-    document.querySelectorAll('.nav-small[data-target]').forEach(el => {
-      el.addEventListener('click', function() {
-        const key = this.dataset.target;
-        if (contentMap[key]) {
-          overlayTitle.textContent = contentMap[key].title;
-          overlayContent.textContent = contentMap[key].text;
-          overlay.style.display = 'flex';
-        }
-        document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-
-    // SUPER FAST CLOSE - Instant
-    overlayClose.addEventListener('click', function() {
-      overlay.style.display = 'none';
-    });
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) overlay.style.display = 'none';
-    });
-
-    function getRandomRating() { return (4 + Math.random() * 0.8).toFixed(1); }
-    function getRandomSize() { return (30 + Math.floor(Math.random() * 40)) + ' MB'; }
-    function getRandomVotes() { return (Math.floor(Math.random() * 30) + 5) + 'K'; }
-
-    let historyStack = [];
-
-    document.getElementById('tocToggle').addEventListener('click', function() {
-      document.getElementById('tocBody').classList.toggle('open');
-      document.getElementById('tocArrow').classList.toggle('open');
-    });
-
-    // SUPER FAST SHOW/HIDE - No delays
+    // ---------- helpers ----------
+    function hideAllStatic() {
+      aboutPage.classList.remove('visible');
+      contactPage.classList.remove('visible');
+      disclaimerPage.classList.remove('visible');
+    }
+    function hideAllNavActive() {
+      [homeNav, aboutNav, contactNav, disclaimerNav].forEach(el => el.classList.remove('active'));
+    }
     function showMainGrid() {
       detailView.style.display = 'none';
       detailView.classList.remove('show');
@@ -662,9 +695,9 @@
       mainGrid.style.display = 'flex';
       mainGrid.classList.remove('hidden');
       mainGrid.classList.add('show');
+      hideAllStatic();
       window.scrollTo({ top: 0 });
     }
-
     function showDetailView() {
       mainGrid.style.display = 'none';
       mainGrid.classList.remove('show');
@@ -672,9 +705,72 @@
       detailView.style.display = 'block';
       detailView.classList.remove('hidden');
       detailView.classList.add('show');
+      hideAllStatic();
       window.scrollTo({ top: 0 });
     }
 
+    // ---------- navigation clicks ----------
+    homeNav.addEventListener('click', function() {
+      if (overlay.style.display === 'flex') overlay.style.display = 'none';
+      hideAllNavActive();
+      this.classList.add('active');
+      showMainGrid();
+      history.pushState(null, null, location.href);
+    });
+
+    aboutNav.addEventListener('click', function() {
+      if (overlay.style.display === 'flex') overlay.style.display = 'none';
+      hideAllNavActive();
+      this.classList.add('active');
+      // hide game views, show about
+      mainGrid.style.display = 'none';
+      mainGrid.classList.add('hidden');
+      detailView.style.display = 'none';
+      detailView.classList.add('hidden');
+      hideAllStatic();
+      aboutPage.classList.add('visible');
+      window.scrollTo({ top: 0 });
+      history.pushState(null, null, location.href);
+    });
+
+    contactNav.addEventListener('click', function() {
+      if (overlay.style.display === 'flex') overlay.style.display = 'none';
+      hideAllNavActive();
+      this.classList.add('active');
+      mainGrid.style.display = 'none';
+      mainGrid.classList.add('hidden');
+      detailView.style.display = 'none';
+      detailView.classList.add('hidden');
+      hideAllStatic();
+      contactPage.classList.add('visible');
+      window.scrollTo({ top: 0 });
+      history.pushState(null, null, location.href);
+    });
+
+    disclaimerNav.addEventListener('click', function() {
+      if (overlay.style.display === 'flex') overlay.style.display = 'none';
+      hideAllNavActive();
+      this.classList.add('active');
+      mainGrid.style.display = 'none';
+      mainGrid.classList.add('hidden');
+      detailView.style.display = 'none';
+      detailView.classList.add('hidden');
+      hideAllStatic();
+      disclaimerPage.classList.add('visible');
+      window.scrollTo({ top: 0 });
+      history.pushState(null, null, location.href);
+    });
+
+    // ---------- back button (from detail) ----------
+    backBtn.addEventListener('click', function() {
+      if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
+      showMainGrid();
+      hideAllNavActive();
+      homeNav.classList.add('active');
+      history.pushState(null, null, location.href);
+    });
+
+    // ---------- render game grid ----------
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
@@ -686,9 +782,9 @@
         card.dataset.withdrawal = game.withdrawal;
         card.dataset.downloadUrl = game.downloadUrl;
         card.dataset.img = game.img;
-        card.dataset.rating = getRandomRating();
-        card.dataset.size = getRandomSize();
-        card.dataset.votes = getRandomVotes();
+        card.dataset.rating = (4 + Math.random() * 0.8).toFixed(1);
+        card.dataset.size = (30 + Math.floor(Math.random() * 40)) + ' MB';
+        card.dataset.votes = (Math.floor(Math.random() * 30) + 5) + 'K';
 
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
@@ -714,15 +810,28 @@
             size: this.dataset.size,
             votes: this.dataset.votes
           };
-          showDetail(gData, true);
+          showDetail(gData);
         });
       });
     }
     renderGrid();
 
-    function getUniqueBonuses(gameName) {
-      const seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
-      return {
+    // ---------- show detail (same as before) ----------
+    function showDetail(game) {
+      document.getElementById('detailImg').src = game.img;
+      document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
+      document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • Welcome ' + game.bonus + ' Bonus';
+      document.getElementById('detailSignup').textContent = '🔴 Sign Up Bonus ' + game.bonus;
+      document.getElementById('detailWithdraw').textContent = '🏦 Min. Withdraw ' + game.withdrawal;
+      document.getElementById('detailBonus').textContent = '🎁 ' + game.bonus;
+      document.getElementById('detailRating').textContent = '⭐ ' + (game.rating || '4.6');
+      document.getElementById('detailSize').textContent = '📦 ' + (game.size || '53 MB');
+      document.getElementById('detailVotes').textContent = '💛 ' + (game.votes || '27K');
+      document.getElementById('detailDownloadBtn').href = game.downloadUrl;
+
+      const gName = game.name;
+      const seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
+      const b = {
         tag1: 20 + (seed * 3) % 880, tag2: 20 + (seed * 7) % 880,
         tag3: 20 + (seed * 2) % 880, tag3b: 20 + (seed * 4) % 880,
         tag4: 20 + (seed * 5) % 880, tag5: 20 + (seed * 6) % 880,
@@ -737,24 +846,6 @@
         toc3Bonus: 50 + (seed * 5) % 50, toc5Bonus1: 50 + (seed * 6) % 50,
         tocWithdraw: 100 + (seed * 2) % 50
       };
-    }
-
-    function showDetail(game, pushHistory = true) {
-      if (pushHistory) historyStack.push(game);
-
-      document.getElementById('detailImg').src = game.img;
-      document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
-      document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • Welcome ' + game.bonus + ' Bonus';
-      document.getElementById('detailSignup').textContent = '🔴 Sign Up Bonus ' + game.bonus;
-      document.getElementById('detailWithdraw').textContent = '🏦 Min. Withdraw ' + game.withdrawal;
-      document.getElementById('detailBonus').textContent = '🎁 ' + game.bonus;
-      document.getElementById('detailRating').textContent = '⭐ ' + (game.rating || '4.6');
-      document.getElementById('detailSize').textContent = '📦 ' + (game.size || '53 MB');
-      document.getElementById('detailVotes').textContent = '💛 ' + (game.votes || '27K');
-      document.getElementById('detailDownloadBtn').href = game.downloadUrl;
-
-      const gName = game.name;
-      const b = getUniqueBonuses(gName);
 
       document.querySelector('#tag1Title').textContent = gName;
       document.getElementById('tag1Bonus').textContent = b.tag1;
@@ -808,6 +899,7 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
 
+      // tags
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -820,9 +912,9 @@
         tag.dataset.withdrawal = g.withdrawal;
         tag.dataset.downloadUrl = g.downloadUrl;
         tag.dataset.img = g.img;
-        tag.dataset.rating = g.rating || getRandomRating();
-        tag.dataset.size = g.size || getRandomSize();
-        tag.dataset.votes = g.votes || getRandomVotes();
+        tag.dataset.rating = (4 + Math.random() * 0.8).toFixed(1);
+        tag.dataset.size = (30 + Math.floor(Math.random() * 40)) + ' MB';
+        tag.dataset.votes = (Math.floor(Math.random() * 30) + 5) + 'K';
         tag.addEventListener('click', function(e) {
           e.stopPropagation();
           showDetail({
@@ -835,11 +927,12 @@
             rating: this.dataset.rating,
             size: this.dataset.size,
             votes: this.dataset.votes
-          }, true);
+          });
         });
         tagsContainer.appendChild(tag);
       });
 
+      // related
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       uniqueGames.filter(g => g.name !== game.name).forEach(g => {
@@ -851,9 +944,9 @@
         item.dataset.withdrawal = g.withdrawal;
         item.dataset.downloadUrl = g.downloadUrl;
         item.dataset.img = g.img;
-        item.dataset.rating = getRandomRating();
-        item.dataset.size = getRandomSize();
-        item.dataset.votes = getRandomVotes();
+        item.dataset.rating = (4 + Math.random() * 0.8).toFixed(1);
+        item.dataset.size = (30 + Math.floor(Math.random() * 40)) + ' MB';
+        item.dataset.votes = (Math.floor(Math.random() * 30) + 5) + 'K';
 
         item.innerHTML = `
           <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
@@ -878,52 +971,22 @@
             rating: this.dataset.rating,
             size: this.dataset.size,
             votes: this.dataset.votes
-          }, true);
+          });
         });
       });
 
       showDetailView();
+      hideAllNavActive();
+      homeNav.classList.remove('active'); // no nav active in detail
     }
 
-    // SUPER FAST BACK - Instant
-    function goBack() {
-      if (overlay.style.display === 'flex') {
-        overlay.style.display = 'none';
-        return;
-      }
-      if (detailView.style.display === 'block') {
-        if (historyStack.length > 1) {
-          historyStack.pop();
-          const prevGame = historyStack[historyStack.length - 1];
-          if (prevGame) showDetail(prevGame, false);
-          else goHome();
-        } else {
-          historyStack = [];
-          goHome();
-        }
-        return;
-      }
-    }
-
-    function goHome() {
-      historyStack = [];
-      showMainGrid();
-      document.querySelectorAll('.nav-small').forEach(l => l.classList.remove('active'));
-      document.getElementById('homeNav').classList.add('active');
-    }
-
-    backBtn.addEventListener('click', goBack);
-    homeNav.addEventListener('click', function() {
-      if (overlay.style.display === 'flex') overlay.style.display = 'none';
-      historyStack = [];
-      goHome();
+    // ---------- TOC toggle ----------
+    document.getElementById('tocToggle').addEventListener('click', function() {
+      document.getElementById('tocBody').classList.toggle('open');
+      document.getElementById('tocArrow').classList.toggle('open');
     });
 
-    document.getElementById('detailTitle').addEventListener('click', function() {
-      const url = document.getElementById('detailDownloadBtn').href;
-      if (url && url !== '#') window.open(url, '_blank');
-    });
-
+    // ---------- share ----------
     document.getElementById('shareBtn').addEventListener('click', function() {
       const shareUrl = 'https://www.earntp.com/gold/jm9n7r';
       if (navigator.share) {
@@ -937,10 +1000,23 @@
       }
     });
 
-    // SUPER FAST POPSTATE - Instant
+    // ---------- popstate (back/forward) ----------
     window.addEventListener('popstate', function(e) {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
-      if (detailView.style.display === 'block') { goBack(); return; }
+      // if detail is visible, go back to main
+      if (detailView.style.display === 'block') {
+        showMainGrid();
+        hideAllNavActive();
+        homeNav.classList.add('active');
+        return;
+      }
+      // if static page visible, go home
+      if (aboutPage.classList.contains('visible') || contactPage.classList.contains('visible') || disclaimerPage.classList.contains('visible')) {
+        showMainGrid();
+        hideAllNavActive();
+        homeNav.classList.add('active');
+        return;
+      }
     });
 
     history.pushState(null, null, location.href);
