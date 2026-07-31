@@ -140,7 +140,7 @@
     .nav-small:active { transform: scale(0.95); }
     .nav-small.active { background: #1e293b; color: white; border-color: #1e293b; }
 
-    /* --- GAME DETAIL HEADER (Back button left, Game Name right) --- */
+    /* --- GAME DETAIL HEADER --- */
     .game-detail-header {
       display: flex;
       justify-content: space-between;
@@ -206,7 +206,7 @@
       color: #6b7280;
     }
 
-    /* --- Sign Up & Min Withdraw (original model) --- */
+    /* --- Sign Up & Min Withdraw --- */
     .game-sub {
       display: flex;
       flex-direction: column;
@@ -247,7 +247,7 @@
     .info-row.signup .svg-icon svg { stroke: #f39c12; }
     .info-row.withdraw .svg-icon svg { stroke: #3498db; }
 
-    /* --- Update Version badge (with premium SVG icon on left) --- */
+    /* --- Update Version badge --- */
     .update-badge {
       display: inline-flex;
       align-items: center;
@@ -307,7 +307,7 @@
       transition: stroke 0.3s ease;
     }
 
-    /* --- Meta block: two rows with Rating, Size, Votes --- */
+    /* --- Meta block --- */
     .meta-block {
       display: flex;
       flex-direction: column;
@@ -352,7 +352,7 @@
       font-weight: 700;
     }
 
-    /* Rating stars with "Rating" text to the right */
+    /* Rating stars */
     .meta-item.rating .rating-container {
       display: flex;
       align-items: center;
@@ -394,7 +394,7 @@
     .meta-item.size .svg-icon svg { stroke: #00bcd4; }
     .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
 
-    /* ===== PREMIUM DOWNLOAD BUTTON ===== */
+    /* ===== PREMIUM DOWNLOAD BUTTON (Detail Page) ===== */
     .detail-download { margin-top: 12px; }
     .detail-download .download-btn {
       display: flex;
@@ -491,22 +491,93 @@
     .game-tag { background: #eef2ff; color: #2563eb; padding: 4px 10px; border-radius: 40px; font-size: 0.55rem; font-weight: 600; border: 1px solid #b3c8e6; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
     .game-tag:active { transform: scale(0.95); background: #dbeafe; }
 
+    /* ============================================================
+       RELATED SECTION – PREMIUM DOWNLOAD BUTTON
+       Cyan + Green + White HD LED premium style
+       ============================================================ */
     .related-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .related-title { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
     .related-grid { display: flex; flex-direction: column; gap: 5px; }
-    .related-item { display: flex; align-items: center; gap: 6px; padding: 5px 8px; background: #f8fafc; border-radius: 10px; border: 1px solid #e9edf4; cursor: pointer; }
+    .related-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      background: #f8fafc;
+      border-radius: 10px;
+      border: 1px solid #e9edf4;
+      cursor: pointer;
+      flex-wrap: wrap;
+    }
     .related-item:active { transform: scale(0.97); }
     .related-item img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; display: block; }
-    .related-item .rinfo { flex: 1; display: flex; flex-direction: column; gap: 0px; }
+    .related-item .rinfo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      min-width: 100px;
+    }
     .related-item .rname { font-weight: 600; font-size: 0.6rem; color: #0b1e33; }
     .related-item .rname .alt { font-weight: 400; font-size: 0.45rem; color: #6b7280; }
     .related-item .rbonus { font-size: 0.45rem; color: #2563eb; font-weight: 600; }
     .related-item .rwithdraw { font-size: 0.4rem; color: #0a0a0a; font-weight: 500; }
-    .related-item .rdownload { background: #00bcd4; color: white; border: none; padding: 2px 8px; border-radius: 40px; font-weight: 600; font-size: 0.4rem; white-space: nowrap; cursor: pointer; }
 
-    /* ============================================================
-       HOME PAGE GRID (unchanged)
-       ============================================================ */
+    /* ===== PREMIUM RELATED DOWNLOAD BUTTON ===== */
+    .related-item .rdownload-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 4px 12px 4px 8px;
+      border-radius: 40px;
+      font-size: 0.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      white-space: nowrap;
+      border: 2px solid #00e5ff;
+      background: linear-gradient(135deg, #00e5ff, #00ff88);
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.3),
+                  0 0 25px rgba(0, 255, 136, 0.15);
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      text-decoration: none;
+      position: relative;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+    .related-item .rdownload-btn .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .related-item .rdownload-btn .btn-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: #ffffff;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,0.3));
+    }
+    .related-item .rdownload-btn:hover {
+      transform: scale(1.06) translateY(-2px);
+      border-color: #00ff88;
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.6),
+                  0 0 50px rgba(0, 255, 136, 0.3),
+                  0 0 70px rgba(0, 229, 255, 0.15);
+      background: linear-gradient(135deg, #00ff88, #00e5ff);
+    }
+    .related-item .rdownload-btn:active {
+      transform: scale(0.92);
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+    }
+
+    /* --- HOME PAGE GRID --- */
     #mainGrid { display: flex; flex-direction: column; gap: 6px; padding: 8px; }
     .card {
       background: white;
@@ -657,7 +728,6 @@
       .card-img { margin-left: 14px; width: 34px; height: 34px; }
       .telegram-btn .corner-led { width: 4px; height: 4px; }
       .game-tag { font-size: 0.45rem; padding: 3px 8px; }
-      .related-item .rname { font-size: 0.5rem; }
       .static-page p { font-size: 0.85rem; }
       .static-page h2 { font-size: 1.2rem; }
       .card-download-sm { padding: 4px 10px 4px 8px !important; font-size: 0.55rem !important; gap: 4px !important; }
@@ -675,6 +745,8 @@
       .game-detail-header .detail-header-title { font-size: 0.6rem; }
       .back-btn { font-size: 0.5rem; padding: 2px 10px; }
       .meta-item.rating .rating-label { font-size: 0.6rem; }
+      .related-item .rdownload-btn { font-size: 0.4rem; padding: 3px 8px 3px 6px; gap: 3px; }
+      .related-item .rdownload-btn .btn-icon svg { width: 11px; height: 11px; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -819,7 +891,7 @@
               </span>
               <span class="label">Min. Withdraw</span>
               <span class="value" id="detailWithdrawText">₹100</span>
-              <!-- Update Version badge with premium SVG icon + "Update Version" text -->
+              <!-- Update Version badge -->
               <span class="update-badge" id="detailVersionBadge">
                 <span class="badge-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
@@ -831,10 +903,10 @@
             </div>
           </div>
 
-          <!-- META BLOCK: Rating + Size (row1), Votes (row2) -->
+          <!-- META BLOCK -->
           <div class="meta-block">
             <div class="meta-row">
-              <!-- Rating with "Rating" text -->
+              <!-- Rating -->
               <span class="meta-item rating">
                 <span class="rating-container">
                   <span class="stars" id="detailStars"></span>
@@ -1048,7 +1120,7 @@
       <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
-    <!-- ===== RELATED ===== -->
+    <!-- ===== OTHER RELATED YONO GAMES ===== -->
     <div class="related-section">
       <div class="related-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -1306,11 +1378,27 @@
       return html;
     }
 
-    // --- Helper: Generate a unique version number per game ---
+    // --- Helper: Generate unique version number ---
     function generateVersion(seed) {
-      var major = (seed % 8) + 1;  // 1-8
-      var minor = (seed * 3) % 10; // 0-9
+      var major = (seed % 8) + 1;
+      var minor = (seed * 3) % 10;
       return major + '.' + minor;
+    }
+
+    // --- Helper: Generate unique tag content for Top Offers ---
+    function generateTagContent(gameName, seed, bonusAmount) {
+      var descriptions = [
+        "Play " + gameName + " and win real cash with daily bonuses and fast UPI withdrawals. Start earning today with a " + bonusAmount + " welcome bonus!",
+        "Join " + gameName + " – the ultimate gaming platform with " + (20 + seed % 30) + "+ games, instant payouts, and a " + bonusAmount + " signup reward.",
+        "Experience " + gameName + " with premium Rummy, slots, and Teen Patti. Get " + bonusAmount + " free on signup and withdraw from ₹100.",
+        "Download " + gameName + " now and claim your " + bonusAmount + " welcome gift. Play with millions of users and win real money daily.",
+        "Win big with " + gameName + " – India's fastest growing gaming app. Sign up for " + bonusAmount + " bonus and start your winning streak."
+      ];
+      var refBonuses = [5, 8, 10, 12, 15, 18, 20, 22, 25];
+      return {
+        desc: descriptions[seed % descriptions.length],
+        ref: refBonuses[seed % refBonuses.length]
+      };
     }
 
     function renderGrid() {
@@ -1376,14 +1464,11 @@
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
       document.getElementById('detailHeaderTitle').textContent = game.name + ' • Download APK';
       
-      // Sign Up & Min Withdraw
       document.getElementById('detailSignupText').textContent = game.bonus;
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
       
-      // Update Version badge - update version number
       document.querySelector('#detailVersionBadge .version').textContent = game.version;
       
-      // Rating stars and value
       var ratingVal = parseFloat(game.rating) || 4.5;
       document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
       document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
@@ -1393,76 +1478,115 @@
       
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
 
-      const gName = game.name;
-      const seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
-      const b = {
-        tag1: 20 + (seed * 3) % 880, tag2: 20 + (seed * 7) % 880,
-        tag3: 20 + (seed * 2) % 880, tag3b: 20 + (seed * 4) % 880,
-        tag4: 20 + (seed * 5) % 880, tag5: 20 + (seed * 6) % 880,
-        faq1: 20 + (seed * 11) % 880, faq2: 20 + (seed * 9) % 880,
-        faq4: 20 + (seed * 3) % 880, faq4b: 20 + (seed * 7) % 880,
-        faq4w: 20 + (seed * 8) % 880, faq4d: 20 + (seed * 2) % 880,
-        ref1: 5 + (seed * 2) % 20, ref2: 5 + (seed * 3) % 20,
-        ref3: 5 + (seed * 4) % 20, ref4: 5 + (seed * 5) % 20,
-        ref5: 5 + (seed * 6) % 20, refFaq1: 5 + (seed * 7) % 20,
-        refFaq2: 5 + (seed * 8) % 20, refFaq4: 5 + (seed * 9) % 20,
-        toc1Bonus: 50 + (seed * 3) % 50, toc2Bonus1: 50 + (seed * 4) % 50,
-        toc3Bonus: 50 + (seed * 5) % 50, toc5Bonus1: 50 + (seed * 6) % 50,
-        tocWithdraw: 100 + (seed * 2) % 50
-      };
+      // --- Generate UNIQUE Top Offers content per game ---
+      var gName = game.name;
+      var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
+      var bonusNum = parseInt(game.bonus.replace('₹', '')) || 45;
+      
+      // Unique titles, bonuses, descriptions for each of the 5 tag boxes
+      var tagTitles = [
+        gName + ' APK – Best Real Cash Game',
+        gName + ' – Play & Win ₹' + (bonusNum + 20 + (seed % 30)) + ' Bonus',
+        'Experience ' + gName + ' with ₹' + (bonusNum + 15 + (seed % 25)) + ' Welcome Gift',
+        gName + ' – ' + (20 + (seed % 20)) + '+ Games, ₹' + (bonusNum + 30 + (seed % 20)) + ' Bonus',
+        gName + ' – India\'s #' + ((seed % 5) + 1) + ' Gaming Platform'
+      ];
+      
+      var tagBonuses = [
+        bonusNum + 15 + (seed % 30),
+        bonusNum + 25 + (seed % 35),
+        bonusNum + 10 + (seed % 20),
+        bonusNum + 40 + (seed % 25),
+        bonusNum + 20 + (seed % 15)
+      ];
+      
+      var tagBonus2s = [
+        bonusNum + 30 + (seed % 40),
+        bonusNum + 50 + (seed % 30),
+        bonusNum + 20 + (seed % 25),
+        bonusNum + 60 + (seed % 35),
+        bonusNum + 35 + (seed % 20)
+      ];
+      
+      var tagRefs = [
+        5 + (seed % 15),
+        8 + (seed % 12),
+        10 + (seed % 10),
+        6 + (seed % 14),
+        12 + (seed % 8)
+      ];
+      
+      var tagContents = [
+        'Play ' + gName + ' and earn real cash with a ₹' + tagBonuses[0] + ' instant bonus. Safe & secure withdrawals starting from ₹100. Download now and start winning! Referral Bonus: ₹' + tagRefs[0],
+        'Join ' + gName + ' today and get a ₹' + tagBonuses[1] + ' welcome bonus. Enjoy fast UPI payouts, daily rewards, and a premium gaming experience. Referral Bonus: ₹' + tagRefs[1],
+        'Get started with ' + gName + ' – claim ₹' + tagBonuses[2] + ' signup bonus + ₹' + tagBonus2s[2] + ' extra rewards. Play Rummy, Teen Patti, slots & more. Referral Bonus: ₹' + tagRefs[2],
+        'Download ' + gName + ' for ₹' + tagBonuses[3] + ' free bonus. Withdraw via UPI/Bank from ₹100. Join ' + (50 + (seed % 50)) + 'K+ active players. Referral Bonus: ₹' + tagRefs[3],
+        gName + ' – the most trusted gaming app in India. Sign up for ₹' + tagBonuses[4] + ' bonus, play ' + (15 + (seed % 20)) + '+ games, and win daily. Referral Bonus: ₹' + tagRefs[4]
+      ];
 
-      document.querySelector('#tag1Title').textContent = gName;
-      document.getElementById('tag1Bonus').textContent = b.tag1;
-      document.getElementById('tag1Ref').textContent = b.ref1;
-      document.querySelector('#tag2Title').textContent = gName;
-      document.getElementById('tag2Bonus').textContent = b.tag2;
-      document.getElementById('tag2Ref').textContent = b.ref2;
-      document.querySelector('#tag3Title').textContent = gName;
-      document.getElementById('tag3Bonus').textContent = b.tag3;
-      document.getElementById('tag3Bonus2').textContent = b.tag3b;
-      document.getElementById('tag3Ref').textContent = b.ref3;
-      document.querySelector('#tag4Title').textContent = gName;
-      document.getElementById('tag4Bonus').textContent = b.tag4;
-      document.getElementById('tag4Ref').textContent = b.ref4;
-      document.querySelector('#tag5Title').textContent = gName;
-      document.getElementById('tag5Bonus').textContent = b.tag5;
-      document.getElementById('tag5Ref').textContent = b.ref5;
+      document.querySelector('#tag1Title').textContent = tagTitles[0];
+      document.getElementById('tag1Bonus').textContent = tagBonuses[0];
+      document.getElementById('tag1Ref').textContent = tagRefs[0];
+      document.getElementById('tag1Content').textContent = tagContents[0];
+      
+      document.querySelector('#tag2Title').textContent = tagTitles[1];
+      document.getElementById('tag2Bonus').textContent = tagBonuses[1];
+      document.getElementById('tag2Ref').textContent = tagRefs[1];
+      document.getElementById('tag2Content').textContent = tagContents[1];
+      
+      document.querySelector('#tag3Title').textContent = tagTitles[2];
+      document.getElementById('tag3Bonus').textContent = tagBonuses[2];
+      document.getElementById('tag3Bonus2').textContent = tagBonus2s[2];
+      document.getElementById('tag3Ref').textContent = tagRefs[2];
+      document.getElementById('tag3Content').textContent = tagContents[2];
+      
+      document.querySelector('#tag4Title').textContent = tagTitles[3];
+      document.getElementById('tag4Bonus').textContent = tagBonuses[3];
+      document.getElementById('tag4Ref').textContent = tagRefs[3];
+      document.getElementById('tag4Content').textContent = tagContents[3];
+      
+      document.querySelector('#tag5Title').textContent = tagTitles[4];
+      document.getElementById('tag5Bonus').textContent = tagBonuses[4];
+      document.getElementById('tag5Ref').textContent = tagRefs[4];
+      document.getElementById('tag5Content').textContent = tagContents[4];
 
+      // TOC and FAQ (unique per game via seed)
       document.getElementById('toc1Name').textContent = gName;
       document.getElementById('toc1Name2').textContent = gName;
       document.getElementById('toc1Name3').textContent = gName;
       document.getElementById('toc1Name4').textContent = gName;
-      document.getElementById('toc1Bonus').textContent = b.toc1Bonus;
-      document.getElementById('toc1Withdraw').textContent = b.tocWithdraw;
+      document.getElementById('toc1Bonus').textContent = 50 + (seed * 3) % 50;
+      document.getElementById('toc1Withdraw').textContent = 100 + (seed * 2) % 50;
       document.getElementById('toc2Name').textContent = gName;
-      document.getElementById('toc2Bonus1').textContent = b.toc2Bonus1;
-      document.getElementById('toc2Withdraw').textContent = b.tocWithdraw;
+      document.getElementById('toc2Bonus1').textContent = 50 + (seed * 4) % 50;
+      document.getElementById('toc2Withdraw').textContent = 100 + (seed * 2) % 50;
       document.getElementById('toc3Name').textContent = gName;
-      document.getElementById('toc3Bonus').textContent = b.toc3Bonus;
+      document.getElementById('toc3Bonus').textContent = 50 + (seed * 5) % 50;
       document.getElementById('toc4Name').textContent = gName;
       document.getElementById('toc4Name2').textContent = gName;
       document.getElementById('toc5Name').textContent = gName;
-      document.getElementById('toc5Bonus1').textContent = b.toc5Bonus1;
+      document.getElementById('toc5Bonus1').textContent = 50 + (seed * 6) % 50;
 
       document.getElementById('faq1Name').textContent = gName;
       document.getElementById('faq1Name2').textContent = gName;
       document.getElementById('faq1Name3').textContent = gName;
-      document.getElementById('faq1Bonus').textContent = b.faq1;
-      document.getElementById('faq1Ref').textContent = b.refFaq1;
+      document.getElementById('faq1Bonus').textContent = 20 + (seed * 11) % 880;
+      document.getElementById('faq1Ref').textContent = 5 + (seed * 7) % 20;
       document.getElementById('faq2Name').textContent = gName;
       document.getElementById('faq2Name2').textContent = gName;
       document.getElementById('faq2Name3').textContent = gName;
-      document.getElementById('faq2Bonus').textContent = b.faq2;
-      document.getElementById('faq2Ref').textContent = b.refFaq2;
+      document.getElementById('faq2Bonus').textContent = 20 + (seed * 9) % 880;
+      document.getElementById('faq2Ref').textContent = 5 + (seed * 8) % 20;
       document.getElementById('faq3Name').textContent = gName;
       document.getElementById('faq3Name2').textContent = gName;
       document.getElementById('faq4Name').textContent = gName;
-      document.getElementById('faq4Bonus').textContent = b.faq4;
-      document.getElementById('faq4Bonus2').textContent = b.faq4b;
-      document.getElementById('faq4Withdraw').textContent = b.faq4w;
-      document.getElementById('faq4Deposit').textContent = b.faq4d;
-      document.getElementById('faq4Ref').textContent = b.refFaq4;
+      document.getElementById('faq4Bonus').textContent = 20 + (seed * 3) % 880;
+      document.getElementById('faq4Bonus2').textContent = 20 + (seed * 7) % 880;
+      document.getElementById('faq4Withdraw').textContent = 20 + (seed * 8) % 880;
+      document.getElementById('faq4Deposit').textContent = 20 + (seed * 2) % 880;
+      document.getElementById('faq4Ref').textContent = 5 + (seed * 9) % 20;
 
+      // Tags section
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -1506,6 +1630,7 @@
         tagsContainer.appendChild(tag);
       });
 
+      // Related Grid with premium Download button
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       uniqueGames.filter(g => g.name !== game.name).forEach(g => {
@@ -1537,12 +1662,18 @@
             <div class="rbonus">🔴 Sign Up Bonus ${g.bonus}</div>
             <div class="rwithdraw">🏦 Min. Withdraw ${g.withdrawal}</div>
           </div>
-          <span class="rdownload">Download</span>
+          <button class="rdownload-btn" data-url="${g.downloadUrl}" onclick="event.stopPropagation(); window.open(this.dataset.url, '_blank');">
+            <span class="btn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </span>
+            Download
+          </button>
         `;
         relatedGrid.appendChild(item);
 
         item.addEventListener('click', function(e) {
-          e.stopPropagation();
+          // Don't trigger if clicking the button
+          if (e.target.closest('.rdownload-btn')) return;
           showDetail({
             name: this.dataset.name,
             altName: this.dataset.altName,
