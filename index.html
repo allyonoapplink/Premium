@@ -247,7 +247,7 @@
     .info-row.signup .svg-icon svg { stroke: #f39c12; }
     .info-row.withdraw .svg-icon svg { stroke: #3498db; }
 
-    /* --- Update Version badge (with premium SVG icon on left) --- */
+    /* --- Update Version badge --- */
     .update-badge {
       display: inline-flex;
       align-items: center;
@@ -303,11 +303,8 @@
         color: #ff4444;
       }
     }
-    .update-badge .badge-icon svg {
-      transition: stroke 0.3s ease;
-    }
 
-    /* --- Meta block: two rows with Rating, Size, Votes --- */
+    /* --- Meta block: Rating + Size (row1), Votes (row2) --- */
     .meta-block {
       display: flex;
       flex-direction: column;
@@ -352,7 +349,7 @@
       font-weight: 700;
     }
 
-    /* Rating stars with "Rating" text to the right */
+    /* Rating stars with "Rating" text */
     .meta-item.rating .rating-container {
       display: flex;
       align-items: center;
@@ -390,7 +387,6 @@
       color: #0b1e33;
     }
 
-    /* Icon colors for meta */
     .meta-item.size .svg-icon svg { stroke: #00bcd4; }
     .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
 
@@ -445,7 +441,7 @@
       100% { box-shadow:0 0 15px rgba(0,255,0,0.3),0 0 30px rgba(0,188,212,0.1); border-color:#00ff00; }
     }
 
-    /* --- TAG, FAQ, TOC (unchanged) --- */
+    /* --- TAG SECTION (Top Offers) – we will generate dynamically, so keep base styles) --- */
     .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .tag-grid { display: flex; flex-direction: column; gap: 6px; }
@@ -455,6 +451,7 @@
     .tag-box .tag-head .svg-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
     .tag-box .tag-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
 
+    /* --- FAQ, TOC (unchanged) --- */
     .faq-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .faq-section .faq-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .faq-grid { display: flex; flex-direction: column; gap: 6px; }
@@ -491,18 +488,86 @@
     .game-tag { background: #eef2ff; color: #2563eb; padding: 4px 10px; border-radius: 40px; font-size: 0.55rem; font-weight: 600; border: 1px solid #b3c8e6; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
     .game-tag:active { transform: scale(0.95); background: #dbeafe; }
 
+    /* ===== RELATED SECTION – Download button with SVG icon & LED glow ===== */
     .related-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .related-title { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
     .related-grid { display: flex; flex-direction: column; gap: 5px; }
-    .related-item { display: flex; align-items: center; gap: 6px; padding: 5px 8px; background: #f8fafc; border-radius: 10px; border: 1px solid #e9edf4; cursor: pointer; }
+    .related-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      background: #f8fafc;
+      border-radius: 10px;
+      border: 1px solid #e9edf4;
+      cursor: pointer;
+    }
     .related-item:active { transform: scale(0.97); }
-    .related-item img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; display: block; }
-    .related-item .rinfo { flex: 1; display: flex; flex-direction: column; gap: 0px; }
-    .related-item .rname { font-weight: 600; font-size: 0.6rem; color: #0b1e33; }
-    .related-item .rname .alt { font-weight: 400; font-size: 0.45rem; color: #6b7280; }
+    .related-item img {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+    }
+    .related-item .rinfo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+    }
+    .related-item .rname {
+      font-weight: 600;
+      font-size: 0.6rem;
+      color: #0b1e33;
+    }
+    .related-item .rname .alt {
+      font-weight: 400;
+      font-size: 0.45rem;
+      color: #6b7280;
+    }
     .related-item .rbonus { font-size: 0.45rem; color: #2563eb; font-weight: 600; }
     .related-item .rwithdraw { font-size: 0.4rem; color: #0a0a0a; font-weight: 500; }
-    .related-item .rdownload { background: #00bcd4; color: white; border: none; padding: 2px 8px; border-radius: 40px; font-weight: 600; font-size: 0.4rem; white-space: nowrap; cursor: pointer; }
+
+    /* Related Download Button – Cyan + Green + White LED premium */
+    .related-item .rdownload {
+      background: linear-gradient(135deg, #00e5ff, #00ff88) !important;
+      color: #ffffff !important;
+      border: none !important;
+      padding: 4px 12px 4px 8px !important;
+      border-radius: 40px !important;
+      font-weight: 700 !important;
+      font-size: 0.5rem !important;
+      white-space: nowrap;
+      cursor: pointer;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      box-shadow: 0 0 12px rgba(0,229,255,0.4), 0 0 25px rgba(0,255,136,0.2) !important;
+      transition: all 0.3s ease !important;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .related-item .rdownload::before {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      line-height: 1;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,0.4));
+      transition: all 0.3s ease;
+    }
+    .related-item .rdownload:hover {
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 0 25px rgba(0,229,255,0.7), 0 0 50px rgba(0,255,136,0.4) !important;
+    }
+    .related-item .rdownload:active {
+      transform: scale(0.94);
+    }
+    .related-item .rdownload:hover::before {
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+    }
 
     /* ============================================================
        HOME PAGE GRID (unchanged)
@@ -675,6 +740,10 @@
       .game-detail-header .detail-header-title { font-size: 0.6rem; }
       .back-btn { font-size: 0.5rem; padding: 2px 10px; }
       .meta-item.rating .rating-label { font-size: 0.6rem; }
+      .related-item .rdownload { font-size: 0.45rem; padding: 3px 8px 3px 6px !important; gap: 3px !important; }
+      .related-item .rdownload::before { width: 12px; height: 12px; }
+      .tag-box .tag-head { font-size: 0.7rem; }
+      .tag-box .tag-content { font-size: 0.6rem; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -819,7 +888,6 @@
               </span>
               <span class="label">Min. Withdraw</span>
               <span class="value" id="detailWithdrawText">₹100</span>
-              <!-- Update Version badge with premium SVG icon + "Update Version" text -->
               <span class="update-badge" id="detailVersionBadge">
                 <span class="badge-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
@@ -834,7 +902,6 @@
           <!-- META BLOCK: Rating + Size (row1), Votes (row2) -->
           <div class="meta-block">
             <div class="meta-row">
-              <!-- Rating with "Rating" text -->
               <span class="meta-item rating">
                 <span class="rating-container">
                   <span class="stars" id="detailStars"></span>
@@ -842,7 +909,6 @@
                   <span class="rating-value" id="detailRating">4.5</span>
                 </span>
               </span>
-              <!-- Size -->
               <span class="meta-item size">
                 <span class="svg-icon">
                   <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
@@ -852,7 +918,6 @@
               </span>
             </div>
             <div class="meta-row">
-              <!-- Votes -->
               <span class="meta-item votes">
                 <span class="svg-icon">
                   <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -869,7 +934,7 @@
       </div>
     </div>
 
-    <!-- ===== TOP OFFERS ===== -->
+    <!-- ===== TOP OFFERS (Tag Section) – dynamically generated ===== -->
     <div class="tag-section">
       <div class="tag-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -877,43 +942,7 @@
         </span>
         <span>Top Offers</span>
       </div>
-      <div class="tag-grid" id="tagGridContainer">
-        <div class="tag-box">
-          <div class="tag-head">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
-            <span id="tag1Title">Game Name</span> APK Download – Get ₹<span id="tag1Bonus">150</span> Instant Bonus!
-          </div>
-          <div class="tag-content" id="tag1Content">Play skill-based Rummy, Teen Patti & slots. Safe withdrawals from ₹100. Start earning real cash in minutes – download APK & claim your bonus today! Referral Bonus: ₹<span id="tag1Ref">10</span></div>
-        </div>
-        <div class="tag-box">
-          <div class="tag-head">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-            Unlock ₹<span id="tag2Bonus">500</span> Bonus in <span id="tag2Title">Game Name</span> App!
-          </div>
-          <div class="tag-content" id="tag2Content">Enjoy thrilling games like Aviator, Rummy & more. Refer friends for extra cash. Fast, secure withdrawals via bank/UPI. Trusted by millions – start playing now! Referral Bonus: ₹<span id="tag2Ref">15</span></div>
-        </div>
-        <div class="tag-box">
-          <div class="tag-head">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/></svg></span>
-            <span id="tag3Title">Game Name</span> – Signup for ₹<span id="tag3Bonus">35</span>-₹<span id="tag3Bonus2">150</span> Free Bonus
-          </div>
-          <div class="tag-content" id="tag3Content">Play 20+ exciting games including Dragon vs Tiger & slots. Minimum deposit ₹100, instant payouts. Download now & earn real money daily! Referral Bonus: ₹<span id="tag3Ref">8</span></div>
-        </div>
-        <div class="tag-box">
-          <div class="tag-head">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><path d="M8 14h8"/></svg></span>
-            Experience <span id="tag4Title">Game Name</span> – ₹<span id="tag4Bonus">50</span> Welcome Bonus on Download
-          </div>
-          <div class="tag-content" id="tag4Content">Build sequences, join cash tournaments & daily mystery rewards. Safe, fun, and secure gaming – start winning real cash today! Referral Bonus: ₹<span id="tag4Ref">20</span></div>
-        </div>
-        <div class="tag-box">
-          <div class="tag-head">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-            Dive into <span id="tag5Title">Game Name</span> – India's Top Online Gaming App
-          </div>
-          <div class="tag-content" id="tag5Content">Get ₹<span id="tag5Bonus">51</span> signup bonus, play Rummy, Teen Patti, slots & Aviator. Withdraw from ₹100, join 1Cr+ players & claim daily bonuses. Download APK now! Referral Bonus: ₹<span id="tag5Ref">12</span></div>
-        </div>
-      </div>
+      <div class="tag-grid" id="tagGridContainer"></div>
     </div>
 
     <!-- ===== TABLE OF CONTENTS ===== -->
@@ -1313,6 +1342,66 @@
       return major + '.' + minor;
     }
 
+    // --- Helper: Generate unique tag items ---
+    function generateTagItems(gameName, seed) {
+      // Predefined unique content parts
+      var titles = [
+        gameName + ' – Grab ₹' + (20 + seed % 500) + ' Instant Welcome Bonus!',
+        'Play ' + gameName + ' & Win Real Cash – ₹' + (30 + seed % 400) + ' Free Bonus',
+        'Download ' + gameName + ' APK – Get ₹' + (40 + seed % 300) + ' Signup Reward',
+        'Join ' + gameName + ' – ₹' + (50 + seed % 200) + ' Bonus & Fast Withdrawals',
+        gameName + ' – India\'s Top Gaming App with ₹' + (25 + seed % 600) + ' Free Chips',
+        'Try ' + gameName + ' – Earn ₹' + (35 + seed % 450) + ' Real Cash on Signup',
+        gameName + ' Bonus Offer – ₹' + (45 + seed % 350) + ' + 100% Deposit Match',
+        'Get ₹' + (55 + seed % 250) + ' Bonus in ' + gameName + ' – Download Now',
+        gameName + ' – Daily Rewards & ₹' + (60 + seed % 150) + ' Welcome Gift',
+        'Special Offer: ' + gameName + ' – ₹' + (15 + seed % 700) + ' Free Play Bonus'
+      ];
+      
+      var descriptions = [
+        'Play classic Rummy, Teen Patti, and exciting slot games. Safe UPI withdrawals from ₹100. Start winning instantly!',
+        'Experience the thrill of real cash games. Secure platform, instant payouts, and 24/7 customer support. Join now!',
+        'Enjoy a variety of games including Dragon vs Tiger, Andar Bahar, and more. Claim your bonus and start playing today!',
+        'Hurry! Limited time offer – get extra bonus on your first deposit. Play smart, win big with ' + gameName + '.',
+        'Refer friends and earn up to ₹200 per referral. Unlimited earning potential – download the app and get started!',
+        'Play daily tournaments and win massive prizes. Withdraw your winnings directly to your bank account with UPI.',
+        'Get the best gaming experience with high-quality graphics and smooth gameplay. Trusted by millions of players.',
+        'New updates with improved performance and more game options. Join now and claim your exclusive welcome bonus.',
+        'Play responsibly and enjoy a fair gaming environment. Secure transactions and quick withdrawals – your trusted gaming partner.',
+        'Explore the world of online gaming with ' + gameName + '. Exciting rewards, daily challenges, and non-stop fun!'
+      ];
+      
+      // Randomize selection from titles and descriptions using seed to ensure uniqueness
+      var idx1 = (seed * 7) % titles.length;
+      var idx2 = (seed * 11 + 3) % titles.length;
+      var idx3 = (seed * 13 + 7) % titles.length;
+      var idx4 = (seed * 17 + 11) % titles.length;
+      var idx5 = (seed * 19 + 5) % titles.length;
+      
+      // Array of 5 items with random order
+      var items = [
+        { title: titles[idx1], desc: descriptions[(seed * 5 + 1) % descriptions.length], bonus: 20 + (seed * 7) % 500 },
+        { title: titles[idx2], desc: descriptions[(seed * 7 + 3) % descriptions.length], bonus: 30 + (seed * 11) % 400 },
+        { title: titles[idx3], desc: descriptions[(seed * 11 + 7) % descriptions.length], bonus: 40 + (seed * 13) % 300 },
+        { title: titles[idx4], desc: descriptions[(seed * 13 + 11) % descriptions.length], bonus: 50 + (seed * 17) % 200 },
+        { title: titles[idx5], desc: descriptions[(seed * 17 + 5) % descriptions.length], bonus: 25 + (seed * 19) % 600 }
+      ];
+      
+      // Shuffle the items using seed to make order unique
+      // Simple Fisher-Yates with deterministic seed
+      var shuffled = items.slice();
+      var s = seed;
+      for (var i = shuffled.length - 1; i > 0; i--) {
+        s = (s * 9301 + 49297) % 233280;
+        var j = Math.floor((s / 233280) * (i + 1));
+        var temp = shuffled[i];
+        shuffled[i] = shuffled[j];
+        shuffled[j] = temp;
+      }
+      
+      return shuffled;
+    }
+
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
@@ -1376,14 +1465,11 @@
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
       document.getElementById('detailHeaderTitle').textContent = game.name + ' • Download APK';
       
-      // Sign Up & Min Withdraw
       document.getElementById('detailSignupText').textContent = game.bonus;
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
       
-      // Update Version badge - update version number
       document.querySelector('#detailVersionBadge .version').textContent = game.version;
       
-      // Rating stars and value
       var ratingVal = parseFloat(game.rating) || 4.5;
       document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
       document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
@@ -1393,8 +1479,49 @@
       
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
 
+      // ---- GENERATE UNIQUE TAGS for Top Offers ----
+      var tagContainer = document.getElementById('tagGridContainer');
+      tagContainer.innerHTML = '';
+      var seed = game.name.length * 7 + (game.name.charCodeAt(0) || 10);
+      var tagItems = generateTagItems(game.name, seed);
+      
+      // Icons for tag headers
+      var iconSvgs = [
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/></svg>',
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><path d="M8 14h8"/></svg>',
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>'
+      ];
+      // Shuffle icons using seed to add variety
+      var shuffledIcons = iconSvgs.slice();
+      var s = seed * 3;
+      for (var i = shuffledIcons.length - 1; i > 0; i--) {
+        s = (s * 9301 + 49297) % 233280;
+        var j = Math.floor((s / 233280) * (i + 1));
+        var temp = shuffledIcons[i];
+        shuffledIcons[i] = shuffledIcons[j];
+        shuffledIcons[j] = temp;
+      }
+      
+      tagItems.forEach(function(item, idx) {
+        var box = document.createElement('div');
+        box.className = 'tag-box';
+        var iconIdx = idx % shuffledIcons.length;
+        var iconSvg = shuffledIcons[iconIdx];
+        var refBonus = 5 + (seed * (idx + 1) * 3) % 20;
+        box.innerHTML = `
+          <div class="tag-head">
+            <span class="svg-icon">${iconSvg}</span>
+            ${item.title}
+          </div>
+          <div class="tag-content">${item.desc} Referral Bonus: ₹${refBonus}</div>
+        `;
+        tagContainer.appendChild(box);
+      });
+
+      // ---- TOC, FAQ, etc. (unchanged) ----
       const gName = game.name;
-      const seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
       const b = {
         tag1: 20 + (seed * 3) % 880, tag2: 20 + (seed * 7) % 880,
         tag3: 20 + (seed * 2) % 880, tag3b: 20 + (seed * 4) % 880,
@@ -1411,6 +1538,7 @@
         tocWithdraw: 100 + (seed * 2) % 50
       };
 
+      // Update TOC and FAQ (unchanged from previous)
       document.querySelector('#tag1Title').textContent = gName;
       document.getElementById('tag1Bonus').textContent = b.tag1;
       document.getElementById('tag1Ref').textContent = b.ref1;
@@ -1463,6 +1591,7 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
 
+      // ---- Tags (game-tags) ----
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -1506,6 +1635,7 @@
         tagsContainer.appendChild(tag);
       });
 
+      // ---- Related (with SVG icon on download button) ----
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       uniqueGames.filter(g => g.name !== game.name).forEach(g => {
@@ -1530,6 +1660,7 @@
         item.dataset.metaBonus = mb;
         item.dataset.version = ver;
 
+        // Build related item with SVG icon inside download button
         item.innerHTML = `
           <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
           <div class="rinfo">
