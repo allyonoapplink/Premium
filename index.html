@@ -247,7 +247,7 @@
     .info-row.signup .svg-icon svg { stroke: #f39c12; }
     .info-row.withdraw .svg-icon svg { stroke: #3498db; }
 
-    /* --- Update Version badge (with premium SVG icon on left) --- */
+    /* --- Update Version badge --- */
     .update-badge {
       display: inline-flex;
       align-items: center;
@@ -303,9 +303,6 @@
         color: #ff4444;
       }
     }
-    .update-badge .badge-icon svg {
-      transition: stroke 0.3s ease;
-    }
 
     /* --- Meta block: two rows with Rating, Size, Votes --- */
     .meta-block {
@@ -352,7 +349,7 @@
       font-weight: 700;
     }
 
-    /* Rating stars with "Rating" text to the right */
+    /* Rating stars with "Rating" text */
     .meta-item.rating .rating-container {
       display: flex;
       align-items: center;
@@ -491,18 +488,100 @@
     .game-tag { background: #eef2ff; color: #2563eb; padding: 4px 10px; border-radius: 40px; font-size: 0.55rem; font-weight: 600; border: 1px solid #b3c8e6; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
     .game-tag:active { transform: scale(0.95); background: #dbeafe; }
 
+    /* ============================================================
+       OTHER RELATED YONO GAMES - Premium Download Button
+       ============================================================ */
     .related-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .related-title { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
     .related-grid { display: flex; flex-direction: column; gap: 5px; }
-    .related-item { display: flex; align-items: center; gap: 6px; padding: 5px 8px; background: #f8fafc; border-radius: 10px; border: 1px solid #e9edf4; cursor: pointer; }
+    .related-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      background: #f8fafc;
+      border-radius: 10px;
+      border: 1px solid #e9edf4;
+      cursor: pointer;
+      flex-wrap: wrap;
+    }
     .related-item:active { transform: scale(0.97); }
     .related-item img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; display: block; }
-    .related-item .rinfo { flex: 1; display: flex; flex-direction: column; gap: 0px; }
+    .related-item .rinfo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      min-width: 0;
+    }
     .related-item .rname { font-weight: 600; font-size: 0.6rem; color: #0b1e33; }
     .related-item .rname .alt { font-weight: 400; font-size: 0.45rem; color: #6b7280; }
     .related-item .rbonus { font-size: 0.45rem; color: #2563eb; font-weight: 600; }
     .related-item .rwithdraw { font-size: 0.4rem; color: #0a0a0a; font-weight: 500; }
-    .related-item .rdownload { background: #00bcd4; color: white; border: none; padding: 2px 8px; border-radius: 40px; font-weight: 600; font-size: 0.4rem; white-space: nowrap; cursor: pointer; }
+
+    /* ---- Related Download Button - Cyan + Green + White LED ---- */
+    .related-item .rdownload {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background: #000000;
+      color: #ffffff;
+      border: 2px solid #00ff00;
+      padding: 4px 12px 4px 8px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.5rem;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 0 12px rgba(0,255,0,0.3), 0 0 20px rgba(0,188,212,0.1);
+      animation: relatedDownloadGlow 2.5s ease-in-out infinite;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+    .related-item .rdownload .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .related-item .rdownload .btn-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: #00ff00;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.3s ease;
+    }
+    .related-item .rdownload .btn-text {
+      font-weight: 700;
+    }
+    .related-item .rdownload:hover {
+      transform: scale(1.06) translateY(-1px);
+      border-color: #00ffff;
+      box-shadow: 0 0 25px rgba(0,255,0,0.5), 0 0 45px rgba(0,188,212,0.25);
+      background: #0a0a0a;
+    }
+    .related-item .rdownload:hover .btn-icon svg {
+      stroke: #00ffff;
+    }
+    .related-item .rdownload:active {
+      transform: scale(0.92);
+    }
+
+    @keyframes relatedDownloadGlow {
+      0%,100% {
+        box-shadow: 0 0 10px rgba(0,255,0,0.25), 0 0 20px rgba(0,188,212,0.08);
+        border-color: #00ff00;
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(0,255,0,0.5), 0 0 45px rgba(0,188,212,0.2), 0 0 60px rgba(0,255,255,0.1);
+        border-color: #00ffff;
+      }
+    }
 
     /* ============================================================
        HOME PAGE GRID (unchanged)
@@ -675,6 +754,8 @@
       .game-detail-header .detail-header-title { font-size: 0.6rem; }
       .back-btn { font-size: 0.5rem; padding: 2px 10px; }
       .meta-item.rating .rating-label { font-size: 0.6rem; }
+      .related-item .rdownload { font-size: 0.45rem; padding: 3px 8px 3px 6px; gap: 3px; }
+      .related-item .rdownload .btn-icon svg { width: 11px; height: 11px; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -819,7 +900,7 @@
               </span>
               <span class="label">Min. Withdraw</span>
               <span class="value" id="detailWithdrawText">₹100</span>
-              <!-- Update Version badge with premium SVG icon + "Update Version" text -->
+              <!-- Update Version badge -->
               <span class="update-badge" id="detailVersionBadge">
                 <span class="badge-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
@@ -869,7 +950,7 @@
       </div>
     </div>
 
-    <!-- ===== TOP OFFERS ===== -->
+    <!-- ===== TOP OFFERS (Dynamic - generated by JavaScript) ===== -->
     <div class="tag-section">
       <div class="tag-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -877,43 +958,7 @@
         </span>
         <span>Top Offers</span>
       </div>
-      <div class="tag-grid" id="tagGridContainer">
-        <div class="tag-box">
-          <div class="tag-head">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
-            <span id="tag1Title">Game Name</span> APK Download – Get ₹<span id="tag1Bonus">150</span> Instant Bonus!
-          </div>
-          <div class="tag-content" id="tag1Content">Play skill-based Rummy, Teen Patti & slots. Safe withdrawals from ₹100. Start earning real cash in minutes – download APK & claim your bonus today! Referral Bonus: ₹<span id="tag1Ref">10</span></div>
-        </div>
-        <div class="tag-box">
-          <div class="tag-head">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-            Unlock ₹<span id="tag2Bonus">500</span> Bonus in <span id="tag2Title">Game Name</span> App!
-          </div>
-          <div class="tag-content" id="tag2Content">Enjoy thrilling games like Aviator, Rummy & more. Refer friends for extra cash. Fast, secure withdrawals via bank/UPI. Trusted by millions – start playing now! Referral Bonus: ₹<span id="tag2Ref">15</span></div>
-        </div>
-        <div class="tag-box">
-          <div class="tag-head">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/></svg></span>
-            <span id="tag3Title">Game Name</span> – Signup for ₹<span id="tag3Bonus">35</span>-₹<span id="tag3Bonus2">150</span> Free Bonus
-          </div>
-          <div class="tag-content" id="tag3Content">Play 20+ exciting games including Dragon vs Tiger & slots. Minimum deposit ₹100, instant payouts. Download now & earn real money daily! Referral Bonus: ₹<span id="tag3Ref">8</span></div>
-        </div>
-        <div class="tag-box">
-          <div class="tag-head">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><path d="M8 14h8"/></svg></span>
-            Experience <span id="tag4Title">Game Name</span> – ₹<span id="tag4Bonus">50</span> Welcome Bonus on Download
-          </div>
-          <div class="tag-content" id="tag4Content">Build sequences, join cash tournaments & daily mystery rewards. Safe, fun, and secure gaming – start winning real cash today! Referral Bonus: ₹<span id="tag4Ref">20</span></div>
-        </div>
-        <div class="tag-box">
-          <div class="tag-head">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-            Dive into <span id="tag5Title">Game Name</span> – India's Top Online Gaming App
-          </div>
-          <div class="tag-content" id="tag5Content">Get ₹<span id="tag5Bonus">51</span> signup bonus, play Rummy, Teen Patti, slots & Aviator. Withdraw from ₹100, join 1Cr+ players & claim daily bonuses. Download APK now! Referral Bonus: ₹<span id="tag5Ref">12</span></div>
-        </div>
-      </div>
+      <div class="tag-grid" id="tagGridContainer"></div>
     </div>
 
     <!-- ===== TABLE OF CONTENTS ===== -->
@@ -1037,7 +1082,7 @@
       </div>
     </div>
 
-    <!-- ===== TAGS ===== -->
+    <!-- ===== TAGS – All Yono Games (Dual Names) - UNCHANGED ===== -->
     <div class="game-tags-section">
       <div class="game-tags-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -1048,7 +1093,7 @@
       <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
-    <!-- ===== RELATED ===== -->
+    <!-- ===== OTHER RELATED YONO GAMES ===== -->
     <div class="related-section">
       <div class="related-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -1308,9 +1353,78 @@
 
     // --- Helper: Generate a unique version number per game ---
     function generateVersion(seed) {
-      var major = (seed % 8) + 1;  // 1-8
-      var minor = (seed * 3) % 10; // 0-9
+      var major = (seed % 8) + 1;
+      var minor = (seed * 3) % 10;
       return major + '.' + minor;
+    }
+
+    // --- Helper: Generate unique Top Offers tags ---
+    function generateTopOffers(gName, seed) {
+      var tagTemplates = [
+        {
+          icon: '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+          title: '{name} APK Download – Get ₹{bonus} Instant Bonus!',
+          content: 'Play skill-based Rummy, Teen Patti & slots. Safe withdrawals from ₹100. Start earning real cash in minutes – download {name} APK & claim your bonus today! Referral Bonus: ₹{ref}'
+        },
+        {
+          icon: '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+          title: 'Unlock ₹{bonus} Bonus in {name} App!',
+          content: 'Enjoy thrilling games like Aviator, Rummy & more. Refer friends for extra cash. Fast, secure withdrawals via bank/UPI. Trusted by millions – start playing {name} now! Referral Bonus: ₹{ref}'
+        },
+        {
+          icon: '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/></svg>',
+          title: '{name} – Signup for ₹{bonus1}-₹{bonus2} Free Bonus',
+          content: 'Play 20+ exciting games including Dragon vs Tiger & slots. Minimum deposit ₹100, instant payouts. Download {name} now & earn real money daily! Referral Bonus: ₹{ref}'
+        },
+        {
+          icon: '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><path d="M8 14h8"/></svg>',
+          title: 'Experience {name} – ₹{bonus} Welcome Bonus on Download',
+          content: 'Build sequences, join cash tournaments & daily mystery rewards. Safe, fun, and secure gaming – start winning real cash with {name} today! Referral Bonus: ₹{ref}'
+        },
+        {
+          icon: '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+          title: 'Dive into {name} – India\'s Top Online Gaming App',
+          content: 'Get ₹{bonus} signup bonus, play Rummy, Teen Patti, slots & Aviator. Withdraw from ₹100, join 1Cr+ players & claim daily bonuses. Download {name} APK now! Referral Bonus: ₹{ref}'
+        }
+      ];
+      
+      var bonus1 = 20 + (seed * 2) % 180;
+      var bonus2 = 20 + (seed * 4) % 180;
+      var bonus3 = 20 + (seed * 6) % 180;
+      var bonus4 = 20 + (seed * 8) % 180;
+      var bonus5 = 20 + (seed * 10) % 180;
+      var ref1 = 5 + (seed * 3) % 25;
+      var ref2 = 5 + (seed * 5) % 25;
+      var ref3 = 5 + (seed * 7) % 25;
+      var ref4 = 5 + (seed * 9) % 25;
+      var ref5 = 5 + (seed * 11) % 25;
+      
+      var bonuses = [bonus1, bonus2, bonus3, bonus4, bonus5];
+      var refs = [ref1, ref2, ref3, ref4, ref5];
+      
+      var html = '';
+      for (var i = 0; i < tagTemplates.length; i++) {
+        var t = tagTemplates[i];
+        var b = bonuses[i];
+        var r = refs[i];
+        var title = t.title
+          .replace(/{name}/g, gName)
+          .replace(/{bonus}/g, b)
+          .replace(/{bonus1}/g, b)
+          .replace(/{bonus2}/g, b + 20 + (seed * 3) % 60);
+        var content = t.content
+          .replace(/{name}/g, gName)
+          .replace(/{bonus}/g, b)
+          .replace(/{ref}/g, r);
+        html += '<div class="tag-box">';
+        html += '  <div class="tag-head">';
+        html += '    <span class="svg-icon">' + t.icon + '</span>';
+        html += '    ' + title;
+        html += '  </div>';
+        html += '  <div class="tag-content">' + content + '</div>';
+        html += '</div>';
+      }
+      return html;
     }
 
     function renderGrid() {
@@ -1380,7 +1494,7 @@
       document.getElementById('detailSignupText').textContent = game.bonus;
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
       
-      // Update Version badge - update version number
+      // Update Version badge
       document.querySelector('#detailVersionBadge .version').textContent = game.version;
       
       // Rating stars and value
@@ -1393,8 +1507,12 @@
       
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
 
-      const gName = game.name;
-      const seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
+      // --- Generate Top Offers dynamically ---
+      var gName = game.name;
+      var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
+      document.getElementById('tagGridContainer').innerHTML = generateTopOffers(gName, seed);
+
+      // --- TOC (unchanged) ---
       const b = {
         tag1: 20 + (seed * 3) % 880, tag2: 20 + (seed * 7) % 880,
         tag3: 20 + (seed * 2) % 880, tag3b: 20 + (seed * 4) % 880,
@@ -1463,6 +1581,7 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
 
+      // --- Tags (unchanged) ---
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -1506,6 +1625,7 @@
         tagsContainer.appendChild(tag);
       });
 
+      // --- Related Games with premium Download button ---
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       uniqueGames.filter(g => g.name !== game.name).forEach(g => {
@@ -1537,12 +1657,23 @@
             <div class="rbonus">🔴 Sign Up Bonus ${g.bonus}</div>
             <div class="rwithdraw">🏦 Min. Withdraw ${g.withdrawal}</div>
           </div>
-          <span class="rdownload">Download</span>
+          <span class="rdownload">
+            <span class="btn-icon">
+              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </span>
+            <span class="btn-text">Download</span>
+          </span>
         `;
         relatedGrid.appendChild(item);
 
+        // Click on the whole item opens detail
         item.addEventListener('click', function(e) {
-          e.stopPropagation();
+          // If click is on the download button, open the download link
+          if (e.target.closest('.rdownload')) {
+            e.stopPropagation();
+            window.open(this.dataset.downloadUrl, '_blank');
+            return;
+          }
           showDetail({
             name: this.dataset.name,
             altName: this.dataset.altName,
@@ -1557,6 +1688,15 @@
             version: this.dataset.version
           });
         });
+
+        // Download button click opens the URL directly
+        var downloadBtn = item.querySelector('.rdownload');
+        if (downloadBtn) {
+          downloadBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            window.open(item.dataset.downloadUrl, '_blank');
+          });
+        }
       });
 
       showDetailView();
