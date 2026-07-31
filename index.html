@@ -14,9 +14,8 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://allyonoappsite.com/">
   
-  <!-- ===== CUSTOM CSS - FORCE CACHE RELOAD ===== -->
+  <!-- Custom CSS with cache busting -->
   <link rel="stylesheet" href="custom.css" id="customCssLink">
-  
   <script>
     (function() {
       var link = document.getElementById('customCssLink');
@@ -28,10 +27,9 @@
   
   <style>
     /* ============================================================
-       BASE STYLES – FULL WHITE BACKGROUND & PREMIUM DOWNLOAD BUTTONS
+       BASE STYLES – FULL WHITE BACKGROUND
        ============================================================ */
 
-    /* --- FULL WHITE BACKGROUND --- */
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     body { background: #ffffff !important; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
     .container { max-width: 480px; width: 100%; background: #ffffff !important; min-height: 100vh; overflow: hidden; }
@@ -167,7 +165,7 @@
     @keyframes ledGlowGreen { 0%,100%{ box-shadow:0 0 12px rgba(0,255,0,0.3); } 50%{ box-shadow:0 0 25px rgba(0,255,0,0.6),0 0 40px rgba(0,255,0,0.2); } }
     @keyframes ledGlowGold { 0%,100%{ box-shadow:0 0 12px rgba(255,170,0,0.3); } 50%{ box-shadow:0 0 25px rgba(255,170,0,0.6),0 0 40px rgba(255,170,0,0.2); } }
 
-    /* --- META BADGES WITH SVG LED ICONS --- */
+    /* --- META BADGES WITH SVG LED ICONS (fixed values) --- */
     .game-meta-detail {
       display: flex;
       flex-wrap: wrap;
@@ -202,67 +200,55 @@
       fill: none;
     }
 
-    /* Rating – Green + Cyan LED (4 stars) */
     .meta-item.rating .meta-icon {
       border: 2px solid #00ff00;
       box-shadow: 0 0 12px rgba(0,255,0,0.3);
       animation: ledGlowGreenCyan 3s ease-in-out infinite;
       background: #0a0a0a;
     }
-    .meta-item.rating .meta-icon svg {
-      stroke: #00ff00;
-    }
+    .meta-item.rating .meta-icon svg { stroke: #00ff00; }
     @keyframes ledGlowGreenCyan {
       0%,100%{ box-shadow:0 0 12px rgba(0,255,0,0.3); border-color:#00ff00; }
       50%{ box-shadow:0 0 25px rgba(0,255,255,0.6),0 0 40px rgba(0,255,0,0.2); border-color:#00ffff; }
     }
 
-    /* Size – Pink + Blue LED */
     .meta-item.size .meta-icon {
       border: 2px solid #ff1493;
       box-shadow: 0 0 12px rgba(255,20,147,0.3);
       animation: ledGlowPinkBlue 3s ease-in-out infinite;
       background: #0a0a0a;
     }
-    .meta-item.size .meta-icon svg {
-      stroke: #ff1493;
-    }
+    .meta-item.size .meta-icon svg { stroke: #ff1493; }
     @keyframes ledGlowPinkBlue {
       0%,100%{ box-shadow:0 0 12px rgba(255,20,147,0.3); border-color:#ff1493; }
       50%{ box-shadow:0 0 25px rgba(0,150,255,0.6),0 0 40px rgba(255,20,147,0.2); border-color:#0096ff; }
     }
 
-    /* Votes – Dark HD LED (dark blue/purple) */
     .meta-item.votes .meta-icon {
       border: 2px solid #4a00e0;
       box-shadow: 0 0 12px rgba(74,0,224,0.3);
       animation: ledGlowDark 3s ease-in-out infinite;
       background: #0a0a0a;
     }
-    .meta-item.votes .meta-icon svg {
-      stroke: #4a00e0;
-    }
+    .meta-item.votes .meta-icon svg { stroke: #4a00e0; }
     @keyframes ledGlowDark {
       0%,100%{ box-shadow:0 0 12px rgba(74,0,224,0.3); border-color:#4a00e0; }
       50%{ box-shadow:0 0 30px rgba(138,43,226,0.6),0 0 50px rgba(74,0,224,0.2); border-color:#8a2be2; }
     }
 
-    /* Bonus – Red LED */
     .meta-item.bonus .meta-icon {
       border: 2px solid #ff0000;
       box-shadow: 0 0 12px rgba(255,0,0,0.3);
       animation: ledGlowRed 3s ease-in-out infinite;
       background: #0a0a0a;
     }
-    .meta-item.bonus .meta-icon svg {
-      stroke: #ff0000;
-    }
+    .meta-item.bonus .meta-icon svg { stroke: #ff0000; }
     @keyframes ledGlowRed {
       0%,100%{ box-shadow:0 0 12px rgba(255,0,0,0.3); border-color:#ff0000; }
       50%{ box-shadow:0 0 30px rgba(255,0,0,0.6),0 0 50px rgba(255,50,50,0.2); border-color:#ff3333; }
     }
 
-    /* ===== PREMIUM DETAIL DOWNLOAD BUTTON ===== */
+    /* ===== PREMIUM DOWNLOAD BUTTON ===== */
     .detail-download { margin-top: 10px; }
     .detail-download .download-btn {
       display: flex;
@@ -313,12 +299,14 @@
       100% { box-shadow:0 0 15px rgba(0,255,0,0.3),0 0 30px rgba(0,188,212,0.1); border-color:#00ff00; }
     }
 
-    /* --- TAG, FAQ, TOC (SVG icons replaced) --- */
+    /* --- TAG, FAQ, TOC (now using SVGs for all icons) --- */
     .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .tag-grid { display: flex; flex-direction: column; gap: 6px; }
     .tag-box { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; }
     .tag-box .tag-head { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; }
+    .tag-box .tag-head .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
+    .tag-box .tag-head .svg-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
     .tag-box .tag-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
 
     .faq-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
@@ -326,6 +314,8 @@
     .faq-grid { display: flex; flex-direction: column; gap: 6px; }
     .faq-box { background: #f8fafc; border-radius: 12px; padding: 10px 12px; border: 1px solid #e9edf4; }
     .faq-box .faq-q { font-weight: 700; font-size: 0.75rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+    .faq-box .faq-q .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: #000; border: 2px solid #ff0000; box-shadow: 0 0 12px rgba(255,0,0,0.3); animation: ledGlowRed 3s ease-in-out infinite; flex-shrink: 0; }
+    .faq-box .faq-q .svg-icon svg { width: 12px; height: 12px; stroke: #ff0000; fill: none; }
     .faq-box .faq-a { font-size: 0.65rem; color: #334155; line-height: 1.5; }
 
     .toc-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
@@ -342,6 +332,8 @@
     .toc-item { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; }
     .toc-item .toc-item-head { font-weight: 700; font-size: 0.78rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
     .toc-item .toc-item-head .num { background: #1e293b; color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 700; flex-shrink: 0; }
+    .toc-item .toc-item-head .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; flex-shrink: 0; }
+    .toc-item .toc-item-head .svg-icon svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
     .toc-item .toc-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
     .toc-item .toc-content ul { list-style: none; padding: 0; margin: 3px 0 0 0; }
     .toc-item .toc-content ul li { padding: 2px 0; font-size: 0.7rem; color: #334155; }
@@ -367,9 +359,8 @@
     .related-item .rdownload { background: #00bcd4; color: white; border: none; padding: 2px 8px; border-radius: 40px; font-weight: 600; font-size: 0.4rem; white-space: nowrap; cursor: pointer; }
 
     /* ============================================================
-       HOME PAGE GRID
+       HOME PAGE GRID (unchanged)
        ============================================================ */
-
     #mainGrid { display: flex; flex-direction: column; gap: 6px; padding: 8px; }
     .card {
       background: white;
@@ -536,6 +527,12 @@
       .detail-info .game-sub .min-withdraw .led-svg-icon { width: 20px; height: 20px; }
       .detail-info .game-sub .signup-bonus .led-svg-icon svg,
       .detail-info .game-sub .min-withdraw .led-svg-icon svg { width: 12px; height: 12px; }
+      .tag-box .tag-head .svg-icon { width: 18px; height: 18px; }
+      .tag-box .tag-head .svg-icon svg { width: 13px; height: 13px; }
+      .toc-item .toc-item-head .svg-icon { width: 16px; height: 16px; }
+      .toc-item .toc-item-head .svg-icon svg { width: 12px; height: 12px; }
+      .faq-box .faq-q .svg-icon { width: 18px; height: 18px; }
+      .faq-box .faq-q .svg-icon svg { width: 10px; height: 10px; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -666,38 +663,42 @@
         <div class="detail-info">
           <div class="game-name" id="detailName">Game Name <span class="alt">| Alt Name</span></div>
           <div class="game-sub">
-            <span class="signup-bonus" id="detailSignup">
+            <span class="signup-bonus">
               <span class="led-svg-icon">
                 <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4 12H2M6 12H4M20 12h-2M22 12h-2M19.07 4.93l-2.83 2.83M4.93 19.07l2.83-2.83M19.07 19.07l-2.83-2.83M4.93 4.93l2.83 2.83"/><circle cx="12" cy="12" r="3"/></svg>
               </span>
-              <span id="detailSignupText">🔴 Sign Up Bonus ₹45</span>
+              <span id="detailSignupText">Sign Up Bonus ₹45</span>
             </span>
-            <span class="min-withdraw" id="detailWithdraw">
+            <span class="min-withdraw">
               <span class="led-svg-icon">
                 <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><path d="M8 14h8"/></svg>
               </span>
-              <span id="detailWithdrawText">🏦 Min. Withdraw ₹100</span>
+              <span id="detailWithdrawText">Min. Withdraw ₹100</span>
             </span>
           </div>
           <div class="game-meta-detail">
+            <!-- Rating -->
             <span class="meta-item rating">
               <span class="meta-icon">
                 <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
               </span>
               <span id="detailRating">4.5</span>
             </span>
+            <!-- Size -->
             <span class="meta-item size">
               <span class="meta-icon">
                 <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
               </span>
               <span id="detailSize">55 MB</span>
             </span>
+            <!-- Votes -->
             <span class="meta-item votes">
               <span class="meta-icon">
                 <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </span>
               <span id="detailVotes">26K</span>
             </span>
+            <!-- Bonus -->
             <span class="meta-item bonus">
               <span class="meta-icon">
                 <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
@@ -712,22 +713,54 @@
       </div>
     </div>
 
-    <!-- TAG SECTION -->
+    <!-- ===== TOP OFFERS ===== -->
     <div class="tag-section">
-      <div class="tag-title" id="tagSectionTitle">
-        <span class="led-icon green-cyan glow-bg"><span class="inner-icon">📢</span></span>
+      <div class="tag-title">
+        <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#000; border:2px solid #00ddff; box-shadow:0 0 15px rgba(0,200,255,0.3);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00ddff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </span>
         <span>Top Offers</span>
       </div>
       <div class="tag-grid" id="tagGridContainer">
-        <div class="tag-box"><div class="tag-head"><span class="led-icon gold-pink glow-bg"><span class="inner-icon">🏆</span></span> <span id="tag1Title">Game Name</span> APK Download – Get ₹<span id="tag1Bonus">150</span> Instant Bonus!</div><div class="tag-content" id="tag1Content">Play skill-based Rummy, Teen Patti & slots. Safe withdrawals from ₹100. Start earning real cash in minutes – download APK & claim your bonus today! Referral Bonus: ₹<span id="tag1Ref">10</span></div></div>
-        <div class="tag-box"><div class="tag-head"><span class="led-icon gold-pink glow-bg"><span class="inner-icon">💰</span></span> Unlock ₹<span id="tag2Bonus">500</span> Bonus in <span id="tag2Title">Game Name</span> App!</div><div class="tag-content" id="tag2Content">Enjoy thrilling games like Aviator, Rummy & more. Refer friends for extra cash. Fast, secure withdrawals via bank/UPI. Trusted by millions – start playing now! Referral Bonus: ₹<span id="tag2Ref">15</span></div></div>
-        <div class="tag-box"><div class="tag-head"><span class="led-icon red-dark glow-bg"><span class="inner-icon">🎁</span></span> <span id="tag3Title">Game Name</span> – Signup for ₹<span id="tag3Bonus">35</span>-₹<span id="tag3Bonus2">150</span> Free Bonus</div><div class="tag-content" id="tag3Content">Play 20+ exciting games including Dragon vs Tiger & slots. Minimum deposit ₹100, instant payouts. Download now & earn real money daily! Referral Bonus: ₹<span id="tag3Ref">8</span></div></div>
-        <div class="tag-box"><div class="tag-head"><span class="led-icon green-red-yellow glow-bg"><span class="inner-icon">🎰</span></span> Experience <span id="tag4Title">Game Name</span> – ₹<span id="tag4Bonus">50</span> Welcome Bonus on Download</div><div class="tag-content" id="tag4Content">Build sequences, join cash tournaments & daily mystery rewards. Safe, fun, and secure gaming – start winning real cash today! Referral Bonus: ₹<span id="tag4Ref">20</span></div></div>
-        <div class="tag-box"><div class="tag-head"><span class="led-icon yellow-white-green glow-bg"><span class="inner-icon">🇮🇳</span></span> Dive into <span id="tag5Title">Game Name</span> – India's Top Online Gaming App</div><div class="tag-content" id="tag5Content">Get ₹<span id="tag5Bonus">51</span> signup bonus, play Rummy, Teen Patti, slots & Aviator. Withdraw from ₹100, join 1Cr+ players & claim daily bonuses. Download APK now! Referral Bonus: ₹<span id="tag5Ref">12</span></div></div>
+        <div class="tag-box">
+          <div class="tag-head">
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            <span id="tag1Title">Game Name</span> APK Download – Get ₹<span id="tag1Bonus">150</span> Instant Bonus!
+          </div>
+          <div class="tag-content" id="tag1Content">Play skill-based Rummy, Teen Patti & slots. Safe withdrawals from ₹100. Start earning real cash in minutes – download APK & claim your bonus today! Referral Bonus: ₹<span id="tag1Ref">10</span></div>
+        </div>
+        <div class="tag-box">
+          <div class="tag-head">
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            Unlock ₹<span id="tag2Bonus">500</span> Bonus in <span id="tag2Title">Game Name</span> App!
+          </div>
+          <div class="tag-content" id="tag2Content">Enjoy thrilling games like Aviator, Rummy & more. Refer friends for extra cash. Fast, secure withdrawals via bank/UPI. Trusted by millions – start playing now! Referral Bonus: ₹<span id="tag2Ref">15</span></div>
+        </div>
+        <div class="tag-box">
+          <div class="tag-head">
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/></svg></span>
+            <span id="tag3Title">Game Name</span> – Signup for ₹<span id="tag3Bonus">35</span>-₹<span id="tag3Bonus2">150</span> Free Bonus
+          </div>
+          <div class="tag-content" id="tag3Content">Play 20+ exciting games including Dragon vs Tiger & slots. Minimum deposit ₹100, instant payouts. Download now & earn real money daily! Referral Bonus: ₹<span id="tag3Ref">8</span></div>
+        </div>
+        <div class="tag-box">
+          <div class="tag-head">
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><path d="M8 14h8"/></svg></span>
+            Experience <span id="tag4Title">Game Name</span> – ₹<span id="tag4Bonus">50</span> Welcome Bonus on Download
+          </div>
+          <div class="tag-content" id="tag4Content">Build sequences, join cash tournaments & daily mystery rewards. Safe, fun, and secure gaming – start winning real cash today! Referral Bonus: ₹<span id="tag4Ref">20</span></div>
+        </div>
+        <div class="tag-box">
+          <div class="tag-head">
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+            Dive into <span id="tag5Title">Game Name</span> – India's Top Online Gaming App
+          </div>
+          <div class="tag-content" id="tag5Content">Get ₹<span id="tag5Bonus">51</span> signup bonus, play Rummy, Teen Patti, slots & Aviator. Withdraw from ₹100, join 1Cr+ players & claim daily bonuses. Download APK now! Referral Bonus: ₹<span id="tag5Ref">12</span></div>
+        </div>
       </div>
     </div>
 
-    <!-- TOC SECTION -->
+    <!-- ===== TABLE OF CONTENTS ===== -->
     <div class="toc-section">
       <div class="toc-header" id="tocToggle">
         <div class="toc-left">
@@ -740,11 +773,19 @@
       </div>
       <div class="toc-body" id="tocBody">
         <div class="toc-item">
-          <div class="toc-item-head"><span class="num">1</span> 📖 Overview – <span id="toc1Name">Game Name</span></div>
+          <div class="toc-item-head">
+            <span class="num">1</span>
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="12" y2="12"/></svg></span>
+            Overview – <span id="toc1Name">Game Name</span>
+          </div>
           <div class="toc-content" id="toc1Content"><span id="toc1Name2">Game Name</span> is a popular real cash earning app in India where users can play games like rummy, slots, bingo, and spin games to win real money. New users can claim a signup bonus of up to ₹<span id="toc1Bonus">75</span>, making it easy to get started and explore the platform. The app offers a smooth and secure experience with fast UPI deposits and withdrawals.<br><br>The interface of <span id="toc1Name3">Game Name</span> is simple and user-friendly, making it suitable for both beginners and experienced players. You can enjoy daily rewards, referral bonuses, and special events to increase your earnings. The minimum withdrawal starts from ₹<span id="toc1Withdraw">100</span>, and most transactions are processed quickly without delays.<br><br>If you are looking for a trusted gaming app that combines entertainment with real earning opportunities, <span id="toc1Name4">Game Name</span> is a great choice. Download the latest APK version today and start playing to earn real cash rewards from your mobile.</div>
         </div>
         <div class="toc-item">
-          <div class="toc-item-head"><span class="num">2</span> ✨ <span id="toc2Name">Game Name</span> App Features & Benefits</div>
+          <div class="toc-item-head">
+            <span class="num">2</span>
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+            <span id="toc2Name">Game Name</span> App Features & Benefits
+          </div>
           <div class="toc-content" id="toc2Content">
             <ul>
               <li><strong>Welcome Bonus:</strong> Get up to ₹<span id="toc2Bonus1">75</span> signup bonus for new users</li>
@@ -757,7 +798,11 @@
           </div>
         </div>
         <div class="toc-item">
-          <div class="toc-item-head"><span class="num">3</span> 📥 How to Download & Install <span id="toc3Name">Game Name</span></div>
+          <div class="toc-item-head">
+            <span class="num">3</span>
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+            How to Download & Install <span id="toc3Name">Game Name</span>
+          </div>
           <div class="toc-content" id="toc3Content">
             <ul>
               <li><strong>1.</strong> Tap the big Download button above</li>
@@ -769,11 +814,19 @@
           </div>
         </div>
         <div class="toc-item">
-          <div class="toc-item-head"><span class="num">4</span> 🔒 <span id="toc4Name">Game Name</span> Safety & Security</div>
+          <div class="toc-item-head">
+            <span class="num">4</span>
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+            <span id="toc4Name">Game Name</span> Safety & Security
+          </div>
           <div class="toc-content" id="toc4Content"><span id="toc4Name2">Game Name</span> is designed to provide a secure and reliable gaming experience. The app uses standard encryption and protected payment systems to help keep user data and transactions safe.<br><br>Deposits and withdrawals are processed through commonly used methods such as UPI and bank transfer, offering a convenient experience for users in India. However, users are advised to play responsibly and review the app's terms and policies before using it.</div>
         </div>
         <div class="toc-item">
-          <div class="toc-item-head"><span class="num">5</span> 🏆 Why Choose <span id="toc5Name">Game Name</span> App?</div>
+          <div class="toc-item-head">
+            <span class="num">5</span>
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            Why Choose <span id="toc5Name">Game Name</span> App?
+          </div>
           <div class="toc-content" id="toc5Content">
             <ul>
               <li><strong>Attractive welcome bonus</strong> of up to ₹<span id="toc5Bonus1">75</span> for new users</li>
@@ -788,33 +841,63 @@
       </div>
     </div>
 
-    <!-- FAQ SECTION -->
+    <!-- ===== FAQ ===== -->
     <div class="faq-section">
       <div class="faq-title">
-        <span class="led-icon red-yellow glow-bg"><span class="inner-icon">❓</span></span>
+        <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#000; border:2px solid #ffaa00; box-shadow:0 0 15px rgba(255,170,0,0.3);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffaa00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </span>
         <span>Frequently Asked Questions</span>
       </div>
       <div class="faq-grid">
-        <div class="faq-box"><div class="faq-q"><span class="led-icon white-red glow-bg" style="width:20px;height:20px;"><span class="inner-icon" style="font-size:0.5rem;">Q</span></span> 1. What Is The <span id="faq1Name">Game Name</span> app APK?</div><div class="faq-a" id="faq1Content">The <span id="faq1Name2">Game Name</span> APP APK is an excellent application that offers users a sign-up bonus of ₹<span id="faq1Bonus">700</span> when they join. This game includes a fantastic bonus program, and you can learn more by reading the complete post. Additionally, <span id="faq1Name3">Game Name</span> APK is a popular slots game with a minimum withdrawal amount of ₹100. Referral Bonus: ₹<span id="faq1Ref">25</span></div></div>
-        <div class="faq-box"><div class="faq-q"><span class="led-icon white-red glow-bg" style="width:20px;height:20px;"><span class="inner-icon" style="font-size:0.5rem;">Q</span></span> 2. How to Sign Up for <span id="faq2Name">Game Name</span> APK?</div><div class="faq-a" id="faq2Content">To sign up for the <span id="faq2Name2">Game Name</span> APK, follow these steps:<br><strong>•</strong> Click on the Download Button for the <span id="faq2Name3">Game Name</span> APK.<br><strong>•</strong> Select OK to start the download.<br><strong>•</strong> Install the App application on your smartphone.<br><strong>•</strong> Open the new app and click on Play as Guest.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br>After completing these steps, you will receive a sign-up bonus of ₹<span id="faq2Bonus">500</span>. Referral Bonus: ₹<span id="faq2Ref">18</span></div></div>
-        <div class="faq-box"><div class="faq-q"><span class="led-icon white-red glow-bg" style="width:20px;height:20px;"><span class="inner-icon" style="font-size:0.5rem;">Q</span></span> 3. How Many Games Are Available In The <span id="faq3Name">Game Name</span> App?</div><div class="faq-a" id="faq3Content">The <span id="faq3Name2">Game Name</span> app offers support for 75+ different types of games. You can enjoy a variety of games such as Rummy, Teen Patti, 7 Up Down, Dragon vs Tiger, and many more.</div></div>
-        <div class="faq-box"><div class="faq-q"><span class="led-icon white-red glow-bg" style="width:20px;height:20px;"><span class="inner-icon" style="font-size:0.5rem;">Q</span></span> 4. What are some of the best features of the <span id="faq4Name">Game Name</span> app APK?</div><div class="faq-a" id="faq4Content"><strong>•</strong> Enjoy a bonus of ₹<span id="faq4Bonus">51</span> for free in the APK.<br><strong>•</strong> Access to 20 gaming options.<br><strong>•</strong> Earn up to ₹<span id="faq4Bonus2">150</span> for inviting friends.<br><strong>•</strong> Withdrawals can be made starting from a minimum of ₹<span id="faq4Withdraw">500</span>.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br><strong>•</strong> The minimum deposit required is ₹<span id="faq4Deposit">100</span>. Referral Bonus: ₹<span id="faq4Ref">22</span></div></div>
+        <div class="faq-box">
+          <div class="faq-q">
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            1. What Is The <span id="faq1Name">Game Name</span> app APK?
+          </div>
+          <div class="faq-a" id="faq1Content">The <span id="faq1Name2">Game Name</span> APP APK is an excellent application that offers users a sign-up bonus of ₹<span id="faq1Bonus">700</span> when they join. This game includes a fantastic bonus program, and you can learn more by reading the complete post. Additionally, <span id="faq1Name3">Game Name</span> APK is a popular slots game with a minimum withdrawal amount of ₹100. Referral Bonus: ₹<span id="faq1Ref">25</span></div>
+        </div>
+        <div class="faq-box">
+          <div class="faq-q">
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            2. How to Sign Up for <span id="faq2Name">Game Name</span> APK?
+          </div>
+          <div class="faq-a" id="faq2Content">To sign up for the <span id="faq2Name2">Game Name</span> APK, follow these steps:<br><strong>•</strong> Click on the Download Button for the <span id="faq2Name3">Game Name</span> APK.<br><strong>•</strong> Select OK to start the download.<br><strong>•</strong> Install the App application on your smartphone.<br><strong>•</strong> Open the new app and click on Play as Guest.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br>After completing these steps, you will receive a sign-up bonus of ₹<span id="faq2Bonus">500</span>. Referral Bonus: ₹<span id="faq2Ref">18</span></div>
+        </div>
+        <div class="faq-box">
+          <div class="faq-q">
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            3. How Many Games Are Available In The <span id="faq3Name">Game Name</span> App?
+          </div>
+          <div class="faq-a" id="faq3Content">The <span id="faq3Name2">Game Name</span> app offers support for 75+ different types of games. You can enjoy a variety of games such as Rummy, Teen Patti, 7 Up Down, Dragon vs Tiger, and many more.</div>
+        </div>
+        <div class="faq-box">
+          <div class="faq-q">
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            4. What are some of the best features of the <span id="faq4Name">Game Name</span> app APK?
+          </div>
+          <div class="faq-a" id="faq4Content"><strong>•</strong> Enjoy a bonus of ₹<span id="faq4Bonus">51</span> for free in the APK.<br><strong>•</strong> Access to 20 gaming options.<br><strong>•</strong> Earn up to ₹<span id="faq4Bonus2">150</span> for inviting friends.<br><strong>•</strong> Withdrawals can be made starting from a minimum of ₹<span id="faq4Withdraw">500</span>.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br><strong>•</strong> The minimum deposit required is ₹<span id="faq4Deposit">100</span>. Referral Bonus: ₹<span id="faq4Ref">22</span></div>
+        </div>
       </div>
     </div>
 
-    <!-- GAME TAGS SECTION -->
+    <!-- ===== TAGS ===== -->
     <div class="game-tags-section">
       <div class="game-tags-title">
-        <span class="led-icon green-cyan glow-bg"><span class="inner-icon">🏷️</span></span>
+        <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#000; border:2px solid #00ff88; box-shadow:0 0 15px rgba(0,255,136,0.3);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        </span>
         <span>Tags – All Yono Games (Dual Names)</span>
       </div>
       <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
-    <!-- RELATED SECTION -->
+    <!-- ===== RELATED ===== -->
     <div class="related-section">
       <div class="related-title">
-        <span class="led-icon gold-pink glow-bg"><span class="inner-icon">💲</span></span>
+        <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#000; border:2px solid #ffd700; box-shadow:0 0 15px rgba(255,215,0,0.3);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </span>
         <span>Other Related Yono Games</span>
       </div>
       <div class="related-grid" id="relatedGrid"></div>
@@ -1093,18 +1176,20 @@
     renderGrid();
 
     function showDetail(game) {
-      // Set fixed values as requested: Rating 4.5, Size 55 MB, Votes 26K, Bonus ₹45
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
-      document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • Welcome ' + game.bonus + ' Bonus';
-      document.getElementById('detailSignupText').textContent = '🔴 Sign Up Bonus ' + game.bonus;
-      document.getElementById('detailWithdrawText').textContent = '🏦 Min. Withdraw ' + game.withdrawal;
+      document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • Welcome Bonus';
       
-      // Fixed values
+      // Fixed values: Sign Up Bonus ₹45, Min Withdraw ₹100
+      document.getElementById('detailSignupText').textContent = 'Sign Up Bonus ₹45';
+      document.getElementById('detailWithdrawText').textContent = 'Min. Withdraw ₹100';
+      
+      // Fixed meta values
       document.getElementById('detailRating').textContent = '4.5';
       document.getElementById('detailSize').textContent = '55 MB';
       document.getElementById('detailVotes').textContent = '26K';
       document.getElementById('detailBonus').textContent = '₹45';
+      
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
 
       const gName = game.name;
