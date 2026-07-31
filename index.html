@@ -1,3 +1,4 @@
+000
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +15,17 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://allyonoappsite.com/">
   
-  <!-- Custom CSS - Add your custom styles here -->
-  <link rel="stylesheet" href="custom.css">
+  <!-- ===== CUSTOM CSS - CACHE BUSTING WITH VERSION ===== -->
+  <!-- Change the v= number to force refresh when you update custom.css -->
+  <link rel="stylesheet" href="custom.css?v=2.0">
   
+  <!-- ===== BASE STYLES (FALLBACK) ===== -->
   <style>
+    /* These are base styles that will be overridden by custom.css */
+    /* If custom.css fails to load, these provide a clean white background */
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
-    body { background: #f5f7fc; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
-    .container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; overflow: hidden; }
+    body { background: #ffffff; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    .container { max-width: 480px; width: 100%; background: #ffffff; min-height: 100vh; overflow: hidden; }
 
     /* ===== SUPER FAST TRANSITIONS (NO DELAYS) ===== */
     #mainGrid, #detailView { transition: none !important; }
@@ -730,13 +735,11 @@
           return response.text();
         })
         .then(html => {
-          // Extract body content or use full HTML
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, 'text/html');
           const bodyContent = doc.body ? doc.body.innerHTML : html;
           contentElement.innerHTML = bodyContent;
           
-          // Add back button if not present
           const hasBackBtn = contentElement.querySelector('.static-back-btn');
           if (!hasBackBtn) {
             const backWrap = document.createElement('div');
@@ -749,7 +752,6 @@
             `;
             contentElement.appendChild(backWrap);
             
-            // Add event listener to the new back button
             backWrap.querySelector('.static-back-btn').addEventListener('click', function() {
               if (overlay.style.display === 'flex') overlay.style.display = 'none';
               hideAllNavActive();
@@ -761,19 +763,13 @@
         })
         .catch(error => {
           console.warn('Could not load ' + fileName + ':', error);
-          // Fallback: show a simple message without error
           contentElement.innerHTML = '<p style="color: #64748b; text-align: center;">Content not available</p>';
         });
     }
 
-    // ---------- Load page content from external files with correct capitalization ----------
-    // About page loads from About.html
+    // Load with correct capitalization
     loadPageContent(aboutContent, 'About.html');
-    
-    // Contact page loads from Contact.html
     loadPageContent(contactContent, 'Contact.html');
-    
-    // Disclaimer page loads from Disclaimer.html
     loadPageContent(disclaimerContent, 'Disclaimer.html');
 
     // ---------- helpers ----------
