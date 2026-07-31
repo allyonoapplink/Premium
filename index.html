@@ -140,23 +140,74 @@
     .nav-small:active { transform: scale(0.95); }
     .nav-small.active { background: #1e293b; color: white; border-color: #1e293b; }
 
-    /* --- GAME DETAIL HEADER --- */
-    .game-detail-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; background: #f8fafc; border-bottom: 1px solid #e9edf4; }
-    .back-btn { background: #eef2ff; border: none; padding: 3px 12px; border-radius: 40px; font-weight: 600; font-size: 0.6rem; color: #1e293b; cursor: pointer; }
+    /* --- GAME DETAIL HEADER (Back button left, Game Name right) --- */
+    .game-detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 14px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e9edf4;
+    }
+    .back-btn {
+      background: #eef2ff;
+      border: none;
+      padding: 3px 12px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.6rem;
+      color: #1e293b;
+      cursor: pointer;
+      margin-right: 10px;
+    }
     .back-btn:active { transform: scale(0.95); }
-    .game-detail-title { font-weight: 700; font-size: 0.6rem; color: #ffffff !important; background: #1e293b; padding: 4px 12px; border-radius: 40px; cursor: pointer; white-space: nowrap; }
+    .detail-header-title {
+      font-weight: 700;
+      font-size: 0.7rem;
+      color: #0b1e33;
+      flex: 1;
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-    /* --- DETAIL CARD --- */
+    /* --- DETAIL CARD LAYOUT --- */
     .detail-card { background: white; padding: 14px; border-bottom: 1px solid #e9edf4; }
-    .detail-top { display: flex; gap: 12px; align-items: center; }
-    .detail-img { width: 65px; height: 65px; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
+    .detail-top {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .detail-img {
+      width: 65px;
+      height: 65px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      flex-shrink: 0;
+    }
     .detail-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .detail-info { flex: 1; }
-    .detail-info .game-name { font-weight: 800; font-size: 1rem; color: #0b1e33; }
-    .detail-info .game-name .alt { font-weight: 400; font-size: 0.7rem; color: #6b7280; }
+    .detail-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .detail-info .game-name {
+      font-weight: 800;
+      font-size: 1rem;
+      color: #0b1e33;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .detail-info .game-name .alt {
+      font-weight: 400;
+      font-size: 0.7rem;
+      color: #6b7280;
+    }
 
-    /* --- GAME SUB (Sign Up Bonus & Min Withdraw) --- */
-    .detail-info .game-sub {
+    /* --- Sign Up & Min Withdraw (original model) --- */
+    .game-sub {
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -166,9 +217,10 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 500;
       color: #0b1e33;
+      flex-wrap: wrap;
     }
     .info-row .svg-icon {
       display: inline-flex;
@@ -177,8 +229,8 @@
       flex-shrink: 0;
     }
     .info-row .svg-icon svg {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       stroke-width: 2;
       fill: none;
       stroke-linecap: round;
@@ -192,59 +244,108 @@
       font-weight: 700;
       color: #0b1e33;
     }
+    .info-row.signup .svg-icon svg { stroke: #f39c12; }
+    .info-row.withdraw .svg-icon svg { stroke: #3498db; }
 
-    /* --- META SECTION (Rating, Size, Votes, Bonus) --- */
-    .game-meta-detail {
-      display: flex;
-      flex-wrap: wrap;
+    /* --- Update Version badge (on right of Min Withdraw) --- */
+    .update-badge {
+      display: inline-flex;
       align-items: center;
-      gap: 12px 16px;
+      gap: 4px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #ff0000;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      padding: 2px 10px 2px 8px;
+      border: 2px solid #ff0000;
+      border-radius: 30px;
+      background: rgba(255,0,0,0.04);
+      box-shadow: 0 0 10px rgba(255,0,0,0.2);
+      animation: updateGlow 2s ease-in-out infinite;
+      white-space: nowrap;
+      margin-left: auto;
+    }
+    .update-badge .version {
+      font-weight: 800;
+    }
+    .update-badge .new-label {
+      font-weight: 600;
+    }
+    @keyframes updateGlow {
+      0%,100% {
+        box-shadow: 0 0 6px rgba(255,0,0,0.15);
+        border-color: #ff0000;
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(255,0,0,0.5), 0 0 40px rgba(255,0,0,0.15);
+        border-color: #ff4444;
+        color: #ff4444;
+      }
+    }
+
+    /* --- Meta block: two rows with Rating, Size, Votes (no Bonus) --- */
+    .meta-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
       margin-top: 10px;
       padding-top: 10px;
       border-top: 1px solid #e9edf4;
     }
-    .meta-item {
+    .meta-row {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 5px;
+      gap: 12px 16px;
       font-size: 0.7rem;
       font-weight: 500;
       color: #0b1e33;
     }
-    .meta-item .svg-icon {
+    .meta-row .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .meta-row .meta-item .svg-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .meta-item .svg-icon svg {
-      width: 18px;
-      height: 18px;
+    .meta-row .meta-item .svg-icon svg {
+      width: 16px;
+      height: 16px;
       stroke-width: 2;
       fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    .meta-item .label {
+    .meta-row .meta-item .label {
       color: #64748b;
       font-weight: 400;
     }
-    .meta-item .value {
+    .meta-row .meta-item .value {
       font-weight: 700;
     }
 
-    /* --- Rating stars (green glow) --- */
+    /* Rating stars with value to the right */
+    .meta-item.rating .rating-container {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
     .meta-item.rating .stars {
       display: flex;
       gap: 1px;
       align-items: center;
     }
     .meta-item.rating .stars svg {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       stroke: #00cc44;
       fill: #00cc44;
-      filter: drop-shadow(0 0 4px rgba(0,204,68,0.3));
+      filter: drop-shadow(0 0 3px rgba(0,204,68,0.3));
       animation: starGlow 2.5s ease-in-out infinite;
     }
     .meta-item.rating .stars .half-star svg {
@@ -252,22 +353,17 @@
       stroke: #00cc44;
     }
     @keyframes starGlow {
-      0%,100%{ filter: drop-shadow(0 0 3px rgba(0,204,68,0.2)); }
-      50%{ filter: drop-shadow(0 0 10px rgba(0,204,68,0.5)); }
+      0%,100%{ filter: drop-shadow(0 0 2px rgba(0,204,68,0.2)); }
+      50%{ filter: drop-shadow(0 0 8px rgba(0,204,68,0.5)); }
     }
     .meta-item.rating .rating-value {
       font-weight: 700;
       font-size: 0.75rem;
-      margin-left: 2px;
-      color: #0b1e33;
     }
 
-    /* --- Icon colors (consistent, premium) --- */
+    /* Icon colors for meta */
     .meta-item.size .svg-icon svg { stroke: #00bcd4; }
     .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
-    .meta-item.bonus .svg-icon svg { stroke: #e74c3c; }
-    .info-row.signup .svg-icon svg { stroke: #f39c12; }
-    .info-row.withdraw .svg-icon svg { stroke: #3498db; }
 
     /* ===== PREMIUM DOWNLOAD BUTTON ===== */
     .detail-download { margin-top: 12px; }
@@ -539,18 +635,15 @@
       .card-download-sm::before { width: 12px !important; height: 12px !important; }
       .detail-download .download-btn { font-size: 0.8rem; padding: 10px 16px; gap: 8px; }
       .detail-download .download-btn::before { width: 18px; height: 18px; }
-      .meta-item { font-size: 0.6rem; gap: 4px; }
-      .meta-item .svg-icon svg { width: 15px; height: 15px; }
-      .meta-item.rating .stars svg { width: 15px; height: 15px; }
+      .meta-row { gap: 8px; font-size: 0.6rem; }
+      .meta-row .meta-item .svg-icon svg { width: 14px; height: 14px; }
+      .meta-item.rating .stars svg { width: 14px; height: 14px; }
       .info-row { font-size: 0.7rem; gap: 4px; }
-      .info-row .svg-icon svg { width: 15px; height: 15px; }
-      .game-meta-detail { gap: 6px 10px; }
-      .tag-box .tag-head .svg-icon { width: 18px; height: 18px; }
-      .tag-box .tag-head .svg-icon svg { width: 13px; height: 13px; }
-      .toc-item .toc-item-head .svg-icon { width: 16px; height: 16px; }
-      .toc-item .toc-item-head .svg-icon svg { width: 12px; height: 12px; }
-      .faq-box .faq-q .svg-icon { width: 18px; height: 18px; }
-      .faq-box .faq-q .svg-icon svg { width: 12px; height: 12px; }
+      .info-row .svg-icon svg { width: 14px; height: 14px; }
+      .game-sub { gap: 2px; }
+      .update-badge { font-size: 0.5rem; padding: 2px 6px; }
+      .game-detail-header .detail-header-title { font-size: 0.6rem; }
+      .back-btn { font-size: 0.5rem; padding: 2px 10px; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -673,7 +766,7 @@
   <div id="detailView" class="hidden" style="display:none;">
     <div class="game-detail-header">
       <button class="back-btn" id="backBtn">← Back</button>
-      <span class="game-detail-title" id="detailTitle">Download APK • Welcome Bonus</span>
+      <span class="detail-header-title" id="detailHeaderTitle">Game Name</span>
     </div>
     <div class="detail-card">
       <div class="detail-top">
@@ -695,39 +788,42 @@
               </span>
               <span class="label">Min. Withdraw</span>
               <span class="value" id="detailWithdrawText">₹100</span>
+              <!-- Update Version badge -->
+              <span class="update-badge" id="detailVersionBadge">
+                <span class="version">5.3</span> <span class="new-label">New</span>
+              </span>
             </div>
           </div>
-          <!-- Meta items: Rating, Size, Votes, Bonus -->
-          <div class="game-meta-detail">
-            <!-- Rating: stars + value -->
-            <span class="meta-item rating">
-              <span class="stars" id="detailStars"></span>
-              <span class="rating-value" id="detailRating">4.5</span>
-            </span>
-            <!-- Size -->
-            <span class="meta-item size">
-              <span class="svg-icon">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+
+          <!-- META BLOCK: Rating + Size (row1), Votes (row2) – Bonus removed -->
+          <div class="meta-block">
+            <div class="meta-row">
+              <!-- Rating -->
+              <span class="meta-item rating">
+                <span class="rating-container">
+                  <span class="stars" id="detailStars"></span>
+                  <span class="rating-value" id="detailRating">4.5</span>
+                </span>
               </span>
-              <span class="label">Size</span>
-              <span class="value" id="detailSize">55 MB</span>
-            </span>
-            <!-- Votes -->
-            <span class="meta-item votes">
-              <span class="svg-icon">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <!-- Size -->
+              <span class="meta-item size">
+                <span class="svg-icon">
+                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+                </span>
+                <span class="label">Size</span>
+                <span class="value" id="detailSize">55 MB</span>
               </span>
-              <span class="label">Votes</span>
-              <span class="value" id="detailVotes">26K</span>
-            </span>
-            <!-- Bonus -->
-            <span class="meta-item bonus">
-              <span class="svg-icon">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            </div>
+            <div class="meta-row">
+              <!-- Votes -->
+              <span class="meta-item votes">
+                <span class="svg-icon">
+                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="label">Votes</span>
+                <span class="value" id="detailVotes">26K</span>
               </span>
-              <span class="label">Bonus</span>
-              <span class="value" id="detailBonus">₹45</span>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1158,11 +1254,9 @@
       var num = parseFloat(rating) || 0;
       var full = Math.floor(num);
       var half = (num - full) >= 0.5 ? 1 : 0;
-      var total = full + half;
       var html = '';
       var starSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
       var halfSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
-      // 5 stars max
       for (var i = 0; i < 5; i++) {
         if (i < full) {
           html += starSvg;
@@ -1175,16 +1269,24 @@
       return html;
     }
 
+    // --- Helper: Generate a unique version number per game ---
+    function generateVersion(seed) {
+      var major = (seed % 8) + 1;  // 1-8
+      var minor = (seed * 3) % 10; // 0-9
+      return major + '.' + minor;
+    }
+
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
-        // Generate random values for each game
-        var ratingVal = (4 + Math.random() * 0.8).toFixed(1);
-        var sizeVal = (30 + Math.floor(Math.random() * 40)) + ' MB';
-        var votesVal = (Math.floor(Math.random() * 30) + 5) + 'K';
-        // Bonus for meta (different from signup bonus)
+        var seed = game.name.length * 7 + game.name.charCodeAt(0);
+        var ratingVal = (4 + (seed % 8) / 10).toFixed(1);
+        if (parseFloat(ratingVal) > 4.9) ratingVal = '4.8';
+        var sizeVal = (30 + (seed % 40)) + ' MB';
+        var votesVal = (5 + (seed % 30)) + 'K';
         var bonusNum = parseInt(game.bonus.replace('₹', '')) || 45;
-        var metaBonus = '₹' + (bonusNum + Math.floor(Math.random() * 20) + 5);
+        var metaBonus = '₹' + (bonusNum + (seed % 20) + 5);
+        var version = generateVersion(seed);
         
         const card = document.createElement('div');
         card.className = 'card';
@@ -1198,6 +1300,7 @@
         card.dataset.size = sizeVal;
         card.dataset.votes = votesVal;
         card.dataset.metaBonus = metaBonus;
+        card.dataset.version = version;
 
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
@@ -1222,7 +1325,8 @@
             rating: this.dataset.rating,
             size: this.dataset.size,
             votes: this.dataset.votes,
-            metaBonus: this.dataset.metaBonus
+            metaBonus: this.dataset.metaBonus,
+            version: this.dataset.version
           };
           showDetail(gData);
         });
@@ -1233,20 +1337,22 @@
     function showDetail(game) {
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
-      document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • Welcome Bonus';
+      document.getElementById('detailHeaderTitle').textContent = game.name + ' • Download APK';
       
-      // Game-specific values
+      // Sign Up & Min Withdraw
       document.getElementById('detailSignupText').textContent = game.bonus;
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
       
-      // Rating - generate stars based on rating value
+      // Update Version badge
+      document.querySelector('#detailVersionBadge .version').textContent = game.version;
+      
+      // Rating stars and value
       var ratingVal = parseFloat(game.rating) || 4.5;
       document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
       document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
       
       document.getElementById('detailSize').textContent = game.size;
       document.getElementById('detailVotes').textContent = game.votes;
-      document.getElementById('detailBonus').textContent = game.metaBonus || game.bonus;
       
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
 
@@ -1332,14 +1438,18 @@
         tag.dataset.withdrawal = g.withdrawal;
         tag.dataset.downloadUrl = g.downloadUrl;
         tag.dataset.img = g.img;
-        var r = (4 + Math.random() * 0.8).toFixed(1);
-        var s = (30 + Math.floor(Math.random() * 40)) + ' MB';
-        var v = (Math.floor(Math.random() * 30) + 5) + 'K';
-        var mb = '₹' + (parseInt(g.bonus.replace('₹', '')) + Math.floor(Math.random() * 20) + 5);
+        var seed2 = g.name.length * 7 + g.name.charCodeAt(0);
+        var r = (4 + (seed2 % 8) / 10).toFixed(1);
+        if (parseFloat(r) > 4.9) r = '4.8';
+        var s = (30 + (seed2 % 40)) + ' MB';
+        var v = (5 + (seed2 % 30)) + 'K';
+        var mb = '₹' + (parseInt(g.bonus.replace('₹', '')) + (seed2 % 20) + 5);
+        var ver = generateVersion(seed2);
         tag.dataset.rating = r;
         tag.dataset.size = s;
         tag.dataset.votes = v;
         tag.dataset.metaBonus = mb;
+        tag.dataset.version = ver;
         tag.addEventListener('click', function(e) {
           e.stopPropagation();
           showDetail({
@@ -1352,7 +1462,8 @@
             rating: this.dataset.rating,
             size: this.dataset.size,
             votes: this.dataset.votes,
-            metaBonus: this.dataset.metaBonus
+            metaBonus: this.dataset.metaBonus,
+            version: this.dataset.version
           });
         });
         tagsContainer.appendChild(tag);
@@ -1369,14 +1480,18 @@
         item.dataset.withdrawal = g.withdrawal;
         item.dataset.downloadUrl = g.downloadUrl;
         item.dataset.img = g.img;
-        var r = (4 + Math.random() * 0.8).toFixed(1);
-        var s = (30 + Math.floor(Math.random() * 40)) + ' MB';
-        var v = (Math.floor(Math.random() * 30) + 5) + 'K';
-        var mb = '₹' + (parseInt(g.bonus.replace('₹', '')) + Math.floor(Math.random() * 20) + 5);
+        var seed3 = g.name.length * 7 + g.name.charCodeAt(0);
+        var r = (4 + (seed3 % 8) / 10).toFixed(1);
+        if (parseFloat(r) > 4.9) r = '4.8';
+        var s = (30 + (seed3 % 40)) + ' MB';
+        var v = (5 + (seed3 % 30)) + 'K';
+        var mb = '₹' + (parseInt(g.bonus.replace('₹', '')) + (seed3 % 20) + 5);
+        var ver = generateVersion(seed3);
         item.dataset.rating = r;
         item.dataset.size = s;
         item.dataset.votes = v;
         item.dataset.metaBonus = mb;
+        item.dataset.version = ver;
 
         item.innerHTML = `
           <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
@@ -1401,7 +1516,8 @@
             rating: this.dataset.rating,
             size: this.dataset.size,
             votes: this.dataset.votes,
-            metaBonus: this.dataset.metaBonus
+            metaBonus: this.dataset.metaBonus,
+            version: this.dataset.version
           });
         });
       });
