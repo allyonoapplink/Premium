@@ -146,132 +146,188 @@
     .back-btn:active { transform: scale(0.95); }
     .game-detail-title { font-weight: 700; font-size: 0.6rem; color: #ffffff !important; background: #1e293b; padding: 4px 12px; border-radius: 40px; cursor: pointer; white-space: nowrap; }
 
-    /* --- DETAIL CARD --- */
-    .detail-card { background: white; padding: 14px 14px 6px 14px; border-bottom: 1px solid #e9edf4; } /* reduced bottom padding */
-    .detail-top { display: flex; gap: 12px; align-items: flex-start; }
-    .detail-img { width: 65px; height: 65px; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
-    .detail-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .detail-info { flex: 1; min-width: 0; }
-    .detail-info .game-name { font-weight: 800; font-size: 1rem; color: #0b1e33; margin-bottom: 4px; }
-    .detail-info .game-name .alt { font-weight: 400; font-size: 0.7rem; color: #6b7280; }
-
-    /* --- New stats layout --- */
-    .detail-stats {
+    /* ============================================================
+       DETAIL CARD – NEW LAYOUT
+       ============================================================ */
+    .detail-card {
+      background: white;
+      padding: 14px;
+      border-bottom: 1px solid #e9edf4;
+    }
+    .detail-top {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 0.72rem;
+      gap: 12px;
+      align-items: center;
+    }
+    .detail-img {
+      width: 65px;
+      height: 65px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      flex-shrink: 0;
+    }
+    .detail-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .detail-info {
+      flex: 1;
+    }
+    .detail-info .game-name {
+      font-weight: 800;
+      font-size: 1rem;
       color: #0b1e33;
     }
-    .stat-row {
+    .detail-info .game-name .alt {
+      font-weight: 400;
+      font-size: 0.7rem;
+      color: #6b7280;
+    }
+
+    /* --- Meta rows --- */
+    .detail-meta {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .meta-row {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 4px 6px;
+      gap: 6px 16px;
     }
-    .stat-divider {
-      color: #d1d5db;
-      font-weight: 300;
-    }
-    .stat-item {
+    .meta-row .meta-item {
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
+      font-size: 0.75rem;
+      color: #0b1e33;
     }
-    .stat-item .stat-label {
-      color: #6b7280;
+    .meta-row .meta-item .svg-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .meta-row .meta-item .svg-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .meta-row .meta-item .label {
+      color: #64748b;
       font-weight: 400;
     }
-    .stat-item .stat-value {
-      font-weight: 600;
+    .meta-row .meta-item .value {
+      font-weight: 700;
     }
 
     /* Rating stars */
-    .rating-display {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-    .stars {
+    .meta-item.rating .stars {
       display: flex;
       gap: 1px;
+      align-items: center;
     }
-    .stars .star {
-      display: inline-block;
+    .meta-item.rating .stars svg {
       width: 18px;
       height: 18px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      flex-shrink: 0;
-      /* Using SVG data URIs for full, half, empty stars with green glow */
-    }
-    .stars .star.full {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300cc44' stroke='%2300cc44' stroke-width='1'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E");
+      stroke: #00cc44;
+      fill: #00cc44;
       filter: drop-shadow(0 0 4px rgba(0,204,68,0.3));
       animation: starGlow 2.5s ease-in-out infinite;
     }
-    .stars .star.half {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300cc44' stroke-width='1'%3E%3Cdefs%3E%3CclipPath id='half'%3E%3Crect x='0' y='0' width='12' height='24'/%3E%3C/clipPath%3E%3C/g%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2' fill='%2300cc44' stroke='%2300cc44' clip-path='url(%23half)'/%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2' fill='none' stroke='%2300cc44'/%3E%3C/svg%3E");
-      filter: drop-shadow(0 0 4px rgba(0,204,68,0.3));
-      animation: starGlow 2.5s ease-in-out infinite;
-    }
-    .stars .star.empty {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300cc44' stroke-width='1'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E");
-      filter: drop-shadow(0 0 4px rgba(0,204,68,0.15));
-      animation: starGlow 2.5s ease-in-out infinite;
+    .meta-item.rating .stars .half-star svg {
+      fill: none;
+      stroke: #00cc44;
     }
     @keyframes starGlow {
       0%,100%{ filter: drop-shadow(0 0 3px rgba(0,204,68,0.2)); }
       50%{ filter: drop-shadow(0 0 10px rgba(0,204,68,0.5)); }
     }
-    .rating-value {
+    .meta-item.rating .rating-value {
       font-weight: 700;
       font-size: 0.75rem;
-      color: #0b1e33;
       margin-left: 2px;
+      color: #0b1e33;
     }
 
-    /* Update Version: New */
-    .update-version {
-      display: inline-flex;
+    /* Icon colors */
+    .meta-item.size .svg-icon svg { stroke: #00bcd4; }
+    .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
+    .meta-item.bonus .svg-icon svg { stroke: #e74c3c; }
+    .info-row.signup .svg-icon svg { stroke: #f39c12; }
+    .info-row.withdraw .svg-icon svg { stroke: #3498db; }
+    .update-version .svg-icon svg { stroke: #2ecc71; }
+
+    /* Info rows (Sign Up, Withdraw, Update) */
+    .info-row, .update-version {
+      display: flex;
       align-items: center;
-      gap: 3px;
-      margin-left: 4px;
-      font-weight: 600;
-      font-size: 0.65rem;
+      gap: 4px;
+      font-size: 0.75rem;
+      color: #0b1e33;
     }
-    .update-icon {
+    .info-row .svg-icon, .update-version .svg-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 16px;
-      height: 16px;
+      flex-shrink: 0;
     }
-    .update-icon svg {
-      width: 14px;
-      height: 14px;
-      stroke: #e74c3c;
+    .info-row .svg-icon svg, .update-version .svg-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
       fill: none;
-      stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    .update-text {
-      color: #e74c3c;
-      font-weight: 700;
-      text-shadow: 0 0 8px rgba(231,76,60,0.3);
-      animation: redLedGlow 1.8s ease-in-out infinite;
+    .info-row .label, .update-version .update-label {
+      color: #64748b;
+      font-weight: 400;
     }
-    @keyframes redLedGlow {
-      0%,100%{ text-shadow: 0 0 6px rgba(231,76,60,0.3); color: #e74c3c; }
-      50%{ text-shadow: 0 0 20px rgba(231,76,60,0.8), 0 0 40px rgba(231,76,60,0.3); color: #ff6b6b; }
+    .info-row .value {
+      font-weight: 700;
+    }
+    .update-version .new-badge {
+      display: inline-block;
+      background: transparent;
+      color: #ff0000;
+      font-weight: 800;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      padding: 0 4px;
+      animation: newPulse 2s ease-in-out infinite;
+      text-shadow: 0 0 10px rgba(255,0,0,0.4);
+    }
+    @keyframes newPulse {
+      0%,100%{ text-shadow:0 0 5px rgba(255,0,0,0.3); }
+      50%{ text-shadow:0 0 20px rgba(255,0,0,0.8), 0 0 40px rgba(255,0,0,0.4); }
     }
 
-    /* ===== PREMIUM DOWNLOAD BUTTON (extra bottom spacing) ===== */
+    /* Spacing for the third row */
+    .meta-row.row3 {
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      justify-content: flex-start;
+    }
+    .meta-row.row3 .info-row,
+    .meta-row.row3 .update-version {
+      margin-right: auto;
+    }
+    .meta-row.row3 .update-version {
+      margin-left: auto;
+    }
+
+    /* ===== PREMIUM DOWNLOAD BUTTON – smoother & slower ===== */
     .detail-download {
-      margin-top: 16px; /* increased spacing */
-      padding-bottom: 6px;
+      margin-top: 14px;
     }
     .detail-download .download-btn {
       display: flex;
@@ -289,10 +345,10 @@
       cursor: pointer;
       text-align: center;
       text-decoration: none;
-      transition: all 0.4s ease;
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       position: relative;
       box-shadow: 0 0 15px rgba(0,255,0,0.3), 0 0 30px rgba(0,188,212,0.1);
-      animation: ledGlowPulse 3s ease-in-out infinite;
+      animation: ledGlowPulse 4s ease-in-out infinite;
     }
     .detail-download .download-btn::before {
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ff00' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
@@ -541,17 +597,12 @@
       .card-download-sm::before { width: 12px !important; height: 12px !important; }
       .detail-download .download-btn { font-size: 0.8rem; padding: 10px 16px; gap: 8px; }
       .detail-download .download-btn::before { width: 18px; height: 18px; }
-      .stat-row { font-size: 0.65rem; gap: 2px 4px; }
-      .stars .star { width: 15px; height: 15px; }
-      .rating-value { font-size: 0.65rem; }
-      .update-version { font-size: 0.55rem; }
-      .update-icon svg { width: 12px; height: 12px; }
-      .tag-box .tag-head .svg-icon { width: 18px; height: 18px; }
-      .tag-box .tag-head .svg-icon svg { width: 13px; height: 13px; }
-      .toc-item .toc-item-head .svg-icon { width: 16px; height: 16px; }
-      .toc-item .toc-item-head .svg-icon svg { width: 12px; height: 12px; }
-      .faq-box .faq-q .svg-icon { width: 18px; height: 18px; }
-      .faq-box .faq-q .svg-icon svg { width: 12px; height: 12px; }
+      .meta-row .meta-item { font-size: 0.65rem; gap: 3px; }
+      .meta-row .meta-item .svg-icon svg { width: 15px; height: 15px; }
+      .meta-item.rating .stars svg { width: 15px; height: 15px; }
+      .info-row, .update-version { font-size: 0.65rem; gap: 3px; }
+      .info-row .svg-icon svg, .update-version .svg-icon svg { width: 15px; height: 15px; }
+      .update-version .new-badge { font-size: 0.6rem; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -677,56 +728,74 @@
       <span class="game-detail-title" id="detailTitle">Download APK • Welcome Bonus</span>
     </div>
     <div class="detail-card">
+      <!-- Top: image + name -->
       <div class="detail-top">
         <div class="detail-img"><img id="detailImg" src="" alt="" loading="eager"></div>
         <div class="detail-info">
           <div class="game-name" id="detailName">Game Name <span class="alt">| Alt Name</span></div>
-          <div class="detail-stats">
-            <!-- Row 1: Rating + Size -->
-            <div class="stat-row">
-              <span class="stat-item rating-display">
-                <span class="stars" id="detailStars"></span>
-                <span class="rating-value" id="detailRating">4.5</span>
-              </span>
-              <span class="stat-divider">|</span>
-              <span class="stat-item size">
-                <span class="stat-label">Size</span>
-                <span class="stat-value" id="detailSize">57 MB</span>
-              </span>
-            </div>
-            <!-- Row 2: Votes + Bonus -->
-            <div class="stat-row">
-              <span class="stat-item votes">
-                <span class="stat-label">Votes</span>
-                <span class="stat-value" id="detailVotes">17K</span>
-              </span>
-              <span class="stat-divider">|</span>
-              <span class="stat-item bonus">
-                <span class="stat-label">Bonus</span>
-                <span class="stat-value" id="detailBonus">₹62</span>
-              </span>
-            </div>
-            <!-- Row 3: Sign Up Bonus + Min Withdraw + Update Version -->
-            <div class="stat-row">
-              <span class="stat-item signup-bonus">
-                <span class="stat-label">🎁 Sign Up Bonus</span>
-                <span class="stat-value" id="detailSignupText">₹45</span>
-              </span>
-              <span class="stat-divider">|</span>
-              <span class="stat-item min-withdraw">
-                <span class="stat-label">🏦 Min. Withdraw</span>
-                <span class="stat-value" id="detailWithdrawText">₹100</span>
-              </span>
-              <span class="update-version">
-                <span class="update-icon">
-                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-                </span>
-                <span class="update-text">New</span>
-              </span>
-            </div>
-          </div>
         </div>
       </div>
+
+      <!-- Meta rows -->
+      <div class="detail-meta">
+        <!-- Row 1: Rating + Size -->
+        <div class="meta-row row1">
+          <span class="meta-item rating">
+            <span class="stars" id="detailStars"></span>
+            <span class="rating-value" id="detailRating">4.6</span>
+          </span>
+          <span class="meta-item size">
+            <span class="svg-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+            </span>
+            <span class="label">Size</span>
+            <span class="value" id="detailSize">57 MB</span>
+          </span>
+        </div>
+        <!-- Row 2: Votes + Bonus -->
+        <div class="meta-row row2">
+          <span class="meta-item votes">
+            <span class="svg-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <span class="label">Votes</span>
+            <span class="value" id="detailVotes">17K</span>
+          </span>
+          <span class="meta-item bonus">
+            <span class="svg-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            </span>
+            <span class="label">Bonus</span>
+            <span class="value" id="detailBonus">₹62</span>
+          </span>
+        </div>
+        <!-- Row 3: Sign Up Bonus, Min Withdraw, Update Version + New -->
+        <div class="meta-row row3">
+          <span class="info-row signup">
+            <span class="svg-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>
+            </span>
+            <span class="label">Sign Up Bonus</span>
+            <span class="value" id="detailSignupText">₹45</span>
+          </span>
+          <span class="info-row withdraw">
+            <span class="svg-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><path d="M8 14h8"/></svg>
+            </span>
+            <span class="label">Min. Withdraw</span>
+            <span class="value" id="detailWithdrawText">₹100</span>
+          </span>
+          <span class="update-version">
+            <span class="svg-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </span>
+            <span class="update-label">Update Version</span>
+            <span class="new-badge">New</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Download Button -->
       <div class="detail-download">
         <a href="#" class="download-btn" id="detailDownloadBtn" target="_blank">⬇ Download APK</a>
       </div>
@@ -1149,45 +1218,49 @@
       history.pushState(null, null, location.href);
     });
 
-    // --- Helper: Generate star HTML (using CSS classes) ---
+    // --- Helper: Generate star HTML for rating ---
     function generateStars(rating) {
       var num = parseFloat(rating) || 0;
       var full = Math.floor(num);
       var half = (num - full) >= 0.5 ? 1 : 0;
-      var total = full + half;
       var html = '';
+      var starSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+      var halfSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
       for (var i = 0; i < 5; i++) {
         if (i < full) {
-          html += '<span class="star full"></span>';
+          html += starSvg;
         } else if (i === full && half === 1) {
-          html += '<span class="star half"></span>';
+          html += '<span class="half-star">' + halfSvg + '</span>';
         } else {
-          html += '<span class="star empty"></span>';
+          html += '<span class="half-star">' + halfSvg + '</span>';
         }
       }
       return html;
     }
 
-    // --- Helper to get realistic value based on game name ---
-    function getGameValues(gameName) {
-      var hash = 0;
-      for (var i = 0; i < gameName.length; i++) {
-        hash = (hash * 31 + gameName.charCodeAt(i)) % 1000;
-      }
-      var rating = (3.4 + (hash % 15) * 0.1).toFixed(1);
-      if (rating < 3.4) rating = 3.4;
-      if (rating > 4.9) rating = 4.8;
-      var size = (30 + (hash % 50)).toString() + ' MB';
-      var votes = (5 + (hash % 30)).toString() + 'K';
-      var bonusOptions = [15,20,25,30,40,45,50,60];
-      var bonus = '₹' + bonusOptions[hash % bonusOptions.length];
-      return { rating: rating, size: size, votes: votes, bonus: bonus };
+    // --- Realistic bonus values (multiples of 5, not random) ---
+    const bonusValues = [15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70];
+    const ratingValues = [3.4, 3.6, 3.8, 4.0, 4.2, 4.4, 4.6, 4.8, 4.9];
+
+    function getUniqueValue(arr, used) {
+      var available = arr.filter(v => !used.includes(v));
+      if (available.length === 0) return arr[Math.floor(Math.random() * arr.length)];
+      return available[Math.floor(Math.random() * available.length)];
     }
 
     function renderGrid() {
       mainGrid.innerHTML = '';
+      var usedBonuses = [];
+      var usedRatings = [];
       uniqueGames.forEach((game, index) => {
-        var vals = getGameValues(game.name);
+        // Assign unique values
+        var bonusNum = getUniqueValue(bonusValues, usedBonuses);
+        usedBonuses.push(bonusNum);
+        var ratingNum = getUniqueValue(ratingValues, usedRatings);
+        usedRatings.push(ratingNum);
+        var sizeNum = 30 + Math.floor(Math.random() * 40);
+        var votesNum = Math.floor(Math.random() * 30) + 5;
+        
         const card = document.createElement('div');
         card.className = 'card';
         card.dataset.name = game.name;
@@ -1196,10 +1269,10 @@
         card.dataset.withdrawal = game.withdrawal;
         card.dataset.downloadUrl = game.downloadUrl;
         card.dataset.img = game.img;
-        card.dataset.rating = vals.rating;
-        card.dataset.size = vals.size;
-        card.dataset.votes = vals.votes;
-        card.dataset.metaBonus = vals.bonus;
+        card.dataset.rating = ratingNum.toFixed(1);
+        card.dataset.size = sizeNum + ' MB';
+        card.dataset.votes = votesNum + 'K';
+        card.dataset.bonusVal = '₹' + bonusNum;
 
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
@@ -1224,7 +1297,7 @@
             rating: this.dataset.rating,
             size: this.dataset.size,
             votes: this.dataset.votes,
-            metaBonus: this.dataset.metaBonus
+            bonusVal: this.dataset.bonusVal
           };
           showDetail(gData);
         });
@@ -1237,20 +1310,22 @@
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
       document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • Welcome Bonus';
       
-      // Game-specific values
+      // Populate values
       document.getElementById('detailSignupText').textContent = game.bonus;
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
       
-      var ratingVal = parseFloat(game.rating) || 4.5;
+      var ratingVal = parseFloat(game.rating) || 4.6;
       document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
       document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
       
       document.getElementById('detailSize').textContent = game.size;
       document.getElementById('detailVotes').textContent = game.votes;
-      document.getElementById('detailBonus').textContent = game.metaBonus || game.bonus;
+      document.getElementById('detailBonus').textContent = game.bonusVal || game.bonus;
       
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
 
+      // ... rest of the dynamic content (tags, TOC, FAQ, etc.) remains unchanged
+      // (we keep the same code as before for those sections)
       const gName = game.name;
       const seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
       const b = {
@@ -1321,10 +1396,10 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
 
+      // Tags
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
-        var vals = getGameValues(g.name);
         const tag = document.createElement('span');
         tag.className = 'game-tag';
         tag.textContent = g.name + ' | ' + (g.altName || g.name);
@@ -1334,10 +1409,14 @@
         tag.dataset.withdrawal = g.withdrawal;
         tag.dataset.downloadUrl = g.downloadUrl;
         tag.dataset.img = g.img;
-        tag.dataset.rating = vals.rating;
-        tag.dataset.size = vals.size;
-        tag.dataset.votes = vals.votes;
-        tag.dataset.metaBonus = vals.bonus;
+        var r = (4 + Math.random() * 0.8).toFixed(1);
+        var s = (30 + Math.floor(Math.random() * 40)) + ' MB';
+        var v = (Math.floor(Math.random() * 30) + 5) + 'K';
+        var mb = '₹' + (parseInt(g.bonus.replace('₹', '')) + Math.floor(Math.random() * 20) + 5);
+        tag.dataset.rating = r;
+        tag.dataset.size = s;
+        tag.dataset.votes = v;
+        tag.dataset.bonusVal = mb;
         tag.addEventListener('click', function(e) {
           e.stopPropagation();
           showDetail({
@@ -1350,16 +1429,16 @@
             rating: this.dataset.rating,
             size: this.dataset.size,
             votes: this.dataset.votes,
-            metaBonus: this.dataset.metaBonus
+            bonusVal: this.dataset.bonusVal
           });
         });
         tagsContainer.appendChild(tag);
       });
 
+      // Related
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       uniqueGames.filter(g => g.name !== game.name).forEach(g => {
-        var vals = getGameValues(g.name);
         const item = document.createElement('div');
         item.className = 'related-item';
         item.dataset.name = g.name;
@@ -1368,10 +1447,14 @@
         item.dataset.withdrawal = g.withdrawal;
         item.dataset.downloadUrl = g.downloadUrl;
         item.dataset.img = g.img;
-        item.dataset.rating = vals.rating;
-        item.dataset.size = vals.size;
-        item.dataset.votes = vals.votes;
-        item.dataset.metaBonus = vals.bonus;
+        var r = (4 + Math.random() * 0.8).toFixed(1);
+        var s = (30 + Math.floor(Math.random() * 40)) + ' MB';
+        var v = (Math.floor(Math.random() * 30) + 5) + 'K';
+        var mb = '₹' + (parseInt(g.bonus.replace('₹', '')) + Math.floor(Math.random() * 20) + 5);
+        item.dataset.rating = r;
+        item.dataset.size = s;
+        item.dataset.votes = v;
+        item.dataset.bonusVal = mb;
 
         item.innerHTML = `
           <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
@@ -1396,7 +1479,7 @@
             rating: this.dataset.rating,
             size: this.dataset.size,
             votes: this.dataset.votes,
-            metaBonus: this.dataset.metaBonus
+            bonusVal: this.dataset.bonusVal
           });
         });
       });
