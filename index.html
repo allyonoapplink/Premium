@@ -1,4 +1,3 @@
-000
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +14,20 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://allyonoappsite.com/">
   
-  <!-- ===== CUSTOM CSS - CACHE BUSTING WITH VERSION ===== -->
-  <!-- Change the v= number to force refresh when you update custom.css -->
-  <link rel="stylesheet" href="custom.css?v=2.0">
+  <!-- ===== CUSTOM CSS - FORCE CACHE RELOAD ===== -->
+  <!-- The link below will be updated by JavaScript to always load the latest version -->
+  <link rel="stylesheet" href="custom.css" id="customCssLink">
+  
+  <!-- Force fresh load of custom.css on every page visit -->
+  <script>
+    (function() {
+      var link = document.getElementById('customCssLink');
+      if (link) {
+        // Append a unique timestamp to bypass cache
+        link.href = 'custom.css?v=' + Date.now();
+      }
+    })();
+  </script>
   
   <!-- ===== BASE STYLES (FALLBACK) ===== -->
   <style>
