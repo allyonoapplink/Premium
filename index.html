@@ -46,7 +46,7 @@
     #mainGrid.show { display: flex !important; opacity: 1 !important; }
     #detailView.show { display: block !important; opacity: 1 !important; }
 
-    /* --- HEADER & LOGO (unchanged) --- */
+    /* --- HEADER & LOGO --- */
     .top-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; background: white; border-bottom: 1px solid #e9edf4; position: sticky; top: 0; z-index: 10; }
     .header-left { display: flex; align-items: center; gap: 6px; }
     .logo-cyan-round {
@@ -130,7 +130,7 @@
     .telegram-btn .corner-led.br { bottom: -1px; right: -1px; color: #ffff00; background: #ffff00; animation-delay:1.8s; }
     @keyframes ledPulseSlow { 0%,100%{ opacity:0.5; transform:scale(0.8); } 50%{ opacity:1; transform:scale(1.2); box-shadow:0 0 10px currentColor; } }
 
-    /* --- MARQUEE (white background, dark text) --- */
+    /* --- MARQUEE --- */
     .marquee-container { background: #ffffff !important; padding: 6px 0; overflow: hidden; border-bottom: 1px solid #e9edf4; }
     .marquee-container marquee { color: #0b1e33 !important; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px; text-shadow: none !important; }
     .marquee-container marquee span { margin: 0 12px; display: inline-block; }
@@ -148,7 +148,7 @@
     .back-btn:active { transform: scale(0.95); }
     .game-detail-title { font-weight: 700; font-size: 0.6rem; color: #ffffff !important; background: #1e293b; padding: 4px 12px; border-radius: 40px; cursor: pointer; white-space: nowrap; }
 
-    /* --- DETAIL CARD (unchanged) --- */
+    /* --- DETAIL CARD --- */
     .detail-card { background: white; padding: 14px; border-bottom: 1px solid #e9edf4; }
     .detail-top { display: flex; gap: 12px; align-items: center; }
     .detail-img { width: 65px; height: 65px; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; flex-shrink: 0; }
@@ -156,35 +156,124 @@
     .detail-info { flex: 1; }
     .detail-info .game-name { font-weight: 800; font-size: 1rem; color: #0b1e33; }
     .detail-info .game-name .alt { font-weight: 400; font-size: 0.7rem; color: #6b7280; }
-    .detail-info .game-sub { display: flex; flex-direction: column; gap: 2px; margin-top: 3px; }
-    .detail-info .game-sub .signup-bonus { color: #dc2626; font-weight: 700; font-size: 0.8rem; }
-    .detail-info .game-sub .min-withdraw { color: #0a0a0a; font-weight: 600; font-size: 0.75rem; }
-    .detail-info .game-meta-detail { display: flex; flex-wrap: wrap; gap: 5px 10px; margin-top: 5px; font-size: 0.6rem; }
-    .detail-info .game-meta-detail .rating { background: #e6f7e6; color: #00aa00; padding: 2px 8px; border-radius: 40px; border: 1px solid #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.2); animation: metaGlowGreen 2s ease-in-out infinite; font-weight: 600; }
-    .detail-info .game-meta-detail .size { background: #e6f7ff; color: #0088aa; padding: 2px 8px; border-radius: 40px; border: 1px solid #00ddff; box-shadow: 0 0 10px rgba(0,200,255,0.2); animation: metaGlowCyan 2s ease-in-out infinite 0.4s; font-weight: 600; }
-    .detail-info .game-meta-detail .votes { background: #fce4ec; color: #d81b60; padding: 2px 8px; border-radius: 40px; border: 1px solid #ff4081; box-shadow: 0 0 10px rgba(255,64,129,0.2); animation: metaGlowPink 2s ease-in-out infinite 0.8s; font-weight: 600; }
-    .detail-info .game-meta-detail .bonus-badge { background: #ffebee; color: #d50000; padding: 2px 8px; border-radius: 40px; border: 1px solid #ff1744; box-shadow: 0 0 10px rgba(255,23,68,0.2); animation: metaGlowRed 2s ease-in-out infinite 1.2s; font-weight: 600; }
-    @keyframes metaGlowGreen { 0%,100%{ box-shadow:0 0 8px rgba(0,255,0,0.15); } 50%{ box-shadow:0 0 18px rgba(0,255,0,0.4); } }
-    @keyframes metaGlowCyan { 0%,100%{ box-shadow:0 0 8px rgba(0,200,255,0.15); } 50%{ box-shadow:0 0 18px rgba(0,200,255,0.4); } }
-    @keyframes metaGlowPink { 0%,100%{ box-shadow:0 0 8px rgba(255,64,129,0.15); } 50%{ box-shadow:0 0 18px rgba(255,64,129,0.4); } }
-    @keyframes metaGlowRed { 0%,100%{ box-shadow:0 0 8px rgba(255,23,68,0.15); } 50%{ box-shadow:0 0 18px rgba(255,23,68,0.4); } }
+    .detail-info .game-sub { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+    .detail-info .game-sub .signup-bonus { font-weight: 700; font-size: 0.8rem; color: #0b1e33; display: flex; align-items: center; gap: 6px; }
+    .detail-info .game-sub .signup-bonus .led-svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #00ff00; box-shadow: 0 0 12px rgba(0,255,0,0.3); animation: ledGlowGreen 2.5s ease-in-out infinite; flex-shrink: 0; }
+    .detail-info .game-sub .signup-bonus .led-svg-icon svg { width: 14px; height: 14px; stroke: #00ff00; fill: none; }
+    .detail-info .game-sub .min-withdraw { font-weight: 600; font-size: 0.75rem; color: #0a0a0a; display: flex; align-items: center; gap: 6px; }
+    .detail-info .game-sub .min-withdraw .led-svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #ffaa00; box-shadow: 0 0 12px rgba(255,170,0,0.3); animation: ledGlowGold 2.5s ease-in-out infinite; flex-shrink: 0; }
+    .detail-info .game-sub .min-withdraw .led-svg-icon svg { width: 14px; height: 14px; stroke: #ffaa00; fill: none; }
 
-    /* ============================================================
-       PREMIUM DETAIL DOWNLOAD BUTTON – Green/Cyan/Black LED Theme
-       ============================================================ */
-    .detail-download {
-      margin-top: 10px;
+    @keyframes ledGlowGreen { 0%,100%{ box-shadow:0 0 12px rgba(0,255,0,0.3); } 50%{ box-shadow:0 0 25px rgba(0,255,0,0.6),0 0 40px rgba(0,255,0,0.2); } }
+    @keyframes ledGlowGold { 0%,100%{ box-shadow:0 0 12px rgba(255,170,0,0.3); } 50%{ box-shadow:0 0 25px rgba(255,170,0,0.6),0 0 40px rgba(255,170,0,0.2); } }
+
+    /* --- META BADGES WITH SVG LED ICONS --- */
+    .game-meta-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      margin-top: 6px;
     }
+    .game-meta-detail .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #f8fafc;
+      padding: 3px 10px 3px 6px;
+      border-radius: 40px;
+      border: 1px solid #e9edf4;
+      font-weight: 600;
+      font-size: 0.6rem;
+      color: #0b1e33;
+    }
+    .game-meta-detail .meta-item .meta-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #000;
+      flex-shrink: 0;
+    }
+    .game-meta-detail .meta-item .meta-icon svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+    }
+
+    /* Rating – Green + Cyan LED (4 stars) */
+    .meta-item.rating .meta-icon {
+      border: 2px solid #00ff00;
+      box-shadow: 0 0 12px rgba(0,255,0,0.3);
+      animation: ledGlowGreenCyan 3s ease-in-out infinite;
+      background: #0a0a0a;
+    }
+    .meta-item.rating .meta-icon svg {
+      stroke: #00ff00;
+    }
+    @keyframes ledGlowGreenCyan {
+      0%,100%{ box-shadow:0 0 12px rgba(0,255,0,0.3); border-color:#00ff00; }
+      50%{ box-shadow:0 0 25px rgba(0,255,255,0.6),0 0 40px rgba(0,255,0,0.2); border-color:#00ffff; }
+    }
+
+    /* Size – Pink + Blue LED */
+    .meta-item.size .meta-icon {
+      border: 2px solid #ff1493;
+      box-shadow: 0 0 12px rgba(255,20,147,0.3);
+      animation: ledGlowPinkBlue 3s ease-in-out infinite;
+      background: #0a0a0a;
+    }
+    .meta-item.size .meta-icon svg {
+      stroke: #ff1493;
+    }
+    @keyframes ledGlowPinkBlue {
+      0%,100%{ box-shadow:0 0 12px rgba(255,20,147,0.3); border-color:#ff1493; }
+      50%{ box-shadow:0 0 25px rgba(0,150,255,0.6),0 0 40px rgba(255,20,147,0.2); border-color:#0096ff; }
+    }
+
+    /* Votes – Dark HD LED (dark blue/purple) */
+    .meta-item.votes .meta-icon {
+      border: 2px solid #4a00e0;
+      box-shadow: 0 0 12px rgba(74,0,224,0.3);
+      animation: ledGlowDark 3s ease-in-out infinite;
+      background: #0a0a0a;
+    }
+    .meta-item.votes .meta-icon svg {
+      stroke: #4a00e0;
+    }
+    @keyframes ledGlowDark {
+      0%,100%{ box-shadow:0 0 12px rgba(74,0,224,0.3); border-color:#4a00e0; }
+      50%{ box-shadow:0 0 30px rgba(138,43,226,0.6),0 0 50px rgba(74,0,224,0.2); border-color:#8a2be2; }
+    }
+
+    /* Bonus – Red LED */
+    .meta-item.bonus .meta-icon {
+      border: 2px solid #ff0000;
+      box-shadow: 0 0 12px rgba(255,0,0,0.3);
+      animation: ledGlowRed 3s ease-in-out infinite;
+      background: #0a0a0a;
+    }
+    .meta-item.bonus .meta-icon svg {
+      stroke: #ff0000;
+    }
+    @keyframes ledGlowRed {
+      0%,100%{ box-shadow:0 0 12px rgba(255,0,0,0.3); border-color:#ff0000; }
+      50%{ box-shadow:0 0 30px rgba(255,0,0,0.6),0 0 50px rgba(255,50,50,0.2); border-color:#ff3333; }
+    }
+
+    /* ===== PREMIUM DETAIL DOWNLOAD BUTTON ===== */
+    .detail-download { margin-top: 10px; }
     .detail-download .download-btn {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: #000000; /* Black base */
+      background: #000000;
       color: #ffffff;
-      border: 2px solid #00ff00; /* Green border */
+      border: 2px solid #00ff00;
       padding: 12px 20px;
-      border-radius: 50px; /* Pill shape */
+      border-radius: 50px;
       font-weight: 700;
       font-size: 0.95rem;
       width: 100%;
@@ -193,12 +282,9 @@
       text-decoration: none;
       transition: all 0.4s ease;
       position: relative;
-      box-shadow: 0 0 15px rgba(0, 255, 0, 0.3),
-                  0 0 30px rgba(0, 188, 212, 0.1);
+      box-shadow: 0 0 15px rgba(0,255,0,0.3), 0 0 30px rgba(0,188,212,0.1);
       animation: ledGlowPulse 3s ease-in-out infinite;
     }
-
-    /* SVG icon on left – premium LED download arrow */
     .detail-download .download-btn::before {
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ff00' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
       display: inline-block;
@@ -206,66 +292,28 @@
       height: 22px;
       line-height: 1;
       flex-shrink: 0;
-      filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.6));
+      filter: drop-shadow(0 0 6px rgba(0,255,0,0.6));
       transition: all 0.4s ease;
     }
-
-    /* Hover state – intensify glow and slight scale */
     .detail-download .download-btn:hover {
       transform: scale(1.02) translateY(-2px);
-      border-color: #00ffff; /* Cyan border on hover */
-      box-shadow: 0 0 30px rgba(0, 255, 0, 0.6),
-                  0 0 60px rgba(0, 188, 212, 0.4),
-                  0 0 90px rgba(0, 255, 255, 0.2);
+      border-color: #00ffff;
+      box-shadow: 0 0 30px rgba(0,255,0,0.6), 0 0 60px rgba(0,188,212,0.4), 0 0 90px rgba(0,255,255,0.2);
       background: #0a0a0a;
     }
     .detail-download .download-btn:hover::before {
-      filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.9));
+      filter: drop-shadow(0 0 12px rgba(0,255,255,0.9));
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
     }
+    .detail-download .download-btn:active { transform: scale(0.96); }
 
-    .detail-download .download-btn:active {
-      transform: scale(0.96);
-    }
-
-    /* Slow LED glow animation – pulsing green/cyan/black */
     @keyframes ledGlowPulse {
-      0% {
-        box-shadow: 0 0 15px rgba(0, 255, 0, 0.3),
-                    0 0 30px rgba(0, 188, 212, 0.1);
-        border-color: #00ff00;
-      }
-      50% {
-        box-shadow: 0 0 30px rgba(0, 255, 0, 0.6),
-                    0 0 60px rgba(0, 188, 212, 0.3),
-                    0 0 80px rgba(0, 255, 255, 0.15);
-        border-color: #00ffff;
-      }
-      100% {
-        box-shadow: 0 0 15px rgba(0, 255, 0, 0.3),
-                    0 0 30px rgba(0, 188, 212, 0.1);
-        border-color: #00ff00;
-      }
+      0% { box-shadow:0 0 15px rgba(0,255,0,0.3),0 0 30px rgba(0,188,212,0.1); border-color:#00ff00; }
+      50% { box-shadow:0 0 30px rgba(0,255,0,0.6),0 0 60px rgba(0,188,212,0.3),0 0 80px rgba(0,255,255,0.15); border-color:#00ffff; }
+      100% { box-shadow:0 0 15px rgba(0,255,0,0.3),0 0 30px rgba(0,188,212,0.1); border-color:#00ff00; }
     }
 
-    /* --- LED ICONS (unchanged) --- */
-    .led-icon {
-      display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px;
-      border-radius: 50%; position: relative; flex-shrink: 0; background: #000; border: 2px solid #1a1a1a;
-      box-shadow: 0 0 15px rgba(0,255,0,0.1);
-    }
-    .led-icon .inner-icon { font-size: 0.65rem; font-weight: 700; color: #fff; z-index: 2; position: relative; text-shadow: 0 0 8px currentColor; }
-    .led-icon.green-cyan::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(from 0deg, #00ff00 0deg 60deg, #00ffff 120deg 180deg, #00ff00 240deg 300deg, #00ff00 360deg); animation: ledSlowSpinRound 8s linear infinite; z-index: 0; -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); }
-    .led-icon.gold-pink::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(from 0deg, #ffd700 0deg 50deg, #ff69b4 100deg 150deg, #ffd700 200deg 250deg, #ff69b4 300deg 350deg, #ffd700 360deg); animation: ledSlowSpinRound 9s linear infinite; z-index: 0; -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); }
-    .led-icon.red-dark::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(from 0deg, #ff0000 0deg 50deg, #8b0000 100deg 150deg, #ff0000 200deg 250deg, #8b0000 300deg 350deg, #ff0000 360deg); animation: ledSlowSpinRound 7s linear infinite; z-index: 0; -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); }
-    .led-icon.green-red-yellow::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(from 0deg, #00ff00 0deg 40deg, #ff0000 80deg 120deg, #ffff00 160deg 200deg, #00ff00 240deg 280deg, #ff0000 320deg 360deg); animation: ledSlowSpinRound 10s linear infinite; z-index: 0; -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); }
-    .led-icon.yellow-white-green::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(from 0deg, #ffff00 0deg 40deg, #ffffff 80deg 120deg, #006400 160deg 200deg, #ffff00 240deg 280deg, #ffffff 320deg 360deg); animation: ledSlowSpinRound 11s linear infinite; z-index: 0; -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); }
-    .led-icon.red-yellow::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(from 0deg, #ff0000 0deg 40deg, #ffff00 80deg 120deg, #ff0000 160deg 200deg, #ffff00 240deg 280deg, #ff0000 320deg 360deg); animation: ledSlowSpinRound 8s linear infinite; z-index: 0; -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); }
-    .led-icon.white-red::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; background: conic-gradient(from 0deg, #ffffff 0deg 40deg, #ff0000 80deg 120deg, #ffffff 160deg 200deg, #ff0000 240deg 280deg, #ffffff 320deg 360deg); animation: ledSlowSpinRound 9s linear infinite; z-index: 0; -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #fff calc(100% - 2px)); }
-    .led-icon.glow-bg { box-shadow: 0 0 20px rgba(0,255,0,0.15), 0 0 40px rgba(0,200,255,0.05); }
-    @keyframes ledSlowSpinRound { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-    /* --- TAG, FAQ, TOC (unchanged) --- */
+    /* --- TAG, FAQ, TOC (SVG icons replaced) --- */
     .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .tag-grid { display: flex; flex-direction: column; gap: 6px; }
@@ -284,8 +332,8 @@
     .toc-header { display: flex; justify-content: space-between; align-items: center; background: white; padding: 10px 14px; border-radius: 12px; border: 1px solid #e9edf4; cursor: pointer; }
     .toc-header:active { transform: scale(0.97); }
     .toc-header .toc-left { display: flex; align-items: center; gap: 8px; }
-    .toc-header .toc-left .toc-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #1a1a1a; box-shadow: 0 0 15px rgba(255,0,0,0.1); }
-    .toc-header .toc-left .toc-icon .inner { font-size: 0.6rem; font-weight: 800; color: #fff; }
+    .toc-header .toc-left .toc-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #ff0000; box-shadow: 0 0 15px rgba(255,0,0,0.2); animation: ledGlowRed 3s ease-in-out infinite; }
+    .toc-header .toc-left .toc-icon svg { width: 14px; height: 14px; stroke: #ff0000; fill: none; }
     .toc-header .toc-left .toc-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; }
     .toc-header .toc-right { font-size: 1.2rem; color: #64748b; transition: transform 0.3s ease; }
     .toc-header .toc-right.open { transform: rotate(180deg); }
@@ -319,11 +367,10 @@
     .related-item .rdownload { background: #00bcd4; color: white; border: none; padding: 2px 8px; border-radius: 40px; font-weight: 600; font-size: 0.4rem; white-space: nowrap; cursor: pointer; }
 
     /* ============================================================
-       HOME PAGE GRID & PREMIUM DOWNLOAD BUTTONS (unchanged)
+       HOME PAGE GRID
        ============================================================ */
 
     #mainGrid { display: flex; flex-direction: column; gap: 6px; padding: 8px; }
-
     .card {
       background: white;
       border-radius: 12px;
@@ -339,7 +386,6 @@
       justify-content: space-between;
     }
     .card:active { transform: scale(0.97); background: #fafcff; }
-
     .card-number {
       position: absolute;
       top: 3px;
@@ -358,38 +404,14 @@
       border: 1.5px solid #333;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
-    .card-img {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: #f0f4ff;
-      flex-shrink: 0;
-      overflow: hidden;
-      border: 1px solid #e2e8f0;
-      margin-left: 18px;
-    }
+    .card-img { width: 42px; height: 42px; border-radius: 10px; background: #f0f4ff; flex-shrink: 0; overflow: hidden; border: 1px solid #e2e8f0; margin-left: 18px; }
     .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .card-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      min-width: 0;
-    }
-    .card-name {
-      font-weight: 700;
-      font-size: 0.7rem;
-      color: #0b1e33;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      flex-wrap: wrap;
-    }
+    .card-info { flex: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+    .card-name { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
     .card-name .alt { font-weight: 400; font-size: 0.5rem; color: #6b7280; }
     .card-bonus { font-size: 0.55rem; color: #dc2626; font-weight: 600; }
     .card-withdraw { font-size: 0.5rem; color: #0a0a0a; font-weight: 500; }
 
-    /* Home card download button (unchanged) */
     .card-download-sm {
       margin-left: auto;
       background: #ffffff !important;
@@ -405,8 +427,7 @@
       align-items: center !important;
       gap: 6px !important;
       box-shadow: 0 0 15px rgba(0,188,212,0.3), 0 0 30px rgba(0,229,255,0.1) !important;
-      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-      position: relative;
+      transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94) !important;
       text-decoration: none;
       letter-spacing: 0.3px;
     }
@@ -417,7 +438,6 @@
       height: 16px;
       line-height: 1;
       flex-shrink: 0;
-      filter: none;
     }
     .card-download-sm:hover {
       background: #00bcd4 !important;
@@ -429,10 +449,7 @@
     .card-download-sm:hover::before {
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
     }
-    .card-download-sm:active {
-      transform: scale(0.92) !important;
-      box-shadow: 0 0 20px rgba(0,188,212,0.4) !important;
-    }
+    .card-download-sm:active { transform: scale(0.92) !important; box-shadow: 0 0 20px rgba(0,188,212,0.4) !important; }
 
     /* --- FOOTER --- */
     .footer-note { padding: 10px; text-align: center; color: #94a3b8; font-size: 0.5rem; border-top: 1px solid #e9edf4; }
@@ -502,8 +519,6 @@
       .card-number { width: 16px; height: 16px; font-size: 0.4rem; top: 2px; left: 2px; }
       .card-img { margin-left: 14px; width: 34px; height: 34px; }
       .telegram-btn .corner-led { width: 4px; height: 4px; }
-      .led-icon { width: 20px; height: 20px; }
-      .led-icon .inner-icon { font-size: 0.45rem; }
       .game-tag { font-size: 0.45rem; padding: 3px 8px; }
       .related-item .rname { font-size: 0.5rem; }
       .static-page p { font-size: 0.85rem; }
@@ -512,6 +527,15 @@
       .card-download-sm::before { width: 12px !important; height: 12px !important; }
       .detail-download .download-btn { font-size: 0.8rem; padding: 10px 16px; gap: 8px; }
       .detail-download .download-btn::before { width: 18px; height: 18px; }
+      .game-meta-detail .meta-item { font-size: 0.5rem; padding: 2px 6px 2px 4px; }
+      .game-meta-detail .meta-item .meta-icon { width: 20px; height: 20px; }
+      .game-meta-detail .meta-item .meta-icon svg { width: 11px; height: 11px; }
+      .detail-info .game-sub .signup-bonus { font-size: 0.7rem; }
+      .detail-info .game-sub .min-withdraw { font-size: 0.65rem; }
+      .detail-info .game-sub .signup-bonus .led-svg-icon,
+      .detail-info .game-sub .min-withdraw .led-svg-icon { width: 20px; height: 20px; }
+      .detail-info .game-sub .signup-bonus .led-svg-icon svg,
+      .detail-info .game-sub .min-withdraw .led-svg-icon svg { width: 12px; height: 12px; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -616,29 +640,21 @@
     <span class="nav-small" id="disclaimerNav">⚠️ Disclaimer</span>
   </div>
 
-  <!-- STATIC PAGES - Load content from external files -->
+  <!-- STATIC PAGES -->
   <div id="aboutPage" class="static-page">
-    <div id="aboutContent">
-      <div class="static-loading">Loading...</div>
-    </div>
+    <div id="aboutContent"><div class="static-loading">Loading...</div></div>
   </div>
-
   <div id="contactPage" class="static-page">
-    <div id="contactContent">
-      <div class="static-loading">Loading...</div>
-    </div>
+    <div id="contactContent"><div class="static-loading">Loading...</div></div>
   </div>
-
   <div id="disclaimerPage" class="static-page">
-    <div id="disclaimerContent">
-      <div class="static-loading">Loading...</div>
-    </div>
+    <div id="disclaimerContent"><div class="static-loading">Loading...</div></div>
   </div>
 
-  <!-- MAIN GRID (games) -->
+  <!-- MAIN GRID -->
   <div id="mainGrid" class="show"></div>
 
-  <!-- DETAIL VIEW (game detail) -->
+  <!-- DETAIL VIEW -->
   <div id="detailView" class="hidden" style="display:none;">
     <div class="game-detail-header">
       <button class="back-btn" id="backBtn">← Back</button>
@@ -650,14 +666,44 @@
         <div class="detail-info">
           <div class="game-name" id="detailName">Game Name <span class="alt">| Alt Name</span></div>
           <div class="game-sub">
-            <span class="signup-bonus" id="detailSignup">🔴 Sign Up Bonus ₹45</span>
-            <span class="min-withdraw" id="detailWithdraw">🏦 Min. Withdraw ₹100</span>
+            <span class="signup-bonus" id="detailSignup">
+              <span class="led-svg-icon">
+                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4 12H2M6 12H4M20 12h-2M22 12h-2M19.07 4.93l-2.83 2.83M4.93 19.07l2.83-2.83M19.07 19.07l-2.83-2.83M4.93 4.93l2.83 2.83"/><circle cx="12" cy="12" r="3"/></svg>
+              </span>
+              <span id="detailSignupText">🔴 Sign Up Bonus ₹45</span>
+            </span>
+            <span class="min-withdraw" id="detailWithdraw">
+              <span class="led-svg-icon">
+                <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><path d="M8 14h8"/></svg>
+              </span>
+              <span id="detailWithdrawText">🏦 Min. Withdraw ₹100</span>
+            </span>
           </div>
           <div class="game-meta-detail">
-            <span class="rating" id="detailRating">⭐ 4.6</span>
-            <span class="size" id="detailSize">📦 53 MB</span>
-            <span class="votes" id="detailVotes">💛 27K</span>
-            <span class="bonus-badge" id="detailBonus">🎁 ₹30</span>
+            <span class="meta-item rating">
+              <span class="meta-icon">
+                <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </span>
+              <span id="detailRating">4.5</span>
+            </span>
+            <span class="meta-item size">
+              <span class="meta-icon">
+                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+              </span>
+              <span id="detailSize">55 MB</span>
+            </span>
+            <span class="meta-item votes">
+              <span class="meta-icon">
+                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </span>
+              <span id="detailVotes">26K</span>
+            </span>
+            <span class="meta-item bonus">
+              <span class="meta-icon">
+                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              </span>
+              <span id="detailBonus">₹45</span>
+            </span>
           </div>
         </div>
       </div>
@@ -666,6 +712,7 @@
       </div>
     </div>
 
+    <!-- TAG SECTION -->
     <div class="tag-section">
       <div class="tag-title" id="tagSectionTitle">
         <span class="led-icon green-cyan glow-bg"><span class="inner-icon">📢</span></span>
@@ -680,10 +727,13 @@
       </div>
     </div>
 
+    <!-- TOC SECTION -->
     <div class="toc-section">
       <div class="toc-header" id="tocToggle">
         <div class="toc-left">
-          <span class="toc-icon"><span class="inner">📋</span></span>
+          <span class="toc-icon">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </span>
           <span class="toc-title">Table of Contents</span>
         </div>
         <div class="toc-right" id="tocArrow">▼</div>
@@ -738,6 +788,7 @@
       </div>
     </div>
 
+    <!-- FAQ SECTION -->
     <div class="faq-section">
       <div class="faq-title">
         <span class="led-icon red-yellow glow-bg"><span class="inner-icon">❓</span></span>
@@ -751,6 +802,7 @@
       </div>
     </div>
 
+    <!-- GAME TAGS SECTION -->
     <div class="game-tags-section">
       <div class="game-tags-title">
         <span class="led-icon green-cyan glow-bg"><span class="inner-icon">🏷️</span></span>
@@ -759,6 +811,7 @@
       <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
+    <!-- RELATED SECTION -->
     <div class="related-section">
       <div class="related-title">
         <span class="led-icon gold-pink glow-bg"><span class="inner-icon">💲</span></span>
@@ -771,7 +824,7 @@
   <div class="footer-note">All Yono App Site • All Yono Apk • All Yono New • All Yono Games • 45+ Games • ₹45 Bonus • ₹100 Withdrawal</div>
 </div>
 
-<!-- OVERLAY (kept for compatibility) -->
+<!-- OVERLAY -->
 <div class="info-overlay" id="infoOverlay">
   <div class="info-card">
     <h2 id="overlayTitle">About</h2>
@@ -782,7 +835,7 @@
 
 <script>
   (function() {
-    // ---------- GAME DATA (same as before) ----------
+    // ---------- GAME DATA ----------
     const games = [
       { name: "All Yono App Site", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", altName: "567 Slots Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -850,7 +903,6 @@
     const aboutPage = document.getElementById('aboutPage');
     const contactPage = document.getElementById('contactPage');
     const disclaimerPage = document.getElementById('disclaimerPage');
-    
     const aboutContent = document.getElementById('aboutContent');
     const contactContent = document.getElementById('contactContent');
     const disclaimerContent = document.getElementById('disclaimerContent');
@@ -858,17 +910,13 @@
     const overlay = document.getElementById('infoOverlay');
     const overlayClose = document.getElementById('overlayClose');
 
-    // close overlay if open
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
 
-    // ---------- Function to load external HTML files ----------
     function loadPageContent(contentElement, fileName) {
       fetch(fileName)
         .then(response => {
-          if (!response.ok) {
-            throw new Error('File not found');
-          }
+          if (!response.ok) throw new Error('File not found');
           return response.text();
         })
         .then(html => {
@@ -876,7 +924,6 @@
           const doc = parser.parseFromString(html, 'text/html');
           const bodyContent = doc.body ? doc.body.innerHTML : html;
           contentElement.innerHTML = bodyContent;
-          
           const hasBackBtn = contentElement.querySelector('.static-back-btn');
           if (!hasBackBtn) {
             const backWrap = document.createElement('div');
@@ -888,7 +935,6 @@
               </button>
             `;
             contentElement.appendChild(backWrap);
-            
             backWrap.querySelector('.static-back-btn').addEventListener('click', function() {
               if (overlay.style.display === 'flex') overlay.style.display = 'none';
               hideAllNavActive();
@@ -898,18 +944,15 @@
             });
           }
         })
-        .catch(error => {
-          console.warn('Could not load ' + fileName + ':', error);
-          contentElement.innerHTML = '<p style="color: #64748b; text-align: center;">Content not available</p>';
+        .catch(() => {
+          contentElement.innerHTML = '<p style="color:#64748b;text-align:center;">Content not available</p>';
         });
     }
 
-    // Load with correct capitalization
     loadPageContent(aboutContent, 'About.html');
     loadPageContent(contactContent, 'Contact.html');
     loadPageContent(disclaimerContent, 'Disclaimer.html');
 
-    // ---------- helpers ----------
     function hideAllStatic() {
       aboutPage.classList.remove('visible');
       contactPage.classList.remove('visible');
@@ -939,7 +982,6 @@
       window.scrollTo({ top: 0 });
     }
 
-    // ---------- navigation clicks ----------
     homeNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -947,7 +989,6 @@
       showMainGrid();
       history.pushState(null, null, location.href);
     });
-
     aboutNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -961,7 +1002,6 @@
       window.scrollTo({ top: 0 });
       history.pushState(null, null, location.href);
     });
-
     contactNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -975,7 +1015,6 @@
       window.scrollTo({ top: 0 });
       history.pushState(null, null, location.href);
     });
-
     disclaimerNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -990,7 +1029,6 @@
       history.pushState(null, null, location.href);
     });
 
-    // ----- static back buttons (go home) -----
     document.querySelectorAll('.static-back-btn').forEach(btn => {
       btn.addEventListener('click', function() {
         if (overlay.style.display === 'flex') overlay.style.display = 'none';
@@ -1001,7 +1039,6 @@
       });
     });
 
-    // ---------- back button (from detail) ----------
     backBtn.addEventListener('click', function() {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
       showMainGrid();
@@ -1010,7 +1047,6 @@
       history.pushState(null, null, location.href);
     });
 
-    // ---------- render game grid ----------
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
@@ -1056,17 +1092,19 @@
     }
     renderGrid();
 
-    // ---------- show detail (same as before) ----------
     function showDetail(game) {
+      // Set fixed values as requested: Rating 4.5, Size 55 MB, Votes 26K, Bonus ₹45
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
       document.getElementById('detailTitle').textContent = 'Download ' + game.name + ' APK • Welcome ' + game.bonus + ' Bonus';
-      document.getElementById('detailSignup').textContent = '🔴 Sign Up Bonus ' + game.bonus;
-      document.getElementById('detailWithdraw').textContent = '🏦 Min. Withdraw ' + game.withdrawal;
-      document.getElementById('detailBonus').textContent = '🎁 ' + game.bonus;
-      document.getElementById('detailRating').textContent = '⭐ ' + (game.rating || '4.6');
-      document.getElementById('detailSize').textContent = '📦 ' + (game.size || '53 MB');
-      document.getElementById('detailVotes').textContent = '💛 ' + (game.votes || '27K');
+      document.getElementById('detailSignupText').textContent = '🔴 Sign Up Bonus ' + game.bonus;
+      document.getElementById('detailWithdrawText').textContent = '🏦 Min. Withdraw ' + game.withdrawal;
+      
+      // Fixed values
+      document.getElementById('detailRating').textContent = '4.5';
+      document.getElementById('detailSize').textContent = '55 MB';
+      document.getElementById('detailVotes').textContent = '26K';
+      document.getElementById('detailBonus').textContent = '₹45';
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
 
       const gName = game.name;
@@ -1139,7 +1177,6 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
 
-      // tags
       const tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
       uniqueGames.forEach(g => {
@@ -1172,7 +1209,6 @@
         tagsContainer.appendChild(tag);
       });
 
-      // related
       const relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       uniqueGames.filter(g => g.name !== game.name).forEach(g => {
@@ -1220,13 +1256,11 @@
       homeNav.classList.remove('active');
     }
 
-    // ---------- TOC toggle ----------
     document.getElementById('tocToggle').addEventListener('click', function() {
       document.getElementById('tocBody').classList.toggle('open');
       document.getElementById('tocArrow').classList.toggle('open');
     });
 
-    // ---------- share ----------
     document.getElementById('shareBtn').addEventListener('click', function() {
       const shareUrl = 'https://www.earntp.com/gold/jm9n7r';
       if (navigator.share) {
@@ -1240,7 +1274,6 @@
       }
     });
 
-    // ---------- popstate (back/forward) ----------
     window.addEventListener('popstate', function(e) {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
       if (detailView.style.display === 'block') {
