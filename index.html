@@ -1,3 +1,4 @@
+0
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -345,7 +346,7 @@
 
     /* Loading indicator for static pages */
     .static-loading {
-      padding: 20px;
+      padding: 40px 20px;
       text-align: center;
       color: #64748b;
       font-size: 0.9rem;
@@ -477,19 +478,19 @@
   <!-- STATIC PAGES - Load content from external files -->
   <div id="aboutPage" class="static-page">
     <div id="aboutContent">
-      <div class="static-loading">Loading About content...</div>
+      <div class="static-loading">Loading...</div>
     </div>
   </div>
 
   <div id="contactPage" class="static-page">
     <div id="contactContent">
-      <div class="static-loading">Loading Contact content...</div>
+      <div class="static-loading">Loading...</div>
     </div>
   </div>
 
   <div id="disclaimerPage" class="static-page">
     <div id="disclaimerContent">
-      <div class="static-loading">Loading Disclaimer content...</div>
+      <div class="static-loading">Loading...</div>
     </div>
   </div>
 
@@ -721,7 +722,7 @@
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
 
     // ---------- Function to load external HTML files ----------
-    function loadPageContent(pageId, contentElement, fileName, defaultContent) {
+    function loadPageContent(contentElement, fileName) {
       fetch(fileName)
         .then(response => {
           if (!response.ok) {
@@ -760,44 +761,20 @@
           }
         })
         .catch(error => {
-          console.warn('Could not load ' + fileName + ', using default content:', error);
-          contentElement.innerHTML = defaultContent;
-          // Add back button for default content
-          const backWrap = document.createElement('div');
-          backWrap.className = 'static-back-wrap';
-          backWrap.innerHTML = `
-            <button class="static-back-btn" data-nav="home">
-              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-              Back
-            </button>
-          `;
-          contentElement.appendChild(backWrap);
-          
-          backWrap.querySelector('.static-back-btn').addEventListener('click', function() {
-            if (overlay.style.display === 'flex') overlay.style.display = 'none';
-            hideAllNavActive();
-            homeNav.classList.add('active');
-            showMainGrid();
-            history.pushState(null, null, location.href);
-          });
+          console.warn('Could not load ' + fileName + ':', error);
+          contentElement.innerHTML = '<p style="color: #dc2626; text-align: center;">Could not load content. Please make sure ' + fileName + ' exists.</p>';
         });
     }
 
-    // ---------- Preload page content ----------
-    // About page
-    loadPageContent('aboutPage', aboutContent, 'about.html', 
-      '<h2>About</h2><p>Add your custom About content here.</p>'
-    );
+    // ---------- Load page content from external files ----------
+    // About page loads from about.html
+    loadPageContent(aboutContent, 'about.html');
     
-    // Contact page
-    loadPageContent('contactPage', contactContent, 'contact.html',
-      '<h2>Contact</h2><p>Add your custom Contact content here.</p>'
-    );
+    // Contact page loads from contact.html
+    loadPageContent(contactContent, 'contact.html');
     
-    // Disclaimer page
-    loadPageContent('disclaimerPage', disclaimerContent, 'disclaimer.html',
-      '<h2>Disclaimer</h2><p>Add your custom Disclaimer content here.</p>'
-    );
+    // Disclaimer page loads from disclaimer.html
+    loadPageContent(disclaimerContent, 'disclaimer.html');
 
     // ---------- helpers ----------
     function hideAllStatic() {
