@@ -1,4 +1,3 @@
-0
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -762,19 +761,19 @@
         })
         .catch(error => {
           console.warn('Could not load ' + fileName + ':', error);
-          contentElement.innerHTML = '<p style="color: #dc2626; text-align: center;">Could not load content. Please make sure ' + fileName + ' exists.</p>';
+          contentElement.innerHTML = '<p style="color: #dc2626; text-align: center; padding: 20px;">Could not load content. Please make sure ' + fileName + ' exists.</p>';
         });
     }
 
-    // ---------- Load page content from external files ----------
-    // About page loads from about.html
-    loadPageContent(aboutContent, 'about.html');
+    // ---------- Load page content from external files with correct filenames ----------
+    // About page loads from About.html (capital A)
+    loadPageContent(aboutContent, 'About.html');
     
-    // Contact page loads from contact.html
-    loadPageContent(contactContent, 'contact.html');
+    // Contact page loads from Contact.html (capital C)
+    loadPageContent(contactContent, 'Contact.html');
     
-    // Disclaimer page loads from disclaimer.html
-    loadPageContent(disclaimerContent, 'disclaimer.html');
+    // Disclaimer page loads from Disclaimer.html (capital D)
+    loadPageContent(disclaimerContent, 'Disclaimer.html');
 
     // ---------- helpers ----------
     function hideAllStatic() {
