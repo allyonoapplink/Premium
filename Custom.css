@@ -1,182 +1,170 @@
-/* ========================================
-   CUSTOM CSS - White HD Background
-   ======================================== */
-
-/* ----- MAIN BACKGROUND: Pure White HD ----- */
+/* ===== FULL WHITE BACKGROUND ===== */
 body {
   background: #ffffff !important;
 }
 
-/* ----- CONTAINER: Clean White with Subtle Depth ----- */
 .container {
   background: #ffffff !important;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);
 }
 
-/* ----- CARDS: Smooth White with Soft Shadows ----- */
-.card {
-  background: #ffffff !important;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  border-color: #f0f2f5;
-}
-
-.card:active {
-  background: #fafcff !important;
-}
-
-/* ----- STATIC PAGES: Pure White Background ----- */
+/* Force white backgrounds on all major sections */
+.top-header,
+.marquee-container,
+.nav-row-small,
+#mainGrid,
+.detail-card,
+.tag-section,
+.faq-section,
+.toc-section,
+.game-tags-section,
+.related-section,
+.footer-note,
 .static-page {
   background: #ffffff !important;
 }
 
-/* ----- DETAIL VIEW: White Background ----- */
-.detail-card {
-  background: #ffffff !important;
-}
-
-/* ----- TOP HEADER: White with Subtle Border ----- */
-.top-header {
-  background: #ffffff !important;
-  border-bottom-color: #f0f2f5;
-}
-
-/* ----- NAVIGATION: Clean White ----- */
-.nav-row-small {
-  background: #ffffff !important;
-  border-bottom-color: #f0f2f5;
-}
-
-.nav-small {
-  background: #f8fafc;
-  border-color: #e8ecf1;
-}
-
-.nav-small.active {
-  background: #1a1a2e;
-  border-color: #1a1a2e;
-}
-
-/* ----- MARQUEE: Keep Gradient, Make It Pop ----- */
+/* Remove any leftover gray or colored backgrounds */
 .marquee-container {
-  background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d) !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e9edf4;
+}
+.marquee-container marquee {
+  color: #0b1e33 !important;
+  text-shadow: none !important;
+}
+.marquee-container marquee .highlight {
+  background: rgba(0,0,0,0.05) !important;
+  color: #2563eb !important;
 }
 
-/* ----- FOOTER: Clean White ----- */
-.footer-note {
-  background: #ffffff !important;
-  border-top-color: #f0f2f5;
+/* ===== LED COLOR EFFECTS ===== */
+/* Glowing neon borders and shadows for cards */
+.card {
+  border: 2px solid #00ddff !important;
+  box-shadow: 0 0 15px rgba(0, 220, 255, 0.3), 
+              0 0 30px rgba(0, 220, 255, 0.1) !important;
+  transition: all 0.3s ease;
 }
 
-/* ----- TAG SECTIONS: White Background ----- */
-.tag-section {
-  background: #ffffff !important;
+.card:hover {
+  border-color: #ff00ff !important;
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.4),
+              0 0 50px rgba(255, 0, 255, 0.15) !important;
+  transform: scale(1.02);
+}
+
+/* LED glow on download buttons */
+.download-btn,
+.card-download-sm,
+.rdownload {
+  background: linear-gradient(135deg, #00ddff, #ff00ff) !important;
+  border: none !important;
+  box-shadow: 0 0 20px rgba(0, 220, 255, 0.4),
+              0 0 40px rgba(255, 0, 255, 0.2) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover,
+.card-download-sm:hover,
+.rdownload:hover {
+  box-shadow: 0 0 40px rgba(0, 220, 255, 0.6),
+              0 0 80px rgba(255, 0, 255, 0.3) !important;
+  transform: scale(1.05);
+}
+
+/* LED glowing headings */
+h2, .site-name-text, .game-name, .card-name {
+  text-shadow: 0 0 10px rgba(0, 220, 255, 0.3),
+               0 0 20px rgba(255, 0, 255, 0.2) !important;
+}
+
+/* LED borders for detail cards */
+.detail-card {
+  border: 2px solid #00ff00 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2) !important;
 }
 
 .tag-box {
-  background: #ffffff !important;
-  border-color: #f0f2f5;
-}
-
-/* ----- FAQ SECTION: White Background ----- */
-.faq-section {
-  background: #ffffff !important;
+  border: 2px solid #ffff00 !important;
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.2) !important;
 }
 
 .faq-box {
-  background: #fafbfc !important;
-  border-color: #f0f2f5;
+  border: 2px solid #ff00ff !important;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.2) !important;
 }
 
-/* ----- TOC SECTION: White Background ----- */
-.toc-section {
-  background: #ffffff !important;
+/* LED animated glow on meta badges */
+.rating,
+.size,
+.votes,
+.bonus-badge {
+  border: 2px solid currentColor !important;
+  box-shadow: 0 0 15px currentColor !important;
+  animation: ledPulse 2s ease-in-out infinite !important;
 }
 
-.toc-header {
-  background: #ffffff !important;
-  border-color: #f0f2f5;
+@keyframes ledPulse {
+  0%, 100% { box-shadow: 0 0 10px currentColor; }
+  50% { box-shadow: 0 0 30px currentColor, 0 0 60px currentColor; }
 }
 
-.toc-item {
-  background: #ffffff !important;
-  border-color: #f0f2f5;
+/* LED color on navigation active */
+.nav-small.active {
+  background: linear-gradient(135deg, #00ddff, #ff00ff) !important;
+  border-color: #00ddff !important;
+  box-shadow: 0 0 20px rgba(0, 220, 255, 0.5) !important;
+  color: #fff !important;
 }
 
-/* ----- GAME TAGS: White Background ----- */
-.game-tags-section {
-  background: #ffffff !important;
-}
-
-/* ----- RELATED SECTION: White Background ----- */
-.related-section {
-  background: #ffffff !important;
-}
-
-.related-item {
-  background: #fafbfc !important;
-  border-color: #f0f2f5;
-}
-
-/* ----- OVERLAY: White Card ----- */
-.info-card {
-  background: #ffffff !important;
-}
-
-/* ----- SHARE BUTTON: Clean White Text on Black ----- */
+/* LED glow on share and telegram buttons */
 .share-btn {
-  background: #000000 !important;
+  background: linear-gradient(135deg, #00ddff, #ff00ff) !important;
+  border: none !important;
+  box-shadow: 0 0 20px rgba(0, 220, 255, 0.3) !important;
+  color: #fff !important;
 }
 
-/* ----- TELEGRAM BUTTON: Keep as is ----- */
 .telegram-btn {
-  background: #000000 !important;
+  border: 2px solid #00ddff !important;
+  box-shadow: 0 0 20px rgba(0, 220, 255, 0.3) !important;
 }
 
-/* ========================================
-   ADDITIONAL ENHANCEMENTS
-   ======================================== */
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
+/* LED glowing back button */
+.back-btn {
+  background: #000 !important;
+  color: #00ddff !important;
+  border: 2px solid #00ddff !important;
+  box-shadow: 0 0 15px rgba(0, 220, 255, 0.3) !important;
 }
 
-/* Better Button Hover Effects */
-.download-btn:hover {
-  opacity: 0.9;
-  transform: scale(0.98);
-  transition: all 0.2s ease;
-}
+/* LED colors on the header title */
+.site-name-text .d1 { color: #00ff00 !important; }
+.site-name-text .d2 { color: #ffff00 !important; }
+.site-name-text .d3 { color: #00ddff !important; }
+.site-name-text .d4 { color: #ff00ff !important; }
 
-.card-download-sm:hover {
-  opacity: 0.85;
-  transform: scale(0.95);
-  transition: all 0.2s ease;
-}
+/* Add LED dots animation (already present, keep) */
 
-/* Card Hover Effect */
-.card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  transition: all 0.25s ease;
-}
-
-/* Clean Focus States */
-button:focus,
-a:focus {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
-/* ========================================
-   MOBILE RESPONSIVE FINE-TUNE
-   ======================================== */
-
+/* Ensure all backgrounds are white even on mobile */
 @media (max-width: 420px) {
-  .card {
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+  body, .container, .top-header, .marquee-container, .nav-row-small {
+    background: #ffffff !important;
   }
-  
-  .static-page {
-    padding: 20px 16px;
-  }
+}
+
+/* LED glow on the logo */
+.logo-cyan-round {
+  border-color: #00ddff !important;
+  box-shadow: 0 0 30px rgba(0, 220, 255, 0.5),
+              0 0 60px rgba(0, 220, 255, 0.2) !important;
+}
+
+/* LED effect on the footer */
+.footer-note {
+  border-top: 2px solid #00ddff !important;
+  box-shadow: 0 -5px 20px rgba(0, 220, 255, 0.1) !important;
+  color: #0b1e33 !important;
 }
