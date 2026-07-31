@@ -1,3 +1,4 @@
+00pp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -761,8 +762,8 @@
         })
         .catch(error => {
           console.warn('Could not load ' + fileName + ':', error);
-          // Don't show error message, just keep loading state
-          contentElement.innerHTML = '<p style="color: #64748b; text-align: center;">Loading content...</p>';
+          // Fallback: show a simple message without error
+          contentElement.innerHTML = '<p style="color: #64748b; text-align: center;">Content not available</p>';
         });
     }
 
