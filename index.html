@@ -247,11 +247,11 @@
     .info-row.signup .svg-icon svg { stroke: #f39c12; }
     .info-row.withdraw .svg-icon svg { stroke: #3498db; }
 
-    /* --- Update Version badge (on right of Min Withdraw) --- */
+    /* --- Update Version badge (with premium SVG icon on left) --- */
     .update-badge {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       font-size: 0.6rem;
       font-weight: 700;
       color: #ff0000;
@@ -265,6 +265,21 @@
       animation: updateGlow 2s ease-in-out infinite;
       white-space: nowrap;
       margin-left: auto;
+    }
+    .update-badge .badge-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .update-badge .badge-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: #ff0000;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .update-badge .version {
       font-weight: 800;
@@ -283,8 +298,23 @@
         color: #ff4444;
       }
     }
+    /* The SVG inside the badge also inherits the glow color */
+    .update-badge .badge-icon svg {
+      transition: stroke 0.3s ease;
+    }
+    @keyframes updateGlow {
+      0%,100% {
+        box-shadow: 0 0 6px rgba(255,0,0,0.15);
+        border-color: #ff0000;
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(255,0,0,0.5), 0 0 40px rgba(255,0,0,0.15);
+        border-color: #ff4444;
+        color: #ff4444;
+      }
+    }
 
-    /* --- Meta block: two rows with Rating, Size, Votes (no Bonus) --- */
+    /* --- Meta block: two rows with Rating, Size, Votes --- */
     .meta-block {
       display: flex;
       flex-direction: column;
@@ -641,7 +671,8 @@
       .info-row { font-size: 0.7rem; gap: 4px; }
       .info-row .svg-icon svg { width: 14px; height: 14px; }
       .game-sub { gap: 2px; }
-      .update-badge { font-size: 0.5rem; padding: 2px 6px; }
+      .update-badge { font-size: 0.5rem; padding: 2px 6px; gap: 3px; }
+      .update-badge .badge-icon svg { width: 11px; height: 11px; }
       .game-detail-header .detail-header-title { font-size: 0.6rem; }
       .back-btn { font-size: 0.5rem; padding: 2px 10px; }
     }
@@ -788,14 +819,18 @@
               </span>
               <span class="label">Min. Withdraw</span>
               <span class="value" id="detailWithdrawText">₹100</span>
-              <!-- Update Version badge -->
+              <!-- Update Version badge with premium SVG icon -->
               <span class="update-badge" id="detailVersionBadge">
-                <span class="version">5.3</span> <span class="new-label">New</span>
+                <span class="badge-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                </span>
+                <span class="version">5.3</span>
+                <span class="new-label">New</span>
               </span>
             </div>
           </div>
 
-          <!-- META BLOCK: Rating + Size (row1), Votes (row2) – Bonus removed -->
+          <!-- META BLOCK: Rating + Size (row1), Votes (row2) -->
           <div class="meta-block">
             <div class="meta-row">
               <!-- Rating -->
@@ -1343,7 +1378,7 @@
       document.getElementById('detailSignupText').textContent = game.bonus;
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
       
-      // Update Version badge
+      // Update Version badge - update version number, SVG icon stays
       document.querySelector('#detailVersionBadge .version').textContent = game.version;
       
       // Rating stars and value
