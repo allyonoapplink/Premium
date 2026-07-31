@@ -1,3 +1,4 @@
+0000
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -640,7 +641,7 @@
 
 <script>
   (function() {
-    // ---------- GAME DATA (same as before) ----------
+    // ---------- GAME DATA ----------
     const games = [
       { name: "All Yono App Site", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", altName: "567 Slots Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -761,18 +762,23 @@
         })
         .catch(error => {
           console.warn('Could not load ' + fileName + ':', error);
-          contentElement.innerHTML = '<p style="color: #dc2626; text-align: center; padding: 20px;">Could not load content. Please make sure ' + fileName + ' exists.</p>';
+          // Show a simple message without error text
+          contentElement.innerHTML = '<p style="color: #94a3b8; text-align: center; padding: 20px;">Content loading...</p>';
+          // Retry after 2 seconds
+          setTimeout(() => {
+            loadPageContent(contentElement, fileName);
+          }, 2000);
         });
     }
 
-    // ---------- Load page content from external files with correct filenames ----------
-    // About page loads from About.html (capital A)
+    // ---------- Load page content from external files ----------
+    // About page loads from About.html
     loadPageContent(aboutContent, 'About.html');
     
-    // Contact page loads from Contact.html (capital C)
+    // Contact page loads from Contact.html
     loadPageContent(contactContent, 'Contact.html');
     
-    // Disclaimer page loads from Disclaimer.html (capital D)
+    // Disclaimer page loads from Disclaimer.html
     loadPageContent(disclaimerContent, 'Disclaimer.html');
 
     // ---------- helpers ----------
@@ -922,7 +928,7 @@
     }
     renderGrid();
 
-    // ---------- show detail (same as before) ----------
+    // ---------- show detail ----------
     function showDetail(game) {
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
