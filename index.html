@@ -444,75 +444,6 @@
       font-size: 0.8rem;
     }
 
-    /* ===== REFERRAL SECTION ===== */
-    .referral-section {
-      padding: 10px;
-      background: #f8fafc;
-      border-top: 1px solid #e9edf4;
-      border-bottom: 1px solid #e9edf4;
-    }
-    .referral-section .referral-title {
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #0b1e33;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .referral-section .referral-content {
-      font-size: 0.7rem;
-      color: #334155;
-      line-height: 1.7;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 4px 8px;
-    }
-    .referral-section .referral-content .ref-bonus {
-      color: #dc2626;
-      font-weight: 700;
-    }
-    .referral-section .referral-content .ref-code {
-      background: #eef2ff;
-      padding: 2px 10px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 0.65rem;
-      color: #1e293b;
-      border: 1px solid #cbd5e1;
-      font-family: monospace;
-      letter-spacing: 1px;
-    }
-    .referral-section .referral-content .ref-link-wrap {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: #eef2ff;
-      padding: 2px 10px 2px 6px;
-      border-radius: 20px;
-      border: 1px solid #cbd5e1;
-    }
-    .referral-section .referral-content .ref-link-wrap svg {
-      width: 14px;
-      height: 14px;
-      stroke: #2563eb;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .referral-section .referral-content .ref-link {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.65rem;
-      word-break: break-all;
-    }
-    .referral-section .referral-content .ref-link:hover {
-      text-decoration: underline;
-    }
-
     /* ===== GAME TAGS SECTION (heading only, no tags) ===== */
     .game-tags-section {
       padding: 10px;
@@ -813,11 +744,6 @@
       .rdownload { font-size: 0.45rem !important; padding: 3px 8px 3px 6px !important; }
       .rdownload svg { width: 10px; height: 10px; }
       .apk-download-line { font-size: 0.6rem; }
-      .referral-section .referral-content { font-size: 0.6rem; }
-      .referral-section .referral-content .ref-code { font-size: 0.55rem; padding: 1px 8px; }
-      .referral-section .referral-content .ref-link-wrap { padding: 1px 6px 1px 4px; }
-      .referral-section .referral-content .ref-link-wrap svg { width: 12px; height: 12px; }
-      .referral-section .referral-content .ref-link { font-size: 0.55rem; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -1006,7 +932,7 @@
       <div class="apk-download-line">
         <span class="apk-label">APK Download – Get</span>
         <span class="apk-bonus" id="apkBonusLine">₹45</span>
-        <span class="apk-label">Bonus!</span>
+        <span class="apk-label">Instant Bonus!</span>
       </div>
     </div>
 
@@ -1175,27 +1101,6 @@
           </div>
           <div class="faq-a" id="faq4Content"><strong>•</strong> Enjoy a bonus of ₹<span id="faq4Bonus">51</span> for free in the APK.<br><strong>•</strong> Access to 20 gaming options.<br><strong>•</strong> Earn up to ₹<span id="faq4Bonus2">150</span> for inviting friends.<br><strong>•</strong> Withdrawals can be made starting from a minimum of ₹<span id="faq4Withdraw">500</span>.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br><strong>•</strong> The minimum deposit required is ₹<span id="faq4Deposit">100</span>. Referral Bonus: ₹<span id="faq4Ref">22</span></div>
         </div>
-      </div>
-    </div>
-
-    <!-- ===== REFERRAL SECTION ===== -->
-    <div class="referral-section" id="referralSection">
-      <div class="referral-title">
-        <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>
-        </span>
-        <span>Refer & Earn</span>
-      </div>
-      <div class="referral-content" id="referralContent">
-        <span>Invite your friends to <strong id="refGameName">Game Name</strong> and earn</span>
-        <span class="ref-bonus" id="refBonusAmount">₹25</span>
-        <span>for each successful referral! Use your unique referral code:</span>
-        <span class="ref-code" id="refCode">YONO7X9P</span>
-        <span>or share your referral link:</span>
-        <span class="ref-link-wrap">
-          <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          <a href="https://www.earntp.com/m/jm9n7r" class="ref-link" target="_blank">https://www.earntp.com/m/jm9n7r</a>
-        </span>
       </div>
     </div>
 
@@ -1519,14 +1424,49 @@
       return major + '.' + minor;
     }
 
-    // Generate referral data (unique per game)
-    function generateReferralData(gameName, bonus) {
-      var seed = gameName.length * 7 + gameName.charCodeAt(0);
-      var refBonus = 15 + (seed % 35);
-      var codes = ['YONO', 'REF', 'WIN', 'GAME', 'PLAY', 'CASH', 'LUCKY', 'BONUS', 'VIP', 'GOLD', 'STAR', 'PRO'];
-      var codeNum = (seed * 7) % 1000;
-      var code = codes[seed % codes.length] + (codeNum % 100).toString().padStart(2, '0') + String.fromCharCode(65 + (seed % 26));
-      return { refBonus: refBonus, refCode: code };
+    // --- Unique content generators per game ---
+    function generateUniqueDescription(gameName, seed) {
+      var descs = [
+        'Play ' + gameName + ' and enjoy a premium gaming experience with real cash rewards. ',
+        'Download ' + gameName + ' APK today and start winning big with exciting games and bonuses. ',
+        'Join ' + gameName + ' for thrilling gameplay, instant withdrawals, and amazing bonuses. ',
+        'Experience the best of online gaming with ' + gameName + ' – get your bonus now! ',
+        'Win real money daily with ' + gameName + ' – the most trusted gaming app in India. '
+      ];
+      var idx = seed % descs.length;
+      var extra = 'With a welcome bonus of ' + (20 + (seed % 80)) + ' and fast UPI withdrawals, ';
+      return descs[idx] + extra + 'Sign up today and claim your exclusive rewards.';
+    }
+
+    function generateUniqueKeywords(gameName, seed) {
+      var base = gameName + ', ' + (gameName + ' APK'), 
+          extras = ['real cash game', 'online gaming', 'download', 'rummy', 'slots', 'teen patti', 'jackpot', 'bonus', 'withdrawal', 'UPI', 'trusted app'];
+      var count = 4 + (seed % 4);
+      var shuffled = extras.slice();
+      // shuffle using seed
+      for (var i = shuffled.length - 1; i > 0; i--) {
+        var j = (seed + i) % (i+1);
+        var temp = shuffled[i];
+        shuffled[i] = shuffled[j];
+        shuffled[j] = temp;
+      }
+      var selected = shuffled.slice(0, count);
+      return base + ', ' + selected.join(', ');
+    }
+
+    function generateDownloadInfo(gameName, seed) {
+      var size = (20 + (seed % 60)) + ' MB';
+      var version = 'v' + (1 + (seed % 5)) + '.' + (seed % 10);
+      var date = '202' + (seed % 4) + '-0' + (1 + (seed % 9)) + '-' + (10 + (seed % 20));
+      return 'Version: ' + version + ' | Size: ' + size + ' | Updated: ' + date + ' | Supports Android 5.0+ | Safe & Secure.';
+    }
+
+    function generateBonusValues(gameName, seed) {
+      var signup = 15 + (seed % 85);
+      var welcome = signup + 10 + (seed % 20);
+      var claim = welcome + 5 + (seed % 15);
+      var instant = claim + 2 + (seed % 10);
+      return { signup: signup, welcome: welcome, claim: claim, instant: instant };
     }
 
     function renderGrid() {
@@ -1588,23 +1528,31 @@
     renderGrid();
 
     function showDetail(game) {
+      var gName = game.name;
+      var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
+      var bonusObj = generateBonusValues(gName, seed);
+      var description = generateUniqueDescription(gName, seed);
+      var keywords = generateUniqueKeywords(gName, seed);
+      var downloadInfo = generateDownloadInfo(gName, seed);
+      var jackpot = '₹' + (1000 + (seed % 9000)) + ' ' + (['Jackpot', 'Grand Prize', 'Mega Win', 'Top Reward'][seed % 4]);
+      var installInfo = 'Install from APK (allow unknown sources). Minimum Android ' + (5 + (seed % 4)) + '.0.';
+
       // Update meta tags
-      document.title = game.name + ' – Download ' + game.name + ' APK | All Yono Games';
+      document.title = gName + ' – Download ' + gName + ' APK | ' + bonusObj.signup + ' Bonus';
       var metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
-        metaDesc.setAttribute('content', 'Download ' + game.name + ' APK (' + (game.altName || game.name) + ') – Get ' + game.bonus + ' signup bonus, ' + game.withdrawal + ' min withdrawal. Play ' + game.name + ' and win real cash!');
+        metaDesc.setAttribute('content', 'Download ' + gName + ' APK (' + (game.altName || gName) + ') – Get ₹' + bonusObj.signup + ' signup bonus, ' + game.withdrawal + ' min withdrawal. ' + description.slice(0, 120));
       }
       var metaKeywords = document.querySelector('meta[name="keywords"]');
       if (metaKeywords) {
-        var keywords = game.name + ', ' + (game.altName || game.name) + ', download, APK, real cash game, rummy, slots, teen patti, casino, online earning, ' + game.bonus + ' bonus';
         metaKeywords.setAttribute('content', keywords);
       }
 
       // Fill detail card
       document.getElementById('detailImg').src = game.img;
-      document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
-      document.getElementById('detailHeaderTitle').textContent = game.name + ' • Download APK';
-      document.getElementById('detailSignupText').textContent = game.bonus;
+      document.getElementById('detailName').innerHTML = gName + ' <span class="alt">| ' + (game.altName || gName) + '</span>';
+      document.getElementById('detailHeaderTitle').textContent = gName + ' • Download APK';
+      document.getElementById('detailSignupText').textContent = '₹' + bonusObj.signup;
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
       document.querySelector('#detailVersionBadge .version').textContent = game.version;
       
@@ -1615,17 +1563,10 @@
       document.getElementById('detailVotes').textContent = game.votes;
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
-      document.getElementById('apkBonusLine').textContent = game.bonus;
+      // Instant bonus for APK download line
+      document.getElementById('apkBonusLine').textContent = '₹' + bonusObj.instant;
 
-      // Referral Section (unique bonus/code, fixed link)
-      var refData = generateReferralData(game.name, game.bonus);
-      document.getElementById('refGameName').textContent = game.name;
-      document.getElementById('refBonusAmount').textContent = '₹' + refData.refBonus;
-      document.getElementById('refCode').textContent = refData.refCode;
-
-      // Top Offers (dynamic)
-      var gName = game.name;
-      var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
+      // Top Offers dynamic content (using gName and seed)
       var b = {
         tag1: 20 + (seed * 3) % 880, tag2: 20 + (seed * 7) % 880,
         tag3: 20 + (seed * 2) % 880, tag3b: 20 + (seed * 4) % 880,
