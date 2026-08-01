@@ -1418,7 +1418,7 @@
               if (overlay.style.display === 'flex') overlay.style.display = 'none';
               hideAllNavActive();
               homeNav.classList.add('active');
-              showMainGrid(0);
+              showMainGrid();
               history.pushState(null, null, location.href);
             });
           }
@@ -1449,13 +1449,29 @@
       if (metaKeywords) metaKeywords.setAttribute('content', originalKeywords);
     }
 
+    // ---- History Stack (only for navigation tracking) ----
+    var historyStack = [];
+
+    function pushHistory(state, title, url) {
+      historyStack.push({ state: state, title: title, url: url });
+      history.pushState(state, title, url);
+    }
+
+    function popHistory() {
+      if (historyStack.length > 1) {
+        historyStack.pop();
+        return historyStack[historyStack.length - 1];
+      }
+      return null;
+    }
+
     // ---- Scroll to top function ----
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
 
     // ---- Navigation Functions ----
-    function showMainGrid(scrollPos) {
+    function showMainGrid() {
       detailView.style.display = 'none';
       detailView.classList.remove('show');
       detailView.classList.add('hidden');
@@ -1483,7 +1499,10 @@
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
       this.classList.add('active');
-      showMainGrid(0);
+      // Clear history stack when going home
+      historyStack = [];
+      showMainGrid();
+      pushHistory({ page: 'home' }, 'Home', location.href);
     });
 
     // ---- About Navigation ----
@@ -1498,6 +1517,7 @@
       hideAllStatic();
       aboutPage.classList.add('visible');
       scrollToTop();
+      pushHistory({ page: 'about' }, 'About', location.href);
     });
 
     // ---- Contact Navigation ----
@@ -1512,6 +1532,7 @@
       hideAllStatic();
       contactPage.classList.add('visible');
       scrollToTop();
+      pushHistory({ page: 'contact' }, 'Contact', location.href);
     });
 
     // ---- Disclaimer Navigation ----
@@ -1526,23 +1547,82 @@
       hideAllStatic();
       disclaimerPage.classList.add('visible');
       scrollToTop();
+      pushHistory({ page: 'disclaimer' }, 'Disclaimer', location.href);
     });
 
     // ---- Static Back Buttons ----
     document.querySelectorAll('.static-back-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         if (overlay.style.display === 'flex') overlay.style.display = 'none';
-        hideAllNavActive();
-        homeNav.classList.add('active');
-        showMainGrid(0);
-        history.back();
+        // Go back in history
+        var prev = popHistory();
+        if (prev && prev.state.page === 'home') {
+          hideAllNavActive();
+          homeNav.classList.add('active');
+          showMainGrid();
+        } else {
+          history.back();
+        }
       });
     });
 
     // ---- Detail Back Button ----
     backBtn.addEventListener('click', function() {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
-      history.back();
+      
+      // Get previous state from history stack
+      var prev = popHistory();
+      if (prev) {
+        // Restore previous page with scroll to top
+        if (prev.state.page === 'home') {
+          hideAllNavActive();
+          homeNav.classList.add('active');
+          showMainGrid();
+        } else if (prev.state.page === 'about') {
+          hideAllNavActive();
+          aboutNav.classList.add('active');
+          mainGrid.style.display = 'none';
+          mainGrid.classList.add('hidden');
+          detailView.style.display = 'none';
+          detailView.classList.add('hidden');
+          hideAllStatic();
+          aboutPage.classList.add('visible');
+          scrollToTop();
+        } else if (prev.state.page === 'contact') {
+          hideAllNavActive();
+          contactNav.classList.add('active');
+          mainGrid.style.display = 'none';
+          mainGrid.classList.add('hidden');
+          detailView.style.display = 'none';
+          detailView.classList.add('hidden');
+          hideAllStatic();
+          contactPage.classList.add('visible');
+          scrollToTop();
+        } else if (prev.state.page === 'disclaimer') {
+          hideAllNavActive();
+          disclaimerNav.classList.add('active');
+          mainGrid.style.display = 'none';
+          mainGrid.classList.add('hidden');
+          detailView.style.display = 'none';
+          detailView.classList.add('hidden');
+          hideAllStatic();
+          disclaimerPage.classList.add('visible');
+          scrollToTop();
+        } else if (prev.state.page === 'detail') {
+          // Show detail view again with scroll to top
+          if (prev.state.game) {
+            var gData = gameDataMap[prev.state.game];
+            if (gData) {
+              showDetail(gData, true);
+            }
+          }
+        }
+      } else {
+        // No history, go home
+        hideAllNavActive();
+        homeNav.classList.add('active');
+        showMainGrid();
+      }
     });
 
     // Helper: Generate star HTML
@@ -1756,7 +1836,7 @@
     }
     renderGrid();
 
-    function showDetail(game) {
+    function showDetail(game, fromBack) {
       // Update meta tags
       document.title = game.name + ' – Download ' + game.name + ' APK | All Yono Games';
       var metaDesc = document.querySelector('meta[name="description"]');
@@ -1937,8 +2017,10 @@
       hideAllNavActive();
       homeNav.classList.remove('active');
       
-      // Push state for browser history
-      history.pushState({ page: 'detail', game: game.name }, game.name, location.href);
+      // Push state for browser history (only if not coming from back)
+      if (!fromBack) {
+        pushHistory({ page: 'detail', game: game.name }, game.name, location.href);
+      }
     }
 
     document.getElementById('tocToggle').addEventListener('click', function() {
@@ -1965,64 +2047,70 @@
       
       var state = e.state;
       
-      // If on detail view, go back to previous view
+      // If we're on detail view, go back to previous page with scroll to top
       if (detailView.style.display === 'block') {
-        // Check if we have a state telling us what to show
-        if (state && state.page === 'home') {
-          hideAllNavActive();
-          homeNav.classList.add('active');
-          showMainGrid(0);
-        } else if (state && state.page === 'about') {
-          hideAllNavActive();
-          aboutNav.classList.add('active');
-          mainGrid.style.display = 'none';
-          mainGrid.classList.add('hidden');
-          detailView.style.display = 'none';
-          detailView.classList.add('hidden');
-          hideAllStatic();
-          aboutPage.classList.add('visible');
-          scrollToTop();
-        } else if (state && state.page === 'contact') {
-          hideAllNavActive();
-          contactNav.classList.add('active');
-          mainGrid.style.display = 'none';
-          mainGrid.classList.add('hidden');
-          detailView.style.display = 'none';
-          detailView.classList.add('hidden');
-          hideAllStatic();
-          contactPage.classList.add('visible');
-          scrollToTop();
-        } else if (state && state.page === 'disclaimer') {
-          hideAllNavActive();
-          disclaimerNav.classList.add('active');
-          mainGrid.style.display = 'none';
-          mainGrid.classList.add('hidden');
-          detailView.style.display = 'none';
-          detailView.classList.add('hidden');
-          hideAllStatic();
-          disclaimerPage.classList.add('visible');
-          scrollToTop();
+        var prev = popHistory();
+        if (prev) {
+          if (prev.state.page === 'home') {
+            hideAllNavActive();
+            homeNav.classList.add('active');
+            showMainGrid();
+          } else if (prev.state.page === 'about') {
+            hideAllNavActive();
+            aboutNav.classList.add('active');
+            mainGrid.style.display = 'none';
+            mainGrid.classList.add('hidden');
+            detailView.style.display = 'none';
+            detailView.classList.add('hidden');
+            hideAllStatic();
+            aboutPage.classList.add('visible');
+            scrollToTop();
+          } else if (prev.state.page === 'contact') {
+            hideAllNavActive();
+            contactNav.classList.add('active');
+            mainGrid.style.display = 'none';
+            mainGrid.classList.add('hidden');
+            detailView.style.display = 'none';
+            detailView.classList.add('hidden');
+            hideAllStatic();
+            contactPage.classList.add('visible');
+            scrollToTop();
+          } else if (prev.state.page === 'disclaimer') {
+            hideAllNavActive();
+            disclaimerNav.classList.add('active');
+            mainGrid.style.display = 'none';
+            mainGrid.classList.add('hidden');
+            detailView.style.display = 'none';
+            detailView.classList.add('hidden');
+            hideAllStatic();
+            disclaimerPage.classList.add('visible');
+            scrollToTop();
+          } else if (prev.state.page === 'detail' && prev.state.game) {
+            var gData = gameDataMap[prev.state.game];
+            if (gData) {
+              showDetail(gData, true);
+            }
+          }
         } else {
-          // Default: go home
+          // No history, go home
           hideAllNavActive();
           homeNav.classList.add('active');
-          showMainGrid(0);
+          showMainGrid();
         }
         return;
       }
       
-      // If on static page, go back to home
+      // If on static page, go home
       if (aboutPage.classList.contains('visible') || contactPage.classList.contains('visible') || disclaimerPage.classList.contains('visible')) {
         hideAllNavActive();
         homeNav.classList.add('active');
-        showMainGrid(0);
+        showMainGrid();
         return;
       }
-      
-      // If on home, do nothing (browser will handle)
     });
 
     // ---- Initialize home state ----
+    historyStack.push({ state: { page: 'home' }, title: 'Home', url: location.href });
     history.replaceState({ page: 'home' }, 'Home', location.href);
   })();
 </script>
