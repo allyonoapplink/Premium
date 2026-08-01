@@ -1348,7 +1348,7 @@
       return true;
     });
 
-    // Store game data by name for tag navigation
+    // Store game data by name
     var gameDataMap = {};
     uniqueGames.forEach(function(g) {
       var seed = g.name.length * 7 + g.name.charCodeAt(0);
@@ -1418,7 +1418,7 @@
               if (overlay.style.display === 'flex') overlay.style.display = 'none';
               hideAllNavActive();
               homeNav.classList.add('active');
-              showMainGrid();
+              showMainGrid(0);
               history.pushState(null, null, location.href);
             });
           }
@@ -1449,34 +1449,13 @@
       if (metaKeywords) metaKeywords.setAttribute('content', originalKeywords);
     }
 
-    // ---- History Stack with Scroll Position ----
-    var historyStack = [];
-
-    function pushHistory(state, title, url, scrollY) {
-      historyStack.push({
-        state: state,
-        title: title,
-        url: url,
-        scrollY: scrollY || window.scrollY
-      });
-      history.pushState(state, title, url);
-    }
-
-    function popHistory() {
-      if (historyStack.length > 1) {
-        historyStack.pop();
-        var prev = historyStack[historyStack.length - 1];
-        return prev;
-      }
-      return null;
-    }
-
-    function getCurrentScroll() {
-      return window.scrollY || document.documentElement.scrollTop || 0;
+    // ---- Scroll to top function ----
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'auto' });
     }
 
     // ---- Navigation Functions ----
-    function showMainGrid(restoreScroll) {
+    function showMainGrid(scrollPos) {
       detailView.style.display = 'none';
       detailView.classList.remove('show');
       detailView.classList.add('hidden');
@@ -1485,17 +1464,7 @@
       mainGrid.classList.add('show');
       hideAllStatic();
       restoreMetaTags();
-      
-      if (restoreScroll !== undefined && restoreScroll !== null) {
-        window.scrollTo({ top: restoreScroll, behavior: 'instant' });
-      } else {
-        window.scrollTo({ top: 0 });
-      }
-      
-      // Update history if coming from a navigation
-      if (historyStack.length === 0 || historyStack[historyStack.length - 1].state.page !== 'home') {
-        pushHistory({ page: 'home' }, 'Home', location.href, 0);
-      }
+      scrollToTop();
     }
 
     function showDetailView() {
@@ -1506,7 +1475,7 @@
       detailView.classList.remove('hidden');
       detailView.classList.add('show');
       hideAllStatic();
-      window.scrollTo({ top: 0 });
+      scrollToTop();
     }
 
     // ---- Home Navigation ----
@@ -1528,8 +1497,7 @@
       detailView.classList.add('hidden');
       hideAllStatic();
       aboutPage.classList.add('visible');
-      window.scrollTo({ top: 0 });
-      pushHistory({ page: 'about' }, 'About', location.href, 0);
+      scrollToTop();
     });
 
     // ---- Contact Navigation ----
@@ -1543,8 +1511,7 @@
       detailView.classList.add('hidden');
       hideAllStatic();
       contactPage.classList.add('visible');
-      window.scrollTo({ top: 0 });
-      pushHistory({ page: 'contact' }, 'Contact', location.href, 0);
+      scrollToTop();
     });
 
     // ---- Disclaimer Navigation ----
@@ -1558,83 +1525,24 @@
       detailView.classList.add('hidden');
       hideAllStatic();
       disclaimerPage.classList.add('visible');
-      window.scrollTo({ top: 0 });
-      pushHistory({ page: 'disclaimer' }, 'Disclaimer', location.href, 0);
+      scrollToTop();
     });
 
     // ---- Static Back Buttons ----
     document.querySelectorAll('.static-back-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         if (overlay.style.display === 'flex') overlay.style.display = 'none';
-        // Go back in history
-        var prev = popHistory();
-        if (prev && prev.state.page === 'home') {
-          hideAllNavActive();
-          homeNav.classList.add('active');
-          showMainGrid(prev.scrollY || 0);
-        } else {
-          history.back();
-        }
+        hideAllNavActive();
+        homeNav.classList.add('active');
+        showMainGrid(0);
+        history.back();
       });
     });
 
     // ---- Detail Back Button ----
     backBtn.addEventListener('click', function() {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
-      var prev = popHistory();
-      if (prev) {
-        // Restore previous page
-        if (prev.state.page === 'home') {
-          hideAllNavActive();
-          homeNav.classList.add('active');
-          showMainGrid(prev.scrollY || 0);
-        } else if (prev.state.page === 'about') {
-          hideAllNavActive();
-          aboutNav.classList.add('active');
-          mainGrid.style.display = 'none';
-          mainGrid.classList.add('hidden');
-          detailView.style.display = 'none';
-          detailView.classList.add('hidden');
-          hideAllStatic();
-          aboutPage.classList.add('visible');
-          window.scrollTo({ top: prev.scrollY || 0 });
-        } else if (prev.state.page === 'contact') {
-          hideAllNavActive();
-          contactNav.classList.add('active');
-          mainGrid.style.display = 'none';
-          mainGrid.classList.add('hidden');
-          detailView.style.display = 'none';
-          detailView.classList.add('hidden');
-          hideAllStatic();
-          contactPage.classList.add('visible');
-          window.scrollTo({ top: prev.scrollY || 0 });
-        } else if (prev.state.page === 'disclaimer') {
-          hideAllNavActive();
-          disclaimerNav.classList.add('active');
-          mainGrid.style.display = 'none';
-          mainGrid.classList.add('hidden');
-          detailView.style.display = 'none';
-          detailView.classList.add('hidden');
-          hideAllStatic();
-          disclaimerPage.classList.add('visible');
-          window.scrollTo({ top: prev.scrollY || 0 });
-        } else if (prev.state.page === 'detail') {
-          // Show detail view again (restore scroll not needed for detail)
-          showDetailView();
-          // Restore the game data if available
-          if (prev.state.game) {
-            var gData = gameDataMap[prev.state.game];
-            if (gData) {
-              showDetail(gData, true);
-            }
-          }
-        }
-      } else {
-        // No history, go home
-        hideAllNavActive();
-        homeNav.classList.add('active');
-        showMainGrid(0);
-      }
+      history.back();
     });
 
     // Helper: Generate star HTML
@@ -1842,19 +1750,13 @@
             metaBonus: this.dataset.metaBonus,
             version: this.dataset.version
           };
-          // Save current scroll before navigating to detail
-          var currentScroll = getCurrentScroll();
-          // Update the current history entry with scroll position
-          if (historyStack.length > 0) {
-            historyStack[historyStack.length - 1].scrollY = currentScroll;
-          }
           showDetail(gData);
         });
       });
     }
     renderGrid();
 
-    function showDetail(game, fromBack) {
+    function showDetail(game) {
       // Update meta tags
       document.title = game.name + ' – Download ' + game.name + ' APK | All Yono Games';
       var metaDesc = document.querySelector('meta[name="description"]');
@@ -1923,11 +1825,6 @@
           e.stopPropagation();
           var gData = gameDataMap[this.dataset.name];
           if (gData) {
-            // Save current scroll before navigating
-            var currentScroll = getCurrentScroll();
-            if (historyStack.length > 0) {
-              historyStack[historyStack.length - 1].scrollY = currentScroll;
-            }
             showDetail(gData);
           }
         });
@@ -2031,24 +1928,17 @@
           e.stopPropagation();
           var gData = gameDataMap[this.dataset.name];
           if (gData) {
-            // Save current scroll before navigating
-            var currentScroll = getCurrentScroll();
-            if (historyStack.length > 0) {
-              historyStack[historyStack.length - 1].scrollY = currentScroll;
-            }
             showDetail(gData);
           }
         });
       });
 
-      // Push history state for detail view (if not coming from back)
-      if (!fromBack) {
-        pushHistory({ page: 'detail', game: game.name }, game.name, location.href, 0);
-      }
-      
       showDetailView();
       hideAllNavActive();
       homeNav.classList.remove('active');
+      
+      // Push state for browser history
+      history.pushState({ page: 'detail', game: game.name }, game.name, location.href);
     }
 
     document.getElementById('tocToggle').addEventListener('click', function() {
@@ -2074,34 +1964,15 @@
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
       
       var state = e.state;
-      if (!state) {
-        // No state - go home
-        hideAllNavActive();
-        homeNav.classList.add('active');
-        showMainGrid(0);
-        return;
-      }
       
-      // Find the matching state in our history stack
-      var foundIndex = -1;
-      for (var i = historyStack.length - 1; i >= 0; i--) {
-        if (historyStack[i].state.page === state.page && 
-            (!state.game || historyStack[i].state.game === state.game)) {
-          foundIndex = i;
-          break;
-        }
-      }
-      
-      if (foundIndex >= 0) {
-        // Remove all entries after this index
-        historyStack = historyStack.slice(0, foundIndex + 1);
-        var prev = historyStack[foundIndex];
-        
-        if (prev.state.page === 'home') {
+      // If on detail view, go back to previous view
+      if (detailView.style.display === 'block') {
+        // Check if we have a state telling us what to show
+        if (state && state.page === 'home') {
           hideAllNavActive();
           homeNav.classList.add('active');
-          showMainGrid(prev.scrollY || 0);
-        } else if (prev.state.page === 'about') {
+          showMainGrid(0);
+        } else if (state && state.page === 'about') {
           hideAllNavActive();
           aboutNav.classList.add('active');
           mainGrid.style.display = 'none';
@@ -2110,8 +1981,8 @@
           detailView.classList.add('hidden');
           hideAllStatic();
           aboutPage.classList.add('visible');
-          window.scrollTo({ top: prev.scrollY || 0 });
-        } else if (prev.state.page === 'contact') {
+          scrollToTop();
+        } else if (state && state.page === 'contact') {
           hideAllNavActive();
           contactNav.classList.add('active');
           mainGrid.style.display = 'none';
@@ -2120,8 +1991,8 @@
           detailView.classList.add('hidden');
           hideAllStatic();
           contactPage.classList.add('visible');
-          window.scrollTo({ top: prev.scrollY || 0 });
-        } else if (prev.state.page === 'disclaimer') {
+          scrollToTop();
+        } else if (state && state.page === 'disclaimer') {
           hideAllNavActive();
           disclaimerNav.classList.add('active');
           mainGrid.style.display = 'none';
@@ -2130,26 +2001,28 @@
           detailView.classList.add('hidden');
           hideAllStatic();
           disclaimerPage.classList.add('visible');
-          window.scrollTo({ top: prev.scrollY || 0 });
-        } else if (prev.state.page === 'detail') {
-          // Restore detail view
-          if (prev.state.game) {
-            var gData = gameDataMap[prev.state.game];
-            if (gData) {
-              showDetail(gData, true);
-            }
-          }
+          scrollToTop();
+        } else {
+          // Default: go home
+          hideAllNavActive();
+          homeNav.classList.add('active');
+          showMainGrid(0);
         }
-      } else {
-        // If not found in our stack, fallback to home
+        return;
+      }
+      
+      // If on static page, go back to home
+      if (aboutPage.classList.contains('visible') || contactPage.classList.contains('visible') || disclaimerPage.classList.contains('visible')) {
         hideAllNavActive();
         homeNav.classList.add('active');
         showMainGrid(0);
+        return;
       }
+      
+      // If on home, do nothing (browser will handle)
     });
 
-    // ---- Initialize history ----
-    historyStack.push({ state: { page: 'home' }, title: 'Home', url: location.href, scrollY: 0 });
+    // ---- Initialize home state ----
     history.replaceState({ page: 'home' }, 'Home', location.href);
   })();
 </script>
