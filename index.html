@@ -514,7 +514,7 @@
       text-decoration: underline;
     }
 
-    /* ===== GAME TAGS SECTION ===== */
+    /* ===== GAME TAGS SECTION (heading only, no tags) ===== */
     .game-tags-section {
       padding: 10px;
       background: white;
@@ -530,32 +530,7 @@
       gap: 8px;
     }
     .game-tags-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      justify-content: flex-start;
-    }
-    .game-tag {
-      background: #eef2ff;
-      color: #2563eb;
-      padding: 4px 10px;
-      border-radius: 40px;
-      font-size: 0.55rem;
-      font-weight: 600;
-      border: 1px solid #b3c8e6;
-      cursor: default;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.2s;
-    }
-    .game-tag.bonus-tag {
-      background: #ffebee;
-      color: #c62828;
-      border-color: #ef9a9a;
-    }
-    .game-tag:hover {
-      transform: scale(1.03);
+      display: none !important;
     }
 
     /* ===== ALL GAMES TAGS (clickable) ===== */
@@ -1236,7 +1211,7 @@
       </div>
     </div>
 
-    <!-- ===== GAME TAGS SECTION ===== -->
+    <!-- ===== GAME TAGS SECTION (heading only, tags removed) ===== -->
     <div class="game-tags-section">
       <div class="game-tags-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -1284,9 +1259,9 @@
 
 <script>
   (function() {
-    // ---------- GAME DATA (62 existing + 15 new = 77 total) ----------
+    // ---------- GAME DATA (77 total - same as before) ----------
     const games = [
-      // Existing 45 games (indices 0-44)
+      // Existing 45 games
       { name: "All Yono App Site", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 Slots", altName: "567 Slots Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
       { name: "Saga Slots", altName: "Saga Slots APK", bonus: "₹40", withdrawal: "₹100", downloadUrl: "https://www.sagaslots5.com/?code=0QHJSERZYMV&t=1781505813", img: "https://i.ibb.co/20dzhBZf/1000022725.jpg" },
@@ -1332,7 +1307,7 @@
       { name: "Spin Winner", altName: "Spin Winner Game", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://www.yesspineee.com/?code=47TXJTLU5YY&t=1781198907", img: "https://i.ibb.co/ZpP9wKdm/spin-winner.jpg" },
       { name: "Yono All Games", altName: "Yono All Games APK", bonus: "₹48", withdrawal: "₹100", downloadUrl: "https://diwavipshare.cc?pid=428256719&channel=2050001&t=pdd2&pkg=com.diwavip.h5", img: "https://i.ibb.co/XxxDXGr3/yono-all-games.jpg" },
       { name: "Spin Lucky", altName: "Spin Lucky Game", bonus: "₹44", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/VY95vgTQ/spin-lucky.jpg" },
-      // New 17 games (indices 45-61)
+      // New 17 games
       { name: "MAX RUMMY", altName: "MAX RUMMY APK", bonus: "₹55", withdrawal: "₹100", downloadUrl: "https://www.maxrummy66.com/?code=QUMWTJCMZ5N&t=1784912540", img: "https://i.ibb.co/9kVbkd4D/MAX-RUMMY.jpg" },
       { name: "RANI SLOTS", altName: "RANI SLOTS Game", bonus: "₹48", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/Ps4CcYTX/RANI-SLOTS.jpg" },
       { name: "1GO PLUS", altName: "1GO PLUS APK", bonus: "₹52", withdrawal: "₹100", downloadUrl: "https://1go.plus/4h91q", img: "https://i.ibb.co/tpWC7c9H/1GO-PLUS.jpg" },
@@ -1350,7 +1325,7 @@
       { name: "765 CLUB", altName: "765 CLUB Game", bonus: "₹56", withdrawal: "₹100", downloadUrl: "https://765club.com/?id=637056077", img: "https://i.ibb.co/zhTynJ1Z/765-CLUB.jpg" },
       { name: "MKM BET APK", altName: "MKM BET APK Game", bonus: "₹49", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/hN6HpJm/MKM-BET-APK.jpg" },
       { name: "101Z APK", altName: "101Z APK Game", bonus: "₹41", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/gold/jm9n7r", img: "https://i.ibb.co/SwfQKFv3/101Z-APK.jpg" },
-      // ===== NEW 15 GAMES (indices 62-76) =====
+      // NEW 15 games
       { name: "YN 777", altName: "YN 777 APK", bonus: "₹54", withdrawal: "₹100", downloadUrl: "https://www.y729.com/?code=4SWD98JQ8LU&t=1785588919", img: "https://i.ibb.co/NntBD9SR/YN-777.jpg" },
       { name: "SPIN 777", altName: "SPIN 777 Game", bonus: "₹47", withdrawal: "₹100", downloadUrl: "https://spin777cc.com/?code=7V9ZG91PA4R&t=1785589035", img: "https://i.ibb.co/d4hxX4kY/SPIN-777.jpg" },
       { name: "RUMMY 888", altName: "RUMMY 888 APK", bonus: "₹59", withdrawal: "₹100", downloadUrl: "https://rummy888vip43.com/?code=7WTEEW87DPM&t=1785589166", img: "https://i.ibb.co/ynqDvC8k/RUMMY-888.jpg" },
@@ -1477,6 +1452,14 @@
       if (metaKeywords) metaKeywords.setAttribute('content', originalKeywords);
     }
 
+    // History stack tracking for back navigation
+    var pageHistory = [];
+
+    function pushHistoryState(state, title, url) {
+      pageHistory.push({ state: state, title: title, url: url });
+      history.pushState(state, title, url);
+    }
+
     function showMainGrid() {
       detailView.style.display = 'none';
       detailView.classList.remove('show');
@@ -1487,6 +1470,7 @@
       hideAllStatic();
       restoreMetaTags();
       window.scrollTo({ top: 0 });
+      pushHistoryState({ page: 'home' }, 'Home', location.href);
     }
 
     function showDetailView() {
@@ -1500,13 +1484,14 @@
       window.scrollTo({ top: 0 });
     }
 
+    // ---------- navigation clicks ----------
     homeNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
       this.classList.add('active');
       showMainGrid();
-      history.pushState(null, null, location.href);
     });
+
     aboutNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -1518,8 +1503,9 @@
       hideAllStatic();
       aboutPage.classList.add('visible');
       window.scrollTo({ top: 0 });
-      history.pushState(null, null, location.href);
+      pushHistoryState({ page: 'about' }, 'About', location.href);
     });
+
     contactNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -1531,8 +1517,9 @@
       hideAllStatic();
       contactPage.classList.add('visible');
       window.scrollTo({ top: 0 });
-      history.pushState(null, null, location.href);
+      pushHistoryState({ page: 'contact' }, 'Contact', location.href);
     });
+
     disclaimerNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -1544,7 +1531,7 @@
       hideAllStatic();
       disclaimerPage.classList.add('visible');
       window.scrollTo({ top: 0 });
-      history.pushState(null, null, location.href);
+      pushHistoryState({ page: 'disclaimer' }, 'Disclaimer', location.href);
     });
 
     document.querySelectorAll('.static-back-btn').forEach(btn => {
@@ -1553,16 +1540,22 @@
         hideAllNavActive();
         homeNav.classList.add('active');
         showMainGrid();
-        history.pushState(null, null, location.href);
       });
     });
 
+    // ---------- back button (from detail) ----------
     backBtn.addEventListener('click', function() {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
-      showMainGrid();
-      hideAllNavActive();
-      homeNav.classList.add('active');
-      history.pushState(null, null, location.href);
+      // Go back in history
+      if (pageHistory.length > 1) {
+        pageHistory.pop();
+        history.back();
+      } else {
+        // If no history, go to home
+        showMainGrid();
+        hideAllNavActive();
+        homeNav.classList.add('active');
+      }
     });
 
     // Helper: Generate star HTML
@@ -1670,6 +1663,7 @@
       return result;
     }
 
+    // Generate game tags (but now hidden)
     function generateGameTags(gameName, bonus) {
       var forbidden = ['Poker', 'Reels', 'Bonus: ₹40', 'Casino', 'Card Games'];
       var tagPool = [
@@ -1828,25 +1822,9 @@
         tagContainer.appendChild(box);
       });
 
-      // Game Tags
+      // Game Tags container is now hidden (CSS display:none), but we keep it empty
       var tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
-      var tagList = generateGameTags(game.name, game.bonus);
-      for (var i = tagList.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = tagList[i];
-        tagList[i] = tagList[j];
-        tagList[j] = temp;
-      }
-      tagList.forEach(function(tagText) {
-        var span = document.createElement('span');
-        span.className = 'game-tag';
-        if (tagText.includes('Bonus')) {
-          span.classList.add('bonus-tag');
-        }
-        span.textContent = tagText;
-        tagsContainer.appendChild(span);
-      });
 
       // All Games Tags
       var allTagsContainer = document.getElementById('allGamesTagsContainer');
@@ -1962,10 +1940,15 @@
         item.addEventListener('click', function(e) {
           e.stopPropagation();
           var gData = gameDataMap[this.dataset.name];
-          if (gData) showDetail(gData);
+          if (gData) {
+            showDetail(gData);
+          }
         });
       });
 
+      // Push history state for detail view
+      pushHistoryState({ page: 'detail', game: game.name }, game.name, location.href);
+      
       showDetailView();
       hideAllNavActive();
       homeNav.classList.remove('active');
@@ -1989,23 +1972,77 @@
       }
     });
 
+    // ---------- popstate (back/forward) ----------
     window.addEventListener('popstate', function(e) {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
-      if (detailView.style.display === 'block') {
+      
+      // Check current state
+      var state = e.state;
+      if (state && state.page === 'home') {
         showMainGrid();
         hideAllNavActive();
         homeNav.classList.add('active');
+        // Remove the current state from history stack if it's the last
+        if (pageHistory.length > 0 && pageHistory[pageHistory.length - 1].state.page === 'home') {
+          pageHistory.pop();
+        }
         return;
       }
-      if (aboutPage.classList.contains('visible') || contactPage.classList.contains('visible') || disclaimerPage.classList.contains('visible')) {
+      
+      if (state && state.page === 'about') {
+        hideAllNavActive();
+        aboutNav.classList.add('active');
+        mainGrid.style.display = 'none';
+        mainGrid.classList.add('hidden');
+        detailView.style.display = 'none';
+        detailView.classList.add('hidden');
+        hideAllStatic();
+        aboutPage.classList.add('visible');
+        window.scrollTo({ top: 0 });
+        return;
+      }
+      
+      if (state && state.page === 'contact') {
+        hideAllNavActive();
+        contactNav.classList.add('active');
+        mainGrid.style.display = 'none';
+        mainGrid.classList.add('hidden');
+        detailView.style.display = 'none';
+        detailView.classList.add('hidden');
+        hideAllStatic();
+        contactPage.classList.add('visible');
+        window.scrollTo({ top: 0 });
+        return;
+      }
+      
+      if (state && state.page === 'disclaimer') {
+        hideAllNavActive();
+        disclaimerNav.classList.add('active');
+        mainGrid.style.display = 'none';
+        mainGrid.classList.add('hidden');
+        detailView.style.display = 'none';
+        detailView.classList.add('hidden');
+        hideAllStatic();
+        disclaimerPage.classList.add('visible');
+        window.scrollTo({ top: 0 });
+        return;
+      }
+      
+      // For detail page or any other state, if we're on detail view, keep it
+      // Otherwise go home
+      if (detailView.style.display !== 'block' && !aboutPage.classList.contains('visible') && !contactPage.classList.contains('visible') && !disclaimerPage.classList.contains('visible')) {
         showMainGrid();
         hideAllNavActive();
         homeNav.classList.add('active');
-        return;
+        if (pageHistory.length > 0 && pageHistory[pageHistory.length - 1].state.page === 'home') {
+          pageHistory.pop();
+        }
       }
     });
 
-    history.pushState(null, null, location.href);
+    // Initialize history with home
+    pageHistory.push({ state: { page: 'home' }, title: 'Home', url: location.href });
+    history.replaceState({ page: 'home' }, 'Home', location.href);
   })();
 </script>
 </body>
