@@ -514,7 +514,7 @@
       text-decoration: underline;
     }
 
-    /* ===== GAME TAGS SECTION (heading only, no tags) ===== */
+    /* ===== GAME TAGS SECTION ===== */
     .game-tags-section {
       padding: 10px;
       background: white;
@@ -1211,7 +1211,7 @@
       </div>
     </div>
 
-    <!-- ===== GAME TAGS SECTION (heading only, tags removed) ===== -->
+    <!-- ===== GAME TAGS SECTION ===== -->
     <div class="game-tags-section">
       <div class="game-tags-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -1421,8 +1421,12 @@
               if (overlay.style.display === 'flex') overlay.style.display = 'none';
               hideAllNavActive();
               homeNav.classList.add('active');
-              showMainGrid();
-              history.pushState(null, null, location.href);
+              // Use history.back() for proper navigation
+              if (window.history.length > 1) {
+                window.history.back();
+              } else {
+                showMainGrid();
+              }
             });
           }
         })
@@ -1452,12 +1456,21 @@
       if (metaKeywords) metaKeywords.setAttribute('content', originalKeywords);
     }
 
-    // History stack tracking for back navigation
-    var pageHistory = [];
+    // --- Simple history management ---
+    var historyStack = [];
+    var currentPage = 'home';
+    var scrollPositions = {};
 
-    function pushHistoryState(state, title, url) {
-      pageHistory.push({ state: state, title: title, url: url });
-      history.pushState(state, title, url);
+    function saveScrollPosition(key) {
+      scrollPositions[key] = window.scrollY || 0;
+    }
+
+    function restoreScrollPosition(key) {
+      if (scrollPositions[key] !== undefined) {
+        setTimeout(function() {
+          window.scrollTo(0, scrollPositions[key]);
+        }, 50);
+      }
     }
 
     function showMainGrid() {
@@ -1469,8 +1482,14 @@
       mainGrid.classList.add('show');
       hideAllStatic();
       restoreMetaTags();
-      window.scrollTo({ top: 0 });
-      pushHistoryState({ page: 'home' }, 'Home', location.href);
+      
+      var prevPage = currentPage;
+      currentPage = 'home';
+      if (prevPage !== 'home') {
+        // Push state for proper back navigation
+        history.pushState({ page: 'home' }, 'Home', location.href);
+      }
+      restoreScrollPosition('home');
     }
 
     function showDetailView() {
@@ -1481,7 +1500,6 @@
       detailView.classList.remove('hidden');
       detailView.classList.add('show');
       hideAllStatic();
-      window.scrollTo({ top: 0 });
     }
 
     // ---------- navigation clicks ----------
@@ -1489,13 +1507,16 @@
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
       this.classList.add('active');
+      saveScrollPosition('home');
       showMainGrid();
+      history.pushState({ page: 'home' }, 'Home', location.href);
     });
 
     aboutNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
       this.classList.add('active');
+      saveScrollPosition('about');
       mainGrid.style.display = 'none';
       mainGrid.classList.add('hidden');
       detailView.style.display = 'none';
@@ -1503,13 +1524,15 @@
       hideAllStatic();
       aboutPage.classList.add('visible');
       window.scrollTo({ top: 0 });
-      pushHistoryState({ page: 'about' }, 'About', location.href);
+      currentPage = 'about';
+      history.pushState({ page: 'about' }, 'About', location.href);
     });
 
     contactNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
       this.classList.add('active');
+      saveScrollPosition('contact');
       mainGrid.style.display = 'none';
       mainGrid.classList.add('hidden');
       detailView.style.display = 'none';
@@ -1517,13 +1540,15 @@
       hideAllStatic();
       contactPage.classList.add('visible');
       window.scrollTo({ top: 0 });
-      pushHistoryState({ page: 'contact' }, 'Contact', location.href);
+      currentPage = 'contact';
+      history.pushState({ page: 'contact' }, 'Contact', location.href);
     });
 
     disclaimerNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
       this.classList.add('active');
+      saveScrollPosition('disclaimer');
       mainGrid.style.display = 'none';
       mainGrid.classList.add('hidden');
       detailView.style.display = 'none';
@@ -1531,7 +1556,8 @@
       hideAllStatic();
       disclaimerPage.classList.add('visible');
       window.scrollTo({ top: 0 });
-      pushHistoryState({ page: 'disclaimer' }, 'Disclaimer', location.href);
+      currentPage = 'disclaimer';
+      history.pushState({ page: 'disclaimer' }, 'Disclaimer', location.href);
     });
 
     document.querySelectorAll('.static-back-btn').forEach(btn => {
@@ -1539,22 +1565,23 @@
         if (overlay.style.display === 'flex') overlay.style.display = 'none';
         hideAllNavActive();
         homeNav.classList.add('active');
+        saveScrollPosition('home');
         showMainGrid();
+        history.pushState({ page: 'home' }, 'Home', location.href);
       });
     });
 
     // ---------- back button (from detail) ----------
     backBtn.addEventListener('click', function() {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
-      // Go back in history
-      if (pageHistory.length > 1) {
-        pageHistory.pop();
-        history.back();
+      // Use browser history back - this will trigger popstate
+      if (window.history.length > 1) {
+        window.history.back();
       } else {
-        // If no history, go to home
         showMainGrid();
         hideAllNavActive();
         homeNav.classList.add('active');
+        history.pushState({ page: 'home' }, 'Home', location.href);
       }
     });
 
@@ -1711,6 +1738,9 @@
       return selected;
     }
 
+    // Track current detail game
+    var currentDetailGame = null;
+
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
@@ -1750,6 +1780,8 @@
         mainGrid.appendChild(card);
 
         card.addEventListener('click', function() {
+          // Save current scroll position before navigating
+          saveScrollPosition('home');
           const gData = {
             name: this.dataset.name,
             altName: this.dataset.altName,
@@ -1763,7 +1795,10 @@
             metaBonus: this.dataset.metaBonus,
             version: this.dataset.version
           };
+          currentDetailGame = gData;
           showDetail(gData);
+          // Push state with the game name
+          history.pushState({ page: 'detail', game: gData.name }, gData.name, location.href);
         });
       });
     }
@@ -1838,7 +1873,11 @@
           e.stopPropagation();
           var gData = gameDataMap[this.dataset.name];
           if (gData) {
+            // Save current scroll position before navigating
+            saveScrollPosition('detail_' + game.name);
+            currentDetailGame = gData;
             showDetail(gData);
+            history.pushState({ page: 'detail', game: gData.name }, gData.name, location.href);
           }
         });
         allTagsContainer.appendChild(tag);
@@ -1941,17 +1980,23 @@
           e.stopPropagation();
           var gData = gameDataMap[this.dataset.name];
           if (gData) {
+            // Save current scroll position before navigating
+            saveScrollPosition('detail_' + game.name);
+            currentDetailGame = gData;
             showDetail(gData);
+            history.pushState({ page: 'detail', game: gData.name }, gData.name, location.href);
           }
         });
       });
 
-      // Push history state for detail view
-      pushHistoryState({ page: 'detail', game: game.name }, game.name, location.href);
-      
+      currentPage = 'detail';
       showDetailView();
       hideAllNavActive();
       homeNav.classList.remove('active');
+      
+      // Restore scroll position for this detail page if saved
+      var scrollKey = 'detail_' + game.name;
+      restoreScrollPosition(scrollKey);
     }
 
     document.getElementById('tocToggle').addEventListener('click', function() {
@@ -1976,20 +2021,18 @@
     window.addEventListener('popstate', function(e) {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
       
-      // Check current state
       var state = e.state;
-      if (state && state.page === 'home') {
+      
+      // If no state or home state, go to home
+      if (!state || state.page === 'home') {
         showMainGrid();
         hideAllNavActive();
         homeNav.classList.add('active');
-        // Remove the current state from history stack if it's the last
-        if (pageHistory.length > 0 && pageHistory[pageHistory.length - 1].state.page === 'home') {
-          pageHistory.pop();
-        }
+        restoreScrollPosition('home');
         return;
       }
       
-      if (state && state.page === 'about') {
+      if (state.page === 'about') {
         hideAllNavActive();
         aboutNav.classList.add('active');
         mainGrid.style.display = 'none';
@@ -1999,10 +2042,12 @@
         hideAllStatic();
         aboutPage.classList.add('visible');
         window.scrollTo({ top: 0 });
+        currentPage = 'about';
+        restoreScrollPosition('about');
         return;
       }
       
-      if (state && state.page === 'contact') {
+      if (state.page === 'contact') {
         hideAllNavActive();
         contactNav.classList.add('active');
         mainGrid.style.display = 'none';
@@ -2012,10 +2057,12 @@
         hideAllStatic();
         contactPage.classList.add('visible');
         window.scrollTo({ top: 0 });
+        currentPage = 'contact';
+        restoreScrollPosition('contact');
         return;
       }
       
-      if (state && state.page === 'disclaimer') {
+      if (state.page === 'disclaimer') {
         hideAllNavActive();
         disclaimerNav.classList.add('active');
         mainGrid.style.display = 'none';
@@ -2025,24 +2072,37 @@
         hideAllStatic();
         disclaimerPage.classList.add('visible');
         window.scrollTo({ top: 0 });
+        currentPage = 'disclaimer';
+        restoreScrollPosition('disclaimer');
         return;
       }
       
-      // For detail page or any other state, if we're on detail view, keep it
-      // Otherwise go home
-      if (detailView.style.display !== 'block' && !aboutPage.classList.contains('visible') && !contactPage.classList.contains('visible') && !disclaimerPage.classList.contains('visible')) {
-        showMainGrid();
-        hideAllNavActive();
-        homeNav.classList.add('active');
-        if (pageHistory.length > 0 && pageHistory[pageHistory.length - 1].state.page === 'home') {
-          pageHistory.pop();
+      if (state.page === 'detail' && state.game) {
+        // Try to find the game data
+        var gameData = gameDataMap[state.game];
+        if (gameData) {
+          currentDetailGame = gameData;
+          showDetail(gameData);
+          restoreScrollPosition('detail_' + state.game);
+        } else {
+          // If game not found, go home
+          showMainGrid();
+          hideAllNavActive();
+          homeNav.classList.add('active');
         }
+        return;
       }
+      
+      // Default: go home
+      showMainGrid();
+      hideAllNavActive();
+      homeNav.classList.add('active');
+      restoreScrollPosition('home');
     });
 
-    // Initialize history with home
-    pageHistory.push({ state: { page: 'home' }, title: 'Home', url: location.href });
+    // Initialize with home state
     history.replaceState({ page: 'home' }, 'Home', location.href);
+    restoreScrollPosition('home');
   })();
 </script>
 </body>
