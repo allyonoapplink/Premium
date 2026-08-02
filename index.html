@@ -842,7 +842,7 @@
       flex-wrap: wrap;
       gap: 6px;
       padding: 2px 0 4px 0;
-      min-height: 30px;
+      min-height: 10px;
     }
     .yono-tag {
       background: #f8fafc;
@@ -1523,7 +1523,7 @@
     function loadYonoTags() {
       const container = document.getElementById('yonoTagsContainer');
       
-      // Clear container first - NO hardcoded tags
+      // Clear container first - NO hardcoded tags whatsoever
       container.innerHTML = '';
       
       fetch('yono-games-information.html')
@@ -1609,11 +1609,10 @@
               addedCount++;
             });
           }
-          // If no tags found, container remains empty (no message)
+          // If no tags found, container remains EMPTY (no message, no fallback)
         })
         .catch(() => {
-          // File not found - container remains empty (no message)
-          // No fallback tags whatsoever
+          // File not found - container remains EMPTY (no message, no fallback)
         });
     }
 
