@@ -852,12 +852,14 @@
       font-size: 0.6rem;
       font-weight: 600;
       border: 1px solid #e2e8f0;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
+      display: inline-block;
       transition: all 0.2s ease;
       cursor: default;
       box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .yono-tag:hover {
       background: #1e293b;
@@ -865,10 +867,6 @@
       border-color: #1e293b;
       transform: scale(1.04);
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .yono-tag .tag-icon {
-      font-size: 0.55rem;
-      opacity: 0.7;
     }
     @media (max-width: 420px) {
       .yono-tag { font-size: 0.5rem; padding: 3px 10px; }
@@ -1536,42 +1534,33 @@
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = html;
           
-          // Remove all script and style tags to avoid any code rendering
-          const scripts = tempDiv.querySelectorAll('script, style');
-          scripts.forEach(function(el) { el.remove(); });
+          // Remove all script and style tags to avoid any code showing
+          const scripts = tempDiv.querySelectorAll('script, style, link, meta, title, head');
+          scripts.forEach(el => el.remove());
           
-          // Get all text content from the body, but filter out HTML tags
-          // We want to extract only the visible text content
-          const bodyElement = tempDiv.querySelector('body') || tempDiv;
+          // Get all text nodes and element text content
+          const allText = tempDiv.textContent || '';
           
-          // Get text content and split by common separators
-          const textContent = bodyElement.textContent || '';
+          // Split by common separators: commas, new lines, bullet points, pipe, etc.
+          const separators = /[,\n\r\t•·►➤●○◆◇▪▫★☆✦✧|/]+/;
+          const rawTags = allText.split(separators)
+            .map(s => s.trim())
+            .filter(s => s.length > 1 && s.length < 80);
           
-          // Split by separators: commas, new lines, bullet points, pipes, etc.
-          const separators = /[,\n\r\t•·►➤●○◆◇▪▫★☆✦✧⭐🎰🃏🎯🏆💰💎🎲🎮♠️♥️♦️♣️|/]+/;
-          const rawTags = textContent.split(separators).map(s => s.trim()).filter(s => s.length > 1 && s.length < 50);
+          // Filter out common non-tag words and HTML-like content
+          const skipWords = ['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign', 'Up', 'Min', 'Withdraw', 'Share', 'Telegram', 'Menu', 'Back', 'Loading', 'Content', 'available', 'Tags', 'Add', 'remove', 'update', 'file', 'section', 'heading', 'below', 'show', 'mobile', 'friendly', 'responsive', 'premium', 'view', 'load', 'read', 'message', 'completely', 'fast', 'speed', 'image', 'photo', 'icon', 'button', 'extra', 'YONO', 'Games', 'Information', 'div', 'span', 'class', 'id', 'style', 'script'];
           
-          // Filter out common non-tag words and HTML remnants
-          const skipWords = ['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign', 'Up', 'Min', 'Withdraw', 'Share', 'Telegram', 'Menu', 'Back', 'Loading', 'Content', 'available', 'Tags', 'Add', 'remove', 'update', 'file', 'section', 'heading', 'below', 'show', 'mobile', 'friendly', 'responsive', 'premium', 'view', 'load', 'read', 'message', 'completely', 'fast', 'speed', 'image', 'photo', 'icon', 'button', 'extra', 'YONO', 'Games', 'Information', 'html', 'body', 'div', 'span', 'class', 'id', 'style', 'script', 'link', 'meta', 'title', 'head'];
-          
-          // Also filter out any text that looks like HTML attributes or code
           const filteredTags = rawTags.filter(tag => {
-            const lower = tag.toLowerCase();
+            const lower = tag.toLowerCase().trim();
             // Skip if it's a skip word
-            if (skipWords.some(w => lower === w.toLowerCase())) return false;
-            if (skipWords.some(w => lower.includes(w.toLowerCase()) && tag.length < 20)) return false;
+            if (skipWords.some(w => lower === w)) return false;
+            if (skipWords.some(w => lower.includes(w) && tag.length < 15)) return false;
             // Skip if it contains HTML-like patterns
-            if (tag.includes('<') || tag.includes('>') || tag.includes('&') || tag.includes('=')) return false;
-            if (tag.includes('http') || tag.includes('www') || tag.includes('.com')) return false;
-            if (tag.includes('@') || tag.includes('mail') || tag.includes('tel:')) return false;
+            if (/[<>{}[\]()=]/.test(tag)) return false;
             // Skip if it's just numbers or single characters
             if (/^[\d\s]+$/.test(tag)) return false;
-            // Skip if it's just punctuation
-            if (/^[.,!?;:]+$/.test(tag)) return false;
-            // Skip if it's too short
+            // Skip if too short
             if (tag.length < 2) return false;
-            // Skip common HTML attribute remnants
-            if (tag.startsWith('data-') || tag.startsWith('aria-') || tag.startsWith('role=')) return false;
             return true;
           });
           
@@ -1584,18 +1573,18 @@
             return true;
           });
           
-          // Check if we have tags
           if (uniqueTags.length > 0) {
-            // Create tag elements - display exactly as they are
+            // Create tag elements - use document fragment for better performance
+            const fragment = document.createDocumentFragment();
             uniqueTags.forEach(text => {
               const tag = document.createElement('span');
               tag.className = 'yono-tag';
-              // Display the text exactly as it is
+              // Preserve the original text as-is without any modification
               tag.textContent = text;
-              container.appendChild(tag);
+              fragment.appendChild(tag);
             });
+            container.appendChild(fragment);
           }
-          // If no tags found, container remains empty
         })
         .catch(() => {
           // File not found - container remains empty
