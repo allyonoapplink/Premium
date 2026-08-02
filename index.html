@@ -842,6 +842,7 @@
       flex-wrap: wrap;
       gap: 6px;
       padding: 2px 0 4px 0;
+      min-height: 40px;
     }
     .yono-tag {
       background: #f8fafc;
@@ -868,6 +869,14 @@
     .yono-tag .tag-icon {
       font-size: 0.55rem;
       opacity: 0.7;
+    }
+    .yono-tag-empty {
+      color: #94a3b8;
+      font-size: 0.6rem;
+      font-weight: 500;
+      padding: 6px 0;
+      width: 100%;
+      text-align: center;
     }
     @media (max-width: 420px) {
       .yono-tag { font-size: 0.5rem; padding: 3px 10px; }
@@ -1327,7 +1336,8 @@
       <span>YONO Games Information</span>
     </div>
     <div class="yono-tags-container" id="yonoTagsContainer">
-      <!-- Tags will be loaded dynamically from yono-games-information.html -->
+      <!-- Tags loaded dynamically from yono-games-information.html -->
+      <span class="yono-tag-empty">Loading tags...</span>
     </div>
   </div>
 
@@ -1529,64 +1539,46 @@
         .then(html => {
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, 'text/html');
-          // Find tags inside the file - look for any .yono-tag or span with class yono-tag
-          let tagElements = doc.querySelectorAll('.yono-tag, .yono-tags-container .yono-tag, .tag-item, .info-tag');
-          if (tagElements.length === 0) {
-            // If no specific class, look for any span or div that might be a tag
-            tagElements = doc.querySelectorAll('.yono-tags-container span, .yono-tags-container div, .tags-container span, .tags-container div');
-          }
-          if (tagElements.length === 0) {
-            // Fallback: try to find any list items or links that look like tags
-            tagElements = doc.querySelectorAll('li, .tag, .item, a[href]');
-          }
+          
+          // Look for any elements that might be tags
+          let tagElements = doc.querySelectorAll('.yono-tag, .tag-item, .info-tag, .tag, .yono-tags-container span, .yono-tags-container div, .tags-container span, .tags-container div');
+          
           container.innerHTML = '';
+          
           if (tagElements.length > 0) {
             tagElements.forEach(el => {
               const tag = document.createElement('span');
               tag.className = 'yono-tag';
-              // Get the text content, clean it up
               let text = el.textContent.trim();
-              // Try to find an icon or emoji in the original element
-              const iconMatch = text.match(/^([\u{1F000}-\u{1FFFF}]|[\u2600-\u27BF]|[\u{2700}-\u{27BF}]|[⭐🎰🃏🎯🏆💰💎🎲🎮])/u);
+              // Try to find an icon in the original element
+              const iconMatch = text.match(/^([\u{1F000}-\u{1FFFF}]|[\u2600-\u27BF]|[\u{2700}-\u{27BF}]|[⭐🎰🃏🎯🏆💰💎🎲🎮♠️♥️♦️♣️])/u);
               if (iconMatch) {
                 tag.innerHTML = `<span class="tag-icon">${iconMatch[0]}</span> ${text.replace(iconMatch[0], '').trim()}`;
               } else {
-                // Add a default icon based on content
+                // Auto-detect icon based on content
                 let icon = '🎯';
-                if (text.toLowerCase().includes('rummy')) icon = '🃏';
-                else if (text.toLowerCase().includes('slot')) icon = '🎰';
-                else if (text.toLowerCase().includes('patti')) icon = '♠️';
-                else if (text.toLowerCase().includes('bonus')) icon = '💰';
-                else if (text.toLowerCase().includes('win')) icon = '🏆';
-                else if (text.toLowerCase().includes('vip')) icon = '⭐';
-                else if (text.toLowerCase().includes('jackpot')) icon = '💎';
+                const lower = text.toLowerCase();
+                if (lower.includes('rummy')) icon = '🃏';
+                else if (lower.includes('slot') || lower.includes('spin')) icon = '🎰';
+                else if (lower.includes('patti')) icon = '♠️';
+                else if (lower.includes('bonus')) icon = '💰';
+                else if (lower.includes('win') || lower.includes('jackpot')) icon = '🏆';
+                else if (lower.includes('vip')) icon = '⭐';
+                else if (lower.includes('gold')) icon = '💎';
+                else if (lower.includes('game')) icon = '🎮';
                 tag.innerHTML = `<span class="tag-icon">${icon}</span> ${text}`;
               }
               container.appendChild(tag);
             });
           } else {
-            // Fallback: use game names as tags
-            const fallbackTags = ['Yono Rummy', '567 Slots', 'Teen Patti', 'Spin Gold', 'Bingo 101', 'Rummy Ludo'];
-            fallbackTags.forEach(t => {
-              const tag = document.createElement('span');
-              tag.className = 'yono-tag';
-              tag.innerHTML = `<span class="tag-icon">🎯</span> ${t}`;
-              container.appendChild(tag);
-            });
+            // No tags found, show empty state
+            container.innerHTML = '<span class="yono-tag-empty">No tags available. Add tags to yono-games-information.html</span>';
           }
         })
         .catch(() => {
-          // Fallback tags if file not found
-          const fallbackTags = ['Yono Rummy', '567 Slots', 'Teen Patti', 'Spin Gold', 'Bingo 101', 'Rummy Ludo', 'Slots Winner', 'Yono 777'];
-          const icons = ['🃏', '🎰', '♠️', '🎯', '🎮', '🏆', '💰', '⭐'];
+          // File not found, show empty state instead of fallback tags
           const container = document.getElementById('yonoTagsContainer');
-          container.innerHTML = '';
-          fallbackTags.forEach((t, i) => {
-            const tag = document.createElement('span');
-            tag.className = 'yono-tag';
-            tag.innerHTML = `<span class="tag-icon">${icons[i % icons.length]}</span> ${t}`;
-            container.appendChild(tag);
-          });
+          container.innerHTML = '<span class="yono-tag-empty">No tags available. Add tags to yono-games-information.html</span>';
         });
     }
 
