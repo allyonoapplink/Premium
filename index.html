@@ -806,7 +806,7 @@
 
     .static-loading { padding: 40px 20px; text-align: center; color: #64748b; font-size: 0.9rem; }
 
-    /* ===== YONO GAMES INFORMATION SECTION ===== */
+    /* ===== YONO GAMES INFORMATION SECTION - PREMIUM TAGS ===== */
     .yono-info-section {
       padding: 10px 8px 6px 8px;
       background: #ffffff;
@@ -843,6 +843,7 @@
       gap: 6px;
       padding: 2px 0 4px 0;
       min-height: 30px;
+      width: 100%;
     }
     .yono-tag {
       background: #f8fafc;
@@ -854,12 +855,14 @@
       border: 1px solid #e2e8f0;
       display: inline-block;
       transition: all 0.2s ease;
-      cursor: default;
       box-shadow: 0 1px 3px rgba(0,0,0,0.02);
       white-space: nowrap;
       max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      overflow: visible;
+      text-overflow: clip;
+      line-height: 1.4;
+      cursor: default;
+      user-select: none;
     }
     .yono-tag:hover {
       background: #1e293b;
@@ -1534,27 +1537,27 @@
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = html;
           
-          // Remove all script and style tags to avoid any code showing
-          const scripts = tempDiv.querySelectorAll('script, style, link, meta, title, head');
-          scripts.forEach(el => el.remove());
+          // Remove all script, style, link, meta, title, head tags to avoid any code showing
+          const removeTags = tempDiv.querySelectorAll('script, style, link, meta, title, head, noscript, iframe, object, embed');
+          removeTags.forEach(el => el.remove());
           
-          // Get all text nodes and element text content
-          const allText = tempDiv.textContent || '';
+          // Get all text content from the body
+          const bodyText = tempDiv.textContent || '';
           
           // Split by common separators: commas, new lines, bullet points, pipe, etc.
           const separators = /[,\n\r\t•·►➤●○◆◇▪▫★☆✦✧|/]+/;
-          const rawTags = allText.split(separators)
+          const rawTags = bodyText.split(separators)
             .map(s => s.trim())
-            .filter(s => s.length > 1 && s.length < 80);
+            .filter(s => s.length > 1 && s.length < 200);
           
           // Filter out common non-tag words and HTML-like content
-          const skipWords = ['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign', 'Up', 'Min', 'Withdraw', 'Share', 'Telegram', 'Menu', 'Back', 'Loading', 'Content', 'available', 'Tags', 'Add', 'remove', 'update', 'file', 'section', 'heading', 'below', 'show', 'mobile', 'friendly', 'responsive', 'premium', 'view', 'load', 'read', 'message', 'completely', 'fast', 'speed', 'image', 'photo', 'icon', 'button', 'extra', 'YONO', 'Games', 'Information', 'div', 'span', 'class', 'id', 'style', 'script'];
+          const skipWords = ['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign', 'Up', 'Min', 'Withdraw', 'Share', 'Telegram', 'Menu', 'Back', 'Loading', 'Content', 'available', 'Tags', 'Add', 'remove', 'update', 'file', 'section', 'heading', 'below', 'show', 'mobile', 'friendly', 'responsive', 'premium', 'view', 'load', 'read', 'message', 'completely', 'fast', 'speed', 'image', 'photo', 'icon', 'button', 'extra', 'YONO', 'Games', 'Information', 'div', 'span', 'class', 'id', 'style', 'script', 'html', 'body', 'head'];
           
           const filteredTags = rawTags.filter(tag => {
             const lower = tag.toLowerCase().trim();
             // Skip if it's a skip word
             if (skipWords.some(w => lower === w)) return false;
-            if (skipWords.some(w => lower.includes(w) && tag.length < 15)) return false;
+            if (skipWords.some(w => lower.includes(w) && tag.length < 20)) return false;
             // Skip if it contains HTML-like patterns
             if (/[<>{}[\]()=]/.test(tag)) return false;
             // Skip if it's just numbers or single characters
