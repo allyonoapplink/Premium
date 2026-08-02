@@ -466,7 +466,7 @@
       font-size: 0.8rem;
     }
 
-    /* ===== REFERRAL SECTION - FIXED LAYOUT ===== */
+    /* ===== REFERRAL SECTION - FIXED ===== */
     .referral-section {
       padding: 10px;
       background: #f8fafc;
@@ -523,7 +523,7 @@
       font-family: monospace;
       letter-spacing: 1px;
     }
-    /* PREMIUM CLICKABLE REFERRAL LINK ROW - FIXED LAYOUT */
+    /* PREMIUM CLICKABLE REFERRAL LINK ROW - FIXED */
     .ref-link-row {
       display: flex;
       align-items: center;
@@ -573,7 +573,7 @@
       stroke-linejoin: round;
       flex-shrink: 0;
     }
-    /* URL Text - Center, Flexible */
+    /* Link Name + URL - Center, Flexible, Single Line */
     .ref-link-row .ref-link-text {
       color: #1e293b;
       font-weight: 500;
@@ -587,6 +587,22 @@
       order: 2;
       text-align: left;
       padding: 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .ref-link-row .ref-link-text .link-label {
+      color: #2563eb;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .ref-link-row .ref-link-text .link-url {
+      color: #64748b;
+      font-weight: 400;
+      flex-shrink: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     /* Right Arrow SVG - Fixed Right */
     .ref-link-row .ref-link-arrow-right {
@@ -646,6 +662,7 @@
       .ref-link-row .ref-link-text {
         font-size: 0.55rem;
         white-space: nowrap;
+        gap: 3px;
       }
       .ref-link-row .ref-link-arrow-right {
         width: 20px;
@@ -663,6 +680,9 @@
         width: 13px;
         height: 13px;
       }
+      .ref-link-row .ref-link-text .link-url {
+        font-size: 0.5rem;
+      }
     }
     @media (max-width: 380px) {
       .ref-link-row {
@@ -672,6 +692,7 @@
       }
       .ref-link-row .ref-link-text {
         font-size: 0.5rem;
+        gap: 2px;
       }
       .ref-link-row .ref-link-arrow-right {
         width: 18px;
@@ -688,6 +709,9 @@
       .ref-link-row .ref-link-icon-left svg {
         width: 11px;
         height: 11px;
+      }
+      .ref-link-row .ref-link-text .link-url {
+        font-size: 0.45rem;
       }
     }
     /* Desktop */
@@ -1480,7 +1504,7 @@
       </div>
     </div>
 
-    <!-- ===== REFERRAL SECTION - FIXED LAYOUT ===== -->
+    <!-- ===== REFERRAL SECTION - FIXED ===== -->
     <div class="referral-section" id="referralSection">
       <div class="referral-title">
         <span class="title-icon">
@@ -1494,14 +1518,17 @@
         <span>for each successful referral! Use your unique referral code:</span>
         <span class="ref-code" id="refCode">YONO7X9P</span>
         <span>or share your referral link:</span>
-        <!-- PREMIUM CLICKABLE REFERRAL LINK ROW - FIXED LAYOUT -->
+        <!-- PREMIUM CLICKABLE REFERRAL LINK ROW - FIXED -->
         <a href="https://www.earntp.com/m/jm9n7r" target="_blank" rel="noopener noreferrer" class="ref-link-row" id="refLinkRow">
           <!-- Left SVG Icon - Fixed Left -->
           <span class="ref-link-icon-left">
             <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
           </span>
-          <!-- URL Text - Center -->
-          <span class="ref-link-text" id="refLinkText">https://www.earntp.com/m/jm9n7r</span>
+          <!-- Link Name + URL - Center, Single Line -->
+          <span class="ref-link-text" id="refLinkText">
+            <span class="link-label">Referral Link:</span>
+            <span class="link-url">https://www.earntp.com/m/jm9n7r</span>
+          </span>
           <!-- Right Arrow SVG - Fixed Right -->
           <span class="ref-link-arrow-right">
             <span class="arrow-shine"></span>
@@ -2266,18 +2293,17 @@
       
       document.getElementById('apkBonusLine').textContent = game.bonus;
 
-      // Referral Section - Dynamic update
+      // Referral Section - Dynamic update (preserve fixed URL)
       var refData = generateReferralData(game.name, game.bonus);
       document.getElementById('refGameName').textContent = game.name;
       document.getElementById('refBonusAmount').textContent = '₹' + refData.refBonus;
       document.getElementById('refCode').textContent = refData.refCode;
       
-      // Update the referral link text and href
-      var refLinkRow = document.getElementById('refLinkRow');
+      // Update the referral link text (URL stays fixed: https://www.earntp.com/m/jm9n7r)
       var refLinkText = document.getElementById('refLinkText');
-      var dynamicUrl = game.downloadUrl || 'https://www.earntp.com/m/jm9n7r';
-      refLinkRow.href = dynamicUrl;
-      refLinkText.textContent = dynamicUrl;
+      var linkUrl = refLinkText.querySelector('.link-url');
+      // Keep URL as fixed
+      linkUrl.textContent = 'https://www.earntp.com/m/jm9n7r';
 
       // Dynamic Top Offers
       var tagContainer = document.getElementById('tagGridContainer');
