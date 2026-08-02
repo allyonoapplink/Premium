@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,62 +34,6 @@
     .container { max-width: 480px; width: 100%; background: #ffffff !important; min-height: 100vh; overflow: hidden; }
     .top-header, .marquee-container, .nav-row-small, #mainGrid, .detail-card, .tag-section, .faq-section, .toc-section, .game-tags-section, .related-section, .footer-note, .static-page, .card, .tag-box, .faq-box, .toc-item, .related-item, .game-tag {
       background: #ffffff !important;
-    }
-
-    /* --- YONO GAMES INFORMATION SECTION --- */
-    .yono-info-section {
-      background: #ffffff !important;
-      padding: 8px 12px 10px 12px;
-      border-bottom: 1px solid #e9edf4;
-    }
-    .yono-info-section .yono-info-title {
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #0b1e33;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .yono-info-section .yono-info-title .title-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      background: #000;
-      border-radius: 50%;
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .yono-info-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-    .yono-info-tag {
-      background: #f0f4ff;
-      color: #0b1e33;
-      padding: 3px 12px;
-      border-radius: 30px;
-      font-size: 0.6rem;
-      font-weight: 600;
-      border: 1px solid #e2e8f0;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-    .yono-info-tag:hover {
-      background: #1e293b;
-      color: #ffffff;
-      border-color: #1e293b;
-      transform: scale(1.04);
-    }
-    @media (max-width: 420px) {
-      .yono-info-tag { font-size: 0.5rem; padding: 2px 10px; }
-      .yono-info-section .yono-info-title { font-size: 0.75rem; }
-      .yono-info-section .yono-info-title .title-icon { width: 22px; height: 22px; font-size: 0.55rem; }
     }
 
     /* --- FAST TRANSITIONS --- */
@@ -863,6 +806,74 @@
 
     .static-loading { padding: 40px 20px; text-align: center; color: #64748b; font-size: 0.9rem; }
 
+    /* ===== YONO GAMES INFORMATION SECTION ===== */
+    .yono-info-section {
+      padding: 10px 8px 6px 8px;
+      background: #ffffff;
+      border-top: 1px solid #e9edf4;
+    }
+    .yono-info-section .yono-info-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #0b1e33;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .yono-info-section .yono-info-title .title-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+    }
+    .yono-info-section .yono-info-title .title-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #00bcd4;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .yono-tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 2px 0 4px 0;
+    }
+    .yono-tag {
+      background: #f8fafc;
+      color: #0b1e33;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.6rem;
+      font-weight: 600;
+      border: 1px solid #e2e8f0;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+      cursor: default;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .yono-tag:hover {
+      background: #1e293b;
+      color: #ffffff;
+      border-color: #1e293b;
+      transform: scale(1.04);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .yono-tag .tag-icon {
+      font-size: 0.55rem;
+      opacity: 0.7;
+    }
+    @media (max-width: 420px) {
+      .yono-tag { font-size: 0.5rem; padding: 3px 10px; }
+      .yono-info-section .yono-info-title { font-size: 0.75rem; }
+    }
+
     /* --- RESPONSIVE --- */
     @media (max-width: 420px) {
       .logo-cyan-round { width: 30px; height: 30px; }
@@ -916,9 +927,8 @@
       .tag-box .tag-content { font-size: 0.6rem; }
       .tag-box .tag-head .svg-icon { width: 18px; height: 18px; }
       .tag-box .tag-head .svg-icon svg { width: 13px; height: 13px; }
-      .yono-info-tag { font-size: 0.5rem; padding: 2px 10px; }
+      .yono-tag { font-size: 0.5rem; padding: 3px 10px; }
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
-      .yono-info-section .yono-info-title .title-icon { width: 22px; height: 22px; font-size: 0.55rem; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -926,6 +936,7 @@
       .card-name { font-size: 0.55rem; }
       .card-bonus { font-size: 0.45rem; }
       .card-withdraw { font-size: 0.4rem; }
+      .yono-tag { font-size: 0.45rem; padding: 2px 8px; }
     }
   </style>
 </head>
@@ -965,17 +976,6 @@
         <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
         Share
       </button>
-    </div>
-  </div>
-
-  <!-- ===== YONO GAMES INFORMATION SECTION (NEW) ===== -->
-  <div class="yono-info-section" id="yonoInfoSection">
-    <div class="yono-info-title">
-      <span class="title-icon">Y</span>
-      <span>YONO Games Information</span>
-    </div>
-    <div class="yono-info-tags" id="yonoInfoTags">
-      <!-- Dynamic tags will be loaded here from yono-games-information.html -->
     </div>
   </div>
 
@@ -1316,6 +1316,21 @@
     </div>
   </div>
 
+  <!-- ============================================================
+       YONO GAMES INFORMATION SECTION (Home Page)
+       ============================================================ -->
+  <div class="yono-info-section" id="yonoInfoSection">
+    <div class="yono-info-title">
+      <span class="title-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="12" y2="12"/></svg>
+      </span>
+      <span>YONO Games Information</span>
+    </div>
+    <div class="yono-tags-container" id="yonoTagsContainer">
+      <!-- Tags will be loaded dynamically from yono-games-information.html -->
+    </div>
+  </div>
+
   <div class="footer-note">All Yono App Site • All Yono Apk • All Yono New • All Yono Games • 77+ Games • ₹45 Bonus • ₹100 Withdrawal</div>
 </div>
 
@@ -1438,56 +1453,6 @@
       };
     });
 
-    // ---------- Load YONO Games Information Tags ----------
-    function loadYonoInfoTags() {
-      var container = document.getElementById('yonoInfoTags');
-      fetch('yono-games-information.html')
-        .then(response => {
-          if (!response.ok) throw new Error('File not found');
-          return response.text();
-        })
-        .then(html => {
-          var parser = new DOMParser();
-          var doc = parser.parseFromString(html, 'text/html');
-          var tags = doc.querySelectorAll('.yono-info-tag');
-          if (tags.length > 0) {
-            container.innerHTML = '';
-            // Use Set to remove duplicates
-            var seenTags = new Set();
-            tags.forEach(function(tag) {
-              var text = tag.textContent.trim();
-              if (!seenTags.has(text)) {
-                seenTags.add(text);
-                var newTag = document.createElement('span');
-                newTag.className = 'yono-info-tag';
-                newTag.textContent = text;
-                container.appendChild(newTag);
-              }
-            });
-          } else {
-            container.innerHTML = '<span class="yono-info-tag">Loading tags...</span>';
-          }
-        })
-        .catch(function() {
-          // Fallback tags if file not found
-          container.innerHTML = `
-            <span class="yono-info-tag">🎰 77+ Yono Games</span>
-            <span class="yono-info-tag">🎯 ₹45 Signup Bonus</span>
-            <span class="yono-info-tag">💳 ₹100 Min Withdrawal</span>
-            <span class="yono-info-tag">🏆 Top Rummy App</span>
-            <span class="yono-info-tag">🎲 Real Cash Games</span>
-            <span class="yono-info-tag">📱 Download APK Now</span>
-            <span class="yono-info-tag">✨ Best Casino Games</span>
-            <span class="yono-info-tag">🚀 Fast UPI Payment</span>
-            <span class="yono-info-tag">🃏 Teen Patti Master</span>
-            <span class="yono-info-tag">🎰 Slots Winner</span>
-          `;
-        });
-    }
-
-    // Call the function to load tags
-    loadYonoInfoTags();
-
     var originalTitle = document.title;
     var originalDesc = document.querySelector('meta[name="description"]').getAttribute('content');
     var originalKeywords = document.querySelector('meta[name="keywords"]').getAttribute('content');
@@ -1552,6 +1517,81 @@
     loadPageContent(aboutContent, 'About.html');
     loadPageContent(contactContent, 'Contact.html');
     loadPageContent(disclaimerContent, 'Disclaimer.html');
+
+    // ---------- Load YONO Games Information tags from external file ----------
+    function loadYonoTags() {
+      const container = document.getElementById('yonoTagsContainer');
+      fetch('yono-games-information.html')
+        .then(response => {
+          if (!response.ok) throw new Error('File not found');
+          return response.text();
+        })
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          // Find tags inside the file - look for any .yono-tag or span with class yono-tag
+          let tagElements = doc.querySelectorAll('.yono-tag, .yono-tags-container .yono-tag, .tag-item, .info-tag');
+          if (tagElements.length === 0) {
+            // If no specific class, look for any span or div that might be a tag
+            tagElements = doc.querySelectorAll('.yono-tags-container span, .yono-tags-container div, .tags-container span, .tags-container div');
+          }
+          if (tagElements.length === 0) {
+            // Fallback: try to find any list items or links that look like tags
+            tagElements = doc.querySelectorAll('li, .tag, .item, a[href]');
+          }
+          container.innerHTML = '';
+          if (tagElements.length > 0) {
+            tagElements.forEach(el => {
+              const tag = document.createElement('span');
+              tag.className = 'yono-tag';
+              // Get the text content, clean it up
+              let text = el.textContent.trim();
+              // Try to find an icon or emoji in the original element
+              const iconMatch = text.match(/^([\u{1F000}-\u{1FFFF}]|[\u2600-\u27BF]|[\u{2700}-\u{27BF}]|[⭐🎰🃏🎯🏆💰💎🎲🎮])/u);
+              if (iconMatch) {
+                tag.innerHTML = `<span class="tag-icon">${iconMatch[0]}</span> ${text.replace(iconMatch[0], '').trim()}`;
+              } else {
+                // Add a default icon based on content
+                let icon = '🎯';
+                if (text.toLowerCase().includes('rummy')) icon = '🃏';
+                else if (text.toLowerCase().includes('slot')) icon = '🎰';
+                else if (text.toLowerCase().includes('patti')) icon = '♠️';
+                else if (text.toLowerCase().includes('bonus')) icon = '💰';
+                else if (text.toLowerCase().includes('win')) icon = '🏆';
+                else if (text.toLowerCase().includes('vip')) icon = '⭐';
+                else if (text.toLowerCase().includes('jackpot')) icon = '💎';
+                tag.innerHTML = `<span class="tag-icon">${icon}</span> ${text}`;
+              }
+              container.appendChild(tag);
+            });
+          } else {
+            // Fallback: use game names as tags
+            const fallbackTags = ['Yono Rummy', '567 Slots', 'Teen Patti', 'Spin Gold', 'Bingo 101', 'Rummy Ludo'];
+            fallbackTags.forEach(t => {
+              const tag = document.createElement('span');
+              tag.className = 'yono-tag';
+              tag.innerHTML = `<span class="tag-icon">🎯</span> ${t}`;
+              container.appendChild(tag);
+            });
+          }
+        })
+        .catch(() => {
+          // Fallback tags if file not found
+          const fallbackTags = ['Yono Rummy', '567 Slots', 'Teen Patti', 'Spin Gold', 'Bingo 101', 'Rummy Ludo', 'Slots Winner', 'Yono 777'];
+          const icons = ['🃏', '🎰', '♠️', '🎯', '🎮', '🏆', '💰', '⭐'];
+          const container = document.getElementById('yonoTagsContainer');
+          container.innerHTML = '';
+          fallbackTags.forEach((t, i) => {
+            const tag = document.createElement('span');
+            tag.className = 'yono-tag';
+            tag.innerHTML = `<span class="tag-icon">${icons[i % icons.length]}</span> ${t}`;
+            container.appendChild(tag);
+          });
+        });
+    }
+
+    // Call the function to load tags
+    loadYonoTags();
 
     function hideAllStatic() {
       aboutPage.classList.remove('visible');
@@ -1620,6 +1660,7 @@
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
       this.classList.add('active');
+      // Clear history stack when going home
       historyStack = [];
       showMainGrid();
       pushHistory({ page: 'home' }, 'Home', location.href);
@@ -1674,6 +1715,7 @@
     document.querySelectorAll('.static-back-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         if (overlay.style.display === 'flex') overlay.style.display = 'none';
+        // Go back in history
         var prev = popHistory();
         if (prev && prev.state.page === 'home') {
           hideAllNavActive();
@@ -1689,8 +1731,10 @@
     backBtn.addEventListener('click', function() {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
       
+      // Get previous state from history stack
       var prev = popHistory();
       if (prev) {
+        // Restore previous page with scroll to top
         if (prev.state.page === 'home') {
           hideAllNavActive();
           homeNav.classList.add('active');
@@ -1725,13 +1769,17 @@
           hideAllStatic();
           disclaimerPage.classList.add('visible');
           scrollToTop();
-        } else if (prev.state.page === 'detail' && prev.state.game) {
-          var gData = gameDataMap[prev.state.game];
-          if (gData) {
-            showDetail(gData, true);
+        } else if (prev.state.page === 'detail') {
+          // Show detail view again with scroll to top
+          if (prev.state.game) {
+            var gData = gameDataMap[prev.state.game];
+            if (gData) {
+              showDetail(gData, true);
+            }
           }
         }
       } else {
+        // No history, go home
         hideAllNavActive();
         homeNav.classList.add('active');
         showMainGrid();
@@ -2130,6 +2178,7 @@
       hideAllNavActive();
       homeNav.classList.remove('active');
       
+      // Push state for browser history (only if not coming from back)
       if (!fromBack) {
         pushHistory({ page: 'detail', game: game.name }, game.name, location.href);
       }
@@ -2159,6 +2208,7 @@
       
       var state = e.state;
       
+      // If we're on detail view, go back to previous page with scroll to top
       if (detailView.style.display === 'block') {
         var prev = popHistory();
         if (prev) {
@@ -2203,6 +2253,7 @@
             }
           }
         } else {
+          // No history, go home
           hideAllNavActive();
           homeNav.classList.add('active');
           showMainGrid();
@@ -2210,6 +2261,7 @@
         return;
       }
       
+      // If on static page, go home
       if (aboutPage.classList.contains('visible') || contactPage.classList.contains('visible') || disclaimerPage.classList.contains('visible')) {
         hideAllNavActive();
         homeNav.classList.add('active');
