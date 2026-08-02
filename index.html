@@ -1532,131 +1532,65 @@
           return response.text();
         })
         .then(html => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
+          // Use a more efficient approach - extract text content and split into tags
+          // First, remove all HTML tags to get clean text
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = html;
           
-          // Look for tag elements - try multiple selectors
-          let tagElements = doc.querySelectorAll('.yono-tag, .tag-item, .info-tag, .tag, .yono-tags-container span, .yono-tags-container div, .tags-container span, .tags-container div, .tag-box, .yono-tag-item, li, .item, .badge, .pill');
+          // Get all text content from the body
+          const bodyText = tempDiv.textContent || '';
           
-          // If still no tags, try to find any span or div that might contain game names
-          if (tagElements.length === 0) {
-            // Look for elements that might be tags based on content
-            const allElements = doc.querySelectorAll('span, div, li, a, p, strong, b, em');
-            tagElements = Array.from(allElements).filter(el => {
-              const text = el.textContent.trim();
-              // Check if it looks like a game name or category - only include if text is short and meaningful
-              return text.length > 1 && text.length < 35 && 
-                     !text.includes('http') && !text.includes('www') && !text.includes('.com') &&
-                     !text.includes('@') && !text.includes('mail') && !text.includes('tel:') &&
-                     !text.includes('(') && !text.includes(')') && !text.includes('{') && !text.includes('[') &&
-                     !text.includes('script') && !text.includes('style') && !text.includes('div') &&
-                     !text.includes('class') && !text.includes('id') && !text.includes('src') &&
-                     !text.includes('href') && !text.includes('img') && !text.includes('svg') &&
-                     !text.includes('<!') && !text.includes('-->') && !text.includes('*/') &&
-                     (text.includes('Rummy') || text.includes('Slots') || text.includes('Patti') || 
-                      text.includes('Spin') || text.includes('Bingo') || text.includes('Ludo') ||
-                      text.includes('Win') || text.includes('VIP') || text.includes('Gold') ||
-                      text.includes('Game') || text.includes('Jackpot') || text.includes('777') ||
-                      text.includes('Yono') || text.includes('Club') || text.includes('Plus') ||
-                      text.includes('Ultra') || text.includes('Maha') || text.includes('Dhan') ||
-                      text.includes('Bet') || text.includes('Go') || text.includes('Max') ||
-                      text.includes('Rani') || text.includes('Net') || text.includes('Joy') ||
-                      text.includes('Love') || text.includes('Top') || text.includes('Good') ||
-                      text.includes('Saga') || text.includes('Crush') || text.includes('365') ||
-                      text.includes('101') || text.includes('789') || text.includes('T989') ||
-                      text.includes('765') || text.includes('MKM') || text.includes('MQM') ||
-                      text.includes('IND') || text.includes('Hi') || text.includes('INR') ||
-                      text.includes('Rumble') || text.includes('Diwa') || text.includes('Goa') ||
-                      text.includes('MBM') || text.includes('ABC') || text.includes('SVIP') ||
-                      text.includes('Hind') || text.includes('Boss') || text.includes('OK') ||
-                      text.includes('Yes') || text.includes('Arcade') || text.includes('Lucky') ||
-                      text.includes('Game') || text.includes('Slot') || text.includes('Rummy') ||
-                      text.includes('Patti') || text.includes('Spin') || text.includes('Win') ||
-                      text.includes('Bonus') || text.includes('Cash') || text.includes('Earn') ||
-                      text.includes('Jackpot') || text.includes('Royal') || text.includes('Queen') ||
-                      text.includes('King') || text.includes('Ace') || text.includes('Joker') ||
-                      text.includes('Diamond') || text.includes('Heart') || text.includes('Spade') ||
-                      text.includes('Club') || text.includes('Tiger') || text.includes('Dragon') ||
-                      text.includes('Andar') || text.includes('Bahari') || text.includes('Teen') ||
-                      text.includes('Patti') || text.includes('7') || text.includes('Up') ||
-                      text.includes('Down') || text.includes('Roulette') || text.includes('Baccarat') ||
-                      text.includes('Blackjack') || text.includes('Poker') || text.includes('Casino'));
-            });
-          }
+          // Split by common separators: commas, new lines, bullet points, etc.
+          const separators = /[,\n\r\t•·►➤●○◆◇▪▫★☆✦✧⭐🎰🃏🎯🏆💰💎🎲🎮♠️♥️♦️♣️|/]+/;
+          const rawTags = bodyText.split(separators).map(s => s.trim()).filter(s => s.length > 1 && s.length < 50);
           
-          // If still no tags, try to find any text nodes that look like game names
-          if (tagElements.length === 0) {
-            // Get all text from body and split by common separators
-            const bodyText = doc.body ? doc.body.textContent : '';
-            const potentialTags = bodyText.split(/[,\n\r\t•·►➤•●○◆◇▪▫★☆✦✧⭐🎰🃏🎯🏆💰💎🎲🎮♠️♥️♦️♣️|/]+/).map(s => s.trim()).filter(s => s.length > 1 && s.length < 30);
-            // Filter to only include game-like names
-            const gameKeywords = ['Rummy', 'Slots', 'Patti', 'Spin', 'Bingo', 'Ludo', 'Win', 'VIP', 'Gold', 'Game', 'Jackpot', '777', 'Yono', 'Club', 'Plus', 'Ultra', 'Maha', 'Dhan', 'Bet', 'Max', 'Rani', 'Joy', 'Love', 'Top', 'Good', 'Saga', 'Crush', '365', '101', '789', 'T989', '765', 'MKM', 'MQM', 'IND', 'INR', 'Rumble', 'Diwa', 'Goa', 'MBM', 'ABC', 'SVIP', 'Hind', 'Boss', 'OK', 'Yes', 'Arcade', 'Lucky', 'Casino', 'Poker', 'Roulette', 'Baccarat', 'Blackjack', 'Tiger', 'Dragon', 'Teen', 'Patti'];
-            tagElements = potentialTags.filter(t => gameKeywords.some(kw => t.includes(kw)));
-          }
+          // Filter out common non-tag words
+          const skipWords = ['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign', 'Up', 'Min', 'Withdraw', 'Share', 'Telegram', 'Menu', 'Back', 'Loading', 'Content', 'available', 'Tags', 'Add', 'remove', 'update', 'file', 'section', 'heading', 'below', 'show', 'mobile', 'friendly', 'responsive', 'premium', 'view', 'load', 'read', 'message', 'completely', 'fast', 'speed', 'image', 'photo', 'icon', 'button', 'extra', 'YONO', 'Games', 'Information'];
           
-          if (tagElements.length > 0) {
-            // Get unique tags by text content to avoid duplicates
-            const seenTags = new Set();
-            let addedCount = 0;
-            
-            tagElements.forEach(el => {
-              let text = el.textContent.trim();
-              // Skip if text is too short or too long
-              if (text.length < 2 || text.length > 40) return;
-              // Skip if it's a number or single character
-              if (/^\d+$/.test(text)) return;
-              // Skip common non-tag words
-              const skipWords = ['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign', 'Up', 'Min', 'Withdraw', 'Share', 'Telegram', 'Menu', 'Back', 'Loading', 'Content', 'available', 'Tags', 'Add', 'remove', 'update', 'file', 'section', 'heading', 'below', 'show', 'mobile', 'friendly', 'responsive', 'premium', 'view', 'load', 'read', 'message', 'remove', 'completely', 'fast', 'speed', 'image', 'photo', 'icon', 'button', 'extra'];
-              if (skipWords.some(w => text.toLowerCase() === w.toLowerCase())) return;
-              if (skipWords.some(w => text.toLowerCase().includes(w.toLowerCase()) && text.length < 20)) return;
-              
-              // Use a normalized key to avoid duplicates
-              const key = text.toLowerCase().trim();
-              if (seenTags.has(key)) return;
-              seenTags.add(key);
-              
+          // Also filter out any text that looks like HTML attributes or code
+          const filteredTags = rawTags.filter(tag => {
+            const lower = tag.toLowerCase();
+            // Skip if it's a skip word
+            if (skipWords.some(w => lower === w.toLowerCase())) return false;
+            if (skipWords.some(w => lower.includes(w.toLowerCase()) && tag.length < 15)) return false;
+            // Skip if it contains HTML-like patterns
+            if (tag.includes('<') || tag.includes('>') || tag.includes('&') || tag.includes('=')) return false;
+            // Skip if it's just numbers or single characters
+            if (/^[\d\s]+$/.test(tag)) return false;
+            // Skip if it's too short
+            if (tag.length < 2) return false;
+            return true;
+          });
+          
+          // Remove duplicates while preserving order
+          const seenTags = new Set();
+          const uniqueTags = filteredTags.filter(tag => {
+            const key = tag.toLowerCase().trim();
+            if (seenTags.has(key)) return false;
+            seenTags.add(key);
+            return true;
+          });
+          
+          if (uniqueTags.length > 0) {
+            // Create tag elements
+            uniqueTags.forEach(text => {
               const tag = document.createElement('span');
               tag.className = 'yono-tag';
               
-              // Try to find an icon in the original element
+              // Try to find an icon in the text
               const iconMatch = text.match(/^([\u{1F000}-\u{1FFFF}]|[\u2600-\u27BF]|[\u{2700}-\u{27BF}]|[⭐🎰🃏🎯🏆💰💎🎲🎮♠️♥️♦️♣️])/u);
               if (iconMatch) {
                 tag.innerHTML = `<span class="tag-icon">${iconMatch[0]}</span> ${text.replace(iconMatch[0], '').trim()}`;
               } else {
-                // Auto-detect icon based on content
-                let icon = '🎯';
-                const lower = text.toLowerCase();
-                if (lower.includes('rummy')) icon = '🃏';
-                else if (lower.includes('slot') || lower.includes('spin')) icon = '🎰';
-                else if (lower.includes('patti') || lower.includes('teen')) icon = '♠️';
-                else if (lower.includes('bonus') || lower.includes('cash') || lower.includes('earn')) icon = '💰';
-                else if (lower.includes('win') || lower.includes('jackpot')) icon = '🏆';
-                else if (lower.includes('vip') || lower.includes('gold') || lower.includes('royal')) icon = '⭐';
-                else if (lower.includes('game') || lower.includes('play')) icon = '🎮';
-                else if (lower.includes('777') || lower.includes('club')) icon = '💎';
-                else if (lower.includes('ludo')) icon = '🎲';
-                else if (lower.includes('bingo')) icon = '🎯';
-                else if (lower.includes('go') || lower.includes('plus')) icon = '🚀';
-                else if (lower.includes('ultra') || lower.includes('max')) icon = '⚡';
-                else if (lower.includes('maha') || lower.includes('dhan')) icon = '🌟';
-                else if (lower.includes('bet')) icon = '🎲';
-                else if (lower.includes('rani') || lower.includes('queen')) icon = '👑';
-                else if (lower.includes('tiger') || lower.includes('dragon')) icon = '🐉';
-                else if (lower.includes('and')) icon = '🔄';
-                else if (lower.includes('roulette')) icon = '🎡';
-                else if (lower.includes('baccarat')) icon = '🃏';
-                else if (lower.includes('blackjack')) icon = '♠️';
-                else if (lower.includes('poker')) icon = '🃏';
-                else if (lower.includes('casino')) icon = '🏛️';
-                tag.innerHTML = `<span class="tag-icon">${icon}</span> ${text}`;
+                // Just display the text as-is
+                tag.textContent = text;
               }
               container.appendChild(tag);
-              addedCount++;
             });
           }
         })
         .catch(() => {
-          // File not found - container remains empty (no message shown)
+          // File not found - container remains empty
         });
     }
 
