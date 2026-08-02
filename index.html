@@ -806,75 +806,6 @@
 
     .static-loading { padding: 40px 20px; text-align: center; color: #64748b; font-size: 0.9rem; }
 
-    /* ===== YONO GAMES INFORMATION SECTION ===== */
-    .yono-info-section {
-      padding: 10px 8px 6px 8px;
-      background: #ffffff;
-      border-top: 1px solid #e9edf4;
-    }
-    .yono-info-section .yono-info-title {
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #0b1e33;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .yono-info-section .yono-info-title .title-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-    }
-    .yono-info-section .yono-info-title .title-icon svg {
-      width: 18px;
-      height: 18px;
-      stroke: #00bcd4;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .yono-tags-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      padding: 2px 0 4px 0;
-      min-height: 10px;
-    }
-    .yono-tag {
-      background: #f8fafc;
-      color: #0b1e33;
-      padding: 4px 12px;
-      border-radius: 30px;
-      font-size: 0.6rem;
-      font-weight: 600;
-      border: 1px solid #e2e8f0;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.2s ease;
-      cursor: default;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-    }
-    .yono-tag:hover {
-      background: #1e293b;
-      color: #ffffff;
-      border-color: #1e293b;
-      transform: scale(1.04);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .yono-tag .tag-icon {
-      font-size: 0.55rem;
-      opacity: 0.7;
-    }
-    @media (max-width: 420px) {
-      .yono-tag { font-size: 0.5rem; padding: 3px 10px; }
-      .yono-info-section .yono-info-title { font-size: 0.75rem; }
-    }
-
     /* --- RESPONSIVE --- */
     @media (max-width: 420px) {
       .logo-cyan-round { width: 30px; height: 30px; }
@@ -928,8 +859,6 @@
       .tag-box .tag-content { font-size: 0.6rem; }
       .tag-box .tag-head .svg-icon { width: 18px; height: 18px; }
       .tag-box .tag-head .svg-icon svg { width: 13px; height: 13px; }
-      .yono-tag { font-size: 0.5rem; padding: 3px 10px; }
-      .yono-info-section .yono-info-title { font-size: 0.75rem; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -937,7 +866,6 @@
       .card-name { font-size: 0.55rem; }
       .card-bonus { font-size: 0.45rem; }
       .card-withdraw { font-size: 0.4rem; }
-      .yono-tag { font-size: 0.45rem; padding: 2px 8px; }
     }
   </style>
 </head>
@@ -1317,21 +1245,6 @@
     </div>
   </div>
 
-  <!-- ============================================================
-       YONO GAMES INFORMATION SECTION (Home Page)
-       ============================================================ -->
-  <div class="yono-info-section" id="yonoInfoSection">
-    <div class="yono-info-title">
-      <span class="title-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="12" y2="12"/></svg>
-      </span>
-      <span>YONO Games Information</span>
-    </div>
-    <div class="yono-tags-container" id="yonoTagsContainer">
-      <!-- Tags will be loaded dynamically from yono-games-information.html -->
-    </div>
-  </div>
-
   <div class="footer-note">All Yono App Site • All Yono Apk • All Yono New • All Yono Games • 77+ Games • ₹45 Bonus • ₹100 Withdrawal</div>
 </div>
 
@@ -1518,106 +1431,6 @@
     loadPageContent(aboutContent, 'About.html');
     loadPageContent(contactContent, 'Contact.html');
     loadPageContent(disclaimerContent, 'Disclaimer.html');
-
-    // ---------- Load YONO Games Information tags from external file ----------
-    function loadYonoTags() {
-      const container = document.getElementById('yonoTagsContainer');
-      
-      // Clear container first - NO hardcoded tags whatsoever
-      container.innerHTML = '';
-      
-      fetch('yono-games-information.html')
-        .then(response => {
-          if (!response.ok) throw new Error('File not found');
-          return response.text();
-        })
-        .then(html => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
-          
-          // Look for any elements that might be tags
-          let tagElements = doc.querySelectorAll('.yono-tag, .tag-item, .info-tag, .tag, .yono-tags-container span, .yono-tags-container div, .tags-container span, .tags-container div, .tag-box, .yono-tag-item, .tag');
-          
-          // If still no tags, try to find any span or div that might contain game names
-          if (tagElements.length === 0) {
-            const allElements = doc.querySelectorAll('span, div, li, a');
-            tagElements = Array.from(allElements).filter(el => {
-              const text = el.textContent.trim();
-              return text.length > 1 && text.length < 30 && 
-                     (text.includes('Rummy') || text.includes('Slots') || text.includes('Patti') || 
-                      text.includes('Spin') || text.includes('Bingo') || text.includes('Ludo') ||
-                      text.includes('Win') || text.includes('VIP') || text.includes('Gold') ||
-                      text.includes('Game') || text.includes('Jackpot') || text.includes('777') ||
-                      text.includes('Yono') || text.includes('Club') || text.includes('Plus') ||
-                      text.includes('Ultra') || text.includes('Maha') || text.includes('Dhan') ||
-                      text.includes('Bet') || text.includes('Go') || text.includes('Max') ||
-                      text.includes('Rani') || text.includes('Net') || text.includes('Joy') ||
-                      text.includes('Love') || text.includes('Top') || text.includes('Good') ||
-                      text.includes('Saga') || text.includes('Crush') || text.includes('365') ||
-                      text.includes('101') || text.includes('789') || text.includes('T989') ||
-                      text.includes('765') || text.includes('MKM') || text.includes('MQM') ||
-                      text.includes('IND') || text.includes('Hi') || text.includes('INR') ||
-                      text.includes('Rumble') || text.includes('Diwa') || text.includes('Goa') ||
-                      text.includes('MBM') || text.includes('ABC') || text.includes('SVIP') ||
-                      text.includes('Hind') || text.includes('Boss') || text.includes('OK') ||
-                      text.includes('Yes') || text.includes('Arcade') || text.includes('Lucky'));
-            });
-          }
-          
-          if (tagElements.length > 0) {
-            const seenTags = new Set();
-            let addedCount = 0;
-            
-            tagElements.forEach(el => {
-              let text = el.textContent.trim();
-              if (text.length < 2 || text.length > 40) return;
-              if (/^\d+$/.test(text)) return;
-              if (['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign Up', 'Min'].includes(text)) return;
-              
-              const key = text.toLowerCase().trim();
-              if (seenTags.has(key)) return;
-              seenTags.add(key);
-              
-              const tag = document.createElement('span');
-              tag.className = 'yono-tag';
-              
-              const iconMatch = text.match(/^([\u{1F000}-\u{1FFFF}]|[\u2600-\u27BF]|[\u{2700}-\u{27BF}]|[⭐🎰🃏🎯🏆💰💎🎲🎮♠️♥️♦️♣️])/u);
-              if (iconMatch) {
-                tag.innerHTML = `<span class="tag-icon">${iconMatch[0]}</span> ${text.replace(iconMatch[0], '').trim()}`;
-              } else {
-                let icon = '🎯';
-                const lower = text.toLowerCase();
-                if (lower.includes('rummy')) icon = '🃏';
-                else if (lower.includes('slot') || lower.includes('spin')) icon = '🎰';
-                else if (lower.includes('patti')) icon = '♠️';
-                else if (lower.includes('bonus') || lower.includes('cash')) icon = '💰';
-                else if (lower.includes('win') || lower.includes('jackpot')) icon = '🏆';
-                else if (lower.includes('vip') || lower.includes('gold')) icon = '⭐';
-                else if (lower.includes('game')) icon = '🎮';
-                else if (lower.includes('777') || lower.includes('club')) icon = '💎';
-                else if (lower.includes('ludo')) icon = '🎲';
-                else if (lower.includes('bingo')) icon = '🎯';
-                else if (lower.includes('go') || lower.includes('plus')) icon = '🚀';
-                else if (lower.includes('ultra') || lower.includes('max')) icon = '⚡';
-                else if (lower.includes('maha')) icon = '🌟';
-                else if (lower.includes('dhan')) icon = '💫';
-                else if (lower.includes('bet')) icon = '🎲';
-                else if (lower.includes('rani')) icon = '👑';
-                tag.innerHTML = `<span class="tag-icon">${icon}</span> ${text}`;
-              }
-              container.appendChild(tag);
-              addedCount++;
-            });
-          }
-          // If no tags found, container remains EMPTY (no message, no fallback)
-        })
-        .catch(() => {
-          // File not found - container remains EMPTY (no message, no fallback)
-        });
-    }
-
-    // Call the function to load tags
-    loadYonoTags();
 
     function hideAllStatic() {
       aboutPage.classList.remove('visible');
