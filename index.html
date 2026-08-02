@@ -466,7 +466,7 @@
       font-size: 0.8rem;
     }
 
-    /* ===== REFERRAL SECTION ===== */
+    /* ===== REFERRAL SECTION - FIXED ===== */
     .referral-section {
       padding: 10px;
       background: #f8fafc;
@@ -506,16 +506,44 @@
       font-family: monospace;
       letter-spacing: 1px;
     }
-    .referral-section .referral-content .ref-link-wrap {
+    /* NEW: Premium Referral Link Row */
+    .ref-link-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #eef2ff;
+      padding: 6px 12px 6px 10px;
+      border-radius: 30px;
+      border: 1px solid #cbd5e1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      width: 100%;
+      max-width: 100%;
+      flex: 1;
+      min-width: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .ref-link-row:hover {
+      background: #dbeafe;
+      border-color: #2563eb;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+    .ref-link-row:active {
+      transform: scale(0.98);
+    }
+    .ref-link-row .ref-link-icon {
+      flex-shrink: 0;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      background: #eef2ff;
-      padding: 2px 10px 2px 6px;
-      border-radius: 20px;
-      border: 1px solid #cbd5e1;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
     }
-    .referral-section .referral-content .ref-link-wrap svg {
+    .ref-link-row .ref-link-icon svg {
       width: 14px;
       height: 14px;
       stroke: #2563eb;
@@ -523,16 +551,97 @@
       stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
+      flex-shrink: 0;
     }
-    .referral-section .referral-content .ref-link {
+    .ref-link-row .ref-link-text {
       color: #2563eb;
-      text-decoration: none;
       font-weight: 600;
       font-size: 0.65rem;
       word-break: break-all;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
-    .referral-section .referral-content .ref-link:hover {
-      text-decoration: underline;
+    .ref-link-row .ref-link-arrow {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: #2563eb;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      margin-left: auto;
+    }
+    .ref-link-row .ref-link-arrow svg {
+      width: 12px;
+      height: 12px;
+      stroke: #ffffff;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ref-link-row:hover .ref-link-arrow {
+      background: #1d4ed8;
+      transform: translateX(2px);
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+    }
+    .ref-link-row .ref-link-arrow .arrow-shine {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+    .ref-link-row:hover .ref-link-arrow .arrow-shine {
+      opacity: 1;
+    }
+    /* Mobile responsive */
+    @media (max-width: 480px) {
+      .ref-link-row {
+        padding: 5px 10px 5px 8px;
+        gap: 6px;
+      }
+      .ref-link-row .ref-link-text {
+        font-size: 0.55rem;
+      }
+      .ref-link-row .ref-link-arrow {
+        width: 18px;
+        height: 18px;
+      }
+      .ref-link-row .ref-link-arrow svg {
+        width: 10px;
+        height: 10px;
+      }
+      .ref-link-row .ref-link-icon svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+    @media (max-width: 360px) {
+      .ref-link-row {
+        padding: 4px 8px 4px 6px;
+        gap: 4px;
+      }
+      .ref-link-row .ref-link-text {
+        font-size: 0.5rem;
+      }
+      .ref-link-row .ref-link-arrow {
+        width: 16px;
+        height: 16px;
+      }
+      .ref-link-row .ref-link-arrow svg {
+        width: 9px;
+        height: 9px;
+      }
     }
 
     /* ===== GAME TAGS SECTION (heading only, no tags) ===== */
@@ -881,7 +990,6 @@
       width: 100%;
       justify-content: flex-start;
     }
-    /* PREMIUM CHIP STYLE - Original Design Preserved */
     .yono-tag {
       display: inline-block;
       background: #f5f7fa;
@@ -911,12 +1019,6 @@
       transform: scale(1.03);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-    /* Preserve original emoji and text */
-    .yono-tag .tag-emoji {
-      display: inline;
-      margin-right: 2px;
-    }
-    /* Responsive adjustments for mobile */
     @media (max-width: 480px) {
       .yono-tag { font-size: 0.5rem; padding: 5px 12px; }
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
@@ -926,7 +1028,6 @@
     @media (max-width: 360px) {
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
     }
-    /* Desktop adjustments - maintain same style */
     @media (min-width: 769px) {
       .yono-tag { font-size: 0.65rem; padding: 7px 18px; }
       .yono-tags-container { gap: 10px; }
@@ -978,9 +1079,6 @@
       .apk-download-line { font-size: 0.6rem; }
       .referral-section .referral-content { font-size: 0.6rem; }
       .referral-section .referral-content .ref-code { font-size: 0.55rem; padding: 1px 8px; }
-      .referral-section .referral-content .ref-link-wrap { padding: 1px 6px 1px 4px; }
-      .referral-section .referral-content .ref-link-wrap svg { width: 12px; height: 12px; }
-      .referral-section .referral-content .ref-link { font-size: 0.55rem; }
       .tag-box .tag-head { font-size: 0.7rem; }
       .tag-box .tag-content { font-size: 0.6rem; }
       .tag-box .tag-head .svg-icon { width: 18px; height: 18px; }
@@ -998,7 +1096,6 @@
       .card-withdraw { font-size: 0.4rem; }
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
     }
-    /* Desktop - no extra changes, just center the container */
     @media (min-width: 1201px) {
       .container { padding: 0 20px; }
       .yono-tag { font-size: 0.65rem; padding: 7px 18px; }
@@ -1327,7 +1424,7 @@
       </div>
     </div>
 
-    <!-- ===== REFERRAL SECTION ===== -->
+    <!-- ===== REFERRAL SECTION - FIXED ===== -->
     <div class="referral-section" id="referralSection">
       <div class="referral-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -1341,10 +1438,17 @@
         <span>for each successful referral! Use your unique referral code:</span>
         <span class="ref-code" id="refCode">YONO7X9P</span>
         <span>or share your referral link:</span>
-        <span class="ref-link-wrap">
-          <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          <a href="https://www.earntp.com/m/jm9n7r" class="ref-link" target="_blank">https://www.earntp.com/m/jm9n7r</a>
-        </span>
+        <!-- NEW: Premium Clickable Referral Link Row -->
+        <a href="https://www.earntp.com/m/jm9n7r" target="_blank" rel="noopener noreferrer" class="ref-link-row" id="refLinkRow">
+          <span class="ref-link-icon">
+            <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </span>
+          <span class="ref-link-text" id="refLinkText">https://www.earntp.com/m/jm9n7r</span>
+          <span class="ref-link-arrow">
+            <span class="arrow-shine"></span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
       </div>
     </div>
 
@@ -1397,211 +1501,7 @@
       <!-- Tags loaded dynamically from yono-games-information.html -->
     </div>
   </div>
-<!-- ================= PREMIUM HD YONO GAMES INFORMATION ================= -->
 
-<section class="ygi-hd-section">
-
-  <div class="ygi-warning">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M12 3L2 21h20L12 3z"/>
-      <path d="M12 9v5"/>
-      <circle cx="12" cy="17" r="1"/>
-    </svg>
-  </div>
-
-  <h3>Disclaimer</h3>
-
-  <p>
-    <strong>yonogamesstore.com</strong> is an independent platform. We don't own,
-    manage, or operate any of the apps listed here. Our website helps users
-    discover different gaming options, but we don't control how those apps
-    work or handle their services.
-  </p>
-
-  <p>
-    Rummy apps may be addictive and involve financial risks. Please play
-    responsibly, set limits, and stay aware of your spending habits.
-  </p>
-
-  <h3>Important Alert</h3>
-
-  <p>
-    Rummy is restricted in Andhra Pradesh, Sikkim, Nagaland, Assam,
-    Arunachal Pradesh, Tamil Nadu, Odisha and Telangana.
-    If you live in any of these states, please do not download or play
-    rummy apps.
-  </p>
-
-  <div class="ygi-marquee">
-    <div class="ygi-track">
-      Yono Games Store • Yono Rummy • Yono 777 App • Yono Games • Yono App •
-      All Yono Games • ₹500–₹1500 Sign Up Bonus • ₹100 Minimum Withdrawal •
-      Yono Games Store • Yono Rummy • Yono 777 App • Yono Games • Yono App •
-      All Yono Games • ₹500–₹1500 Sign Up Bonus • ₹100 Minimum Withdrawal
-    </div>
-  </div>
-
-  <div class="ygi-notice">
-
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M12 3L2 21h20L12 3z"/>
-      <path d="M12 9v5"/>
-      <circle cx="12" cy="17" r="1"/>
-    </svg>
-
-    <div>
-
-      <h4>Important Notice</h4>
-
-      <p>
-        <strong>yonogamesstore.com</strong> doesn't own or operate the apps
-        listed here. Rummy apps may be addictive and involve financial risks.
-        These apps are intended only for <strong>18+</strong> users.
-      </p>
-
-      <p>
-        Please read the Disclaimer page and every app disclaimer before
-        playing.
-      </p>
-
-      <p>
-        <strong>Alert:</strong> Rummy is restricted in Andhra Pradesh,
-        Sikkim, Nagaland, Assam, Arunachal Pradesh, Tamil Nadu,
-        Odisha and Telangana.
-      </p>
-
-      <strong>Thanks For Reading.</strong>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ================= PREMIUM HD CSS ================= -->
-
-<style>
-
-.ygi-hd-section{
-max-width:1200px;
-margin:25px auto;
-padding:22px;
-background:#fff;
-border-radius:22px;
-box-shadow:0 10px 35px rgba(0,0,0,.08);
-}
-
-.ygi-warning{
-width:82px;
-height:82px;
-margin:auto auto 18px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#fff4e5;
-color:#ff9800;
-box-shadow:0 0 25px rgba(255,152,0,.35);
-animation:rotateWarning 8s linear infinite;
-}
-
-.ygi-warning svg{
-width:44px;
-height:44px;
-}
-
-@keyframes rotateWarning{
-from{transform:rotate(0deg);}
-to{transform:rotate(360deg);}
-}
-
-.ygi-hd-section h3{
-font-size:26px;
-margin:18px 0 10px;
-color:#d32f2f;
-}
-
-.ygi-hd-section p{
-font-size:16px;
-line-height:1.9;
-color:#333;
-margin-bottom:15px;
-}
-
-.ygi-marquee{
-margin:22px 0;
-overflow:hidden;
-background:#f7f7f7;
-border-radius:50px;
-padding:12px 0;
-white-space:nowrap;
-}
-
-.ygi-track{
-display:inline-block;
-padding-left:100%;
-animation:marqueeMove 28s linear infinite;
-font-weight:700;
-color:#0b5ed7;
-}
-
-@keyframes marqueeMove{
-from{transform:translateX(0);}
-to{transform:translateX(-100%);}
-}
-
-.ygi-notice{
-display:flex;
-gap:15px;
-align-items:flex-start;
-padding:18px;
-background:#fff8e8;
-border-left:6px solid #ff9800;
-border-radius:18px;
-margin-top:25px;
-}
-
-.ygi-notice svg{
-width:34px;
-height:34px;
-color:#ff9800;
-flex:none;
-}
-
-.ygi-notice h4{
-margin:0 0 10px;
-font-size:22px;
-color:#d97706;
-}
-
-@media(max-width:480px){
-
-.ygi-hd-section{
-padding:18px;
-border-radius:18px;
-}
-
-.ygi-warning{
-width:68px;
-height:68px;
-}
-
-.ygi-warning svg{
-width:36px;
-height:36px;
-}
-
-.ygi-hd-section h3{
-font-size:22px;
-}
-
-.ygi-notice{
-flex-direction:column;
-}
-
-}
-
-</style>
   <div class="footer-note">All Yono App Site • All Yono Apk • All Yono New • All Yono Games • 77+ Games • ₹45 Bonus • ₹100 Withdrawal</div>
 </div>
 
@@ -2307,11 +2207,18 @@ flex-direction:column;
       
       document.getElementById('apkBonusLine').textContent = game.bonus;
 
-      // Referral Section
+      // Referral Section - Dynamic update
       var refData = generateReferralData(game.name, game.bonus);
       document.getElementById('refGameName').textContent = game.name;
       document.getElementById('refBonusAmount').textContent = '₹' + refData.refBonus;
       document.getElementById('refCode').textContent = refData.refCode;
+      
+      // Update the referral link text and href
+      var refLinkRow = document.getElementById('refLinkRow');
+      var refLinkText = document.getElementById('refLinkText');
+      var dynamicUrl = game.downloadUrl || 'https://www.earntp.com/m/jm9n7r';
+      refLinkRow.href = dynamicUrl;
+      refLinkText.textContent = dynamicUrl;
 
       // Dynamic Top Offers
       var tagContainer = document.getElementById('tagGridContainer');
