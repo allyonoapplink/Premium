@@ -26,12 +26,33 @@
   
   <style>
     /* ============================================================
-       BASE STYLES – FULL WHITE BACKGROUND
+       BASE STYLES – FULL WHITE BACKGROUND + RESPONSIVE LAYOUT
        ============================================================ */
 
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     body { background: #ffffff !important; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
-    .container { max-width: 480px; width: 100%; background: #ffffff !important; min-height: 100vh; overflow: hidden; }
+    
+    /* === RESPONSIVE CONTAINER: Mobile 100% | Desktop 1200px === */
+    .container { 
+      width: 100%; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      background: #ffffff !important; 
+      min-height: 100vh; 
+      overflow: hidden; 
+      padding: 0;
+    }
+    
+    /* === MOBILE FIRST: 360px–480px === */
+    @media (max-width: 480px) {
+      .container { max-width: 100%; padding: 0; }
+    }
+    
+    /* === DESKTOP: 1200px with equal side spacing === */
+    @media (min-width: 1201px) {
+      .container { padding: 0 20px; }
+    }
+    
     .top-header, .marquee-container, .nav-row-small, #mainGrid, .detail-card, .tag-section, .faq-section, .toc-section, .game-tags-section, .related-section, .footer-note, .static-page, .card, .tag-box, .faq-box, .toc-item, .related-item, .game-tag {
       background: #ffffff !important;
     }
@@ -806,7 +827,7 @@
 
     .static-loading { padding: 40px 20px; text-align: center; color: #64748b; font-size: 0.9rem; }
 
-    /* ===== YONO GAMES INFORMATION SECTION - PREMIUM PILL/CHIP STYLE ===== */
+    /* ===== YONO GAMES INFORMATION SECTION - PREMIUM CHIP DESIGN ===== */
     .yono-info-section {
       padding: 14px 10px 10px 10px;
       background: #ffffff;
@@ -821,6 +842,7 @@
       align-items: center;
       gap: 10px;
       letter-spacing: -0.01em;
+      flex-wrap: wrap;
     }
     .yono-info-section .yono-info-title .title-icon {
       display: inline-flex;
@@ -848,6 +870,7 @@
       border-radius: 30px;
       margin-left: auto;
       letter-spacing: 0.3px;
+      white-space: nowrap;
     }
     .yono-tags-container {
       display: flex;
@@ -856,7 +879,9 @@
       padding: 4px 0 2px 0;
       min-height: 30px;
       width: 100%;
+      justify-content: flex-start;
     }
+    /* PREMIUM CHIP STYLE - Original Design Preserved */
     .yono-tag {
       display: inline-block;
       background: #f5f7fa;
@@ -886,14 +911,14 @@
       transform: scale(1.03);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-    /* Special styling for tags with emojis - preserve original emoji */
+    /* Preserve original emoji and text */
     .yono-tag .tag-emoji {
       display: inline;
       margin-right: 2px;
     }
-    /* Responsive adjustments */
-    @media (max-width: 420px) {
-      .yono-tag { font-size: 0.5rem; padding: 5px 12px; gap: 3px; }
+    /* Responsive adjustments for mobile */
+    @media (max-width: 480px) {
+      .yono-tag { font-size: 0.5rem; padding: 5px 12px; }
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
       .yono-info-section { padding: 10px 6px 8px 6px; }
       .yono-tags-container { gap: 6px; }
@@ -901,8 +926,13 @@
     @media (max-width: 360px) {
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
     }
+    /* Desktop adjustments - maintain same style */
+    @media (min-width: 769px) {
+      .yono-tag { font-size: 0.65rem; padding: 7px 18px; }
+      .yono-tags-container { gap: 10px; }
+    }
 
-    /* --- RESPONSIVE --- */
+    /* --- RESPONSIVE - Mobile First --- */
     @media (max-width: 420px) {
       .logo-cyan-round { width: 30px; height: 30px; }
       .site-name-led-round { padding: 3px 10px 3px 8px; min-height: 24px; }
@@ -967,6 +997,12 @@
       .card-bonus { font-size: 0.45rem; }
       .card-withdraw { font-size: 0.4rem; }
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
+    }
+    /* Desktop - no extra changes, just center the container */
+    @media (min-width: 1201px) {
+      .container { padding: 0 20px; }
+      .yono-tag { font-size: 0.65rem; padding: 7px 18px; }
+      .yono-tags-container { gap: 10px; }
     }
   </style>
 </head>
@@ -1347,7 +1383,7 @@
   </div>
 
   <!-- ============================================================
-       YONO GAMES INFORMATION SECTION (Home Page) - PREMIUM
+       YONO GAMES INFORMATION SECTION (Home Page) - PREMIUM CHIP DESIGN
        ============================================================ -->
   <div class="yono-info-section" id="yonoInfoSection">
     <div class="yono-info-title">
@@ -1358,7 +1394,7 @@
       <span class="title-badge" id="tagCountBadge">Loading...</span>
     </div>
     <div class="yono-tags-container" id="yonoTagsContainer">
-      <!-- Tags will be loaded dynamically from yono-games-information.html -->
+      <!-- Tags loaded dynamically from yono-games-information.html -->
     </div>
   </div>
 
