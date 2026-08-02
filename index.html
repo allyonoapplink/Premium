@@ -870,14 +870,6 @@
       font-size: 0.55rem;
       opacity: 0.7;
     }
-    .yono-tag-empty {
-      color: #94a3b8;
-      font-size: 0.6rem;
-      font-weight: 500;
-      padding: 4px 0;
-      width: 100%;
-      text-align: center;
-    }
     @media (max-width: 420px) {
       .yono-tag { font-size: 0.5rem; padding: 3px 10px; }
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
@@ -1530,6 +1522,10 @@
     // ---------- Load YONO Games Information tags from external file ----------
     function loadYonoTags() {
       const container = document.getElementById('yonoTagsContainer');
+      
+      // Clear container first - NO hardcoded tags
+      container.innerHTML = '';
+      
       fetch('yono-games-information.html')
         .then(response => {
           if (!response.ok) throw new Error('File not found');
@@ -1539,16 +1535,14 @@
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, 'text/html');
           
-          // Look for tag elements - try multiple selectors
-          let tagElements = doc.querySelectorAll('.yono-tag, .tag-item, .info-tag, .tag, .yono-tags-container span, .yono-tags-container div, .tags-container span, .tags-container div, .tag-box, .yono-tag-item');
+          // Look for any elements that might be tags
+          let tagElements = doc.querySelectorAll('.yono-tag, .tag-item, .info-tag, .tag, .yono-tags-container span, .yono-tags-container div, .tags-container span, .tags-container div, .tag-box, .yono-tag-item, .tag');
           
           // If still no tags, try to find any span or div that might contain game names
           if (tagElements.length === 0) {
-            // Look for elements that might be tags based on content
             const allElements = doc.querySelectorAll('span, div, li, a');
             tagElements = Array.from(allElements).filter(el => {
               const text = el.textContent.trim();
-              // Check if it looks like a game name or category
               return text.length > 1 && text.length < 30 && 
                      (text.includes('Rummy') || text.includes('Slots') || text.includes('Patti') || 
                       text.includes('Spin') || text.includes('Bingo') || text.includes('Ludo') ||
@@ -1570,23 +1564,16 @@
             });
           }
           
-          container.innerHTML = '';
-          
           if (tagElements.length > 0) {
-            // Get unique tags by text content to avoid duplicates
             const seenTags = new Set();
             let addedCount = 0;
             
             tagElements.forEach(el => {
               let text = el.textContent.trim();
-              // Skip if text is too short or looks like a heading
               if (text.length < 2 || text.length > 40) return;
-              // Skip if it's a number or single character
               if (/^\d+$/.test(text)) return;
-              // Skip if it's a common non-tag word
               if (['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign Up', 'Min'].includes(text)) return;
               
-              // Use a normalized key to avoid duplicates
               const key = text.toLowerCase().trim();
               if (seenTags.has(key)) return;
               seenTags.add(key);
@@ -1594,12 +1581,10 @@
               const tag = document.createElement('span');
               tag.className = 'yono-tag';
               
-              // Try to find an icon in the original element
               const iconMatch = text.match(/^([\u{1F000}-\u{1FFFF}]|[\u2600-\u27BF]|[\u{2700}-\u{27BF}]|[⭐🎰🃏🎯🏆💰💎🎲🎮♠️♥️♦️♣️])/u);
               if (iconMatch) {
                 tag.innerHTML = `<span class="tag-icon">${iconMatch[0]}</span> ${text.replace(iconMatch[0], '').trim()}`;
               } else {
-                // Auto-detect icon based on content
                 let icon = '🎯';
                 const lower = text.toLowerCase();
                 if (lower.includes('rummy')) icon = '🃏';
@@ -1623,20 +1608,12 @@
               container.appendChild(tag);
               addedCount++;
             });
-            
-            // If no tags were added, show empty state
-            if (addedCount === 0) {
-              container.innerHTML = '<span class="yono-tag-empty">No tags available. Add tags to yono-games-information.html</span>';
-            }
-          } else {
-            // No tags found in the file
-            container.innerHTML = '<span class="yono-tag-empty">No tags available. Add tags to yono-games-information.html</span>';
           }
+          // If no tags found, container remains empty (no message)
         })
         .catch(() => {
-          // File not found - show empty state (no fallback tags)
-          const container = document.getElementById('yonoTagsContainer');
-          container.innerHTML = '<span class="yono-tag-empty">No tags available. Add tags to yono-games-information.html</span>';
+          // File not found - container remains empty (no message)
+          // No fallback tags whatsoever
         });
     }
 
