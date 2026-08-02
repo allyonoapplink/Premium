@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,14 +40,14 @@
     /* --- YONO GAMES INFORMATION SECTION --- */
     .yono-info-section {
       background: #ffffff !important;
-      padding: 10px 12px;
+      padding: 8px 12px 10px 12px;
       border-bottom: 1px solid #e9edf4;
     }
     .yono-info-section .yono-info-title {
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #0b1e33;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -55,23 +56,24 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       background: #000;
       border-radius: 50%;
       color: #fff;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
+      flex-shrink: 0;
     }
     .yono-info-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 5px;
     }
     .yono-info-tag {
       background: #f0f4ff;
       color: #0b1e33;
-      padding: 4px 12px;
+      padding: 3px 12px;
       border-radius: 30px;
       font-size: 0.6rem;
       font-weight: 600;
@@ -86,8 +88,9 @@
       transform: scale(1.04);
     }
     @media (max-width: 420px) {
-      .yono-info-tag { font-size: 0.5rem; padding: 3px 10px; }
+      .yono-info-tag { font-size: 0.5rem; padding: 2px 10px; }
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
+      .yono-info-section .yono-info-title .title-icon { width: 22px; height: 22px; font-size: 0.55rem; }
     }
 
     /* --- FAST TRANSITIONS --- */
@@ -913,8 +916,9 @@
       .tag-box .tag-content { font-size: 0.6rem; }
       .tag-box .tag-head .svg-icon { width: 18px; height: 18px; }
       .tag-box .tag-head .svg-icon svg { width: 13px; height: 13px; }
-      .yono-info-tag { font-size: 0.5rem; padding: 3px 10px; }
+      .yono-info-tag { font-size: 0.5rem; padding: 2px 10px; }
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
+      .yono-info-section .yono-info-title .title-icon { width: 22px; height: 22px; font-size: 0.55rem; }
     }
     @media (max-width: 360px) {
       .site-name-led-round .site-name-text { font-size: 0.35rem; }
@@ -1448,11 +1452,17 @@
           var tags = doc.querySelectorAll('.yono-info-tag');
           if (tags.length > 0) {
             container.innerHTML = '';
+            // Use Set to remove duplicates
+            var seenTags = new Set();
             tags.forEach(function(tag) {
-              var newTag = document.createElement('span');
-              newTag.className = 'yono-info-tag';
-              newTag.textContent = tag.textContent;
-              container.appendChild(newTag);
+              var text = tag.textContent.trim();
+              if (!seenTags.has(text)) {
+                seenTags.add(text);
+                var newTag = document.createElement('span');
+                newTag.className = 'yono-info-tag';
+                newTag.textContent = text;
+                container.appendChild(newTag);
+              }
             });
           } else {
             container.innerHTML = '<span class="yono-info-tag">Loading tags...</span>';
