@@ -858,6 +858,8 @@
       transition: all 0.2s ease;
       cursor: default;
       box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      word-break: break-word;
+      max-width: 100%;
     }
     .yono-tag:hover {
       background: #1e293b;
@@ -1532,39 +1534,82 @@
           return response.text();
         })
         .then(html => {
-          // Use a more efficient approach - extract text content and split into tags
-          // First, remove all HTML tags to get clean text
+          // Extract only text content, no HTML parsing that could render code
+          // Create a temporary div to get text content without rendering HTML
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = html;
           
-          // Get all text content from the body
-          const bodyText = tempDiv.textContent || '';
+          // Get all text content from the body, but strip out any script, style, etc.
+          // We'll use a more careful approach - get text content of body only
+          const bodyContent = tempDiv.querySelector('body');
+          let rawText = '';
+          if (bodyContent) {
+            // Get all text nodes, but skip script and style tags
+            const walker = document.createTreeWalker(
+              bodyContent,
+              NodeFilter.SHOW_TEXT,
+              {
+                acceptNode: function(node) {
+                  // Skip text inside script, style, noscript tags
+                  let parent = node.parentElement;
+                  while (parent) {
+                    if (['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEMPLATE'].includes(parent.tagName)) {
+                      return NodeFilter.FILTER_REJECT;
+                    }
+                    parent = parent.parentElement;
+                  }
+                  return NodeFilter.FILTER_ACCEPT;
+                }
+              }
+            );
+            
+            let textNodes = [];
+            let node;
+            while (node = walker.nextNode()) {
+              let text = node.textContent.trim();
+              if (text.length > 0) {
+                textNodes.push(text);
+              }
+            }
+            rawText = textNodes.join(' ');
+          } else {
+            // Fallback: use textContent but with careful cleaning
+            rawText = tempDiv.textContent || '';
+          }
           
-          // Split by common separators: commas, new lines, bullet points, etc.
-          const separators = /[,\n\r\t•·►➤●○◆◇▪▫★☆✦✧⭐🎰🃏🎯🏆💰💎🎲🎮♠️♥️♦️♣️|/]+/;
-          const rawTags = bodyText.split(separators).map(s => s.trim()).filter(s => s.length > 1 && s.length < 50);
+          // Clean up the text - remove excessive whitespace and normalize
+          rawText = rawText.replace(/\s+/g, ' ').trim();
           
-          // Filter out common non-tag words
-          const skipWords = ['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign', 'Up', 'Min', 'Withdraw', 'Share', 'Telegram', 'Menu', 'Back', 'Loading', 'Content', 'available', 'Tags', 'Add', 'remove', 'update', 'file', 'section', 'heading', 'below', 'show', 'mobile', 'friendly', 'responsive', 'premium', 'view', 'load', 'read', 'message', 'completely', 'fast', 'speed', 'image', 'photo', 'icon', 'button', 'extra', 'YONO', 'Games', 'Information'];
+          // Split by common separators: commas, new lines, bullet points, emojis, etc.
+          // But keep emojis as part of the tag text
+          const separators = /[,\n\r\t•·►➤●○◆◇▪▫★☆✦✧|/]+/;
+          let rawTags = rawText.split(separators).map(s => s.trim()).filter(s => s.length > 1 && s.length < 80);
           
-          // Also filter out any text that looks like HTML attributes or code
-          const filteredTags = rawTags.filter(tag => {
+          // Additional filtering to remove any remaining HTML-like content
+          rawTags = rawTags.filter(tag => {
+            // Skip if it contains HTML tags
+            if (/<[^>]*>/.test(tag)) return false;
+            // Skip if it looks like a URL or email
+            if (/^https?:\/\//.test(tag) || /^www\./.test(tag) || /@/.test(tag)) return false;
+            // Skip if it's a file path or extension
+            if (/\.(html|css|js|png|jpg|jpeg|gif|svg|ico|json|xml|txt)$/i.test(tag)) return false;
+            // Skip if it's a code-like string
+            if (/^[{}()[\];:'"<>]/.test(tag)) return false;
+            // Skip common non-tag words
+            const skipWords = ['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign', 'Up', 'Min', 'Withdraw', 'Share', 'Telegram', 'Menu', 'Back', 'Loading', 'Content', 'available', 'Tags', 'Add', 'remove', 'update', 'file', 'section', 'heading', 'below', 'show', 'mobile', 'friendly', 'responsive', 'premium', 'view', 'load', 'read', 'message', 'completely', 'fast', 'speed', 'image', 'photo', 'icon', 'button', 'extra', 'YONO', 'Games', 'Information'];
             const lower = tag.toLowerCase();
-            // Skip if it's a skip word
             if (skipWords.some(w => lower === w.toLowerCase())) return false;
             if (skipWords.some(w => lower.includes(w.toLowerCase()) && tag.length < 15)) return false;
-            // Skip if it contains HTML-like patterns
-            if (tag.includes('<') || tag.includes('>') || tag.includes('&') || tag.includes('=')) return false;
-            // Skip if it's just numbers or single characters
-            if (/^[\d\s]+$/.test(tag)) return false;
-            // Skip if it's too short
-            if (tag.length < 2) return false;
+            // Skip if it's just a single emoji
+            if (/^[\u{1F000}-\u{1FFFF}\u2600-\u27BF\u2700-\u27BF]+$/u.test(tag)) return false;
+            // Skip if it's just punctuation
+            if (/^[.,!?;:]+$/.test(tag)) return false;
             return true;
           });
           
           // Remove duplicates while preserving order
           const seenTags = new Set();
-          const uniqueTags = filteredTags.filter(tag => {
+          const uniqueTags = rawTags.filter(tag => {
             const key = tag.toLowerCase().trim();
             if (seenTags.has(key)) return false;
             seenTags.add(key);
@@ -1572,21 +1617,31 @@
           });
           
           if (uniqueTags.length > 0) {
-            // Create tag elements
+            // Create tag elements - up to 500 at a time for performance
+            const fragment = document.createDocumentFragment();
+            let count = 0;
+            
             uniqueTags.forEach(text => {
+              if (count > 2000) return; // Safety limit, but process all
+              
               const tag = document.createElement('span');
               tag.className = 'yono-tag';
               
-              // Try to find an icon in the text
+              // Try to find an icon in the text (emoji at start)
               const iconMatch = text.match(/^([\u{1F000}-\u{1FFFF}]|[\u2600-\u27BF]|[\u{2700}-\u{27BF}]|[⭐🎰🃏🎯🏆💰💎🎲🎮♠️♥️♦️♣️])/u);
               if (iconMatch) {
-                tag.innerHTML = `<span class="tag-icon">${iconMatch[0]}</span> ${text.replace(iconMatch[0], '').trim()}`;
+                const icon = iconMatch[0];
+                const rest = text.replace(icon, '').trim();
+                tag.innerHTML = `<span class="tag-icon">${icon}</span> ${rest}`;
               } else {
-                // Just display the text as-is
+                // Just display the text as-is, preserving any emojis inside
                 tag.textContent = text;
               }
-              container.appendChild(tag);
+              fragment.appendChild(tag);
+              count++;
             });
+            
+            container.appendChild(fragment);
           }
         })
         .catch(() => {
@@ -2276,7 +2331,7 @@
 
     // ---- Initialize home state ----
     historyStack.push({ state: { page: 'home' }, title: 'Home', url: location.href });
-    history.replaceState({ page: 'home' }, 'Home', location.href);
+    history.replaceState({ state: { page: 'home' } }, 'Home', location.href);
   })();
 </script>
 </body>
