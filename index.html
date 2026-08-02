@@ -842,7 +842,7 @@
       flex-wrap: wrap;
       gap: 6px;
       padding: 2px 0 4px 0;
-      min-height: 30px;
+      min-height: 40px;
     }
     .yono-tag {
       background: #f8fafc;
@@ -874,7 +874,7 @@
       color: #94a3b8;
       font-size: 0.6rem;
       font-weight: 500;
-      padding: 4px 0;
+      padding: 6px 0;
       width: 100%;
       text-align: center;
     }
@@ -1336,7 +1336,8 @@
       <span>YONO Games Information</span>
     </div>
     <div class="yono-tags-container" id="yonoTagsContainer">
-      <!-- Tags will be loaded dynamically from yono-games-information.html -->
+      <!-- Tags loaded dynamically from yono-games-information.html -->
+      <span class="yono-tag-empty">Loading tags...</span>
     </div>
   </div>
 
@@ -1539,61 +1540,16 @@
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, 'text/html');
           
-          // Look for tag elements - try multiple selectors
-          let tagElements = doc.querySelectorAll('.yono-tag, .tag-item, .info-tag, .tag, .yono-tags-container span, .yono-tags-container div, .tags-container span, .tags-container div, .tag-box, .yono-tag-item');
-          
-          // If still no tags, try to find any span or div that might contain game names
-          if (tagElements.length === 0) {
-            // Look for elements that might be tags based on content
-            const allElements = doc.querySelectorAll('span, div, li, a');
-            tagElements = Array.from(allElements).filter(el => {
-              const text = el.textContent.trim();
-              // Check if it looks like a game name or category
-              return text.length > 1 && text.length < 30 && 
-                     (text.includes('Rummy') || text.includes('Slots') || text.includes('Patti') || 
-                      text.includes('Spin') || text.includes('Bingo') || text.includes('Ludo') ||
-                      text.includes('Win') || text.includes('VIP') || text.includes('Gold') ||
-                      text.includes('Game') || text.includes('Jackpot') || text.includes('777') ||
-                      text.includes('Yono') || text.includes('Club') || text.includes('Plus') ||
-                      text.includes('Ultra') || text.includes('Maha') || text.includes('Dhan') ||
-                      text.includes('Bet') || text.includes('Go') || text.includes('Max') ||
-                      text.includes('Rani') || text.includes('Net') || text.includes('Joy') ||
-                      text.includes('Love') || text.includes('Top') || text.includes('Good') ||
-                      text.includes('Saga') || text.includes('Crush') || text.includes('365') ||
-                      text.includes('101') || text.includes('789') || text.includes('T989') ||
-                      text.includes('765') || text.includes('MKM') || text.includes('MQM') ||
-                      text.includes('IND') || text.includes('Hi') || text.includes('INR') ||
-                      text.includes('Rumble') || text.includes('Diwa') || text.includes('Goa') ||
-                      text.includes('MBM') || text.includes('ABC') || text.includes('SVIP') ||
-                      text.includes('Hind') || text.includes('Boss') || text.includes('OK') ||
-                      text.includes('Yes') || text.includes('Arcade') || text.includes('Lucky'));
-            });
-          }
+          // Look for any elements that might be tags
+          let tagElements = doc.querySelectorAll('.yono-tag, .tag-item, .info-tag, .tag, .yono-tags-container span, .yono-tags-container div, .tags-container span, .tags-container div');
           
           container.innerHTML = '';
           
           if (tagElements.length > 0) {
-            // Get unique tags by text content to avoid duplicates
-            const seenTags = new Set();
-            let addedCount = 0;
-            
             tagElements.forEach(el => {
-              let text = el.textContent.trim();
-              // Skip if text is too short or looks like a heading
-              if (text.length < 2 || text.length > 40) return;
-              // Skip if it's a number or single character
-              if (/^\d+$/.test(text)) return;
-              // Skip if it's a common non-tag word
-              if (['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign Up', 'Min'].includes(text)) return;
-              
-              // Use a normalized key to avoid duplicates
-              const key = text.toLowerCase().trim();
-              if (seenTags.has(key)) return;
-              seenTags.add(key);
-              
               const tag = document.createElement('span');
               tag.className = 'yono-tag';
-              
+              let text = el.textContent.trim();
               // Try to find an icon in the original element
               const iconMatch = text.match(/^([\u{1F000}-\u{1FFFF}]|[\u2600-\u27BF]|[\u{2700}-\u{27BF}]|[⭐🎰🃏🎯🏆💰💎🎲🎮♠️♥️♦️♣️])/u);
               if (iconMatch) {
@@ -1605,36 +1561,22 @@
                 if (lower.includes('rummy')) icon = '🃏';
                 else if (lower.includes('slot') || lower.includes('spin')) icon = '🎰';
                 else if (lower.includes('patti')) icon = '♠️';
-                else if (lower.includes('bonus') || lower.includes('cash')) icon = '💰';
+                else if (lower.includes('bonus')) icon = '💰';
                 else if (lower.includes('win') || lower.includes('jackpot')) icon = '🏆';
-                else if (lower.includes('vip') || lower.includes('gold')) icon = '⭐';
+                else if (lower.includes('vip')) icon = '⭐';
+                else if (lower.includes('gold')) icon = '💎';
                 else if (lower.includes('game')) icon = '🎮';
-                else if (lower.includes('777') || lower.includes('club')) icon = '💎';
-                else if (lower.includes('ludo')) icon = '🎲';
-                else if (lower.includes('bingo')) icon = '🎯';
-                else if (lower.includes('go') || lower.includes('plus')) icon = '🚀';
-                else if (lower.includes('ultra') || lower.includes('max')) icon = '⚡';
-                else if (lower.includes('maha')) icon = '🌟';
-                else if (lower.includes('dhan')) icon = '💫';
-                else if (lower.includes('bet')) icon = '🎲';
-                else if (lower.includes('rani')) icon = '👑';
                 tag.innerHTML = `<span class="tag-icon">${icon}</span> ${text}`;
               }
               container.appendChild(tag);
-              addedCount++;
             });
-            
-            // If no tags were added, show empty state
-            if (addedCount === 0) {
-              container.innerHTML = '<span class="yono-tag-empty">No tags available. Add tags to yono-games-information.html</span>';
-            }
           } else {
-            // No tags found in the file
+            // No tags found, show empty state
             container.innerHTML = '<span class="yono-tag-empty">No tags available. Add tags to yono-games-information.html</span>';
           }
         })
         .catch(() => {
-          // File not found - show empty state (no fallback tags)
+          // File not found, show empty state instead of fallback tags
           const container = document.getElementById('yonoTagsContainer');
           container.innerHTML = '<span class="yono-tag-empty">No tags available. Add tags to yono-games-information.html</span>';
         });
