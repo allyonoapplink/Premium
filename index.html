@@ -170,17 +170,35 @@
       border-bottom: 1px solid #e9edf4;
     }
     .back-btn {
-      background: #eef2ff;
+      background: #00cc44;
       border: none;
-      padding: 3px 12px;
+      padding: 6px 16px 6px 12px;
       border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.6rem;
-      color: #1e293b;
+      font-weight: 700;
+      font-size: 0.65rem;
+      color: #000000;
       cursor: pointer;
-      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 12px rgba(0,204,68,0.35);
+      transition: all 0.2s ease;
     }
     .back-btn:active { transform: scale(0.95); }
+    .back-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: #000000;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .back-btn:hover {
+      box-shadow: 0 4px 20px rgba(0,204,68,0.5);
+      transform: translateX(-2px);
+    }
     .detail-header-title {
       font-weight: 700;
       font-size: 0.7rem;
@@ -244,8 +262,8 @@
       flex-shrink: 0;
     }
     .info-row .svg-icon svg {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       stroke-width: 2;
       fill: none;
       stroke-linecap: round;
@@ -259,8 +277,10 @@
       font-weight: 700;
       color: #0b1e33;
     }
-    .info-row.signup .svg-icon svg { stroke: #f39c12; }
-    .info-row.withdraw .svg-icon svg { stroke: #3498db; }
+    /* Sign Up Bonus - Red Money Bag Icon */
+    .info-row.signup .svg-icon svg { stroke: #dc2626; fill: #dc2626; }
+    /* Min Withdraw - Green Bank Icon */
+    .info-row.withdraw .svg-icon svg { stroke: #16a34a; fill: none; }
 
     /* --- Update Version badge --- */
     .update-badge {
@@ -366,19 +386,19 @@
     .meta-item.rating .rating-label {
       font-weight: 600;
       color: #0b1e33;
-      order: 1; /* Rating label first */
+      order: 1;
     }
     .meta-item.rating .rating-value {
       font-weight: 700;
       font-size: 0.75rem;
       color: #0b1e33;
-      order: 2; /* Rating number after label (Left side) */
+      order: 2;
     }
     .meta-item.rating .stars {
       display: flex;
       gap: 2px;
       align-items: center;
-      order: 3; /* Stars after rating number (Right side) */
+      order: 3;
     }
     .meta-item.rating .stars .star-wrapper {
       display: inline-flex;
@@ -1179,12 +1199,13 @@
       .meta-row .meta-item .svg-icon svg { width: 14px; height: 14px; }
       .meta-item.rating .stars .star-wrapper { width: 14px; height: 14px; }
       .info-row { font-size: 0.7rem; gap: 4px; }
-      .info-row .svg-icon svg { width: 14px; height: 14px; }
+      .info-row .svg-icon svg { width: 15px; height: 15px; }
       .game-sub { gap: 2px; }
       .update-badge { font-size: 0.5rem; padding: 2px 6px; gap: 3px; }
       .update-badge .badge-icon svg { width: 11px; height: 11px; }
       .game-detail-header .detail-header-title { font-size: 0.6rem; }
-      .back-btn { font-size: 0.5rem; padding: 2px 10px; }
+      .back-btn { font-size: 0.55rem; padding: 4px 12px 4px 8px; gap: 4px; }
+      .back-btn svg { width: 13px; height: 13px; }
       .meta-item.rating .rating-label { font-size: 0.6rem; }
       .rdownload { font-size: 0.45rem !important; padding: 3px 8px 3px 6px !important; }
       .rdownload svg { width: 10px; height: 10px; }
@@ -1207,6 +1228,8 @@
       .card-bonus { font-size: 0.45rem; }
       .card-withdraw { font-size: 0.4rem; }
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
+      .back-btn { font-size: 0.5rem; padding: 3px 8px 3px 6px; }
+      .back-btn svg { width: 11px; height: 11px; }
     }
     @media (min-width: 1201px) {
       .container { padding: 0 20px; }
@@ -1333,7 +1356,10 @@
   <!-- DETAIL VIEW -->
   <div id="detailView" class="hidden" style="display:none;">
     <div class="game-detail-header">
-      <button class="back-btn" id="backBtn">← Back</button>
+      <button class="back-btn" id="backBtn">
+        <svg viewBox="0 0 24 24" stroke="currentColor"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back
+      </button>
       <span class="detail-header-title" id="detailHeaderTitle">Game Name</span>
     </div>
     <div class="detail-card">
@@ -1344,14 +1370,14 @@
           <div class="game-sub">
             <div class="info-row signup">
               <span class="svg-icon">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>
+                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/><path d="M12 2v4"/><path d="M6 6L8 8"/><path d="M18 6L16 8"/><path d="M6 18L8 16"/><path d="M18 18L16 16"/></svg>
               </span>
               <span class="label">Sign Up Bonus</span>
               <span class="value" id="detailSignupText">₹45</span>
             </div>
             <div class="info-row withdraw">
               <span class="svg-icon">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><path d="M8 14h8"/></svg>
+                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/><path d="M10 16h4"/></svg>
               </span>
               <span class="label">Min. Withdraw</span>
               <span class="value" id="detailWithdrawText">₹100</span>
