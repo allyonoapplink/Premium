@@ -394,7 +394,7 @@
       font-size: 0.75rem;
       color: #0b1e33;
     }
-    .meta-item.size .svg-icon svg { stroke: #00bcd4; }
+    .meta-item.size .svg-icon svg { stroke: #000000; } /* Black SVG Download Icon */
     .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
 
     /* ===== DOWNLOAD BUTTON ===== */
@@ -1337,25 +1337,19 @@
             <div class="meta-row">
               <span class="meta-item rating">
                 <span class="rating-container">
-                  <!-- New Rating SVG Icon Added Here -->
-                  <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:20px; height:20px;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#00cc44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;">
-                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                    </svg>
-                  </span>
+                  <!-- Rating stars only (no extra icon) -->
                   <span class="stars" id="detailStars"></span>
                   <span class="rating-label">Rating</span>
                   <span class="rating-value" id="detailRating">4.5</span>
                 </span>
               </span>
               <span class="meta-item size">
-                <!-- New APK Size SVG Icon Added Here, Old Icon Removed -->
+                <!-- New Black Download Icon for APK Size -->
                 <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:20px; height:20px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#00bcd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;">
-                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <line x1="8" y1="13" x2="16" y2="13"/>
-                    <line x1="8" y1="17" x2="12" y2="17"/>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
                   </svg>
                 </span>
                 <span class="label">APK Size</span>
@@ -1368,7 +1362,7 @@
                   <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </span>
                 <span class="label">Votes</span>
-                <span class="value" id="detailVotes">26K</span>
+                <span class="value" id="detailVotes">1250</span>
               </span>
             </div>
           </div>
@@ -1716,7 +1710,10 @@
         img: g.img,
         rating: (4 + (seed % 8) / 10).toFixed(1),
         size: (30 + (seed % 40)) + ' MB',
-        votes: (5 + (seed % 30)) + 'K',
+        votes: (function(s) {
+          // Generate a random number between 100 and 50000
+          return Math.floor(100 + (s * 137) % 49900);
+        })(seed),
         metaBonus: '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed % 20) + 5),
         version: (function(s){ var m=(s%8)+1; var n=(s*3)%10; return m+'.'+n; })(seed)
       };
@@ -2224,7 +2221,7 @@
         var ratingVal = (4 + (seed % 8) / 10).toFixed(1);
         if (parseFloat(ratingVal) > 4.9) ratingVal = '4.8';
         var sizeVal = (30 + (seed % 40)) + ' MB';
-        var votesVal = (5 + (seed % 30)) + 'K';
+        var votesVal = Math.floor(100 + (seed * 137) % 49900);
         var bonusNum = parseInt(game.bonus.replace('₹', '')) || 45;
         var metaBonus = '₹' + (bonusNum + (seed % 20) + 5);
         var version = generateVersion(seed);
@@ -2300,6 +2297,7 @@
       document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
       document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
       document.getElementById('detailSize').textContent = game.size;
+      // Set votes as full number (no K suffix)
       document.getElementById('detailVotes').textContent = game.votes;
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
@@ -2420,7 +2418,7 @@
         var r = (4 + (seed3 % 8) / 10).toFixed(1);
         if (parseFloat(r) > 4.9) r = '4.8';
         var s = (30 + (seed3 % 40)) + ' MB';
-        var v = (5 + (seed3 % 30)) + 'K';
+        var v = Math.floor(100 + (seed3 * 137) % 49900);
         var mb = '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed3 % 20) + 5);
         var ver = generateVersion(seed3);
         item.dataset.name = g.name;
