@@ -357,7 +357,7 @@
       font-weight: 700;
     }
 
-    /* Rating */
+    /* Rating - PREMIUM ANIMATION */
     .meta-item.rating .rating-container {
       display: flex;
       align-items: center;
@@ -365,24 +365,54 @@
     }
     .meta-item.rating .stars {
       display: flex;
-      gap: 1px;
+      gap: 2px;
       align-items: center;
     }
-    .meta-item.rating .stars svg {
-      width: 16px;
-      height: 16px;
+    .meta-item.rating .stars .star-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 18px;
+      height: 18px;
+      overflow: visible;
+    }
+    .meta-item.rating .stars .star-wrapper svg {
+      width: 100%;
+      height: 100%;
       stroke: #00cc44;
+      fill: transparent;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 3px rgba(0,204,68,0.15));
+      transition: none;
+    }
+    /* Filled star with glow */
+    .meta-item.rating .stars .star-wrapper.filled svg {
       fill: #00cc44;
-      filter: drop-shadow(0 0 3px rgba(0,204,68,0.3));
-      animation: starGlow 2.5s ease-in-out infinite;
-    }
-    .meta-item.rating .stars .half-star svg {
-      fill: none;
       stroke: #00cc44;
+      filter: drop-shadow(0 0 6px rgba(0,204,68,0.5));
+      animation: starFillPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
-    @keyframes starGlow {
-      0%,100%{ filter: drop-shadow(0 0 2px rgba(0,204,68,0.2)); }
-      50%{ filter: drop-shadow(0 0 8px rgba(0,204,68,0.5)); }
+    /* Half star */
+    .meta-item.rating .stars .star-wrapper.half svg {
+      fill: url(#halfGrad);
+      stroke: #00cc44;
+      filter: drop-shadow(0 0 4px rgba(0,204,68,0.3));
+    }
+    /* Sequential animation - each star fills with delay */
+    .meta-item.rating .stars .star-wrapper.filled:nth-child(1) { animation-delay: 0s; }
+    .meta-item.rating .stars .star-wrapper.filled:nth-child(2) { animation-delay: 0.08s; }
+    .meta-item.rating .stars .star-wrapper.filled:nth-child(3) { animation-delay: 0.16s; }
+    .meta-item.rating .stars .star-wrapper.filled:nth-child(4) { animation-delay: 0.24s; }
+    .meta-item.rating .stars .star-wrapper.filled:nth-child(5) { animation-delay: 0.32s; }
+    
+    @keyframes starFillPop {
+      0% { transform: scale(0) rotate(-30deg); opacity: 0; fill: transparent; }
+      40% { transform: scale(1.3) rotate(5deg); opacity: 1; fill: #00cc44; filter: drop-shadow(0 0 15px rgba(0,204,68,0.7)); }
+      70% { transform: scale(0.9) rotate(-3deg); }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; fill: #00cc44; filter: drop-shadow(0 0 6px rgba(0,204,68,0.5)); }
     }
     .meta-item.rating .rating-label {
       font-weight: 600;
@@ -394,7 +424,7 @@
       font-size: 0.75rem;
       color: #0b1e33;
     }
-    .meta-item.size .svg-icon svg { stroke: #000000; } /* Black SVG Download Icon */
+    .meta-item.size .svg-icon svg { stroke: #000000; }
     .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
 
     /* ===== DOWNLOAD BUTTON ===== */
@@ -1145,7 +1175,7 @@
       .detail-download .download-btn::before { width: 18px; height: 18px; }
       .meta-row { gap: 8px; font-size: 0.6rem; }
       .meta-row .meta-item .svg-icon svg { width: 14px; height: 14px; }
-      .meta-item.rating .stars svg { width: 14px; height: 14px; }
+      .meta-item.rating .stars .star-wrapper { width: 14px; height: 14px; }
       .info-row { font-size: 0.7rem; gap: 4px; }
       .info-row .svg-icon svg { width: 14px; height: 14px; }
       .game-sub { gap: 2px; }
@@ -1337,14 +1367,12 @@
             <div class="meta-row">
               <span class="meta-item rating">
                 <span class="rating-container">
-                  <!-- Rating stars only (no extra icon) -->
                   <span class="stars" id="detailStars"></span>
                   <span class="rating-label">Rating</span>
                   <span class="rating-value" id="detailRating">4.5</span>
                 </span>
               </span>
               <span class="meta-item size">
-                <!-- New Black Download Icon for APK Size -->
                 <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:20px; height:20px;">
                   <svg viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -1708,12 +1736,9 @@
         withdrawal: g.withdrawal,
         downloadUrl: g.downloadUrl,
         img: g.img,
-        rating: (4 + (seed % 8) / 10).toFixed(1),
+        rating: (3 + (seed % 5) / 10).toFixed(1),
         size: (30 + (seed % 40)) + ' MB',
-        votes: (function(s) {
-          // Generate a random number between 100 and 50000
-          return Math.floor(100 + (s * 137) % 49900);
-        })(seed),
+        votes: Math.floor(100 + (seed * 137) % 49900),
         metaBonus: '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed % 20) + 5),
         version: (function(s){ var m=(s%8)+1; var n=(s*3)%10; return m+'.'+n; })(seed)
       };
@@ -2061,22 +2086,22 @@
       }
     });
 
-    // Helper: Generate star HTML
+    // Helper: Generate star HTML with premium animation
     function generateStars(rating) {
       var num = parseFloat(rating) || 0;
       var full = Math.floor(num);
       var half = (num - full) >= 0.5 ? 1 : 0;
       var html = '';
       var starSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
-      var halfSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+      
       for (var i = 0; i < 5; i++) {
+        var wrapperClass = 'star-wrapper';
         if (i < full) {
-          html += starSvg;
+          wrapperClass += ' filled';
         } else if (i === full && half === 1) {
-          html += '<span class="half-star">' + halfSvg + '</span>';
-        } else {
-          html += '<span class="half-star">' + halfSvg + '</span>';
+          wrapperClass += ' half';
         }
+        html += '<span class="' + wrapperClass + '">' + starSvg + '</span>';
       }
       return html;
     }
@@ -2218,7 +2243,7 @@
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
         var seed = game.name.length * 7 + game.name.charCodeAt(0);
-        var ratingVal = (4 + (seed % 8) / 10).toFixed(1);
+        var ratingVal = (3 + (seed % 5) / 10).toFixed(1);
         if (parseFloat(ratingVal) > 4.9) ratingVal = '4.8';
         var sizeVal = (30 + (seed % 40)) + ' MB';
         var votesVal = Math.floor(100 + (seed * 137) % 49900);
@@ -2293,11 +2318,10 @@
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
       document.querySelector('#detailVersionBadge .version').textContent = game.version;
       
-      var ratingVal = parseFloat(game.rating) || 4.5;
+      var ratingVal = parseFloat(game.rating) || 3.0;
       document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
       document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
       document.getElementById('detailSize').textContent = game.size;
-      // Set votes as full number (no K suffix)
       document.getElementById('detailVotes').textContent = game.votes;
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
@@ -2415,7 +2439,7 @@
         var item = document.createElement('div');
         item.className = 'related-item';
         var seed3 = g.name.length * 7 + g.name.charCodeAt(0);
-        var r = (4 + (seed3 % 8) / 10).toFixed(1);
+        var r = (3 + (seed3 % 5) / 10).toFixed(1);
         if (parseFloat(r) > 4.9) r = '4.8';
         var s = (30 + (seed3 % 40)) + ' MB';
         var v = Math.floor(100 + (seed3 * 137) % 49900);
