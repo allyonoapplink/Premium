@@ -357,7 +357,7 @@
       font-weight: 700;
     }
 
-    /* Rating - PREMIUM ANIMATION */
+    /* Rating - PREMIUM ANIMATION - Stars Left, Rating Number Right */
     .meta-item.rating .rating-container {
       display: flex;
       align-items: center;
@@ -367,6 +367,7 @@
       display: flex;
       gap: 2px;
       align-items: center;
+      order: 1; /* Stars first (left) */
     }
     .meta-item.rating .stars .star-wrapper {
       display: inline-flex;
@@ -397,7 +398,7 @@
     }
     /* Half star */
     .meta-item.rating .stars .star-wrapper.half svg {
-      fill: url(#halfGrad);
+      fill: #00cc44;
       stroke: #00cc44;
       filter: drop-shadow(0 0 4px rgba(0,204,68,0.3));
     }
@@ -418,11 +419,13 @@
       font-weight: 600;
       color: #0b1e33;
       margin-left: 2px;
+      order: 2; /* Rating label after stars */
     }
     .meta-item.rating .rating-value {
       font-weight: 700;
       font-size: 0.75rem;
       color: #0b1e33;
+      order: 3; /* Rating number after label */
     }
     .meta-item.size .svg-icon svg { stroke: #000000; }
     .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
