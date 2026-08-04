@@ -357,17 +357,28 @@
       font-weight: 700;
     }
 
-    /* Rating - PREMIUM ANIMATION - Stars Left, Rating Number Right */
+    /* Rating - PREMIUM ANIMATION - Rating Number Left, Stars Right */
     .meta-item.rating .rating-container {
       display: flex;
       align-items: center;
       gap: 4px;
     }
+    .meta-item.rating .rating-label {
+      font-weight: 600;
+      color: #0b1e33;
+      order: 1; /* Rating label first */
+    }
+    .meta-item.rating .rating-value {
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: #0b1e33;
+      order: 2; /* Rating number after label (Left side) */
+    }
     .meta-item.rating .stars {
       display: flex;
       gap: 2px;
       align-items: center;
-      order: 1; /* Stars first (left) */
+      order: 3; /* Stars after rating number (Right side) */
     }
     .meta-item.rating .stars .star-wrapper {
       display: inline-flex;
@@ -414,18 +425,6 @@
       40% { transform: scale(1.3) rotate(5deg); opacity: 1; fill: #00cc44; filter: drop-shadow(0 0 15px rgba(0,204,68,0.7)); }
       70% { transform: scale(0.9) rotate(-3deg); }
       100% { transform: scale(1) rotate(0deg); opacity: 1; fill: #00cc44; filter: drop-shadow(0 0 6px rgba(0,204,68,0.5)); }
-    }
-    .meta-item.rating .rating-label {
-      font-weight: 600;
-      color: #0b1e33;
-      margin-left: 2px;
-      order: 2; /* Rating label after stars */
-    }
-    .meta-item.rating .rating-value {
-      font-weight: 700;
-      font-size: 0.75rem;
-      color: #0b1e33;
-      order: 3; /* Rating number after label */
     }
     .meta-item.size .svg-icon svg { stroke: #000000; }
     .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
@@ -1370,9 +1369,9 @@
             <div class="meta-row">
               <span class="meta-item rating">
                 <span class="rating-container">
-                  <span class="stars" id="detailStars"></span>
                   <span class="rating-label">Rating</span>
                   <span class="rating-value" id="detailRating">4.5</span>
+                  <span class="stars" id="detailStars"></span>
                 </span>
               </span>
               <span class="meta-item size">
