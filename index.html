@@ -1337,15 +1337,27 @@
             <div class="meta-row">
               <span class="meta-item rating">
                 <span class="rating-container">
-                  <!-- New Premium Star Icon -->
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <!-- New Rating SVG Icon Added Here -->
+                  <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:20px; height:20px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00cc44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                  </span>
+                  <span class="stars" id="detailStars"></span>
                   <span class="rating-label">Rating</span>
                   <span class="rating-value" id="detailRating">4.5</span>
                 </span>
               </span>
               <span class="meta-item size">
-                <!-- New Premium APK Size Icon -->
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+                <!-- New APK Size SVG Icon Added Here, Old Icon Removed -->
+                <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:20px; height:20px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#00bcd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="8" y1="13" x2="16" y2="13"/>
+                    <line x1="8" y1="17" x2="12" y2="17"/>
+                  </svg>
+                </span>
                 <span class="label">APK Size</span>
                 <span class="value" id="detailSize">55 MB</span>
               </span>
@@ -2052,10 +2064,24 @@
       }
     });
 
-    // Helper: Generate star HTML (updated to use new star icon)
+    // Helper: Generate star HTML
     function generateStars(rating) {
-      // This is no longer used for rating display but kept for compatibility
-      return '';
+      var num = parseFloat(rating) || 0;
+      var full = Math.floor(num);
+      var half = (num - full) >= 0.5 ? 1 : 0;
+      var html = '';
+      var starSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+      var halfSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+      for (var i = 0; i < 5; i++) {
+        if (i < full) {
+          html += starSvg;
+        } else if (i === full && half === 1) {
+          html += '<span class="half-star">' + halfSvg + '</span>';
+        } else {
+          html += '<span class="half-star">' + halfSvg + '</span>';
+        }
+      }
+      return html;
     }
 
     function generateVersion(seed) {
@@ -2270,9 +2296,8 @@
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
       document.querySelector('#detailVersionBadge .version').textContent = game.version;
       
-      // Update rating display with new star icon
       var ratingVal = parseFloat(game.rating) || 4.5;
-      document.getElementById('detailStars').innerHTML = ''; // Clear old stars
+      document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
       document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
       document.getElementById('detailSize').textContent = game.size;
       document.getElementById('detailVotes').textContent = game.votes;
