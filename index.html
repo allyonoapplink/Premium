@@ -1337,16 +1337,16 @@
             <div class="meta-row">
               <span class="meta-item rating">
                 <span class="rating-container">
-                  <span class="stars" id="detailStars"></span>
+                  <!-- New Premium Star Icon -->
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                   <span class="rating-label">Rating</span>
                   <span class="rating-value" id="detailRating">4.5</span>
                 </span>
               </span>
               <span class="meta-item size">
-                <span class="svg-icon">
-                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
-                </span>
-                <span class="label">Size</span>
+                <!-- New Premium APK Size Icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+                <span class="label">APK Size</span>
                 <span class="value" id="detailSize">55 MB</span>
               </span>
             </div>
@@ -2052,24 +2052,10 @@
       }
     });
 
-    // Helper: Generate star HTML
+    // Helper: Generate star HTML (updated to use new star icon)
     function generateStars(rating) {
-      var num = parseFloat(rating) || 0;
-      var full = Math.floor(num);
-      var half = (num - full) >= 0.5 ? 1 : 0;
-      var html = '';
-      var starSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
-      var halfSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
-      for (var i = 0; i < 5; i++) {
-        if (i < full) {
-          html += starSvg;
-        } else if (i === full && half === 1) {
-          html += '<span class="half-star">' + halfSvg + '</span>';
-        } else {
-          html += '<span class="half-star">' + halfSvg + '</span>';
-        }
-      }
-      return html;
+      // This is no longer used for rating display but kept for compatibility
+      return '';
     }
 
     function generateVersion(seed) {
@@ -2284,8 +2270,9 @@
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
       document.querySelector('#detailVersionBadge .version').textContent = game.version;
       
+      // Update rating display with new star icon
       var ratingVal = parseFloat(game.rating) || 4.5;
-      document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
+      document.getElementById('detailStars').innerHTML = ''; // Clear old stars
       document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
       document.getElementById('detailSize').textContent = game.size;
       document.getElementById('detailVotes').textContent = game.votes;
