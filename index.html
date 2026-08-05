@@ -12,7 +12,7 @@
   <meta name="keywords" content="YONO NEW APP, All Yono Apk, All Yono New, All Yono Games, Yono Games, 567 SLOTS, 567 SLOTS Game, JAIHO 91, JAIHO 91 APK, RUMMY LUDO, RUMMY LUDO Game, ABC RUMMY, ABC RUMMY APK, RUMMY 91, RUMMY 91 Game, LOVE RUMMY, LOVE RUMMY APK, BINGO 101, BINGO 101 Game, YONO 777, YONO 777 APK, SAGA SLOTS, SAGA SLOTS Game, SPIN CRUSH, SPIN CRUSH APK, TOP RUMMY, TOP RUMMY Game, Hello Rummy, Hello Rummy APK, RUMMY 365, RUMMY 365 Game, TEEN PATTI GOLD, TEEN PATTI GOLD APK, TEEN PATTI MASTER, TEEN PATTI MASTER Game, YONO RUMMY, YONO RUMMY APK, SLOTS WINNER, SLOTS WINNER Game, GOOD SLOTS, GOOD SLOTS APK, Diwa Slot, Diwa Slot Game, GOGO RUMMY, GOGO RUMMY APK, JOY RUMMY, JOY RUMMY Game, SPIN GOLD, SPIN GOLD APK, YES SPIN, YES SPIN Game, YONO ARCADE, YONO ARCADE APK, SVIP 777, SVIP 777 Game, OK RUMMY, OK RUMMY APK, HINDI 777, HINDI 777 Game, BET 213, BET 213 APK, BOSS RUMMY, BOSS RUMMY Game, YONO 777, YONO 777 APK, Diwa VIP, Diwa VIP Game, Diwa 777, Diwa 777 APK, INR RUMMY, INR RUMMY Game, MBM BET, MBM BET APK, GOA SPIN, GOA SPIN Game, 777 GAME, 777 GAME APK, TEEN PATTI, TEEN PATTI Game, SPIN WINNER, SPIN WINNER APK, YONO All GAMES, YONO All GAMES Game, SPIN LUCKY, SPIN LUCKY APK, MAX RUMMY, RANI SLOTS, 1GO PLUS, RUMMY ULTRA, 789 JACKPOTS, JAIHO WIN, SLOTS SPIN, NETA VIP, JAIHO 777 VIP, DHAN GAME, DIWA GAME, BET 54 GAMES, ALL YONO APPS, T989 APPS, 765 CLUB, MKM BET APK, YN 777, SPIN 777, RUMMY 888, RUMMY 77, MQM BET, MAHA GAMES, IND RUMMY, Hi RUMMY, INR RUMMY, JAIHO SPIN, JAIHO RUMMY, YONO SLOTS, Diwa Win, RUMBLE RUMMY, YONO VIP, best rummy app, top casino games, real cash games, yono games download, rummy apk, teen patti apk, slots game, online earning app, UPI withdrawal, 18+ gaming">
   
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://allyonoappsite.com/">
+  <link rel="canonical" href="https://yononewapp.in/">
   
   <link rel="stylesheet" href="custom.css" id="customCssLink">
   <script>
@@ -68,56 +68,94 @@
     .top-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; background: white; border-bottom: 1px solid #e9edf4; position: sticky; top: 0; z-index: 10; }
     .header-left { display: flex; align-items: center; gap: 6px; }
     .logo-cyan-round {
-      width: 36px; height: 36px; border-radius: 50%; background: #000; border: 2px solid #00ddff;
-      box-shadow: 0 0 15px rgba(0,200,255,0.3); overflow: hidden; flex-shrink: 0; display: flex;
-      align-items: center; justify-content: center; animation: cyanPulse 2s ease-in-out infinite;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #000;
+      border: 4px solid #ffd700;
+      box-shadow: 0 0 20px rgba(255,215,0,0.5), 0 0 40px rgba(255,215,0,0.2), inset 0 0 20px rgba(255,215,0,0.1);
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: goldPulse 2.5s ease-in-out infinite;
+      position: relative;
+      padding: 3px;
     }
-    .logo-cyan-round img { width: 90%; height: 90%; object-fit: cover; border-radius: 50%; display: block; }
-    @keyframes cyanPulse { 0%,100%{ box-shadow:0 0 15px rgba(0,200,255,0.3); } 50%{ box-shadow:0 0 25px rgba(0,200,255,0.5); } }
+    .logo-cyan-round::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #ffd700, #ffed4a, #ffd700, #b8860b, #ffd700);
+      animation: goldSpin 4s linear infinite;
+      z-index: -1;
+      padding: 6px;
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #fff calc(100% - 5px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #fff calc(100% - 5px));
+    }
+    .logo-cyan-round::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border-radius: 50%;
+      background: conic-gradient(from 30deg, rgba(255,215,0,0.15), rgba(255,215,0,0.05), rgba(255,215,0,0.15));
+      animation: goldSpin 6s linear infinite reverse;
+      z-index: -2;
+      filter: blur(15px);
+    }
+    @keyframes goldPulse {
+      0%,100% { box-shadow:0 0 20px rgba(255,215,0,0.4), 0 0 40px rgba(255,215,0,0.15); }
+      50% { box-shadow:0 0 35px rgba(255,215,0,0.7), 0 0 60px rgba(255,215,0,0.25), 0 0 80px rgba(255,215,0,0.1); }
+    }
+    @keyframes goldSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .logo-cyan-round img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      border: 1px solid rgba(255,215,0,0.2);
+    }
+
+    /* White Round Box for Header Name */
+    .header-name-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 50px;
+      padding: 6px 18px;
+      border: 2px solid #e5e7eb;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.8);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #0b1e33;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+    @media (max-width: 480px) {
+      .header-name-box { font-size: 0.65rem; padding: 4px 12px; }
+      .logo-cyan-round { width: 40px; height: 40px; border-width: 3px; }
+    }
+    @media (max-width: 380px) {
+      .header-name-box { font-size: 0.55rem; padding: 3px 10px; }
+      .logo-cyan-round { width: 34px; height: 34px; border-width: 3px; }
+    }
 
     .site-name-led-round {
-      display: inline-flex; align-items: center; justify-content: center; position: relative;
-      padding: 4px 16px 4px 14px; border-radius: 40px; background: #000; border: 2px solid #1a1a1a;
-      box-shadow: 0 0 20px rgba(0,255,100,0.1); min-height: 32px; overflow: hidden;
+      display: none !important;
     }
-    .site-name-led-round::before {
-      content: ''; position: absolute; top: -4px; left: -4px; right: -4px; bottom: -4px; border-radius: 50px;
-      background: conic-gradient(from 0deg, #00ff00 0deg 40deg, #00ffff 90deg 130deg, #ffff00 180deg 220deg, #ff00ff 270deg 310deg, #00ff00 360deg);
-      animation: ledLeftMove 3s linear infinite; z-index: -1; padding: 4px;
-      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff calc(100% - 3px));
-      mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff calc(100% - 3px));
-    }
-    .site-name-led-round::after {
-      content: ''; position: absolute; top: -8px; left: -8px; right: -8px; bottom: -8px; border-radius: 50px;
-      background: conic-gradient(from 30deg, rgba(0,255,0,0.15) 0deg 30deg, rgba(0,255,255,0.15) 90deg 120deg, rgba(255,255,0,0.15) 180deg 210deg, rgba(255,0,255,0.15) 270deg 300deg, rgba(0,255,0,0.15) 360deg);
-      animation: ledLeftMove 4s linear infinite reverse; z-index: -2; filter: blur(12px);
-    }
-    @keyframes ledLeftMove { 0% { transform: translateX(-20px); } 50% { transform: translateX(20px); } 100% { transform: translateX(-20px); } }
-
-    .site-name-led-round .led-dot-round {
-      position: absolute; width: 8px; height: 8px; border-radius: 50%; z-index: 2;
-      animation: ledDotLeftMove 3s ease-in-out infinite; box-shadow: 0 0 12px currentColor;
-    }
-    .site-name-led-round .led-dot-round.green { background: #00ff00; color: #00ff00; animation-delay:0s; }
-    .site-name-led-round .led-dot-round.cyan { background: #00ffff; color: #00ffff; animation-delay:0.75s; }
-    .site-name-led-round .led-dot-round.yellow { background: #ffff00; color: #ffff00; animation-delay:1.5s; }
-    .site-name-led-round .led-dot-round.pink { background: #ff00ff; color: #ff00ff; animation-delay:2.25s; }
-    @keyframes ledDotLeftMove {
-      0% { left: -4px; top: 50%; transform: translateY(-50%); }
-      50% { left: calc(100% - 4px); top: 50%; transform: translateY(-50%); }
-      100% { left: -4px; top: 50%; transform: translateY(-50%); }
-    }
-
-    .site-name-led-round .site-name-text {
-      font-weight: 700; font-size: 0.5rem; color: #ffffff; letter-spacing: 0.2px;
-      text-shadow: 0 0 15px rgba(0,255,100,0.15); white-space: nowrap; position: relative; z-index: 1;
-      padding: 2px 0; line-height: 1.3;
-    }
-    .site-name-text .d1 { color: #86efac; font-weight: 800; }
-    .site-name-text .d2 { color: #facc15; font-weight: 800; }
-    .site-name-text .d3 { color: #60a5fa; font-weight: 800; }
-    .site-name-text .d4 { color: #f472b6; font-weight: 800; }
-    .site-name-text .sep { color: #6b7280; font-weight: 400; }
 
     .header-right { display: flex; align-items: center; gap: 8px; }
 
@@ -1167,10 +1205,8 @@
 
     /* --- RESPONSIVE - Mobile First --- */
     @media (max-width: 420px) {
-      .logo-cyan-round { width: 30px; height: 30px; }
-      .site-name-led-round { padding: 3px 10px 3px 8px; min-height: 24px; }
-      .site-name-led-round .site-name-text { font-size: 0.4rem; }
-      .site-name-led-round .led-dot-round { width: 5px; height: 5px; }
+      .logo-cyan-round { width: 42px; height: 42px; border-width: 3px; }
+      .header-name-box { font-size: 0.6rem; padding: 4px 12px; }
       .share-btn { font-size: 0.4rem; padding: 2px 8px; }
       .share-btn svg { width: 10px; height: 10px; }
       .telegram-btn { width: 26px; height: 26px; }
@@ -1222,7 +1258,8 @@
       .yono-tags-container { gap: 6px; }
     }
     @media (max-width: 360px) {
-      .site-name-led-round .site-name-text { font-size: 0.35rem; }
+      .header-name-box { font-size: 0.5rem; padding: 3px 10px; }
+      .logo-cyan-round { width: 36px; height: 36px; border-width: 3px; }
       .nav-small { font-size: 0.4rem; padding: 3px 6px; }
       .card-name { font-size: 0.55rem; }
       .card-bonus { font-size: 0.45rem; }
@@ -1235,6 +1272,8 @@
       .container { padding: 0 20px; }
       .yono-tag { font-size: 0.65rem; padding: 7px 18px; }
       .yono-tags-container { gap: 10px; }
+      .logo-cyan-round { width: 54px; height: 54px; border-width: 4px; }
+      .header-name-box { font-size: 1rem; padding: 8px 24px; }
     }
   </style>
 </head>
@@ -1244,23 +1283,9 @@
   <div class="top-header">
     <div class="header-left">
       <div class="logo-cyan-round">
-        <img src="https://i.ibb.co/CssC2WbG/1000022725.jpg" alt="YONO NEW APP" loading="eager" fetchpriority="high">
+        <img src="https://i.ibb.co/rJ5TDDK" alt="YONO NEW APP" loading="eager" fetchpriority="high">
       </div>
-      <div class="site-name-led-round">
-        <span class="led-dot-round green"></span>
-        <span class="led-dot-round cyan"></span>
-        <span class="led-dot-round yellow"></span>
-        <span class="led-dot-round pink"></span>
-        <span class="site-name-text">
-          <span class="d1">YONO NEW APP</span>
-          <span class="sep"> • </span>
-          <span class="d2">All Yono Apk</span>
-          <span class="sep"> • </span>
-          <span class="d3">All Yono New</span>
-          <span class="sep"> • </span>
-          <span class="d4">All Yono Games</span>
-        </span>
-      </div>
+      <span class="header-name-box">YONO NEW APP .In</span>
     </div>
     <div class="header-right">
       <a href="https://t.me/allyonogamesdite" target="_blank" rel="noopener noreferrer" class="telegram-btn">
