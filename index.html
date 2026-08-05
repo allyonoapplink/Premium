@@ -957,25 +957,40 @@
       justify-content: space-between;
     }
     .card:active { transform: scale(0.97); background: #fafcff; }
+    
+    /* ===== NEW LED PREMIUM NUMBER BADGE ===== */
     .card-number {
       position: absolute;
-      top: 3px;
-      left: 3px;
-      background: #000;
-      color: #fff;
-      width: 20px;
-      height: 20px;
+      top: 4px;
+      left: 4px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      font-size: 0.5rem;
-      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 5;
-      border: 1.5px solid #333;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      font-size: 0.65rem;
+      font-weight: 800;
+      background: conic-gradient(from 0deg, #ff0000 0deg 30deg, #00ff00 90deg 120deg, #ff0000 180deg 210deg, #00ff00 270deg 300deg, #ff0000 360deg);
+      box-shadow: 0 0 15px rgba(255,0,0,0.4), 0 0 30px rgba(0,255,0,0.2), inset 0 0 10px rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.3);
+      animation: ledBadgeGlow 2s ease-in-out infinite;
     }
-    .card-img { width: 42px; height: 42px; border-radius: 10px; background: #f0f4ff; flex-shrink: 0; overflow: hidden; border: 1px solid #e2e8f0; margin-left: 18px; }
+    .card-number span {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px rgba(0,255,255,0.3);
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      font-size: 0.7rem;
+      background: transparent;
+    }
+    @keyframes ledBadgeGlow {
+      0%,100% { box-shadow:0 0 15px rgba(255,0,0,0.4),0 0 30px rgba(0,255,0,0.2), inset 0 0 10px rgba(255,255,255,0.15); }
+      50% { box-shadow:0 0 25px rgba(255,0,0,0.6),0 0 50px rgba(0,255,0,0.3),0 0 70px rgba(0,255,255,0.1), inset 0 0 15px rgba(255,255,255,0.25); }
+    }
+    
+    .card-img { width: 42px; height: 42px; border-radius: 10px; background: #f0f4ff; flex-shrink: 0; overflow: hidden; border: 1px solid #e2e8f0; margin-left: 32px; }
     .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .card-info { flex: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
     .card-name { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
@@ -983,12 +998,13 @@
     .card-bonus { font-size: 0.55rem; color: #dc2626; font-weight: 600; }
     .card-withdraw { font-size: 0.5rem; color: #0a0a0a; font-weight: 500; }
 
+    /* ===== GREEN LED DOWNLOAD BUTTON WITH YELLOW ICON ===== */
     .card-download-sm {
       margin-left: auto;
-      background: #ffffff !important;
-      color: #00bcd4 !important;
-      border: 2px solid #00bcd4 !important;
-      padding: 6px 14px 6px 10px !important;
+      background: transparent !important;
+      color: #00ff00 !important;
+      border: 2px solid #00ff00 !important;
+      padding: 6px 14px 6px 8px !important;
       font-size: 0.65rem !important;
       font-weight: 700 !important;
       border-radius: 50px !important;
@@ -997,30 +1013,47 @@
       display: inline-flex !important;
       align-items: center !important;
       gap: 6px !important;
-      box-shadow: 0 0 15px rgba(0,188,212,0.3), 0 0 30px rgba(0,229,255,0.1) !important;
+      box-shadow: 0 0 20px rgba(0,255,0,0.3), 0 0 40px rgba(0,255,0,0.1) !important;
       transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94) !important;
       text-decoration: none;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.5px;
+      animation: greenLedPulse 2.5s ease-in-out infinite;
+      position: relative;
     }
-    .card-download-sm::before {
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300bcd4' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
-      display: inline-block;
+    .card-download-sm svg {
       width: 16px;
       height: 16px;
-      line-height: 1;
+      stroke: #ffff00 !important;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 8px rgba(255,255,0,0.6)) drop-shadow(0 0 20px rgba(255,255,0,0.3));
       flex-shrink: 0;
+      animation: yellowIconGlow 2s ease-in-out infinite;
+    }
+    @keyframes greenLedPulse {
+      0%,100% { box-shadow:0 0 20px rgba(0,255,0,0.3),0 0 40px rgba(0,255,0,0.1); border-color:#00ff00; }
+      50% { box-shadow:0 0 35px rgba(0,255,0,0.6),0 0 60px rgba(0,255,0,0.2),0 0 80px rgba(0,255,255,0.1); border-color:#66ff66; }
+    }
+    @keyframes yellowIconGlow {
+      0%,100% { filter:drop-shadow(0 0 8px rgba(255,255,0,0.6)) drop-shadow(0 0 20px rgba(255,255,0,0.3)); }
+      50% { filter:drop-shadow(0 0 15px rgba(255,255,0,1)) drop-shadow(0 0 35px rgba(255,255,0,0.5)) drop-shadow(0 0 60px rgba(255,255,0,0.2)); }
     }
     .card-download-sm:hover {
-      background: #00bcd4 !important;
-      color: #ffffff !important;
-      box-shadow: 0 0 30px rgba(0,188,212,0.6), 0 0 60px rgba(0,229,255,0.3) !important;
+      background: #00ff00 !important;
+      color: #000000 !important;
+      box-shadow: 0 0 40px rgba(0,255,0,0.6), 0 0 80px rgba(0,255,0,0.3) !important;
       transform: scale(1.05) translateY(-2px) !important;
-      border-color: #00bcd4 !important;
+      border-color: #00ff00 !important;
+      animation: none !important;
     }
-    .card-download-sm:hover::before {
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+    .card-download-sm:hover svg {
+      stroke: #000000 !important;
+      filter: drop-shadow(0 0 10px rgba(0,0,0,0.3)) !important;
+      animation: none !important;
     }
-    .card-download-sm:active { transform: scale(0.92) !important; box-shadow: 0 0 20px rgba(0,188,212,0.4) !important; }
+    .card-download-sm:active { transform: scale(0.92) !important; box-shadow: 0 0 30px rgba(0,255,0,0.4) !important; }
 
     /* --- FOOTER --- */
     .footer-note { padding: 10px; text-align: center; color: #94a3b8; font-size: 0.5rem; border-top: 1px solid #e9edf4; }
@@ -1183,16 +1216,17 @@
       .card-withdraw { font-size: 0.45rem; }
       .marquee-container marquee { font-size: 0.5rem; }
       .marquee-container marquee span { margin: 0 8px; }
-      .card-number { width: 16px; height: 16px; font-size: 0.4rem; top: 2px; left: 2px; }
-      .card-img { margin-left: 14px; width: 34px; height: 34px; }
+      .card-number { width: 22px; height: 22px; font-size: 0.5rem; top: 3px; left: 3px; }
+      .card-number span { font-size: 0.55rem; }
+      .card-img { margin-left: 26px; width: 34px; height: 34px; }
       .telegram-btn .corner-led { width: 4px; height: 4px; }
       .game-tag { font-size: 0.45rem; padding: 3px 8px; }
       .all-game-tag { font-size: 0.4rem; padding: 2px 8px; }
       .related-item .rname { font-size: 0.5rem; }
       .static-page p { font-size: 0.85rem; }
       .static-page h2 { font-size: 1.2rem; }
-      .card-download-sm { padding: 4px 10px 4px 8px !important; font-size: 0.55rem !important; gap: 4px !important; }
-      .card-download-sm::before { width: 12px !important; height: 12px !important; }
+      .card-download-sm { padding: 4px 10px 4px 6px !important; font-size: 0.5rem !important; gap: 4px !important; }
+      .card-download-sm svg { width: 13px; height: 13px; }
       .detail-download .download-btn { font-size: 0.8rem; padding: 10px 16px; gap: 8px; }
       .detail-download .download-btn::before { width: 18px; height: 18px; }
       .meta-row { gap: 8px; font-size: 0.6rem; }
@@ -1230,6 +1264,9 @@
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
       .back-btn { font-size: 0.5rem; padding: 3px 8px 3px 6px; }
       .back-btn svg { width: 11px; height: 11px; }
+      .card-number { width: 20px; height: 20px; font-size: 0.45rem; }
+      .card-number span { font-size: 0.5rem; }
+      .card-img { margin-left: 24px; width: 30px; height: 30px; }
     }
     @media (min-width: 1201px) {
       .container { padding: 0 20px; }
@@ -1326,7 +1363,7 @@
       <span>🎰 YN 777 | SPIN 777 | RUMMY 888 | RUMMY 77 | MQM BET</span>
       <span>🎰 MAHA GAMES | IND RUMMY | Hi RUMMY | INR RUMMY | JAIHO SPIN</span>
       <span>🎰 JAIHO RUMMY | YONO SLOTS | Diwa Win | RUMBLE RUMMY | YONO VIP</span>
-      <span class="highlight">🔥 77+ Yono Games Download Now!</span>
+      <span class="highlight">🔥 74+ Yono Games Download Now!</span>
     </marquee>
   </div>
 
@@ -1649,7 +1686,7 @@
     </div>
   </div>
 
-  <div class="footer-note">YONO NEW APP • All Yono Apk • All Yono New • All Yono Games • 77+ Games • ₹45 Bonus • ₹100 Withdrawal</div>
+  <div class="footer-note">YONO NEW APP • All Yono Apk • All Yono New • All Yono Games • 74+ Games • ₹45 Bonus • ₹100 Withdrawal</div>
 </div>
 
 <!-- OVERLAY -->
@@ -1663,7 +1700,7 @@
 
 <script>
   (function() {
-    // ---------- GAME DATA (75 total - removed 101Z APK and Slots Winner Pro) ----------
+    // ---------- GAME DATA (74 total - Includes Hello Rummy) ----------
     const games = [
       { name: "YONO NEW APP", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 SLOTS", altName: "567 SLOTS Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -1673,6 +1710,7 @@
       { name: "ABC RUMMY", altName: "ABC RUMMY Game", bonus: "₹42", withdrawal: "₹100", downloadUrl: "https://d34i569g8ztoql.cloudfront.net/abcrummy_MeApp.apk", img: "https://i.ibb.co/Ldmd1DHH/1000022725.jpg" },
       { name: "RUMMY 91", altName: "RUMMY 91 APK", bonus: "₹38", withdrawal: "₹100", downloadUrl: "https://d16sfv4ssrmnvt.cloudfront.net/rummy91_AGENT.apk", img: "https://i.ibb.co/Fb2j77pp/1000022725.jpg" },
       { name: "LOVE RUMMY", altName: "LOVE RUMMY Game", bonus: "₹36", withdrawal: "₹100", downloadUrl: "https://d34i569g8ztoql.cloudfront.net/loverummy_App.apk", img: "https://i.ibb.co/PZ2dpNJ9/1000022725.jpg" },
+      { name: "Hello Rummy", altName: "Hello Rummy APK", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://www.hellorummy.com/", img: "https://i.ibb.co/S4C26kVS/1000022725.jpg" },
       { name: "SPIN CRUSH", altName: "SPIN CRUSH APK", bonus: "₹30", withdrawal: "₹100", downloadUrl: "https://d292swwe9zki3u.cloudfront.net/spincrush_freecash.apk", img: "https://i.ibb.co/S4C26kVS/1000022725.jpg" },
       { name: "TOP RUMMY", altName: "TOP RUMMY Game", bonus: "₹48", withdrawal: "₹100", downloadUrl: "https://th7.my/BY1JWS/3gvute0", img: "https://i.ibb.co/bRy3w8dN/1000022725.jpg" },
       { name: "RUMMY 365", altName: "RUMMY 365 APK", bonus: "₹44", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/Hf9bhrFm/1000022725.jpg" },
@@ -2290,14 +2328,17 @@
         card.dataset.version = version;
 
         card.innerHTML = `
-          <div class="card-number">${index + 1}</div>
+          <div class="card-number"><span>${index + 1}</span></div>
           <div class="card-img"><img src="${game.img}" alt="${game.name} | ${game.altName}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
           <div class="card-info">
             <div class="card-name">${game.name} <span class="alt">| ${game.altName}</span></div>
             <div class="card-bonus">🔴 Sign Up Bonus ${game.bonus}</div>
             <div class="card-withdraw">🏦 Min. Withdraw ${game.withdrawal}</div>
           </div>
-          <span class="card-download-sm">Download</span>
+          <span class="card-download-sm">
+            <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </span>
         `;
         mainGrid.appendChild(card);
 
@@ -2524,7 +2565,7 @@
       if (navigator.share) {
         navigator.share({
           title: 'YONO NEW APP – All Yono Apk – All Yono New – All Yono Games',
-          text: 'Download 77+ Yono Games with dual names – 567 SLOTS (Game), SAGA SLOTS (APK), JAIHO 91 (Game) & more. Get ₹45 Bonus & ₹100 Withdrawal.',
+          text: 'Download 74+ Yono Games with dual names – 567 SLOTS (Game), SAGA SLOTS (APK), JAIHO 91 (Game) & more. Get ₹45 Bonus & ₹100 Withdrawal.',
           url: shareUrl
         }).catch(() => {});
       } else {
