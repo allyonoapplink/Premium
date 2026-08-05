@@ -2531,12 +2531,12 @@
       document.getElementById('tocArrow').classList.toggle('open');
     });
 
-    // ---- Share Button: Alternate WhatsApp / Facebook with current URL ----
+    // ---- Share Button: Alternate WhatsApp / Facebook with fixed URL ----
     var shareClickCount = 0;
     document.getElementById('shareBtn').addEventListener('click', function() {
       shareClickCount++;
-      // Use the current page URL dynamically
-      var shareUrl = window.location.href;
+      // Fixed URL as requested
+      var shareUrl = 'https://www.earntp.com/m/jm9n7r';
       var encodedUrl = encodeURIComponent(shareUrl);
       var text = encodeURIComponent('YONO NEW APP – Download 77+ Yono Games. Get ₹45 Bonus & ₹100 Withdrawal!');
       
