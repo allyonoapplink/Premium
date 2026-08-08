@@ -1011,8 +1011,45 @@
     .card-info { flex: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
     .card-name { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
     .card-name .alt { font-weight: 400; font-size: 0.5rem; color: #6b7280; }
-    .card-bonus { font-size: 0.55rem; color: #dc2626; font-weight: 600; }
-    .card-withdraw { font-size: 0.5rem; color: #0a0a0a; font-weight: 500; }
+    /* Home page icons - premium SVG replacements */
+    .card-bonus, .card-withdraw {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.55rem;
+      font-weight: 600;
+    }
+    .card-bonus .icon-svg, .card-withdraw .icon-svg {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+    }
+    .card-bonus .icon-svg svg, .card-withdraw .icon-svg svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .card-bonus { color: #dc2626; }
+    .card-bonus .icon-svg svg { stroke: #dc2626; fill: #dc2626; }
+    .card-withdraw { color: #0a0a0a; }
+    .card-withdraw .icon-svg svg { stroke: #0a0a0a; }
+    .card-bonus .value, .card-withdraw .value {
+      font-weight: 700;
+      color: inherit;
+    }
+    .card-bonus .label, .card-withdraw .label {
+      font-weight: 500;
+      color: #64748b;
+    }
+    .card-withdraw .label { color: #64748b; }
+    .card-withdraw { font-size: 0.5rem; }
 
     .card-download-sm {
       margin-left: auto;
@@ -1249,6 +1286,7 @@
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
       .yono-info-section { padding: 10px 6px 8px 6px; }
       .yono-tags-container { gap: 6px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
     }
     @media (max-width: 360px) {
       .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
@@ -1261,6 +1299,7 @@
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
       .back-btn { font-size: 0.5rem; padding: 3px 8px 3px 6px; }
       .back-btn svg { width: 11px; height: 11px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 10px; height: 10px; }
     }
     @media (min-width: 1201px) {
       .container { padding: 0 20px; }
@@ -1268,6 +1307,7 @@
       .yono-tags-container { gap: 10px; }
       .header-logo { width: 54px; height: 54px; border-width: 4px; border-radius: 14px; }
       .header-name-box { font-size: 1rem; padding: 8px 24px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 16px; height: 16px; }
     }
   </style>
 </head>
@@ -2317,13 +2357,17 @@
         card.dataset.metaBonus = metaBonus;
         card.dataset.version = version;
 
+        // Replaced old emoji icons with premium SVG icons
+        const bonusIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
+        const withdrawIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
+
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
           <div class="card-img"><img src="${game.img}" alt="${game.name} | ${game.altName}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
           <div class="card-info">
             <div class="card-name">${game.name} <span class="alt">| ${game.altName}</span></div>
-            <div class="card-bonus">🔴 Sign Up Bonus ${game.bonus}</div>
-            <div class="card-withdraw">🏦 Min. Withdraw ${game.withdrawal}</div>
+            <div class="card-bonus">${bonusIcon} <span class="label">Sign Up Bonus</span> <span class="value">${game.bonus}</span></div>
+            <div class="card-withdraw">${withdrawIcon} <span class="label">Min. Withdraw</span> <span class="value">${game.withdrawal}</span></div>
           </div>
           <span class="card-download-sm">Download</span>
         `;
