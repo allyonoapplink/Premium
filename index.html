@@ -185,9 +185,11 @@
 
     /* --- NAV ROW --- */
     .nav-row-small { display: flex; justify-content: space-around; align-items: center; background: #ffffff !important; padding: 4px 6px; border-bottom: 1px solid #e9edf4; gap: 2px; }
-    .nav-small { font-size: 0.5rem; font-weight: 600; color: #1e293b; background: white; padding: 3px 8px; border-radius: 40px; border: 1px solid #e2e8f0; cursor: pointer; white-space: nowrap; }
+    .nav-small { font-size: 0.5rem; font-weight: 600; color: #1e293b; background: white; padding: 3px 8px; border-radius: 40px; border: 1px solid #e2e8f0; cursor: pointer; white-space: nowrap; display: flex; align-items: center; gap: 4px; }
     .nav-small:active { transform: scale(0.95); }
     .nav-small.active { background: #1e293b; color: white; border-color: #1e293b; }
+    .nav-small svg { width: 14px; height: 14px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-small.active svg { stroke: white; }
 
     /* --- GAME DETAIL HEADER --- */
     .game-detail-header {
@@ -1201,7 +1203,8 @@
       .share-btn { font-size: 0.4rem; padding: 2px 8px; }
       .share-btn svg { width: 10px; height: 10px; }
       .telegram-btn { width: 26px; height: 26px; }
-      .nav-small { font-size: 0.4rem; padding: 2px 6px; }
+      .nav-small { font-size: 0.4rem; padding: 2px 6px; gap: 2px; }
+      .nav-small svg { width: 10px; height: 10px; }
       .detail-img { width: 50px; height: 50px; }
       .detail-info .game-name { font-size: 0.9rem; }
       .card-name { font-size: 0.6rem; }
@@ -1250,7 +1253,8 @@
     @media (max-width: 360px) {
       .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
       .header-name-box { font-size: 0.5rem; padding: 3px 10px; }
-      .nav-small { font-size: 0.4rem; padding: 3px 6px; }
+      .nav-small { font-size: 0.4rem; padding: 3px 6px; gap: 2px; }
+      .nav-small svg { width: 9px; height: 9px; }
       .card-name { font-size: 0.55rem; }
       .card-bonus { font-size: 0.45rem; }
       .card-withdraw { font-size: 0.4rem; }
@@ -1341,12 +1345,24 @@
     </marquee>
   </div>
 
-  <!-- NAV ROW -->
+  <!-- NAV ROW with premium SVG icons -->
   <div class="nav-row-small">
-    <span class="nav-small active" id="homeNav">🏠 Home</span>
-    <span class="nav-small" id="aboutNav">📖 About</span>
-    <span class="nav-small" id="contactNav">📬 Contact</span>
-    <span class="nav-small" id="disclaimerNav">⚠️ Disclaimer</span>
+    <span class="nav-small active" id="homeNav">
+      <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+      Home
+    </span>
+    <span class="nav-small" id="aboutNav">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      About
+    </span>
+    <span class="nav-small" id="contactNav">
+      <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      Contact
+    </span>
+    <span class="nav-small" id="disclaimerNav">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Disclaimer
+    </span>
   </div>
 
   <!-- STATIC PAGES -->
