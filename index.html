@@ -928,96 +928,12 @@
       cursor: pointer;
     }
     .related-item:active { transform: scale(0.97); }
-    /* Related item - remove old image, use SVG icon like home page */
-    .related-item .related-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: #f0f4ff;
-      border: 1px solid #e2e8f0;
-    }
-    .related-item .related-icon svg {
-      width: 18px;
-      height: 18px;
-      stroke: #0b1e33;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+    .related-item img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; display: block; }
     .related-item .rinfo { flex: 1; display: flex; flex-direction: column; gap: 0px; }
-    .related-item .rname { font-weight: 600; font-size: 0.6rem; color: #0b1e33; display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
+    .related-item .rname { font-weight: 600; font-size: 0.6rem; color: #0b1e33; }
     .related-item .rname .alt { font-weight: 400; font-size: 0.45rem; color: #6b7280; }
-    .related-item .rbonus {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      font-size: 0.45rem;
-      font-weight: 600;
-      color: #dc2626;
-    }
-    .related-item .rbonus .icon-svg {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      width: 12px;
-      height: 12px;
-    }
-    .related-item .rbonus .icon-svg svg {
-      width: 100%;
-      height: 100%;
-      stroke: #dc2626;
-      fill: #dc2626;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .related-item .rbonus .label {
-      font-weight: 500;
-      color: #64748b;
-    }
-    .related-item .rbonus .value {
-      font-weight: 700;
-      color: #dc2626;
-    }
-    .related-item .rwithdraw {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      font-size: 0.4rem;
-      font-weight: 500;
-      color: #0a0a0a;
-    }
-    .related-item .rwithdraw .icon-svg {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      width: 12px;
-      height: 12px;
-    }
-    .related-item .rwithdraw .icon-svg svg {
-      width: 100%;
-      height: 100%;
-      stroke: #0a0a0a;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .related-item .rwithdraw .label {
-      font-weight: 500;
-      color: #64748b;
-    }
-    .related-item .rwithdraw .value {
-      font-weight: 700;
-      color: #0a0a0a;
-    }
+    .related-item .rbonus { font-size: 0.45rem; color: #2563eb; font-weight: 600; }
+    .related-item .rwithdraw { font-size: 0.4rem; color: #0a0a0a; font-weight: 500; }
 
     .rdownload {
       background: linear-gradient(135deg, #00bcd4, #00e676) !important;
@@ -1339,9 +1255,6 @@
       .game-tag { font-size: 0.45rem; padding: 3px 8px; }
       .all-game-tag { font-size: 0.4rem; padding: 2px 8px; }
       .related-item .rname { font-size: 0.5rem; }
-      .related-item .related-icon { width: 24px; height: 24px; }
-      .related-item .related-icon svg { width: 14px; height: 14px; }
-      .related-item .rbonus .icon-svg, .related-item .rwithdraw .icon-svg { width: 10px; height: 10px; }
       .static-page p { font-size: 0.85rem; }
       .static-page h2 { font-size: 1.2rem; }
       .card-download-sm { padding: 4px 10px 4px 8px !important; font-size: 0.55rem !important; gap: 4px !important; }
@@ -1374,8 +1287,6 @@
       .yono-info-section { padding: 10px 6px 8px 6px; }
       .yono-tags-container { gap: 6px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
-      .related-item .related-icon { width: 22px; height: 22px; }
-      .related-item .related-icon svg { width: 12px; height: 12px; }
     }
     @media (max-width: 360px) {
       .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
@@ -1389,8 +1300,6 @@
       .back-btn { font-size: 0.5rem; padding: 3px 8px 3px 6px; }
       .back-btn svg { width: 11px; height: 11px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 10px; height: 10px; }
-      .related-item .related-icon { width: 18px; height: 18px; }
-      .related-item .related-icon svg { width: 10px; height: 10px; }
     }
     @media (min-width: 1201px) {
       .container { padding: 0 20px; }
@@ -1399,8 +1308,6 @@
       .header-logo { width: 54px; height: 54px; border-width: 4px; border-radius: 14px; }
       .header-name-box { font-size: 1rem; padding: 8px 24px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 16px; height: 16px; }
-      .related-item .related-icon { width: 32px; height: 32px; }
-      .related-item .related-icon svg { width: 20px; height: 20px; }
     }
   </style>
 </head>
@@ -2646,17 +2553,12 @@
         item.dataset.metaBonus = mb;
         item.dataset.version = ver;
 
-        // Use SVG icon instead of img for game name (same style as home page)
-        const gameIcon = `<span class="related-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h8"/><path d="M8 12h6"/><path d="M8 16h4"/></svg></span>`;
-        const bonusIconRel = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
-        const withdrawIconRel = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
-
         item.innerHTML = `
-          ${gameIcon}
+          <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
           <div class="rinfo">
             <div class="rname">${g.name} <span class="alt">| ${g.altName}</span></div>
-            <div class="rbonus">${bonusIconRel} <span class="label">Sign Up Bonus</span> <span class="value">${g.bonus}</span></div>
-            <div class="rwithdraw">${withdrawIconRel} <span class="label">Min. Withdraw</span> <span class="value">${g.withdrawal}</span></div>
+            <div class="rbonus">🔴 Sign Up Bonus ${g.bonus}</div>
+            <div class="rwithdraw">🏦 Min. Withdraw ${g.withdrawal}</div>
           </div>
           <span class="rdownload">
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
