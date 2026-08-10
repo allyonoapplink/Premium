@@ -928,49 +928,12 @@
       cursor: pointer;
     }
     .related-item:active { transform: scale(0.97); }
-    .related-item .related-img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; display: block; flex-shrink: 0; overflow: hidden; background: #f0f4ff; border: 1px solid #e2e8f0; }
-    .related-item .related-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .related-item img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; display: block; }
     .related-item .rinfo { flex: 1; display: flex; flex-direction: column; gap: 0px; }
-    .related-item .rname { font-weight: 600; font-size: 0.6rem; color: #0b1e33; display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
+    .related-item .rname { font-weight: 600; font-size: 0.6rem; color: #0b1e33; }
     .related-item .rname .alt { font-weight: 400; font-size: 0.45rem; color: #6b7280; }
-    /* Related section icons - same style as home page */
-    .related-item .rbonus, .related-item .rwithdraw {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.45rem;
-      font-weight: 600;
-    }
-    .related-item .rbonus .icon-svg, .related-item .rwithdraw .icon-svg {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      width: 12px;
-      height: 12px;
-    }
-    .related-item .rbonus .icon-svg svg, .related-item .rwithdraw .icon-svg svg {
-      width: 100%;
-      height: 100%;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .related-item .rbonus { color: #dc2626; }
-    .related-item .rbonus .icon-svg svg { stroke: #dc2626; fill: #dc2626; }
-    .related-item .rwithdraw { color: #0a0a0a; }
-    .related-item .rwithdraw .icon-svg svg { stroke: #0a0a0a; }
-    .related-item .rbonus .value, .related-item .rwithdraw .value {
-      font-weight: 700;
-      color: inherit;
-    }
-    .related-item .rbonus .label, .related-item .rwithdraw .label {
-      font-weight: 500;
-      color: #64748b;
-    }
-    .related-item .rwithdraw .label { color: #64748b; }
+    .related-item .rbonus { font-size: 0.45rem; color: #2563eb; font-weight: 600; }
+    .related-item .rwithdraw { font-size: 0.4rem; color: #0a0a0a; font-weight: 500; }
 
     .rdownload {
       background: linear-gradient(135deg, #00bcd4, #00e676) !important;
@@ -1324,8 +1287,6 @@
       .yono-info-section { padding: 10px 6px 8px 6px; }
       .yono-tags-container { gap: 6px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
-      .related-item .rbonus .icon-svg, .related-item .rwithdraw .icon-svg { width: 10px; height: 10px; }
-      .related-item .rbonus, .related-item .rwithdraw { font-size: 0.4rem; }
     }
     @media (max-width: 360px) {
       .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
@@ -1339,7 +1300,6 @@
       .back-btn { font-size: 0.5rem; padding: 3px 8px 3px 6px; }
       .back-btn svg { width: 11px; height: 11px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 10px; height: 10px; }
-      .related-item .rbonus .icon-svg, .related-item .rwithdraw .icon-svg { width: 9px; height: 9px; }
     }
     @media (min-width: 1201px) {
       .container { padding: 0 20px; }
@@ -1348,8 +1308,6 @@
       .header-logo { width: 54px; height: 54px; border-width: 4px; border-radius: 14px; }
       .header-name-box { font-size: 1rem; padding: 8px 24px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 16px; height: 16px; }
-      .related-item .rbonus .icon-svg, .related-item .rwithdraw .icon-svg { width: 14px; height: 14px; }
-      .related-item .rbonus, .related-item .rwithdraw { font-size: 0.5rem; }
     }
   </style>
 </head>
@@ -2595,16 +2553,12 @@
         item.dataset.metaBonus = mb;
         item.dataset.version = ver;
 
-        // Related section SVG icons - same style as home page
-        const rBonusIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
-        const rWithdrawIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
-
         item.innerHTML = `
-          <div class="related-img"><img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
+          <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
           <div class="rinfo">
             <div class="rname">${g.name} <span class="alt">| ${g.altName}</span></div>
-            <div class="rbonus">${rBonusIcon} <span class="label">Sign Up Bonus</span> <span class="value">${g.bonus}</span></div>
-            <div class="rwithdraw">${rWithdrawIcon} <span class="label">Min. Withdraw</span> <span class="value">${g.withdrawal}</span></div>
+            <div class="rbonus">🔴 Sign Up Bonus ${g.bonus}</div>
+            <div class="rwithdraw">🏦 Min. Withdraw ${g.withdrawal}</div>
           </div>
           <span class="rdownload">
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
