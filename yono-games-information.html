@@ -28,70 +28,73 @@
       background: #ffffff;
     }
 
-    /* TOP DISCLAIMER HEADER */
+    /* PREMIUM DISCLAIMER HEADER */
     .disclaimer-title {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 58px;
+      gap: 8px;
+      min-height: 56px;
       margin-bottom: 18px;
-      padding: 10px 14px;
+      padding: 9px 14px;
       overflow: hidden;
-      border: 2px solid #ff1e1e;
-      border-radius: 20px;
+      border: 1.5px solid #ff1e1e;
+      border-radius: 18px;
       background: #ffffff;
       box-shadow:
-        0 0 8px rgba(255, 0, 0, 0.25),
-        0 0 18px rgba(255, 0, 0, 0.12);
+        0 2px 10px rgba(255, 0, 0, 0.16),
+        0 0 18px rgba(255, 0, 0, 0.08);
     }
 
     .disclaimer-title h1 {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       margin: 0;
       color: #d60000;
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 800;
+      line-height: 1.2;
       text-align: center;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.3px;
     }
 
-    /* SVG LED ICON */
+    /* SMALL PREMIUM SVG LED ICON */
     .led-icon {
       position: relative;
-      z-index: 2;
-      width: 34px;
-      height: 34px;
-      flex: 0 0 34px;
-      animation: ledPulse 1.2s infinite ease-in-out;
+      z-index: 3;
+      width: 25px;
+      height: 25px;
+      flex: 0 0 25px;
+      overflow: visible;
+      animation: ledPulse 1.4s ease-in-out infinite;
     }
 
     .led-core {
-      fill: #ff0000;
-      filter: drop-shadow(0 0 4px #ff0000)
-              drop-shadow(0 0 8px #ff3333);
+      fill: #ff1010;
+      stroke: #ffffff;
+      stroke-width: 1.5;
+      filter:
+        drop-shadow(0 0 3px #ff0000)
+        drop-shadow(0 0 7px rgba(255, 0, 0, 0.65));
     }
 
     .led-ring {
       fill: none;
-      stroke: #ff0000;
-      stroke-width: 2;
-      opacity: 0.8;
-      animation: ringMove 1.5s infinite ease-out;
+      stroke: #ff2020;
+      stroke-width: 1.7;
+      opacity: 0.85;
       transform-origin: center;
+      animation: ringMove 1.5s ease-out infinite;
     }
 
     @keyframes ledPulse {
       0%, 100% {
-        transform: scale(0.9);
-        filter: drop-shadow(0 0 2px #ff0000);
+        transform: scale(0.92);
       }
 
       50% {
         transform: scale(1.08);
-        filter: drop-shadow(0 0 8px #ff0000);
       }
     }
 
@@ -102,33 +105,35 @@
       }
 
       100% {
-        transform: scale(1.35);
+        transform: scale(1.45);
         opacity: 0;
       }
     }
 
-    /* MOVING LED LIGHT */
+    /* PREMIUM MOVING LIGHT */
     .moving-light {
       position: absolute;
+      z-index: 1;
       top: 0;
-      left: -80px;
+      left: -100px;
       width: 70px;
       height: 100%;
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 0, 0, 0.08),
-        rgba(255, 0, 0, 0.35),
-        rgba(255, 0, 0, 0.08),
+        rgba(255, 0, 0, 0.04),
+        rgba(255, 0, 0, 0.28),
+        rgba(255, 0, 0, 0.04),
         transparent
       );
       transform: skewX(-20deg);
-      animation: movingLight 2.2s infinite linear;
+      animation: movingLight 2.6s linear infinite;
+      pointer-events: none;
     }
 
     @keyframes movingLight {
       0% {
-        left: -90px;
+        left: -100px;
       }
 
       100% {
@@ -165,15 +170,16 @@
 
     /* MOBILE FRIENDLY */
     @media (max-width: 600px) {
+
       .disclaimer-container {
-        padding: 10px;
+        padding: 9px;
       }
 
       .disclaimer-title {
-        min-height: 54px;
-        padding: 8px 10px;
-        border-radius: 18px;
+        min-height: 52px;
+        padding: 8px 12px;
         gap: 7px;
+        border-radius: 17px;
       }
 
       .disclaimer-title h1 {
@@ -181,14 +187,14 @@
       }
 
       .led-icon {
-        width: 29px;
-        height: 29px;
-        flex-basis: 29px;
+        width: 22px;
+        height: 22px;
+        flex-basis: 22px;
       }
 
       .disclaimer-content h2 {
-        font-size: 19px;
         margin-top: 20px;
+        font-size: 19px;
       }
 
       .disclaimer-content p {
@@ -203,32 +209,33 @@
 
   <main class="disclaimer-container">
 
-    <!-- DISCLAIMER TOP HEADER -->
+    <!-- PREMIUM DISCLAIMER HEADER -->
     <div class="disclaimer-title">
 
-      <svg class="led-icon"
-           viewBox="0 0 40 40"
-           xmlns="http://www.w3.org/2000/svg"
-           aria-hidden="true">
+      <!-- ONLY ONE SVG ICON -->
+      <svg
+        class="led-icon"
+        viewBox="0 0 40 40"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true">
 
-        <circle class="led-ring" cx="20" cy="20" r="12"></circle>
+        <circle
+          class="led-ring"
+          cx="20"
+          cy="20"
+          r="11">
+        </circle>
 
-        <circle class="led-core" cx="20" cy="20" r="7"></circle>
+        <circle
+          class="led-core"
+          cx="20"
+          cy="20"
+          r="6.5">
+        </circle>
 
       </svg>
 
       <h1>Disclaimer</h1>
-
-      <svg class="led-icon"
-           viewBox="0 0 40 40"
-           xmlns="http://www.w3.org/2000/svg"
-           aria-hidden="true">
-
-        <circle class="led-ring" cx="20" cy="20" r="12"></circle>
-
-        <circle class="led-core" cx="20" cy="20" r="7"></circle>
-
-      </svg>
 
       <span class="moving-light"></span>
 
