@@ -191,6 +191,31 @@
     .nav-small svg { width: 14px; height: 14px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .nav-small.active svg { stroke: white; }
 
+    /* --- HOME PAGE PHOTO - FULL WIDTH, RESPONSIVE, PREMIUM --- */
+    .home-photo-container {
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      background: #ffffff;
+      padding: 0;
+      margin: 0;
+      line-height: 0;
+    }
+    .home-photo-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      background: #ffffff;
+    }
+    /* Hide photo on non-home pages */
+    .home-photo-container.hidden {
+      display: none !important;
+    }
+    .home-photo-container.show {
+      display: block !important;
+    }
+
     /* --- GAME DETAIL HEADER --- */
     .game-detail-header {
       display: flex;
@@ -1454,6 +1479,11 @@
     </span>
   </div>
 
+  <!-- ===== HOME PAGE PHOTO – FULL WIDTH, ONLY ON HOME ===== -->
+  <div id="homePhotoContainer" class="home-photo-container show">
+    <img src="https://i.ibb.co/XTFNccf/1785915333592.jpg" alt="YONO NEW APP – Download Yono Games" loading="eager" fetchpriority="high">
+  </div>
+
   <!-- STATIC PAGES -->
   <div id="aboutPage" class="static-page">
     <div id="aboutContent"><div class="static-loading">Loading...</div></div>
@@ -1907,6 +1937,17 @@
     const overlay = document.getElementById('infoOverlay');
     const overlayClose = document.getElementById('overlayClose');
 
+    // ---------- Home Photo Container ----------
+    const homePhoto = document.getElementById('homePhotoContainer');
+
+    function showHomePhoto() {
+      homePhoto.className = 'home-photo-container show';
+    }
+
+    function hideHomePhoto() {
+      homePhoto.className = 'home-photo-container hidden';
+    }
+
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
 
@@ -2129,6 +2170,7 @@
       mainGrid.classList.add('show');
       hideAllStatic();
       restoreMetaTags();
+      showHomePhoto(); // Show photo on home
       scrollToTop();
     }
 
@@ -2140,6 +2182,7 @@
       detailView.classList.remove('hidden');
       detailView.classList.add('show');
       hideAllStatic();
+      hideHomePhoto(); // Hide photo on detail view
       scrollToTop();
     }
 
@@ -2164,6 +2207,7 @@
       detailView.style.display = 'none';
       detailView.classList.add('hidden');
       hideAllStatic();
+      hideHomePhoto(); // Hide photo on About page
       aboutPage.classList.add('visible');
       scrollToTop();
       pushHistory({ page: 'about' }, 'About', location.href);
@@ -2179,6 +2223,7 @@
       detailView.style.display = 'none';
       detailView.classList.add('hidden');
       hideAllStatic();
+      hideHomePhoto(); // Hide photo on Contact page
       contactPage.classList.add('visible');
       scrollToTop();
       pushHistory({ page: 'contact' }, 'Contact', location.href);
@@ -2194,6 +2239,7 @@
       detailView.style.display = 'none';
       detailView.classList.add('hidden');
       hideAllStatic();
+      hideHomePhoto(); // Hide photo on Disclaimer page
       disclaimerPage.classList.add('visible');
       scrollToTop();
       pushHistory({ page: 'disclaimer' }, 'Disclaimer', location.href);
@@ -2235,6 +2281,7 @@
           detailView.style.display = 'none';
           detailView.classList.add('hidden');
           hideAllStatic();
+          hideHomePhoto();
           aboutPage.classList.add('visible');
           scrollToTop();
         } else if (prev.state.page === 'contact') {
@@ -2245,6 +2292,7 @@
           detailView.style.display = 'none';
           detailView.classList.add('hidden');
           hideAllStatic();
+          hideHomePhoto();
           contactPage.classList.add('visible');
           scrollToTop();
         } else if (prev.state.page === 'disclaimer') {
@@ -2255,6 +2303,7 @@
           detailView.style.display = 'none';
           detailView.classList.add('hidden');
           hideAllStatic();
+          hideHomePhoto();
           disclaimerPage.classList.add('visible');
           scrollToTop();
         } else if (prev.state.page === 'detail') {
@@ -2675,6 +2724,7 @@
       showDetailView();
       hideAllNavActive();
       homeNav.classList.remove('active');
+      hideHomePhoto(); // Hide photo on detail view
       
       // Push state for browser history (only if not coming from back)
       if (!fromBack) {
@@ -2729,6 +2779,7 @@
             detailView.style.display = 'none';
             detailView.classList.add('hidden');
             hideAllStatic();
+            hideHomePhoto();
             aboutPage.classList.add('visible');
             scrollToTop();
           } else if (prev.state.page === 'contact') {
@@ -2739,6 +2790,7 @@
             detailView.style.display = 'none';
             detailView.classList.add('hidden');
             hideAllStatic();
+            hideHomePhoto();
             contactPage.classList.add('visible');
             scrollToTop();
           } else if (prev.state.page === 'disclaimer') {
@@ -2749,6 +2801,7 @@
             detailView.style.display = 'none';
             detailView.classList.add('hidden');
             hideAllStatic();
+            hideHomePhoto();
             disclaimerPage.classList.add('visible');
             scrollToTop();
           } else if (prev.state.page === 'detail' && prev.state.game) {
