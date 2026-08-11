@@ -11,151 +11,179 @@
       box-sizing: border-box;
     }
 
+    html {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      background: #f5f6f8;
+      width: 100%;
+      min-width: 0;
+      background: #f4f6f8;
       color: #202124;
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    .disclaimer-wrapper {
+    .disclaimer-container {
       width: 100%;
-      padding: 14px;
+      max-width: 100%;
+      padding: 10px;
     }
 
-    .disclaimer-card {
+    .disclaimer-box {
       width: 100%;
       max-width: 900px;
       margin: 0 auto;
+      padding: 18px;
       background: #ffffff;
       border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+      border-radius: 16px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
       overflow: hidden;
     }
 
-    .disclaimer-title {
+    /* TOP LEFT DISCLAIMER */
+    .disclaimer-heading {
+      width: 100%;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: flex-start;
+      gap: 9px;
       margin: 0 0 18px;
-      padding-bottom: 13px;
+      padding: 0 0 12px;
       border-bottom: 1px solid #eeeeee;
-      color: #d60000;
-      font-size: 24px;
+      color: #df0000;
+      font-size: 23px;
       font-weight: 800;
+      line-height: 1.3;
       text-align: left;
     }
 
-    .disclaimer-title svg {
+    .disclaimer-heading svg {
       width: 25px;
       height: 25px;
       min-width: 25px;
-      fill: #e00000;
+      fill: #df0000;
     }
 
-    .section-title {
-      margin: 25px 0 10px;
-      color: #1f2937;
-      font-size: 21px;
-      font-weight: 800;
-      line-height: 1.35;
-    }
-
-    .sub-title {
-      margin: 20px 0 8px;
-      color: #24292f;
-      font-size: 18px;
-      font-weight: 750;
-      line-height: 1.4;
-    }
-
-    .disclaimer-card p {
-      margin: 0 0 15px;
+    p {
+      margin: 0 0 16px;
+      color: #444;
       font-size: 15px;
-      color: #444b55;
+      line-height: 1.7;
+      text-align: left;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    h2 {
+      margin: 25px 0 11px;
+      color: #202124;
+      font-size: 21px;
+      line-height: 1.4;
+      font-weight: 800;
+      text-align: left;
       overflow-wrap: anywhere;
     }
 
+    h3 {
+      margin: 18px 0 7px;
+      color: #252525;
+      font-size: 17px;
+      line-height: 1.45;
+      font-weight: 750;
+      text-align: left;
+    }
+
+    /* IMPORTANT ALERT */
     .important-alert {
-      margin: 18px 0;
-      padding: 15px 16px;
-      border-left: 4px solid #e00000;
+      width: 100%;
+      margin: 20px 0;
+      padding: 15px;
+      border-left: 4px solid #df0000;
       border-radius: 10px;
       background: #fff5f5;
+      overflow: hidden;
     }
 
-    .important-alert .alert-title {
-      margin: 0 0 7px;
-      color: #d00000;
-      font-size: 18px;
+    .important-alert h2 {
+      margin: 0 0 9px;
+      color: #d40000;
+      font-size: 19px;
+    }
+
+    /* CATEGORY CONTENT */
+    .category-item {
+      width: 100%;
+      margin: 0 0 13px;
+      padding: 0;
+    }
+
+    .category-item strong {
+      color: #222;
       font-weight: 800;
     }
 
-    .keyword-line {
-      font-weight: 700;
-      color: #333941;
-    }
-
-    .feature-list {
-      margin: 0 0 15px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .feature-list li {
-      margin: 10px 0;
-      padding-left: 18px;
-      color: #444b55;
-      font-size: 15px;
-      overflow-wrap: anywhere;
-    }
-
-    .feature-list li::before {
-      content: "•";
-      margin-left: -18px;
-      margin-right: 8px;
-      color: #e00000;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
+    /* MOBILE */
     @media (max-width: 600px) {
-      .disclaimer-wrapper {
-        padding: 8px;
+      .disclaimer-container {
+        padding: 7px;
       }
 
-      .disclaimer-card {
-        padding: 16px;
-        border-radius: 15px;
+      .disclaimer-box {
+        padding: 15px;
+        border-radius: 14px;
       }
 
-      .disclaimer-title {
+      .disclaimer-heading {
         font-size: 21px;
         gap: 8px;
+        margin-bottom: 16px;
       }
 
-      .disclaimer-title svg {
+      .disclaimer-heading svg {
         width: 22px;
         height: 22px;
         min-width: 22px;
       }
 
-      .section-title {
+      h2 {
         font-size: 19px;
       }
 
-      .sub-title {
-        font-size: 17px;
+      h3 {
+        font-size: 16px;
       }
 
-      .disclaimer-card p,
-      .feature-list li {
+      p,
+      .category-item {
         font-size: 14px;
         line-height: 1.65;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .disclaimer-container {
+        padding: 5px;
+      }
+
+      .disclaimer-box {
+        padding: 13px;
+      }
+
+      .disclaimer-heading {
+        font-size: 20px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      p,
+      .category-item {
+        font-size: 13.5px;
       }
     }
   </style>
@@ -163,13 +191,14 @@
 
 <body>
 
-  <main class="disclaimer-wrapper">
-    <article class="disclaimer-card">
+  <div class="disclaimer-container">
 
-      <h1 class="disclaimer-title">
-        <!-- Red Disclaimer SVG Icon -->
+    <main class="disclaimer-box">
+
+      <!-- Disclaimer Heading + Red SVG -->
+      <h1 class="disclaimer-heading">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/>
+          <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/>
         </svg>
         <span>Disclaimer</span>
       </h1>
@@ -183,7 +212,8 @@
       </p>
 
       <div class="important-alert">
-        <div class="alert-title">Important Alert</div>
+
+        <h2>Important Alert</h2>
 
         <p>
           Rummy, even as a skill-based game, is not legal everywhere. It is banned by the government in the following states: Andhra Pradesh, Sikkim, Nagaland, Assam, Arunachal Pradesh, Tamil Nadu, Odisha, and Telangana. If you live in any of these places, you should not download or play rummy apps.
@@ -192,13 +222,14 @@
         <p>
           If you have questions about whether these games are allowed in your area or about how to play safely, please read all disclaimers carefully or get legal advice.
         </p>
+
       </div>
 
-      <h2 class="section-title">
+      <h2>
         All New Yono Apps - Download All Yono Rummy App And Get ₹500 To ₹1500 Sign Up Bonus With Minimum Withdrawal In ₹100 Each Yono App | Yono Rummy | Yono 777 App | Yono Games | Yono App
       </h2>
 
-      <h2 class="section-title">
+      <h2>
         All Yono Games
       </h2>
 
@@ -214,7 +245,7 @@
         We also knew that finding and downloading these games shouldn’t feel like a chore. That’s why we created the New Yono App. But more than anything, All New Yono Apps is about people. It’s about players who love sharing tips, celebrating wins, and learning together. Here, you’re part of a community that believes gaming is better when everyone feels connected.
       </p>
 
-      <h2 class="section-title">
+      <h2>
         Why Thousands Choose All New Yono Apps ?
       </h2>
 
@@ -222,29 +253,27 @@
         When it comes to finding games you can trust and enjoy, All New Yono Apps makes the choice easy. We’ve built our platform with clear goals: keep things simple, reliable, and tailored to what Indian players want most.
       </p>
 
-      <ul class="feature-list">
-        <li>
-          <strong>India-Focused Selection:</strong>
-          Every game you see here has been chosen with local preferences in mind...
-        </li>
+      <div class="category-item">
+        <strong>India-Focused Selection:</strong>
+        Every game you see here has been chosen with local preferences in mind...
+      </div>
 
-        <li>
-          <strong>Instant Play &amp; Download:</strong>
-          We understand your time matters. That’s why you can start playing in only a few steps...
-        </li>
+      <div class="category-item">
+        <strong>Instant Play &amp; Download:</strong>
+        We understand your time matters. That’s why you can start playing in only a few steps...
+      </div>
 
-        <li>
-          <strong>Easy Navigation:</strong>
-          Picking out your next game shouldn’t be a hassle...
-        </li>
+      <div class="category-item">
+        <strong>Easy Navigation:</strong>
+        Picking out your next game shouldn’t be a hassle...
+      </div>
 
-        <li>
-          <strong>Trusted Platform:</strong>
-          Safety and trust are at the core oF All New Yono Apps ...
-        </li>
-      </ul>
+      <div class="category-item">
+        <strong>Trusted Platform:</strong>
+        Safety and trust are at the core oF All New Yono Apps ...
+      </div>
 
-      <h2 class="section-title">
+      <h2>
         Games for Every Mood
       </h2>
 
@@ -252,35 +281,34 @@
         People play for all sorts of reasons. You might enjoy the rush of competing, or maybe you prefer to unwind with something simple. At All New Yono Apps , finding the right game is easy. The categories are set up so you can browse without any hassle. Each section features games picked for their quality and the way they keep you coming back for more.
       </p>
 
-      <ul class="feature-list">
-        <li>
-          <strong>Card Classics:</strong>
-          If you enjoy testing your skills and staying sharp, start here. Play favorites like Yono Rummy...
-        </li>
+      <div class="category-item">
+        <strong>Card Classics:</strong>
+        If you enjoy testing your skills and staying sharp, start here. Play favorites like Yono Rummy...
+      </div>
 
-        <li>
-          <strong>Puzzles &amp; Brain Teasers:</strong>
-          Everyone has their reason for playing. Some enjoy the buzz of competition...
-        </li>
+      <div class="category-item">
+        <strong>Puzzles &amp; Brain Teasers:</strong>
+        Everyone has their reason for playing. Some enjoy the buzz of competition...
+      </div>
 
-        <li>
-          <strong>Fantasy &amp; Sports:</strong>
-          Bring your competitive side to life. Build a winning team, craft your strategy...
-        </li>
+      <div class="category-item">
+        <strong>Fantasy &amp; Sports:</strong>
+        Bring your competitive side to life. Build a winning team, craft your strategy...
+      </div>
 
-        <li>
-          <strong>Casual Fun:</strong>
-          Not every game has to be serious. When you’d rather unwind...
-        </li>
+      <div class="category-item">
+        <strong>Casual Fun:</strong>
+        Not every game has to be serious. When you’d rather unwind...
+      </div>
 
-        <li>
-          <strong>Fast Challenges:</strong>
-          Need a little rush? These time-based games keep you on your
-        </li>
-      </ul>
+      <div class="category-item">
+        <strong>Fast Challenges:</strong>
+        Need a little rush? These time-based games keep you on your
+      </div>
 
-    </article>
-  </main>
+    </main>
+
+  </div>
 
 </body>
 </html>
