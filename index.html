@@ -1309,6 +1309,55 @@
       .header-name-box { font-size: 1rem; padding: 8px 24px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 16px; height: 16px; }
     }
+
+    /* ===== YONO INFO SECTION - CUSTOM HTML RENDERER ===== */
+    .yono-custom-tags-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 4px 0;
+    }
+    .yono-custom-tags-wrapper > * {
+      margin: 0;
+      max-width: 100%;
+    }
+    .yono-custom-tags-wrapper .yono-tag {
+      display: inline-block;
+      background: #f5f7fa;
+      color: #1a2634;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.6rem;
+      font-weight: 500;
+      border: 1px solid #e8ecf2;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+      white-space: nowrap;
+      line-height: 1.4;
+      cursor: default;
+      user-select: none;
+      letter-spacing: 0.01em;
+      background-clip: padding-box;
+      -webkit-font-smoothing: antialiased;
+      margin: 2px 4px 2px 0;
+    }
+    .yono-custom-tags-wrapper .yono-tag:hover {
+      background: #1a2634;
+      color: #ffffff;
+      border-color: #1a2634;
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    @media (max-width: 480px) {
+      .yono-custom-tags-wrapper .yono-tag { font-size: 0.5rem; padding: 5px 12px; }
+    }
+    @media (max-width: 360px) {
+      .yono-custom-tags-wrapper .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
+    }
+    @media (min-width: 769px) {
+      .yono-custom-tags-wrapper .yono-tag { font-size: 0.65rem; padding: 7px 18px; }
+    }
   </style>
 </head>
 <body>
@@ -1712,7 +1761,7 @@
       <span class="title-badge" id="tagCountBadge">Loading...</span>
     </div>
     <div class="yono-tags-container" id="yonoTagsContainer">
-      <!-- Tags loaded dynamically from yono-games-information.html -->
+      <!-- Custom HTML from yono-games-information.html rendered here -->
     </div>
   </div>
 
@@ -1901,7 +1950,7 @@
     loadPageContent(contactContent, 'Contact.html');
     loadPageContent(disclaimerContent, 'Disclaimer.html');
 
-    // ---------- Load YONO Games Information tags from external file ----------
+    // ---------- Load YONO Games Information from external file (CUSTOM HTML RENDER) ----------
     function loadYonoTags() {
       const container = document.getElementById('yonoTagsContainer');
       const badge = document.getElementById('tagCountBadge');
@@ -1916,64 +1965,111 @@
           return response.text();
         })
         .then(html => {
-          // Create a temporary div to parse HTML
+          // Create a temporary container to parse and clean HTML
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = html;
           
-          // Remove all script, style, link, meta, title, head tags to avoid any code showing
+          // Remove script, style, link, meta, title, head, noscript, iframe, object, embed
           const removeTags = tempDiv.querySelectorAll('script, style, link, meta, title, head, noscript, iframe, object, embed');
           removeTags.forEach(el => el.remove());
           
-          // Get all text content from the body
-          const bodyText = tempDiv.textContent || '';
+          // Get body content or whole cleaned HTML
+          let bodyContent = tempDiv.innerHTML;
           
-          // Split by common separators: commas, new lines, bullet points, pipe, etc.
-          const separators = /[,\n\r\t•·►➤●○◆◇▪▫★☆✦✧|/]+/;
-          const rawTags = bodyText.split(separators)
-            .map(s => s.trim())
-            .filter(s => s.length > 1 && s.length < 200);
-          
-          // Filter out common non-tag words and HTML-like content
-          const skipWords = ['Home', 'About', 'Contact', 'Disclaimer', 'Download', 'APK', 'Bonus', 'Sign', 'Up', 'Min', 'Withdraw', 'Share', 'Telegram', 'Menu', 'Back', 'Loading', 'Content', 'available', 'Tags', 'Add', 'remove', 'update', 'file', 'section', 'heading', 'below', 'show', 'mobile', 'friendly', 'responsive', 'premium', 'view', 'load', 'read', 'message', 'completely', 'fast', 'speed', 'image', 'photo', 'icon', 'button', 'extra', 'YONO', 'Games', 'Information', 'div', 'span', 'class', 'id', 'style', 'script', 'html', 'body', 'head'];
-          
-          const filteredTags = rawTags.filter(tag => {
-            const lower = tag.toLowerCase().trim();
-            // Skip if it's a skip word
-            if (skipWords.some(w => lower === w)) return false;
-            if (skipWords.some(w => lower.includes(w) && tag.length < 20)) return false;
-            // Skip if it contains HTML-like patterns
-            if (/[<>{}[\]()=]/.test(tag)) return false;
-            // Skip if it's just numbers or single characters
-            if (/^[\d\s]+$/.test(tag)) return false;
-            // Skip if too short
-            if (tag.length < 2) return false;
-            return true;
-          });
-          
-          // Remove duplicates while preserving order
-          const seenTags = new Set();
-          const uniqueTags = filteredTags.filter(tag => {
-            const key = tag.toLowerCase().trim();
-            if (seenTags.has(key)) return false;
-            seenTags.add(key);
-            return true;
-          });
-          
-          // Update badge with count
-          badge.textContent = uniqueTags.length + ' Tags';
-          
-          if (uniqueTags.length > 0) {
-            // Create tag elements - use document fragment for better performance
-            const fragment = document.createDocumentFragment();
-            uniqueTags.forEach(text => {
-              const tag = document.createElement('span');
-              tag.className = 'yono-tag';
-              // Preserve the original text as-is without any modification
-              tag.textContent = text;
-              fragment.appendChild(tag);
-            });
-            container.appendChild(fragment);
+          // If body exists, use body content
+          const bodyEl = tempDiv.querySelector('body');
+          if (bodyEl) {
+            bodyContent = bodyEl.innerHTML;
           }
+          
+          // Remove any remaining HTML comments
+          bodyContent = bodyContent.replace(/<!--[\s\S]*?-->/g, '');
+          
+          // Trim whitespace
+          bodyContent = bodyContent.trim();
+          
+          // If content is empty, show fallback
+          if (!bodyContent || bodyContent.length < 2) {
+            container.innerHTML = '<span class="yono-tag" style="color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0;">No tags found</span>';
+            badge.textContent = '0 Tags';
+            return;
+          }
+          
+          // Wrap content in a clean wrapper with custom class
+          // This allows us to style tags and elements without affecting main site
+          const wrapper = document.createElement('div');
+          wrapper.className = 'yono-custom-tags-wrapper';
+          
+          // Parse the cleaned HTML into a fragment
+          const fragment = document.createDocumentFragment();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(bodyContent, 'text/html');
+          const nodes = doc.body ? doc.body.childNodes : doc.childNodes;
+          
+          // Process each node and add to fragment
+          let hasContent = false;
+          nodes.forEach(node => {
+            if (node.nodeType === 1 || (node.nodeType === 3 && node.textContent.trim().length > 0)) {
+              // Clone node to avoid modifying original
+              const clone = node.cloneNode(true);
+              // If it's a text node, wrap in span with tag class
+              if (node.nodeType === 3) {
+                const span = document.createElement('span');
+                span.className = 'yono-tag';
+                span.textContent = node.textContent.trim();
+                // Only add if not empty
+                if (span.textContent.length > 0) {
+                  fragment.appendChild(span);
+                  hasContent = true;
+                }
+              } else {
+                // For element nodes, preserve structure but sanitize classes
+                // Keep only yono-tag class, or add if not present
+                if (clone.tagName && clone.tagName.toLowerCase() !== 'div' && clone.tagName.toLowerCase() !== 'span') {
+                  // Non-div/span elements, wrap in span with yono-tag
+                  const span = document.createElement('span');
+                  span.className = 'yono-tag';
+                  span.appendChild(clone);
+                  fragment.appendChild(span);
+                  hasContent = true;
+                } else {
+                  // div or span, preserve and add yono-tag class if not present
+                  if (!clone.className || !clone.className.includes('yono-tag')) {
+                    clone.className = clone.className ? clone.className + ' yono-tag' : 'yono-tag';
+                  }
+                  // If it's a div, convert to span for inline display
+                  if (clone.tagName && clone.tagName.toLowerCase() === 'div') {
+                    const span = document.createElement('span');
+                    span.className = clone.className;
+                    span.innerHTML = clone.innerHTML;
+                    fragment.appendChild(span);
+                    hasContent = true;
+                  } else {
+                    fragment.appendChild(clone);
+                    hasContent = true;
+                  }
+                }
+              }
+            }
+          });
+          
+          // If no content was added, show fallback
+          if (!hasContent) {
+            container.innerHTML = '<span class="yono-tag" style="color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0;">No tags found</span>';
+            badge.textContent = '0 Tags';
+            return;
+          }
+          
+          // Append fragment to wrapper
+          wrapper.appendChild(fragment);
+          
+          // Count tags for badge
+          const tagElements = wrapper.querySelectorAll('.yono-tag');
+          const count = tagElements.length || 0;
+          badge.textContent = count + ' Tags';
+          
+          // Append wrapper to container
+          container.appendChild(wrapper);
         })
         .catch(() => {
           // File not found - container remains empty with message
