@@ -191,32 +191,80 @@
     .nav-small svg { width: 14px; height: 14px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .nav-small.active svg { stroke: white; }
 
-    /* --- HOME PAGE PHOTO - FULL WIDTH, RESPONSIVE, PREMIUM --- */
-    .home-photo-container {
+    /* --- HOME PAGE GREEN-LINE BOX (replaces photo) --- */
+    .home-greenbox {
       width: 100%;
-      display: block;
-      overflow: hidden;
+      max-width: 1170px;
+      height: 500px;
+      margin: 0 auto;
       background: #ffffff;
-      padding: 0;
-      margin: 0;
-      line-height: 0;
-    }
-    .home-photo-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      background: #ffffff;
-      /* thin green border all around */
-      border: 2px solid #00cc44;
+      border: 4px solid #00cc44; /* 4-corner green line */
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      overflow-y: auto;
     }
-    /* Hide photo on non-home pages */
-    .home-photo-container.hidden {
+    .home-greenbox .brand-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0b1e33;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .home-greenbox .tag-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 12px;
+      max-width: 1000px;
+      padding: 10px;
+    }
+    .home-greenbox .tag-wrap .gtag {
+      background: transparent;
+      color: #dc2626; /* red */
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border: 1px solid #dc2626;
+      border-radius: 30px;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+      background: rgba(220, 38, 38, 0.03);
+    }
+    .home-greenbox .tag-wrap .gtag:hover {
+      background: #dc2626;
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .home-greenbox { height: 400px; padding: 15px; }
+      .home-greenbox .brand-title { font-size: 1.6rem; }
+      .home-greenbox .tag-wrap .gtag { font-size: 0.6rem; padding: 3px 10px; }
+    }
+    @media (max-width: 480px) {
+      .home-greenbox { height: 350px; padding: 10px; border-width: 3px; }
+      .home-greenbox .brand-title { font-size: 1.2rem; margin-bottom: 12px; }
+      .home-greenbox .tag-wrap { gap: 4px 8px; }
+      .home-greenbox .tag-wrap .gtag { font-size: 0.5rem; padding: 2px 8px; }
+    }
+    @media (max-width: 400px) {
+      .home-greenbox { height: 300px; }
+      .home-greenbox .brand-title { font-size: 1rem; }
+    }
+
+    /* Hide photo container, show greenbox on home */
+    .home-photo-container {
       display: none !important;
     }
-    .home-photo-container.show {
-      display: block !important;
+    .home-greenbox.hidden {
+      display: none !important;
+    }
+    .home-greenbox.show {
+      display: flex !important;
     }
 
     /* --- GAME DETAIL HEADER --- */
@@ -1482,9 +1530,12 @@
     </span>
   </div>
 
-  <!-- ===== HOME PAGE PHOTO – FULL WIDTH, ONLY ON HOME ===== -->
-  <div id="homePhotoContainer" class="home-photo-container show">
-    <img src="https://i.ibb.co/N2N8T16J/yono-games-point-small-1536x500-2.jpg" alt="YONO GAMES POINT" loading="eager" fetchpriority="high">
+  <!-- ===== HOME PAGE GREEN-LINE BOX (replaces photo) ===== -->
+  <div id="homeGreenBox" class="home-greenbox show">
+    <div class="brand-title">YONO GAMES POINT</div>
+    <div class="tag-wrap" id="greenboxTags">
+      <!-- Tags will be injected by JS from original app names -->
+    </div>
   </div>
 
   <!-- STATIC PAGES -->
@@ -1940,16 +1991,38 @@
     const overlay = document.getElementById('infoOverlay');
     const overlayClose = document.getElementById('overlayClose');
 
-    // ---------- Home Photo Container ----------
-    const homePhoto = document.getElementById('homePhotoContainer');
+    // ---------- Home Green Box ----------
+    const homeGreenBox = document.getElementById('homeGreenBox');
 
-    function showHomePhoto() {
-      homePhoto.className = 'home-photo-container show';
+    function showHomeGreenBox() {
+      homeGreenBox.className = 'home-greenbox show';
     }
 
-    function hideHomePhoto() {
-      homePhoto.className = 'home-photo-container hidden';
+    function hideHomeGreenBox() {
+      homeGreenBox.className = 'home-greenbox hidden';
     }
+
+    // Inject tags into greenbox from original game names (red color)
+    function populateGreenboxTags() {
+      const wrap = document.getElementById('greenboxTags');
+      wrap.innerHTML = '';
+      // take first 60 unique names, mix
+      let names = uniqueGames.map(g => g.name);
+      // shuffle
+      for (let i = names.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [names[i], names[j]] = [names[j], names[i]];
+      }
+      // take top 50 to avoid overflow
+      const selected = names.slice(0, 50);
+      selected.forEach(name => {
+        const tag = document.createElement('span');
+        tag.className = 'gtag';
+        tag.textContent = name;
+        wrap.appendChild(tag);
+      });
+    }
+    populateGreenboxTags();
 
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
@@ -1999,7 +2072,6 @@
       const container = document.getElementById('yonoTagsContainer');
       const badge = document.getElementById('tagCountBadge');
       
-      // Clear container first
       container.innerHTML = '';
       badge.textContent = 'Loading...';
       
@@ -2009,79 +2081,58 @@
           return response.text();
         })
         .then(html => {
-          // Create a temporary container to parse and clean HTML
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = html;
           
-          // Remove script, style, link, meta, title, head, noscript, iframe, object, embed
           const removeTags = tempDiv.querySelectorAll('script, style, link, meta, title, head, noscript, iframe, object, embed');
           removeTags.forEach(el => el.remove());
           
-          // Get body content or whole cleaned HTML
           let bodyContent = tempDiv.innerHTML;
-          
-          // If body exists, use body content
           const bodyEl = tempDiv.querySelector('body');
           if (bodyEl) {
             bodyContent = bodyEl.innerHTML;
           }
           
-          // Remove any remaining HTML comments
           bodyContent = bodyContent.replace(/<!--[\s\S]*?-->/g, '');
-          
-          // Trim whitespace
           bodyContent = bodyContent.trim();
           
-          // If content is empty, show fallback
           if (!bodyContent || bodyContent.length < 2) {
             container.innerHTML = '<span class="yono-tag" style="color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0;">No tags found</span>';
             badge.textContent = '0 Tags';
             return;
           }
           
-          // Wrap content in a clean wrapper with custom class
-          // This allows us to style tags and elements without affecting main site
           const wrapper = document.createElement('div');
           wrapper.className = 'yono-custom-tags-wrapper';
           
-          // Parse the cleaned HTML into a fragment
           const fragment = document.createDocumentFragment();
           const parser = new DOMParser();
           const doc = parser.parseFromString(bodyContent, 'text/html');
           const nodes = doc.body ? doc.body.childNodes : doc.childNodes;
           
-          // Process each node and add to fragment
           let hasContent = false;
           nodes.forEach(node => {
             if (node.nodeType === 1 || (node.nodeType === 3 && node.textContent.trim().length > 0)) {
-              // Clone node to avoid modifying original
               const clone = node.cloneNode(true);
-              // If it's a text node, wrap in span with tag class
               if (node.nodeType === 3) {
                 const span = document.createElement('span');
                 span.className = 'yono-tag';
                 span.textContent = node.textContent.trim();
-                // Only add if not empty
                 if (span.textContent.length > 0) {
                   fragment.appendChild(span);
                   hasContent = true;
                 }
               } else {
-                // For element nodes, preserve structure but sanitize classes
-                // Keep only yono-tag class, or add if not present
                 if (clone.tagName && clone.tagName.toLowerCase() !== 'div' && clone.tagName.toLowerCase() !== 'span') {
-                  // Non-div/span elements, wrap in span with yono-tag
                   const span = document.createElement('span');
                   span.className = 'yono-tag';
                   span.appendChild(clone);
                   fragment.appendChild(span);
                   hasContent = true;
                 } else {
-                  // div or span, preserve and add yono-tag class if not present
                   if (!clone.className || !clone.className.includes('yono-tag')) {
                     clone.className = clone.className ? clone.className + ' yono-tag' : 'yono-tag';
                   }
-                  // If it's a div, convert to span for inline display
                   if (clone.tagName && clone.tagName.toLowerCase() === 'div') {
                     const span = document.createElement('span');
                     span.className = clone.className;
@@ -2097,32 +2148,24 @@
             }
           });
           
-          // If no content was added, show fallback
           if (!hasContent) {
             container.innerHTML = '<span class="yono-tag" style="color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0;">No tags found</span>';
             badge.textContent = '0 Tags';
             return;
           }
           
-          // Append fragment to wrapper
           wrapper.appendChild(fragment);
-          
-          // Count tags for badge
           const tagElements = wrapper.querySelectorAll('.yono-tag');
           const count = tagElements.length || 0;
           badge.textContent = count + ' Tags';
-          
-          // Append wrapper to container
           container.appendChild(wrapper);
         })
         .catch(() => {
-          // File not found - container remains empty with message
           badge.textContent = '0 Tags';
           container.innerHTML = '<span class="yono-tag" style="color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0;">No tags found</span>';
         });
     }
 
-    // Call the function to load tags
     loadYonoTags();
 
     function hideAllStatic() {
@@ -2142,7 +2185,7 @@
       if (metaKeywords) metaKeywords.setAttribute('content', originalKeywords);
     }
 
-    // ---- History Stack (only for navigation tracking) ----
+    // ---- History Stack ----
     var historyStack = [];
 
     function pushHistory(state, title, url) {
@@ -2158,7 +2201,6 @@
       return null;
     }
 
-    // ---- Scroll to top function ----
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
@@ -2173,7 +2215,7 @@
       mainGrid.classList.add('show');
       hideAllStatic();
       restoreMetaTags();
-      showHomePhoto(); // Show photo on home
+      showHomeGreenBox();
       scrollToTop();
     }
 
@@ -2185,7 +2227,7 @@
       detailView.classList.remove('hidden');
       detailView.classList.add('show');
       hideAllStatic();
-      hideHomePhoto(); // Hide photo on detail view
+      hideHomeGreenBox();
       scrollToTop();
     }
 
@@ -2194,7 +2236,6 @@
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
       this.classList.add('active');
-      // Clear history stack when going home
       historyStack = [];
       showMainGrid();
       pushHistory({ page: 'home' }, 'Home', location.href);
@@ -2210,7 +2251,7 @@
       detailView.style.display = 'none';
       detailView.classList.add('hidden');
       hideAllStatic();
-      hideHomePhoto(); // Hide photo on About page
+      hideHomeGreenBox();
       aboutPage.classList.add('visible');
       scrollToTop();
       pushHistory({ page: 'about' }, 'About', location.href);
@@ -2226,7 +2267,7 @@
       detailView.style.display = 'none';
       detailView.classList.add('hidden');
       hideAllStatic();
-      hideHomePhoto(); // Hide photo on Contact page
+      hideHomeGreenBox();
       contactPage.classList.add('visible');
       scrollToTop();
       pushHistory({ page: 'contact' }, 'Contact', location.href);
@@ -2242,7 +2283,7 @@
       detailView.style.display = 'none';
       detailView.classList.add('hidden');
       hideAllStatic();
-      hideHomePhoto(); // Hide photo on Disclaimer page
+      hideHomeGreenBox();
       disclaimerPage.classList.add('visible');
       scrollToTop();
       pushHistory({ page: 'disclaimer' }, 'Disclaimer', location.href);
@@ -2252,7 +2293,6 @@
     document.querySelectorAll('.static-back-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         if (overlay.style.display === 'flex') overlay.style.display = 'none';
-        // Go back in history
         var prev = popHistory();
         if (prev && prev.state.page === 'home') {
           hideAllNavActive();
@@ -2268,10 +2308,8 @@
     backBtn.addEventListener('click', function() {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
       
-      // Get previous state from history stack
       var prev = popHistory();
       if (prev) {
-        // Restore previous page with scroll to top
         if (prev.state.page === 'home') {
           hideAllNavActive();
           homeNav.classList.add('active');
@@ -2284,7 +2322,7 @@
           detailView.style.display = 'none';
           detailView.classList.add('hidden');
           hideAllStatic();
-          hideHomePhoto();
+          hideHomeGreenBox();
           aboutPage.classList.add('visible');
           scrollToTop();
         } else if (prev.state.page === 'contact') {
@@ -2295,7 +2333,7 @@
           detailView.style.display = 'none';
           detailView.classList.add('hidden');
           hideAllStatic();
-          hideHomePhoto();
+          hideHomeGreenBox();
           contactPage.classList.add('visible');
           scrollToTop();
         } else if (prev.state.page === 'disclaimer') {
@@ -2306,20 +2344,16 @@
           detailView.style.display = 'none';
           detailView.classList.add('hidden');
           hideAllStatic();
-          hideHomePhoto();
+          hideHomeGreenBox();
           disclaimerPage.classList.add('visible');
           scrollToTop();
-        } else if (prev.state.page === 'detail') {
-          // Show detail view again with scroll to top
-          if (prev.state.game) {
-            var gData = gameDataMap[prev.state.game];
-            if (gData) {
-              showDetail(gData, true);
-            }
+        } else if (prev.state.page === 'detail' && prev.state.game) {
+          var gData = gameDataMap[prev.state.game];
+          if (gData) {
+            showDetail(gData, true);
           }
         }
       } else {
-        // No history, go home
         hideAllNavActive();
         homeNav.classList.add('active');
         showMainGrid();
@@ -2505,7 +2539,6 @@
         card.dataset.metaBonus = metaBonus;
         card.dataset.version = version;
 
-        // Replaced old emoji icons with premium SVG icons
         const bonusIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
         const withdrawIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
 
@@ -2542,7 +2575,6 @@
     renderGrid();
 
     function showDetail(game, fromBack) {
-      // Update meta tags
       document.title = game.name + ' – Download ' + game.name + ' APK | YONO NEW APP';
       var metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
@@ -2554,7 +2586,6 @@
         metaKeywords.setAttribute('content', keywords);
       }
 
-      // Fill detail card
       document.getElementById('detailImg').src = game.img;
       document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
       document.getElementById('detailHeaderTitle').textContent = game.name + ' • Download APK';
@@ -2571,19 +2602,15 @@
       
       document.getElementById('apkBonusLine').textContent = game.bonus;
 
-      // Referral Section - Dynamic update (preserve fixed URL)
       var refData = generateReferralData(game.name, game.bonus);
       document.getElementById('refGameName').textContent = game.name;
       document.getElementById('refBonusAmount').textContent = '₹' + refData.refBonus;
       document.getElementById('refCode').textContent = refData.refCode;
       
-      // Update the referral link text (URL stays fixed: https://www.earntp.com/m/jm9n7r)
       var refLinkText = document.getElementById('refLinkText');
       var linkUrl = refLinkText.querySelector('.link-url');
-      // Keep URL as fixed
       linkUrl.textContent = 'https://www.earntp.com/m/jm9n7r';
 
-      // Dynamic Top Offers
       var tagContainer = document.getElementById('tagGridContainer');
       tagContainer.innerHTML = '';
       var tagItems = generateTopOfferTags(game.name, game.bonus, game.altName);
@@ -2600,11 +2627,9 @@
         tagContainer.appendChild(box);
       });
 
-      // Game Tags container is now hidden (CSS display:none), but we keep it empty
       var tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
 
-      // All Games Tags
       var allTagsContainer = document.getElementById('allGamesTagsContainer');
       allTagsContainer.innerHTML = '';
       uniqueGames.forEach(function(g) {
@@ -2622,7 +2647,6 @@
         allTagsContainer.appendChild(tag);
       });
 
-      // TOC and FAQ values
       var gName = game.name;
       var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
       var b = {
@@ -2676,7 +2700,6 @@
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
 
-      // Related games
       var relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       uniqueGames.filter(g => g.name !== game.name).forEach(function(g) {
@@ -2727,9 +2750,8 @@
       showDetailView();
       hideAllNavActive();
       homeNav.classList.remove('active');
-      hideHomePhoto(); // Hide photo on detail view
+      hideHomeGreenBox();
       
-      // Push state for browser history (only if not coming from back)
       if (!fromBack) {
         pushHistory({ page: 'detail', game: game.name }, game.name, location.href);
       }
@@ -2744,17 +2766,14 @@
     var shareClickCount = 0;
     document.getElementById('shareBtn').addEventListener('click', function() {
       shareClickCount++;
-      // Fixed URL as requested
       var shareUrl = 'https://www.earntp.com/m/jm9n7r';
       var encodedUrl = encodeURIComponent(shareUrl);
       var text = encodeURIComponent('YONO NEW APP – Download 77+ Yono Games. Get ₹45 Bonus & ₹100 Withdrawal!');
       
       if (shareClickCount % 2 === 1) {
-        // 1st, 3rd, 5th... → WhatsApp
         var whatsappUrl = 'https://api.whatsapp.com/send?text=' + text + '%20' + encodedUrl;
         window.open(whatsappUrl, '_blank');
       } else {
-        // 2nd, 4th, 6th... → Facebook
         var facebookUrl = 'https://www.facebook.com/sharer.php?u=' + encodedUrl + '&quote=' + text;
         window.open(facebookUrl, '_blank');
       }
@@ -2766,7 +2785,6 @@
       
       var state = e.state;
       
-      // If we're on detail view, go back to previous page with scroll to top
       if (detailView.style.display === 'block') {
         var prev = popHistory();
         if (prev) {
@@ -2782,7 +2800,7 @@
             detailView.style.display = 'none';
             detailView.classList.add('hidden');
             hideAllStatic();
-            hideHomePhoto();
+            hideHomeGreenBox();
             aboutPage.classList.add('visible');
             scrollToTop();
           } else if (prev.state.page === 'contact') {
@@ -2793,7 +2811,7 @@
             detailView.style.display = 'none';
             detailView.classList.add('hidden');
             hideAllStatic();
-            hideHomePhoto();
+            hideHomeGreenBox();
             contactPage.classList.add('visible');
             scrollToTop();
           } else if (prev.state.page === 'disclaimer') {
@@ -2804,7 +2822,7 @@
             detailView.style.display = 'none';
             detailView.classList.add('hidden');
             hideAllStatic();
-            hideHomePhoto();
+            hideHomeGreenBox();
             disclaimerPage.classList.add('visible');
             scrollToTop();
           } else if (prev.state.page === 'detail' && prev.state.game) {
@@ -2814,7 +2832,6 @@
             }
           }
         } else {
-          // No history, go home
           hideAllNavActive();
           homeNav.classList.add('active');
           showMainGrid();
@@ -2822,7 +2839,6 @@
         return;
       }
       
-      // If on static page, go home
       if (aboutPage.classList.contains('visible') || contactPage.classList.contains('visible') || disclaimerPage.classList.contains('visible')) {
         hideAllNavActive();
         homeNav.classList.add('active');
