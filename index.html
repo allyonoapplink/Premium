@@ -196,8 +196,8 @@
       width: 100%;
       max-width: 1170px;
       height: auto;
-      min-height: 140px;
-      max-height: 200px;
+      min-height: 160px;
+      max-height: 300px;
       margin: 0 auto;
       background: #cc0000; /* Full red background inside green border */
       border: 4px solid #00cc44; /* 4-corner green line */
@@ -211,7 +211,7 @@
       overflow-y: auto;
     }
     .home-greenbox .info-text {
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       color: #ffffff;
       text-align: center;
       font-weight: 400;
@@ -232,9 +232,9 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 3px 5px;
+      gap: 4px 6px;
       max-width: 1000px;
-      padding: 2px 0 4px 0;
+      padding: 2px 0 6px 0;
       width: 100%;
       flex: 1;
       align-content: flex-start;
@@ -242,9 +242,9 @@
     .home-greenbox .tag-wrap .gtag {
       background: transparent;
       color: #ffffff; /* white text on red */
-      font-size: 0.55rem;
+      font-size: 0.6rem;
       font-weight: 600;
-      padding: 2px 10px;
+      padding: 2px 12px;
       border: 1px solid rgba(255,255,255,0.25);
       border-radius: 30px;
       white-space: nowrap;
@@ -252,11 +252,11 @@
       background: rgba(255,255,255,0.06);
       transition: all 0.2s ease;
       /* FIXED SIZE */
-      font-size: 0.55rem;
-      padding: 2px 10px;
+      font-size: 0.6rem;
+      padding: 2px 12px;
       line-height: 1.3;
       flex-shrink: 0;
-      min-height: 20px;
+      min-height: 22px;
       display: inline-flex;
       align-items: center;
       border-radius: 30px;
@@ -267,26 +267,26 @@
     }
     /* Responsive - maintain fixed sizing */
     @media (max-width: 768px) {
-      .home-greenbox { min-height: 130px; max-height: 180px; padding: 4px 10px; }
-      .home-greenbox .info-text { font-size: 0.55rem; }
-      .home-greenbox .tag-wrap .gtag { font-size: 0.5rem; padding: 2px 8px; min-height: 18px; }
-      .home-greenbox .tag-wrap { gap: 2px 4px; }
+      .home-greenbox { min-height: 150px; max-height: 280px; padding: 4px 10px; }
+      .home-greenbox .info-text { font-size: 0.6rem; }
+      .home-greenbox .tag-wrap .gtag { font-size: 0.5rem; padding: 2px 10px; min-height: 20px; }
+      .home-greenbox .tag-wrap { gap: 3px 5px; }
     }
     @media (max-width: 480px) {
-      .home-greenbox { min-height: 120px; max-height: 160px; padding: 3px 8px; border-width: 3px; }
-      .home-greenbox .info-text { font-size: 0.45rem; white-space: normal; line-height: 1.3; }
-      .home-greenbox .tag-wrap { gap: 2px 3px; }
-      .home-greenbox .tag-wrap .gtag { font-size: 0.4rem; padding: 1px 6px; min-height: 14px; border-radius: 30px; }
+      .home-greenbox { min-height: 140px; max-height: 260px; padding: 3px 8px; border-width: 3px; }
+      .home-greenbox .info-text { font-size: 0.5rem; white-space: normal; line-height: 1.3; }
+      .home-greenbox .tag-wrap { gap: 2px 4px; }
+      .home-greenbox .tag-wrap .gtag { font-size: 0.45rem; padding: 1px 8px; min-height: 16px; border-radius: 30px; }
     }
     @media (max-width: 400px) {
-      .home-greenbox { min-height: 110px; max-height: 150px; }
-      .home-greenbox .info-text { font-size: 0.4rem; }
-      .home-greenbox .tag-wrap .gtag { font-size: 0.35rem; padding: 1px 5px; min-height: 12px; border-radius: 30px; }
+      .home-greenbox { min-height: 130px; max-height: 240px; }
+      .home-greenbox .info-text { font-size: 0.45rem; }
+      .home-greenbox .tag-wrap .gtag { font-size: 0.4rem; padding: 1px 6px; min-height: 14px; border-radius: 30px; }
     }
     @media (min-width: 1201px) {
-      .home-greenbox { min-height: 150px; max-height: 200px; }
-      .home-greenbox .info-text { font-size: 0.7rem; }
-      .home-greenbox .tag-wrap .gtag { font-size: 0.6rem; padding: 3px 12px; min-height: 22px; border-radius: 30px; }
+      .home-greenbox { min-height: 170px; max-height: 300px; }
+      .home-greenbox .info-text { font-size: 0.75rem; }
+      .home-greenbox .tag-wrap .gtag { font-size: 0.65rem; padding: 3px 14px; min-height: 24px; border-radius: 30px; }
     }
 
     /* Hide photo container, show greenbox on home */
@@ -2035,20 +2035,25 @@
       homeGreenBox.className = 'home-greenbox hidden';
     }
 
-    // Inject tags into greenbox from original game names (red color)
+    // Exact original game tags from the user's list - fixed order, no duplication
+    const originalTags = [
+      "SVIP 777", "MAHA GAMES", "GOA SPIN", "765 CLUB", "SLOTS SPIN", "TEEN PATTI",
+      "MKM BET APK", "BET 213", "SAGA SLOTS", "JAIHO WIN", "SPIN CRUSH", "567 SLOTS",
+      "RUMMY 888", "INR RUMMY", "SPIN WINNER", "JAIHO SPIN", "BET 54 GAMES", "YONO 777",
+      "JOY RUMMY", "JAIHO RUMMY", "YONO GAMES", "JAIHO 91", "ALL YONO APPS", "BOSS RUMMY",
+      "NEW YONO GAMES", "YES SPIN", "ALL YONO GAMES", "RUMMY 365", "Hello Rummy", "HINDI 777",
+      "RUMMY ULTRA", "DHAN GAME", "MAX RUMMY", "RUMMY LUDO", "777 GAME", "MQM BET",
+      "ABC RUMMY", "YN 777", "IND RUMMY", "TOP RUMMY", "YONO NEW APP", "RUMMY 77",
+      "RUMBLE RUMMY", "SPIN LUCKY", "YONO ARCADE", "RUMMY 91", "SLOTS WINNER", "Diwa 777",
+      "GOOD SLOTS", "BINGO 101", "YONO RUMMY"
+    ];
+
+    // Inject tags into greenbox from exact list - fixed order, no shuffle
     function populateGreenboxTags() {
       const wrap = document.getElementById('greenboxTags');
       wrap.innerHTML = '';
-      // take all unique names, shuffle once
-      let names = uniqueGames.map(g => g.name);
-      // shuffle
-      for (let i = names.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [names[i], names[j]] = [names[j], names[i]];
-      }
-      // take top 60 to ensure variety, but keep within fixed height
-      const selected = names.slice(0, 60);
-      selected.forEach(name => {
+      // Use the exact list in the exact order provided
+      originalTags.forEach(name => {
         const tag = document.createElement('span');
         tag.className = 'gtag';
         tag.textContent = name;
