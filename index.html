@@ -207,6 +207,9 @@
       padding: 20px;
       position: relative;
       overflow-y: auto;
+      /* Fixed height consistency */
+      min-height: 500px;
+      max-height: 500px;
     }
     .home-greenbox .brand-title {
       font-size: 2.2rem;
@@ -216,21 +219,25 @@
       letter-spacing: 1px;
       text-align: center;
       text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      flex-shrink: 0;
     }
     .home-greenbox .tag-wrap {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
       gap: 8px 12px;
       max-width: 1000px;
       padding: 10px;
+      width: 100%;
+      /* Fixed tag size consistency */
     }
     .home-greenbox .tag-wrap .gtag {
       background: transparent;
       color: #ffffff; /* white text on red */
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      padding: 4px 12px;
+      padding: 4px 14px;
       border: 1px solid rgba(255,255,255,0.3);
       border-radius: 30px;
       white-space: nowrap;
@@ -241,25 +248,37 @@
       font-size: 0.7rem;
       padding: 4px 14px;
       line-height: 1.4;
+      flex-shrink: 0;
+      /* Consistent model */
+      height: auto;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
     }
     .home-greenbox .tag-wrap .gtag:hover {
       background: rgba(255,255,255,0.2);
       border-color: rgba(255,255,255,0.6);
     }
+    /* Ensure tags never change size on any screen */
     @media (max-width: 768px) {
-      .home-greenbox { height: 400px; padding: 15px; }
+      .home-greenbox { height: 500px; min-height: 500px; max-height: 500px; padding: 15px; }
       .home-greenbox .brand-title { font-size: 1.6rem; }
-      .home-greenbox .tag-wrap .gtag { font-size: 0.6rem; padding: 3px 10px; }
+      .home-greenbox .tag-wrap .gtag { font-size: 0.7rem; padding: 4px 14px; min-height: 28px; }
     }
     @media (max-width: 480px) {
-      .home-greenbox { height: 350px; padding: 10px; border-width: 3px; }
+      .home-greenbox { height: 500px; min-height: 500px; max-height: 500px; padding: 10px; border-width: 3px; }
       .home-greenbox .brand-title { font-size: 1.2rem; margin-bottom: 12px; }
-      .home-greenbox .tag-wrap { gap: 4px 8px; }
-      .home-greenbox .tag-wrap .gtag { font-size: 0.5rem; padding: 2px 8px; }
+      .home-greenbox .tag-wrap { gap: 6px 10px; }
+      .home-greenbox .tag-wrap .gtag { font-size: 0.7rem; padding: 4px 14px; min-height: 28px; }
     }
     @media (max-width: 400px) {
-      .home-greenbox { height: 300px; }
+      .home-greenbox { height: 500px; min-height: 500px; max-height: 500px; }
       .home-greenbox .brand-title { font-size: 1rem; }
+      .home-greenbox .tag-wrap .gtag { font-size: 0.7rem; padding: 4px 14px; min-height: 28px; }
+    }
+    /* Desktop large screens */
+    @media (min-width: 1201px) {
+      .home-greenbox .tag-wrap .gtag { font-size: 0.7rem; padding: 4px 14px; min-height: 28px; }
     }
 
     /* Hide photo container, show greenbox on home */
