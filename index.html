@@ -1318,16 +1318,9 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
+    /* Remove the badge completely */
     .yono-info-section .yono-info-title .title-badge {
-      background: #eef2ff;
-      color: #4f46e5;
-      font-size: 0.5rem;
-      font-weight: 700;
-      padding: 2px 10px;
-      border-radius: 30px;
-      margin-left: auto;
-      letter-spacing: 0.3px;
-      white-space: nowrap;
+      display: none !important;
     }
     .yono-tags-container {
       display: flex;
@@ -1460,8 +1453,8 @@
     .yono-custom-tags-wrapper {
       width: 100%;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
       padding: 4px 0;
     }
     .yono-custom-tags-wrapper > * {
@@ -1497,12 +1490,14 @@
     }
     @media (max-width: 480px) {
       .yono-custom-tags-wrapper .yono-tag { font-size: 0.5rem; padding: 5px 12px; }
+      .yono-custom-tags-wrapper { gap: 6px; }
     }
     @media (max-width: 360px) {
       .yono-custom-tags-wrapper .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
     }
     @media (min-width: 769px) {
       .yono-custom-tags-wrapper .yono-tag { font-size: 0.65rem; padding: 7px 18px; }
+      .yono-custom-tags-wrapper { gap: 10px; }
     }
 
     /* ===== NEW FOOTER SCROLL TAGS SECTION - BLACK BACKGROUND ===== */
@@ -1904,14 +1899,14 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="12" y2="12"/></svg>
       </span>
       <span>YONO Games Information</span>
-      <span class="title-badge" id="tagCountBadge">Loading...</span>
+      <!-- Title badge removed completely -->
     </div>
     <div class="yono-tags-container" id="yonoTagsContainer">
       <!-- Custom HTML from yono-games-information.html rendered here -->
     </div>
   </div>
 
-  <!-- ===== NEW FOOTER SCROLL TAGS SECTION - BLACK BACKGROUND (No lines) ===== -->
+  <!-- ===== NEW FOOTER SCROLL TAGS SECTION - BLACK BACKGROUND ===== -->
   <div class="footer-scroll-section">
     <div class="scroll-tags-wrapper">
       <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
@@ -2202,10 +2197,8 @@
     // ---------- Load YONO Games Information from external file (CUSTOM HTML RENDER) ----------
     function loadYonoTags() {
       const container = document.getElementById('yonoTagsContainer');
-      const badge = document.getElementById('tagCountBadge');
       
       container.innerHTML = '';
-      badge.textContent = 'Loading...';
       
       fetch('yono-games-information.html?' + Date.now())
         .then(response => {
@@ -2230,7 +2223,6 @@
           
           if (!bodyContent || bodyContent.length < 2) {
             container.innerHTML = '<span class="yono-tag" style="color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0;">No tags found</span>';
-            badge.textContent = '0 Tags';
             return;
           }
           
@@ -2282,18 +2274,13 @@
           
           if (!hasContent) {
             container.innerHTML = '<span class="yono-tag" style="color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0;">No tags found</span>';
-            badge.textContent = '0 Tags';
             return;
           }
           
           wrapper.appendChild(fragment);
-          const tagElements = wrapper.querySelectorAll('.yono-tag');
-          const count = tagElements.length || 0;
-          badge.textContent = count + ' Tags';
           container.appendChild(wrapper);
         })
         .catch(() => {
-          badge.textContent = '0 Tags';
           container.innerHTML = '<span class="yono-tag" style="color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0;">No tags found</span>';
         });
     }
