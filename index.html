@@ -177,11 +177,7 @@
       display: none !important;
     }
 
-    /* --- MARQUEE --- */
-    .marquee-container { background: #ffffff !important; padding: 6px 0; overflow: hidden; border-bottom: 1px solid #e9edf4; }
-    .marquee-container marquee { color: #0b1e33 !important; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px; text-shadow: none !important; }
-    .marquee-container marquee span { margin: 0 12px; display: inline-block; }
-    .marquee-container marquee .highlight { color: #00bcd4 !important; background: rgba(0,188,212,0.1) !important; padding: 2px 10px; border-radius: 20px; }
+    /* --- MARQUEE REMOVED --- */
 
     /* --- NAV ROW --- */
     .nav-row-small { display: flex; justify-content: space-around; align-items: center; background: #ffffff !important; padding: 4px 6px; border-bottom: 1px solid #e9edf4; gap: 2px; }
@@ -1203,87 +1199,14 @@
     .footer-note {
       padding: 10px 10px 8px 10px;
       text-align: center;
+      color: #94a3b8;
+      font-size: 0.5rem;
       border-top: 1px solid #e9edf4;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 4px;
     }
-
-    /* Bottom Scroll Tags Section */
-    .footer-scroll-tags {
-      width: 100%;
-      padding: 6px 0 4px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-    }
-    .footer-scroll-tags .scroll-lines {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      width: 100%;
-      max-width: 800px;
-    }
-    .footer-scroll-tags .scroll-lines .hline {
-      width: 100%;
-      height: 1.5px;
-      background: #000000;
-      opacity: 0.3;
-    }
-    .footer-scroll-tags .scroll-lines .hline2 {
-      width: 70%;
-      height: 1.5px;
-      background: #000000;
-      opacity: 0.2;
-    }
-    .footer-scroll-tags .tags-scroll-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 4px 8px;
-      padding: 4px 6px;
-      width: 100%;
-      max-width: 1000px;
-    }
-    .footer-scroll-tags .tags-scroll-wrap .st {
-      background: transparent;
-      color: #1e293b;
-      font-size: 0.55rem;
-      font-weight: 500;
-      padding: 2px 10px;
-      border: 1px solid #d1d5db;
-      border-radius: 30px;
-      white-space: nowrap;
-      letter-spacing: 0.1px;
-      background: #f8fafc;
-      display: inline-flex;
-      align-items: center;
-      line-height: 1.3;
-      min-height: 20px;
-      transition: all 0.2s ease;
-    }
-    .footer-scroll-tags .tags-scroll-wrap .st:hover {
-      background: #1e293b;
-      color: #ffffff;
-      border-color: #1e293b;
-    }
-    .footer-scroll-tags .tags-scroll-wrap .st.sep {
-      border: none;
-      background: transparent;
-      color: #94a3b8;
-      padding: 0 2px;
-      font-weight: 300;
-      cursor: default;
-    }
-    .footer-scroll-tags .tags-scroll-wrap .st.sep:hover {
-      background: transparent;
-      color: #94a3b8;
-    }
-
     .footer-note .footer-links {
       display: flex;
       justify-content: center;
@@ -1294,7 +1217,6 @@
       color: #64748b;
       width: 100%;
       flex-wrap: wrap;
-      padding-top: 2px;
     }
     .footer-note .footer-links a {
       color: #64748b;
@@ -1313,16 +1235,10 @@
       color: #94a3b8;
       font-size: 0.5rem;
       letter-spacing: 0.3px;
-      padding-top: 2px;
     }
     @media (max-width: 480px) {
       .footer-note .footer-links { gap: 10px; font-size: 0.45rem; }
       .footer-note .footer-copy { font-size: 0.4rem; }
-      .footer-scroll-tags .tags-scroll-wrap .st { font-size: 0.45rem; padding: 1px 6px; min-height: 16px; }
-      .footer-scroll-tags .tags-scroll-wrap { gap: 2px 4px; }
-    }
-    @media (max-width: 380px) {
-      .footer-scroll-tags .tags-scroll-wrap .st { font-size: 0.4rem; padding: 1px 5px; min-height: 14px; }
     }
 
     /* --- STATIC PAGES --- */
@@ -1480,8 +1396,6 @@
       .card-name .alt { font-size: 0.4rem; }
       .card-bonus { font-size: 0.5rem; }
       .card-withdraw { font-size: 0.45rem; }
-      .marquee-container marquee { font-size: 0.5rem; }
-      .marquee-container marquee span { margin: 0 8px; }
       .card-number { width: 16px; height: 16px; font-size: 0.4rem; top: 2px; left: 2px; }
       .card-img { margin-left: 14px; width: 34px; height: 34px; }
       .game-tag { font-size: 0.45rem; padding: 3px 8px; }
@@ -1590,6 +1504,52 @@
     @media (min-width: 769px) {
       .yono-custom-tags-wrapper .yono-tag { font-size: 0.65rem; padding: 7px 18px; }
     }
+
+    /* ===== NEW FOOTER SCROLL TAGS SECTION ===== */
+    .footer-scroll-section {
+      background: #ffffff;
+      border-top: 1px solid #e9edf4;
+      padding: 6px 0;
+      overflow: hidden;
+    }
+    .footer-scroll-section .black-lines {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      margin-bottom: 4px;
+    }
+    .footer-scroll-section .black-lines .line {
+      width: 80%;
+      max-width: 600px;
+      height: 2px;
+      background: #000000;
+    }
+    .footer-scroll-section marquee {
+      color: #0b1e33 !important;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: none !important;
+      padding: 4px 0;
+    }
+    .footer-scroll-section marquee span {
+      margin: 0 12px;
+      display: inline-block;
+    }
+    .footer-scroll-section marquee .highlight {
+      color: #00bcd4 !important;
+      background: rgba(0,188,212,0.1) !important;
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+    @media (max-width: 480px) {
+      .footer-scroll-section marquee { font-size: 0.5rem; }
+      .footer-scroll-section marquee span { margin: 0 8px; }
+    }
+    @media (max-width: 380px) {
+      .footer-scroll-section marquee { font-size: 0.45rem; }
+    }
   </style>
 </head>
 <body>
@@ -1613,58 +1573,7 @@
     </div>
   </div>
 
-  <!-- MARQUEE -->
-  <div class="marquee-container">
-    <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
-      <span class="highlight">🏆 YONO NEW APP</span>
-      <span>🎰 567 SLOTS | 567 SLOTS Game</span>
-      <span>🎰 SAGA SLOTS | SAGA SLOTS APK</span>
-      <span>🎰 JAIHO 91 | JAIHO 91 Game</span>
-      <span>🃏 RUMMY LUDO | RUMMY LUDO APK</span>
-      <span>🃏 ABC RUMMY | ABC RUMMY Game</span>
-      <span>🃏 RUMMY 91 | RUMMY 91 APK</span>
-      <span>🃏 LOVE RUMMY | LOVE RUMMY Game</span>
-      <span>🎰 SPIN CRUSH | SPIN CRUSH APK</span>
-      <span>🃏 TOP RUMMY | TOP RUMMY Game</span>
-      <span>🃏 RUMMY 365 | RUMMY 365 APK</span>
-      <span>🃏 TEEN PATTI GOLD | TEEN PATTI GOLD Game</span>
-      <span>🃏 TEEN PATTI MASTER | TEEN PATTI MASTER APK</span>
-      <span>🃏 YONO RUMMY | YONO RUMMY Game</span>
-      <span>🎰 SLOTS WINNER | SLOTS WINNER APK</span>
-      <span>🎰 GOOD SLOTS | GOOD SLOTS Game</span>
-      <span>🎰 Diwa Slot | Diwa Slot APK</span>
-      <span>🃏 GOGO RUMMY | GOGO RUMMY Game</span>
-      <span>🃏 JOY RUMMY | JOY RUMMY APK</span>
-      <span>🎰 SPIN GOLD | SPIN GOLD Game</span>
-      <span>🎰 BINGO 101 | BINGO 101 APK</span>
-      <span>🎰 YES SPIN | YES SPIN Game</span>
-      <span>🎰 YONO ARCADE | YONO ARCADE APK</span>
-      <span>🎰 SVIP 777 | SVIP 777 Game</span>
-      <span>🃏 OK RUMMY | OK RUMMY APK</span>
-      <span>🎰 HINDI 777 | HINDI 777 Game</span>
-      <span>🎰 BET 213 | BET 213 APK</span>
-      <span>🃏 BOSS RUMMY | BOSS RUMMY Game</span>
-      <span>🎰 YONO 777 | YONO 777 APK</span>
-      <span>🎰 Diwa VIP | Diwa VIP Game</span>
-      <span>🎰 Diwa 777 | Diwa 777 APK</span>
-      <span>🎰 INR RUMMY | INR RUMMY Game</span>
-      <span>🎰 MBM BET | MBM BET APK</span>
-      <span>🎰 GOA SPIN | GOA SPIN Game</span>
-      <span>🎰 777 GAME | 777 GAME APK</span>
-      <span>🃏 TEEN PATTI | TEEN PATTI Game</span>
-      <span>🎰 SPIN WINNER | SPIN WINNER APK</span>
-      <span>🎰 YONO All GAMES | YONO All GAMES Game</span>
-      <span>🎰 SPIN LUCKY | SPIN LUCKY APK</span>
-      <span>🎰 MAX RUMMY | RANI SLOTS | 1GO PLUS | RUMMY ULTRA</span>
-      <span>🎰 789 JACKPOTS | JAIHO WIN | SLOTS SPIN | NETA VIP</span>
-      <span>🎰 JAIHO 777 VIP | DHAN GAME | DIWA GAME | BET 54 GAMES</span>
-      <span>🎰 ALL YONO APPS | T989 APPS | 765 CLUB | MKM BET APK</span>
-      <span>🎰 YN 777 | SPIN 777 | RUMMY 888 | RUMMY 77 | MQM BET</span>
-      <span>🎰 MAHA GAMES | IND RUMMY | Hi RUMMY | INR RUMMY | JAIHO SPIN</span>
-      <span>🎰 JAIHO RUMMY | YONO SLOTS | Diwa Win | RUMBLE RUMMY | YONO VIP</span>
-      <span class="highlight">🔥 77+ Yono Games Download Now!</span>
-    </marquee>
-  </div>
+  <!-- MARQUEE REMOVED -->
 
   <!-- NAV ROW with premium SVG icons -->
   <div class="nav-row-small">
@@ -2005,19 +1914,65 @@
     </div>
   </div>
 
-  <!-- ===== FOOTER WITH BOTTOM SCROLL TAGS + About | Contact | Disclaimer ===== -->
-  <div class="footer-note">
-    <!-- Bottom Scroll Tags with 2 black lines above -->
-    <div class="footer-scroll-tags">
-      <div class="scroll-lines">
-        <div class="hline"></div>
-        <div class="hline2"></div>
-      </div>
-      <div class="tags-scroll-wrap" id="footerTagsWrap">
-        <!-- Tags will be injected by JS from original app names -->
-      </div>
+  <!-- ===== NEW FOOTER SCROLL TAGS SECTION (added below app list) ===== -->
+  <div class="footer-scroll-section">
+    <div class="black-lines">
+      <div class="line"></div>
+      <div class="line"></div>
     </div>
+    <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
+      <span class="highlight">🏆 YONO NEW APP</span>
+      <span>🎰 567 SLOTS | 567 SLOTS Game</span>
+      <span>🎰 SAGA SLOTS | SAGA SLOTS APK</span>
+      <span>🎰 JAIHO 91 | JAIHO 91 Game</span>
+      <span>🃏 RUMMY LUDO | RUMMY LUDO APK</span>
+      <span>🃏 ABC RUMMY | ABC RUMMY Game</span>
+      <span>🃏 RUMMY 91 | RUMMY 91 APK</span>
+      <span>🃏 LOVE RUMMY | LOVE RUMMY Game</span>
+      <span>🎰 SPIN CRUSH | SPIN CRUSH APK</span>
+      <span>🃏 TOP RUMMY | TOP RUMMY Game</span>
+      <span>🃏 RUMMY 365 | RUMMY 365 APK</span>
+      <span>🃏 TEEN PATTI GOLD | TEEN PATTI GOLD Game</span>
+      <span>🃏 TEEN PATTI MASTER | TEEN PATTI MASTER APK</span>
+      <span>🃏 YONO RUMMY | YONO RUMMY Game</span>
+      <span>🎰 SLOTS WINNER | SLOTS WINNER APK</span>
+      <span>🎰 GOOD SLOTS | GOOD SLOTS Game</span>
+      <span>🎰 Diwa Slot | Diwa Slot APK</span>
+      <span>🃏 GOGO RUMMY | GOGO RUMMY Game</span>
+      <span>🃏 JOY RUMMY | JOY RUMMY APK</span>
+      <span>🎰 SPIN GOLD | SPIN GOLD Game</span>
+      <span>🎰 BINGO 101 | BINGO 101 APK</span>
+      <span>🎰 YES SPIN | YES SPIN Game</span>
+      <span>🎰 YONO ARCADE | YONO ARCADE APK</span>
+      <span>🎰 SVIP 777 | SVIP 777 Game</span>
+      <span>🃏 OK RUMMY | OK RUMMY APK</span>
+      <span>🎰 HINDI 777 | HINDI 777 Game</span>
+      <span>🎰 BET 213 | BET 213 APK</span>
+      <span>🃏 BOSS RUMMY | BOSS RUMMY Game</span>
+      <span>🎰 YONO 777 | YONO 777 APK</span>
+      <span>🎰 Diwa VIP | Diwa VIP Game</span>
+      <span>🎰 Diwa 777 | Diwa 777 APK</span>
+      <span>🎰 INR RUMMY | INR RUMMY Game</span>
+      <span>🎰 MBM BET | MBM BET APK</span>
+      <span>🎰 GOA SPIN | GOA SPIN Game</span>
+      <span>🎰 777 GAME | 777 GAME APK</span>
+      <span>🃏 TEEN PATTI | TEEN PATTI Game</span>
+      <span>🎰 SPIN WINNER | SPIN WINNER APK</span>
+      <span>🎰 YONO All GAMES | YONO All GAMES Game</span>
+      <span>🎰 SPIN LUCKY | SPIN LUCKY APK</span>
+      <span>🎰 MAX RUMMY | RANI SLOTS | 1GO PLUS | RUMMY ULTRA</span>
+      <span>🎰 789 JACKPOTS | JAIHO WIN | SLOTS SPIN | NETA VIP</span>
+      <span>🎰 JAIHO 777 VIP | DHAN GAME | DIWA GAME | BET 54 GAMES</span>
+      <span>🎰 ALL YONO APPS | T989 APPS | 765 CLUB | MKM BET APK</span>
+      <span>🎰 YN 777 | SPIN 777 | RUMMY 888 | RUMMY 77 | MQM BET</span>
+      <span>🎰 MAHA GAMES | IND RUMMY | Hi RUMMY | INR RUMMY | JAIHO SPIN</span>
+      <span>🎰 JAIHO RUMMY | YONO SLOTS | Diwa Win | RUMBLE RUMMY | YONO VIP</span>
+      <span class="highlight">🔥 77+ Yono Games Download Now!</span>
+    </marquee>
+  </div>
 
+  <!-- ===== FOOTER WITH About | Contact | Disclaimer ===== -->
+  <div class="footer-note">
     <div class="footer-links">
       <a class="footer-nav-link" data-page="about">About</a>
       <span class="sep">|</span>
@@ -2192,7 +2147,7 @@
       "GOOD SLOTS", "BINGO 101", "YONO RUMMY"
     ];
 
-    // Inject tags into greenbox from exact list - fixed order, no shuffle (TOP section removed)
+    // Inject tags into greenbox from exact list - fixed order, no shuffle
     function populateGreenboxTags() {
       const wrap = document.getElementById('greenboxTags');
       wrap.innerHTML = '';
@@ -2205,27 +2160,6 @@
       });
     }
     populateGreenboxTags();
-
-    // Inject tags into footer scroll tags section (same tags, same model)
-    function populateFooterTags() {
-      const wrap = document.getElementById('footerTagsWrap');
-      wrap.innerHTML = '';
-      // Use the exact list in the exact order provided
-      originalTags.forEach((name, index) => {
-        const tag = document.createElement('span');
-        tag.className = 'st';
-        tag.textContent = name;
-        wrap.appendChild(tag);
-        // Add separator pipe between tags except last
-        if (index < originalTags.length - 1) {
-          const sep = document.createElement('span');
-          sep.className = 'st sep';
-          sep.textContent = '|';
-          wrap.appendChild(sep);
-        }
-      });
-    }
-    populateFooterTags();
 
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
