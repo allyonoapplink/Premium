@@ -199,7 +199,7 @@
       .telegram-btn { width: 42px; height: 42px; }
     }
 
-    /* ===== PREMIUM SHARE SVG BUTTON - FIXED POSITION WITH COLOR ANIMATION ===== */
+    /* ===== PREMIUM SHARE SVG BUTTON - UNTOUCHED ===== */
     .share-btn {
       display: inline-flex;
       align-items: center;
@@ -302,7 +302,7 @@
 
     /* --- MARQUEE REMOVED --- */
 
-    /* --- NAV ROW - PREMIUM SVG ICONS --- */
+    /* --- NAV ROW - PREMIUM SVG ICONS WITH DISTINCT FIXED COLORS --- */
     .nav-row-small { display: flex; justify-content: space-around; align-items: center; background: #ffffff !important; padding: 4px 6px; border-bottom: 1px solid #e9edf4; gap: 2px; }
     .nav-small {
       font-size: 0.5rem;
@@ -326,26 +326,39 @@
       border-color: #1e293b;
     }
     .nav-small.active svg {
-      stroke: white;
+      stroke: white !important;
     }
-    /* Premium SVG Icons - Clean Sharp HD */
+    .nav-small.active .nav-icon-home { stroke: white !important; }
+    .nav-small.active .nav-icon-about { stroke: white !important; }
+    .nav-small.active .nav-icon-contact { stroke: white !important; }
+    .nav-small.active .nav-icon-disclaimer { stroke: white !important; }
+    /* Premium SVG Icons - Each with distinct fixed color */
     .nav-small svg {
       width: 18px;
       height: 18px;
       flex-shrink: 0;
-      stroke: #1e293b;
       fill: none;
       stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
       transition: stroke 0.3s ease;
     }
-    .nav-small:not(.active):hover svg {
-      stroke: #2563eb;
-    }
+    /* Home - Premium Blue */
+    .nav-icon-home { stroke: #2563eb; }
+    /* About - Premium Emerald Green */
+    .nav-icon-about { stroke: #059669; }
+    /* Contact - Premium Purple */
+    .nav-icon-contact { stroke: #7c3aed; }
+    /* Disclaimer - Premium Amber/Orange */
+    .nav-icon-disclaimer { stroke: #d97706; }
+    /* Hover states - subtle color shift */
+    .nav-small:not(.active):hover .nav-icon-home { stroke: #3b82f6; }
+    .nav-small:not(.active):hover .nav-icon-about { stroke: #10b981; }
+    .nav-small:not(.active):hover .nav-icon-contact { stroke: #8b5cf6; }
+    .nav-small:not(.active):hover .nav-icon-disclaimer { stroke: #f59e0b; }
     .nav-small:not(.active):hover {
-      border-color: #2563eb;
-      background: rgba(37, 99, 235, 0.05);
+      border-color: #94a3b8;
+      background: rgba(0, 0, 0, 0.03);
     }
     @media (max-width: 420px) {
       .nav-small { font-size: 0.4rem; padding: 2px 6px; gap: 2px; }
@@ -1836,7 +1849,7 @@
           <path d="M17.5 7.5L12.5 10.5L15.5 13.5" class="telegram-icon-plane" fill="none" stroke="#ffffff" stroke-width="1.5"/>
         </svg>
       </a>
-      <!-- Premium Share SVG Button - Fixed Position with Color Animation -->
+      <!-- Premium Share SVG Button - UNTOUCHED -->
       <button class="share-btn" id="shareBtn">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="18" cy="5" r="3" class="share-circle" stroke="currentColor"/>
@@ -1852,18 +1865,18 @@
 
   <!-- MARQUEE REMOVED -->
 
-  <!-- NAV ROW - PREMIUM SVG ICONS -->
+  <!-- NAV ROW - PREMIUM SVG ICONS WITH DISTINCT FIXED COLORS -->
   <div class="nav-row-small">
     <span class="nav-small active" id="homeNav">
-      <!-- Premium Home Icon -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Home - Premium Blue -->
+      <svg class="nav-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
       </svg>
       Home
     </span>
     <span class="nav-small" id="aboutNav">
-      <!-- Premium About/Info Icon -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- About - Premium Emerald Green -->
+      <svg class="nav-icon-about" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"/>
         <line x1="12" y1="16" x2="12" y2="12"/>
         <line x1="12" y1="8" x2="12.01" y2="8"/>
@@ -1871,16 +1884,16 @@
       About
     </span>
     <span class="nav-small" id="contactNav">
-      <!-- Premium Contact/Mail Icon -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Contact - Premium Purple -->
+      <svg class="nav-icon-contact" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2"/>
         <path d="M22 7l-8.97 5.7a2 2 0 01-2.06 0L2 7"/>
       </svg>
       Contact
     </span>
     <span class="nav-small" id="disclaimerNav">
-      <!-- Premium Disclaimer/Info Icon -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Disclaimer - Premium Amber/Orange -->
+      <svg class="nav-icon-disclaimer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"/>
         <line x1="12" y1="8" x2="12" y2="12"/>
         <line x1="12" y1="16" x2="12.01" y2="16"/>
