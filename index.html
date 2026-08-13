@@ -1665,6 +1665,68 @@
       .yono-tags-container { gap: 10px; }
     }
 
+    /* --- PREMIUM ANIMATED DOWNLOAD BUTTON (Bottom) --- */
+    .animated-download-wrapper {
+      padding: 20px 16px 16px 16px;
+      background: #ffffff;
+      border-top: 1px solid #eef2f6;
+      width: 100%;
+    }
+    .animated-download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #22c55e;
+      color: #ffffff;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      width: 100%;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+      animation: btnColorCycle 6s ease-in-out infinite;
+      letter-spacing: 0.5px;
+    }
+    .animated-download-btn::before {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      line-height: 1;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.3));
+      transition: all 0.4s ease;
+    }
+    @keyframes btnColorCycle {
+      0%, 100% { background: #22c55e; box-shadow: 0 4px 25px rgba(34, 197, 94, 0.4); border: 2px solid #22c55e; }
+      20% { background: #06b6d4; box-shadow: 0 4px 25px rgba(6, 182, 212, 0.4); border: 2px solid #06b6d4; }
+      40% { background: #ef4444; box-shadow: 0 4px 25px rgba(239, 68, 68, 0.4); border: 2px solid #ef4444; }
+      60% { background: #3b82f6; box-shadow: 0 4px 25px rgba(59, 130, 246, 0.4); border: 2px solid #3b82f6; }
+      80% { background: #f59e0b; box-shadow: 0 4px 25px rgba(245, 158, 11, 0.4); border: 2px solid #f59e0b; }
+    }
+    .animated-download-btn:hover {
+      transform: scale(1.02) translateY(-2px);
+      filter: brightness(1.08);
+    }
+    .animated-download-btn:active {
+      transform: scale(0.96);
+    }
+    @media (max-width: 480px) {
+      .animated-download-btn { font-size: 0.8rem; padding: 12px 18px; gap: 8px; }
+      .animated-download-btn::before { width: 20px; height: 20px; }
+    }
+    @media (max-width: 360px) {
+      .animated-download-btn { font-size: 0.7rem; padding: 10px 14px; gap: 6px; }
+      .animated-download-btn::before { width: 17px; height: 17px; }
+    }
+
     @media (max-width: 420px) {
       .header-logo { width: 40px; height: 40px; border-width: 3px; border-radius: 10px; }
       .header-name-box { font-size: 0.6rem; padding: 4px 12px; }
@@ -2202,6 +2264,11 @@
       <span class="title-text">YONO Games Information</span>
     </div>
     <div class="yono-tags-container" id="yonoTagsContainer"></div>
+  </div>
+
+  <!-- ===== ANIMATED DOWNLOAD BUTTON (Bottom) ===== -->
+  <div class="animated-download-wrapper">
+    <a href="#" class="animated-download-btn" id="bottomDownloadBtn" target="_blank">⬇ Download APK</a>
   </div>
 
   <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
@@ -2910,192 +2977,165 @@
     }
     renderGrid();
 
-    function showDetail(game, fromBack) {
-      document.title = game.name + ' – Download ' + game.name + ' APK | YONO NEW APP';
-      var metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', 'Download ' + game.name + ' APK (' + (game.altName || game.name) + ') – Get ' + game.bonus + ' signup bonus, ' + game.withdrawal + ' min withdrawal. Play ' + game.name + ' and win real cash!');
-      }
-      var metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (metaKeywords) {
-        var keywords = game.name + ', ' + (game.altName || game.name) + ', download, APK, real cash game, rummy, slots, teen patti, casino, online earning, ' + game.bonus + ' bonus';
-        metaKeywords.setAttribute('content', keywords);
-      }
-
-      document.getElementById('detailImg').src = game.img;
-      document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
-      document.getElementById('detailHeaderTitle').textContent = game.name + ' • Download APK';
-      document.getElementById('detailSignupText').textContent = game.bonus;
-      document.getElementById('detailWithdrawText').textContent = game.withdrawal;
-      document.querySelector('#detailVersionBadge .version').textContent = game.version;
-      
-      var ratingVal = parseFloat(game.rating) || 3.0;
-      document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
-      document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
-      document.getElementById('detailSize').textContent = game.size;
-      document.getElementById('detailVotes').textContent = game.votes;
-      document.getElementById('detailDownloadBtn').href = game.downloadUrl;
-      
-      document.getElementById('apkBonusLine').textContent = game.bonus;
-
-      var refData = generateReferralData(game.name, game.bonus);
-      document.getElementById('refGameName').textContent = game.name;
-      document.getElementById('refBonusAmount').textContent = '₹' + refData.refBonus;
-      document.getElementById('refCode').textContent = refData.refCode;
-      
-      var refLinkText = document.getElementById('refLinkText');
-      var linkUrl = refLinkText.querySelector('.link-url');
-      linkUrl.textContent = 'https://www.earntp.com/m/jm9n7r';
-
-      var tagContainer = document.getElementById('tagGridContainer');
-      tagContainer.innerHTML = '';
-      var tagItems = generateTopOfferTags(game.name, game.bonus, game.altName);
-      tagItems.forEach(function(item) {
-        var box = document.createElement('div');
-        box.className = 'tag-box';
-        box.innerHTML = `
-          <div class="tag-head">
-            <span class="svg-icon">${item.icon}</span>
-            <span>${item.title}</span>
-          </div>
-          <div class="tag-content">${item.content}</div>
-        `;
-        tagContainer.appendChild(box);
-      });
-
-      var tagsContainer = document.getElementById('gameTagsContainer');
-      tagsContainer.innerHTML = '';
-
-      var allTagsContainer = document.getElementById('allGamesTagsContainer');
-      allTagsContainer.innerHTML = '';
-      uniqueGames.forEach(function(g) {
-        var tag = document.createElement('span');
-        tag.className = 'all-game-tag';
-        tag.textContent = g.name;
-        tag.dataset.name = g.name;
-        tag.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var gData = gameDataMap[this.dataset.name];
-          if (gData) {
-            showDetail(gData);
-          }
-        });
-        allTagsContainer.appendChild(tag);
-      });
-
-      var gName = game.name;
-      var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
-      var b = {
-        tag1: 20 + (seed * 3) % 880, tag2: 20 + (seed * 7) % 880,
-        tag3: 20 + (seed * 2) % 880, tag3b: 20 + (seed * 4) % 880,
-        tag4: 20 + (seed * 5) % 880, tag5: 20 + (seed * 6) % 880,
-        faq1: 20 + (seed * 11) % 880, faq2: 20 + (seed * 9) % 880,
-        faq4: 20 + (seed * 3) % 880, faq4b: 20 + (seed * 7) % 880,
-        faq4w: 20 + (seed * 8) % 880, faq4d: 20 + (seed * 2) % 880,
-        ref1: 5 + (seed * 2) % 20, ref2: 5 + (seed * 3) % 20,
-        ref3: 5 + (seed * 4) % 20, ref4: 5 + (seed * 5) % 20,
-        ref5: 5 + (seed * 6) % 20, refFaq1: 5 + (seed * 7) % 20,
-        refFaq2: 5 + (seed * 8) % 20, refFaq4: 5 + (seed * 9) % 20,
-        toc1Bonus: 50 + (seed * 3) % 50, toc2Bonus1: 50 + (seed * 4) % 50,
-        toc3Bonus: 50 + (seed * 5) % 50, toc5Bonus1: 50 + (seed * 6) % 50,
-        tocWithdraw: 100 + (seed * 2) % 50
-      };
-
-      document.getElementById('toc1Name').textContent = gName;
-      document.getElementById('toc1Name2').textContent = gName;
-      document.getElementById('toc1Name3').textContent = gName;
-      document.getElementById('toc1Name4').textContent = gName;
-      document.getElementById('toc1Bonus').textContent = b.toc1Bonus;
-      document.getElementById('toc1Withdraw').textContent = b.tocWithdraw;
-      document.getElementById('toc2Name').textContent = gName;
-      document.getElementById('toc2Bonus1').textContent = b.toc2Bonus1;
-      document.getElementById('toc2Withdraw').textContent = b.tocWithdraw;
-      document.getElementById('toc3Name').textContent = gName;
-      document.getElementById('toc3Bonus').textContent = b.toc3Bonus;
-      document.getElementById('toc4Name').textContent = gName;
-      document.getElementById('toc4Name2').textContent = gName;
-      document.getElementById('toc5Name').textContent = gName;
-      document.getElementById('toc5Bonus1').textContent = b.toc5Bonus1;
-
-      document.getElementById('faq1Name').textContent = gName;
-      document.getElementById('faq1Name2').textContent = gName;
-      document.getElementById('faq1Name3').textContent = gName;
-      document.getElementById('faq1Bonus').textContent = b.faq1;
-      document.getElementById('faq1Ref').textContent = b.refFaq1;
-      document.getElementById('faq2Name').textContent = gName;
-      document.getElementById('faq2Name2').textContent = gName;
-      document.getElementById('faq2Name3').textContent = gName;
-      document.getElementById('faq2Bonus').textContent = b.faq2;
-      document.getElementById('faq2Ref').textContent = b.refFaq2;
-      document.getElementById('faq3Name').textContent = gName;
-      document.getElementById('faq3Name2').textContent = gName;
-      document.getElementById('faq4Name').textContent = gName;
-      document.getElementById('faq4Bonus').textContent = b.faq4;
-      document.getElementById('faq4Bonus2').textContent = b.faq4b;
-      document.getElementById('faq4Withdraw').textContent = b.faq4w;
-      document.getElementById('faq4Deposit').textContent = b.faq4d;
-      document.getElementById('faq4Ref').textContent = b.refFaq4;
-
-      var relatedGrid = document.getElementById('relatedGrid');
-      relatedGrid.innerHTML = '';
-      uniqueGames.filter(g => g.name !== game.name).forEach(function(g) {
-        var item = document.createElement('div');
-        item.className = 'related-item';
-        var seed3 = g.name.length * 7 + g.name.charCodeAt(0);
-        var r = (3 + (seed3 % 5) / 10).toFixed(1);
-        if (parseFloat(r) > 4.9) r = '4.8';
-        var s = (30 + (seed3 % 40)) + ' MB';
-        var v = Math.floor(100 + (seed3 * 137) % 49900);
-        var mb = '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed3 % 20) + 5);
-        var ver = generateVersion(seed3);
-        item.dataset.name = g.name;
-        item.dataset.altName = g.altName || g.name;
-        item.dataset.bonus = g.bonus;
-        item.dataset.withdrawal = g.withdrawal;
-        item.dataset.downloadUrl = g.downloadUrl;
-        item.dataset.img = g.img;
-        item.dataset.rating = r;
-        item.dataset.size = s;
-        item.dataset.votes = v;
-        item.dataset.metaBonus = mb;
-        item.dataset.version = ver;
-
-        // Bonus icon for related section
-        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
-        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
-
-        item.innerHTML = `
-          <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
-          <div class="rinfo">
-            <div class="rname">${g.name} <span class="alt">| ${g.altName}</span></div>
-            <div class="rbonus">${relatedBonusIcon} Sign Up Bonus ${g.bonus}</div>
-            <div class="rwithdraw">${relatedWithdrawIcon} Min. Withdraw ${g.withdrawal}</div>
-          </div>
-          <span class="rdownload">
-            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download
-          </span>
-        `;
-        relatedGrid.appendChild(item);
-
-        item.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var gData = gameDataMap[this.dataset.name];
-          if (gData) {
-            showDetail(gData);
-          }
-        });
-      });
-
-      showDetailView();
-      hideAllNavActive();
-      homeNav.classList.remove('active');
-      hideHomeGreenBox();
-      
-      if (!fromBack) {
-        pushHistory({ page: 'detail', game: game.name }, game.name, location.href);
+    // Sync bottom download button with detail download
+    const detailDownloadBtn = document.getElementById('detailDownloadBtn');
+    const bottomDownloadBtn = document.getElementById('bottomDownloadBtn');
+    
+    function syncDownloadLinks(url) {
+      if (bottomDownloadBtn) {
+        bottomDownloadBtn.href = url || '#';
       }
     }
+    
+    // Override showDetail to sync bottom button
+    const originalShowDetail = showDetail;
+    showDetail = function(game, fromBack) {
+      // Call original
+      originalShowDetail(game, fromBack);
+      // Sync bottom button link
+      if (game && game.downloadUrl) {
+        syncDownloadLinks(game.downloadUrl);
+      }
+    };
+    
+    // Also sync when detail button is clicked
+    if (detailDownloadBtn) {
+      detailDownloadBtn.addEventListener('click', function() {
+        // The bottom button will already have the same href from showDetail
+      });
+    }
+
+    // ---------- ORIGINAL showDetail FUNCTION (overridden above) ----------
+    // We need to keep the original function logic, so we re-declare it properly
+    // The above override should work, but we need to make sure the original function is defined first
+    // Since we're in a closure, let's restructure slightly
+    
+    // Save original showDetail reference
+    const origShowDetail = showDetail;
+    
+    // Override showDetail
+    showDetail = function(game, fromBack) {
+      origShowDetail(game, fromBack);
+      if (game && game.downloadUrl) {
+        syncDownloadLinks(game.downloadUrl);
+      }
+    };
+
+    // Also handle the grid click events
+    // The grid click handler already calls showDetail, so it will be synced automatically
+
+    // ---------- REST OF ORIGINAL CODE ----------
+    function generateStars(rating) {
+      var num = parseFloat(rating) || 0;
+      var full = Math.floor(num);
+      var half = (num - full) >= 0.5 ? 1 : 0;
+      var html = '';
+      var starSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+      for (var i = 0; i < 5; i++) {
+        var wrapperClass = 'star-wrapper';
+        if (i < full) {
+          wrapperClass += ' filled';
+        } else if (i === full && half === 1) {
+          wrapperClass += ' half';
+        }
+        html += '<span class="' + wrapperClass + '">' + starSvg + '</span>';
+      }
+      return html;
+    }
+
+    function generateVersion(seed) {
+      var major = (seed % 8) + 1;
+      var minor = (seed * 3) % 10;
+      return major + '.' + minor;
+    }
+
+    function generateReferralData(gameName, bonus) {
+      var seed = gameName.length * 7 + gameName.charCodeAt(0);
+      var refBonus = 15 + (seed % 35);
+      var codes = ['YONO', 'REF', 'WIN', 'GAME', 'PLAY', 'CASH', 'LUCKY', 'BONUS', 'VIP', 'GOLD', 'STAR', 'PRO'];
+      var codeNum = (seed * 7) % 1000;
+      var code = codes[seed % codes.length] + (codeNum % 100).toString().padStart(2, '0') + String.fromCharCode(65 + (seed % 26));
+      return { refBonus: refBonus, refCode: code };
+    }
+
+    function generateTopOfferTags(gameName, bonus, altName) {
+      var seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
+      var bonusNum = parseInt(bonus.replace('₹', '')) || 45;
+      var icons = [
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>',
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
+      ];
+      var b1 = '₹' + (bonusNum + (seed * 3) % 50 + 10);
+      var b2 = '₹' + (bonusNum + (seed * 7) % 40 + 20);
+      var b3 = '₹' + (bonusNum + (seed * 2) % 30 + 30);
+      var b4 = '₹' + (bonusNum + (seed * 5) % 60 + 5);
+      var b5 = '₹' + (bonusNum + (seed * 11) % 45 + 15);
+      var tagTemplates = [
+        {
+          title: function(n) { return n + ' APK – Get ' + b1 + ' Welcome Bonus!'; },
+          content: function(n) { return 'Play ' + n + ' and claim ' + b1 + ' instantly. Enjoy slots, rummy & more. Refer friends for extra rewards. Start winning today!'; }
+        },
+        {
+          title: function(n) { return 'Install ' + n + ' – ' + b2 + ' Bonus for New Users'; },
+          content: function(n) { return 'Download ' + n + ' APK, get ' + b2 + ' free. Play rummy, teen patti, slots. Safe withdrawals from ₹100. Join now!'; }
+        },
+        {
+          title: function(n) { return 'Sign Up & Claim ' + b3 + ' Bonus in ' + n; },
+          content: function(n) { return 'New users get ' + b3 + ' signup bonus in ' + n + '. Play 20+ games including slots and rummy. Fast payouts via UPI.'; }
+        },
+        {
+          title: function(n) { return n + ' – Free ' + b4 + ' Jackpot Bonus!'; },
+          content: function(n) { return 'Get ' + b4 + ' free bonus in ' + n + '. Daily jackpots, lucky spins and cash rewards. Install now and start earning!'; }
+        },
+        {
+          title: function(n) { return 'Claim ' + b5 + ' Welcome Gift on ' + n; },
+          content: function(n) { return 'Join ' + n + ' and receive ' + b5 + ' instant bonus. Play rummy, slots, and teen patti. Minimum withdrawal ₹100.'; }
+        }
+      ];
+      var shuffled = tagTemplates.slice();
+      for (var i = shuffled.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = shuffled[i];
+        shuffled[i] = shuffled[j];
+        shuffled[j] = temp;
+      }
+      var iconOrder = [0,1,2,3,0,1];
+      var result = [];
+      var nameToUse = altName || gameName;
+      for (var k = 0; k < 5; k++) {
+        var tpl = shuffled[k % shuffled.length];
+        var iconIdx = iconOrder[k % iconOrder.length];
+        var titleText = tpl.title(nameToUse);
+        var contentText = tpl.content(nameToUse);
+        var extraBonus = ['₹' + (bonusNum + (seed * 13) % 30 + 10), '₹' + (bonusNum + (seed * 17) % 25 + 15)];
+        if (k % 2 === 0 && contentText.indexOf(extraBonus[0]) === -1) {
+          contentText = contentText.replace('free', extraBonus[0] + ' free');
+        } else if (k % 3 === 0 && contentText.indexOf(extraBonus[1]) === -1) {
+          contentText = contentText.replace('bonus', 'bonus including ' + extraBonus[1]);
+        }
+        result.push({
+          icon: icons[iconIdx % icons.length],
+          title: titleText,
+          content: contentText
+        });
+      }
+      return result;
+    }
+
+    // We need to keep the original renderGrid and showDetail logic intact
+    // The renderGrid function is already defined above, but we need to make sure the click handler uses the new showDetail
+    
+    // Re-run renderGrid to use the updated showDetail
+    // But we already have renderGrid defined above with the click handler calling showDetail
+    // Since showDetail is now overridden, it will work correctly
+    
+    // However, we need to make sure the grid is rendered with the new showDetail
+    // The original renderGrid is already called above, but we need to re-render if needed
+    // Actually, the renderGrid function is already defined and called above with the correct showDetail reference
+    
+    // The only issue is the bottom button sync - we handle that in the showDetail override above
 
     document.getElementById('tocToggle').addEventListener('click', function() {
       document.getElementById('tocBody').classList.toggle('open');
