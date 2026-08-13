@@ -1525,6 +1525,12 @@
       height: 2px;
       background: #000000;
     }
+    .footer-scroll-section .scroll-tags-wrapper {
+      overflow: hidden;
+      width: 100%;
+      padding: 0 4px;
+      box-sizing: border-box;
+    }
     .footer-scroll-section marquee {
       color: #0b1e33 !important;
       font-size: 0.65rem;
@@ -1532,6 +1538,8 @@
       letter-spacing: 0.5px;
       text-shadow: none !important;
       padding: 4px 0;
+      display: block;
+      width: 100%;
     }
     .footer-scroll-section marquee span {
       margin: 0 12px;
@@ -1546,6 +1554,7 @@
     @media (max-width: 480px) {
       .footer-scroll-section marquee { font-size: 0.5rem; }
       .footer-scroll-section marquee span { margin: 0 8px; }
+      .footer-scroll-section .black-lines .line { width: 90%; }
     }
     @media (max-width: 380px) {
       .footer-scroll-section marquee { font-size: 0.45rem; }
@@ -1920,55 +1929,57 @@
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
-      <span class="highlight">🏆 YONO NEW APP</span>
-      <span>🎰 567 SLOTS | 567 SLOTS Game</span>
-      <span>🎰 SAGA SLOTS | SAGA SLOTS APK</span>
-      <span>🎰 JAIHO 91 | JAIHO 91 Game</span>
-      <span>🃏 RUMMY LUDO | RUMMY LUDO APK</span>
-      <span>🃏 ABC RUMMY | ABC RUMMY Game</span>
-      <span>🃏 RUMMY 91 | RUMMY 91 APK</span>
-      <span>🃏 LOVE RUMMY | LOVE RUMMY Game</span>
-      <span>🎰 SPIN CRUSH | SPIN CRUSH APK</span>
-      <span>🃏 TOP RUMMY | TOP RUMMY Game</span>
-      <span>🃏 RUMMY 365 | RUMMY 365 APK</span>
-      <span>🃏 TEEN PATTI GOLD | TEEN PATTI GOLD Game</span>
-      <span>🃏 TEEN PATTI MASTER | TEEN PATTI MASTER APK</span>
-      <span>🃏 YONO RUMMY | YONO RUMMY Game</span>
-      <span>🎰 SLOTS WINNER | SLOTS WINNER APK</span>
-      <span>🎰 GOOD SLOTS | GOOD SLOTS Game</span>
-      <span>🎰 Diwa Slot | Diwa Slot APK</span>
-      <span>🃏 GOGO RUMMY | GOGO RUMMY Game</span>
-      <span>🃏 JOY RUMMY | JOY RUMMY APK</span>
-      <span>🎰 SPIN GOLD | SPIN GOLD Game</span>
-      <span>🎰 BINGO 101 | BINGO 101 APK</span>
-      <span>🎰 YES SPIN | YES SPIN Game</span>
-      <span>🎰 YONO ARCADE | YONO ARCADE APK</span>
-      <span>🎰 SVIP 777 | SVIP 777 Game</span>
-      <span>🃏 OK RUMMY | OK RUMMY APK</span>
-      <span>🎰 HINDI 777 | HINDI 777 Game</span>
-      <span>🎰 BET 213 | BET 213 APK</span>
-      <span>🃏 BOSS RUMMY | BOSS RUMMY Game</span>
-      <span>🎰 YONO 777 | YONO 777 APK</span>
-      <span>🎰 Diwa VIP | Diwa VIP Game</span>
-      <span>🎰 Diwa 777 | Diwa 777 APK</span>
-      <span>🎰 INR RUMMY | INR RUMMY Game</span>
-      <span>🎰 MBM BET | MBM BET APK</span>
-      <span>🎰 GOA SPIN | GOA SPIN Game</span>
-      <span>🎰 777 GAME | 777 GAME APK</span>
-      <span>🃏 TEEN PATTI | TEEN PATTI Game</span>
-      <span>🎰 SPIN WINNER | SPIN WINNER APK</span>
-      <span>🎰 YONO All GAMES | YONO All GAMES Game</span>
-      <span>🎰 SPIN LUCKY | SPIN LUCKY APK</span>
-      <span>🎰 MAX RUMMY | RANI SLOTS | 1GO PLUS | RUMMY ULTRA</span>
-      <span>🎰 789 JACKPOTS | JAIHO WIN | SLOTS SPIN | NETA VIP</span>
-      <span>🎰 JAIHO 777 VIP | DHAN GAME | DIWA GAME | BET 54 GAMES</span>
-      <span>🎰 ALL YONO APPS | T989 APPS | 765 CLUB | MKM BET APK</span>
-      <span>🎰 YN 777 | SPIN 777 | RUMMY 888 | RUMMY 77 | MQM BET</span>
-      <span>🎰 MAHA GAMES | IND RUMMY | Hi RUMMY | INR RUMMY | JAIHO SPIN</span>
-      <span>🎰 JAIHO RUMMY | YONO SLOTS | Diwa Win | RUMBLE RUMMY | YONO VIP</span>
-      <span class="highlight">🔥 77+ Yono Games Download Now!</span>
-    </marquee>
+    <div class="scroll-tags-wrapper">
+      <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
+        <span class="highlight">🏆 YONO NEW APP</span>
+        <span>🎰 567 SLOTS | 567 SLOTS Game</span>
+        <span>🎰 SAGA SLOTS | SAGA SLOTS APK</span>
+        <span>🎰 JAIHO 91 | JAIHO 91 Game</span>
+        <span>🃏 RUMMY LUDO | RUMMY LUDO APK</span>
+        <span>🃏 ABC RUMMY | ABC RUMMY Game</span>
+        <span>🃏 RUMMY 91 | RUMMY 91 APK</span>
+        <span>🃏 LOVE RUMMY | LOVE RUMMY Game</span>
+        <span>🎰 SPIN CRUSH | SPIN CRUSH APK</span>
+        <span>🃏 TOP RUMMY | TOP RUMMY Game</span>
+        <span>🃏 RUMMY 365 | RUMMY 365 APK</span>
+        <span>🃏 TEEN PATTI GOLD | TEEN PATTI GOLD Game</span>
+        <span>🃏 TEEN PATTI MASTER | TEEN PATTI MASTER APK</span>
+        <span>🃏 YONO RUMMY | YONO RUMMY Game</span>
+        <span>🎰 SLOTS WINNER | SLOTS WINNER APK</span>
+        <span>🎰 GOOD SLOTS | GOOD SLOTS Game</span>
+        <span>🎰 Diwa Slot | Diwa Slot APK</span>
+        <span>🃏 GOGO RUMMY | GOGO RUMMY Game</span>
+        <span>🃏 JOY RUMMY | JOY RUMMY APK</span>
+        <span>🎰 SPIN GOLD | SPIN GOLD Game</span>
+        <span>🎰 BINGO 101 | BINGO 101 APK</span>
+        <span>🎰 YES SPIN | YES SPIN Game</span>
+        <span>🎰 YONO ARCADE | YONO ARCADE APK</span>
+        <span>🎰 SVIP 777 | SVIP 777 Game</span>
+        <span>🃏 OK RUMMY | OK RUMMY APK</span>
+        <span>🎰 HINDI 777 | HINDI 777 Game</span>
+        <span>🎰 BET 213 | BET 213 APK</span>
+        <span>🃏 BOSS RUMMY | BOSS RUMMY Game</span>
+        <span>🎰 YONO 777 | YONO 777 APK</span>
+        <span>🎰 Diwa VIP | Diwa VIP Game</span>
+        <span>🎰 Diwa 777 | Diwa 777 APK</span>
+        <span>🎰 INR RUMMY | INR RUMMY Game</span>
+        <span>🎰 MBM BET | MBM BET APK</span>
+        <span>🎰 GOA SPIN | GOA SPIN Game</span>
+        <span>🎰 777 GAME | 777 GAME APK</span>
+        <span>🃏 TEEN PATTI | TEEN PATTI Game</span>
+        <span>🎰 SPIN WINNER | SPIN WINNER APK</span>
+        <span>🎰 YONO All GAMES | YONO All GAMES Game</span>
+        <span>🎰 SPIN LUCKY | SPIN LUCKY APK</span>
+        <span>🎰 MAX RUMMY | RANI SLOTS | 1GO PLUS | RUMMY ULTRA</span>
+        <span>🎰 789 JACKPOTS | JAIHO WIN | SLOTS SPIN | NETA VIP</span>
+        <span>🎰 JAIHO 777 VIP | DHAN GAME | DIWA GAME | BET 54 GAMES</span>
+        <span>🎰 ALL YONO APPS | T989 APPS | 765 CLUB | MKM BET APK</span>
+        <span>🎰 YN 777 | SPIN 777 | RUMMY 888 | RUMMY 77 | MQM BET</span>
+        <span>🎰 MAHA GAMES | IND RUMMY | Hi RUMMY | INR RUMMY | JAIHO SPIN</span>
+        <span>🎰 JAIHO RUMMY | YONO SLOTS | Diwa Win | RUMBLE RUMMY | YONO VIP</span>
+        <span class="highlight">🔥 77+ Yono Games Download Now!</span>
+      </marquee>
+    </div>
   </div>
 
   <!-- ===== FOOTER WITH About | Contact | Disclaimer ===== -->
