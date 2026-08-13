@@ -1050,7 +1050,7 @@
     .rdownload:active { transform: scale(0.92); }
 
     /* ============================================================
-       HOME PAGE GRID - FIXED MOBILE LAYOUT
+       HOME PAGE GRID - FIXED DOWNLOAD BUTTON
        ============================================================ */
     #mainGrid { display: flex; flex-direction: column; gap: 6px; padding: 8px; }
     .card {
@@ -1148,32 +1148,35 @@
     .card-withdraw .label { color: #64748b; }
     .card-withdraw { font-size: 0.5rem; }
 
+    /* DOWNLOAD BUTTON - WIDER, TALLER, CLOSER TO LEFT */
     .card-download-sm {
       flex-shrink: 0;
       background: #22c55e !important;
       color: #ffffff !important;
       border: 2px solid #22c55e !important;
-      padding: 6px 14px 6px 10px !important;
-      font-size: 0.65rem !important;
+      padding: 10px 22px 10px 16px !important;
+      font-size: 0.75rem !important;
       font-weight: 700 !important;
       border-radius: 50px !important;
       cursor: pointer;
       white-space: nowrap;
       display: inline-flex !important;
       align-items: center !important;
-      gap: 6px !important;
+      gap: 8px !important;
       box-shadow: none !important;
       transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94) !important;
       text-decoration: none;
       letter-spacing: 0.3px;
-      margin-left: auto;
-      margin-right: 2px;
+      margin-left: 4px;
+      margin-right: 4px;
+      min-width: 100px;
+      justify-content: center;
     }
     .card-download-sm::before {
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
       display: inline-block;
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       line-height: 1;
       flex-shrink: 0;
     }
@@ -1181,13 +1184,13 @@
       background: #16a34a !important;
       color: #ffffff !important;
       box-shadow: none !important;
-      transform: scale(1.05) translateY(-2px) !important;
+      transform: scale(1.04) translateY(-2px) !important;
       border-color: #16a34a !important;
     }
     .card-download-sm:hover::before {
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
     }
-    .card-download-sm:active { transform: scale(0.92) !important; box-shadow: none !important; }
+    .card-download-sm:active { transform: scale(0.94) !important; box-shadow: none !important; }
 
     @media (max-width: 420px) {
       .card-img { width: 60px; height: 52px; margin-left: 25px; margin-right: 18px; }
@@ -1196,8 +1199,8 @@
       .card-name .alt { font-size: 0.45rem; }
       .card-bonus { font-size: 0.5rem; }
       .card-withdraw { font-size: 0.45rem; }
-      .card-download-sm { padding: 4px 10px 4px 8px !important; font-size: 0.55rem !important; gap: 4px !important; }
-      .card-download-sm::before { width: 14px; height: 14px; }
+      .card-download-sm { padding: 8px 16px 8px 12px !important; font-size: 0.65rem !important; gap: 6px !important; min-width: 80px; }
+      .card-download-sm::before { width: 15px; height: 15px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
     }
     @media (max-width: 360px) {
@@ -1207,14 +1210,14 @@
       .card-name .alt { font-size: 0.4rem; }
       .card-bonus { font-size: 0.45rem; }
       .card-withdraw { font-size: 0.4rem; }
-      .card-download-sm { padding: 3px 8px 3px 6px !important; font-size: 0.45rem !important; gap: 3px !important; }
-      .card-download-sm::before { width: 11px; height: 11px; }
+      .card-download-sm { padding: 6px 12px 6px 10px !important; font-size: 0.55rem !important; gap: 4px !important; min-width: 65px; }
+      .card-download-sm::before { width: 12px; height: 12px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 10px; height: 10px; }
     }
     @media (min-width: 769px) {
       .card-img { width: 76px; height: 68px; margin-left: 32px; margin-right: 24px; }
-      .card-download-sm { padding: 8px 18px 8px 12px !important; font-size: 0.75rem !important; gap: 8px !important; }
-      .card-download-sm::before { width: 18px; height: 18px; }
+      .card-download-sm { padding: 12px 28px 12px 20px !important; font-size: 0.85rem !important; gap: 10px !important; min-width: 130px; }
+      .card-download-sm::before { width: 20px; height: 20px; }
     }
 
     /* --- FOOTER --- */
