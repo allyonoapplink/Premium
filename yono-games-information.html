@@ -11,6 +11,13 @@
       box-sizing: border-box;
     }
 
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -22,6 +29,7 @@
 
     .disclaimer-wrapper {
       width: 100%;
+      max-width: 100%;
       padding: 14px;
     }
 
@@ -48,13 +56,6 @@
       font-size: 24px;
       font-weight: 800;
       text-align: left;
-    }
-
-    .disclaimer-title svg {
-      width: 25px;
-      height: 25px;
-      min-width: 25px;
-      fill: #e00000;
     }
 
     .section-title {
@@ -123,7 +124,69 @@
       font-weight: bold;
     }
 
+    /* ==============================
+       MOBILE-FRIENDLY TAGS
+       ============================== */
+
+    .all-tags-box {
+      width: 100%;
+      max-width: 100%;
+      margin: 22px 0 0;
+      padding: 14px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 7px;
+
+      overflow: hidden;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .all-tags-box .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      max-width: 100%;
+      min-width: 0;
+
+      padding: 5px 9px;
+      border: 1px solid #d9f3f1;
+      border-radius: 999px;
+
+      background: #ffffff;
+      color: #00a6a6;
+
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.25;
+      text-decoration: none;
+      white-space: normal;
+      text-align: center;
+
+      overflow-wrap: anywhere;
+      word-break: break-word;
+
+      box-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.06);
+
+      flex: 0 1 auto;
+    }
+
+    .all-tags-box .tag:hover {
+      background: #f3ffff;
+      border-color: #00b8b8;
+    }
+
     @media (max-width: 600px) {
+
       .disclaimer-wrapper {
         padding: 8px;
       }
@@ -136,12 +199,6 @@
       .disclaimer-title {
         font-size: 21px;
         gap: 8px;
-      }
-
-      .disclaimer-title svg {
-        width: 22px;
-        height: 22px;
-        min-width: 22px;
       }
 
       .section-title {
@@ -157,6 +214,44 @@
         font-size: 14px;
         line-height: 1.65;
       }
+
+      /* Mobile premium tag layout */
+      .all-tags-box {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 18px;
+        padding: 11px;
+        gap: 6px;
+        border-radius: 13px;
+      }
+
+      .all-tags-box .tag {
+        max-width: 100%;
+        padding: 5px 8px;
+        font-size: 10px;
+        line-height: 1.2;
+      }
+    }
+
+    @media (max-width: 360px) {
+
+      .disclaimer-wrapper {
+        padding: 6px;
+      }
+
+      .disclaimer-card {
+        padding: 13px;
+      }
+
+      .all-tags-box {
+        padding: 9px;
+        gap: 5px;
+      }
+
+      .all-tags-box .tag {
+        padding: 4px 7px;
+        font-size: 9px;
+      }
     }
   </style>
 </head>
@@ -164,13 +259,10 @@
 <body>
 
   <main class="disclaimer-wrapper">
+
     <article class="disclaimer-card">
 
       <h1 class="disclaimer-title">
-        <!-- Red Disclaimer SVG Icon -->
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/>
-        </svg>
         <span>Disclaimer</span>
       </h1>
 
@@ -223,6 +315,7 @@
       </p>
 
       <ul class="feature-list">
+
         <li>
           <strong>India-Focused Selection:</strong>
           Every game you see here has been chosen with local preferences in mind...
@@ -242,6 +335,7 @@
           <strong>Trusted Platform:</strong>
           Safety and trust are at the core oF All New Yono Apps ...
         </li>
+
       </ul>
 
       <h2 class="section-title">
@@ -253,6 +347,7 @@
       </p>
 
       <ul class="feature-list">
+
         <li>
           <strong>Card Classics:</strong>
           If you enjoy testing your skills and staying sharp, start here. Play favorites like Yono Rummy...
@@ -277,9 +372,79 @@
           <strong>Fast Challenges:</strong>
           Need a little rush? These time-based games keep you on your
         </li>
+
       </ul>
 
+      <!-- ALL TAGS: WHITE BACKGROUND + MOBILE FRIENDLY -->
+      <div class="all-tags-box">
+
+        <span class="tag">YONO NEW APP</span>
+        <span class="tag">567 SLOTS</span>
+        <span class="tag">SAGA SLOTS</span>
+        <span class="tag">JAIHO 91 RUMMY</span>
+        <span class="tag">LUDO</span>
+        <span class="tag">ABC RUMMY</span>
+        <span class="tag">RUMMY 91</span>
+        <span class="tag">LOVE RUMMY</span>
+        <span class="tag">SPIN CRUSH</span>
+        <span class="tag">TOP RUMMY</span>
+        <span class="tag">HELLO RUMMY</span>
+        <span class="tag">RUMMY 365</span>
+        <span class="tag">TEEN PATTI GOLD</span>
+        <span class="tag">TEEN PATTI MASTER</span>
+        <span class="tag">YONO RUMMY</span>
+        <span class="tag">SLOTS WINNER</span>
+        <span class="tag">GOOD SLOTS</span>
+        <span class="tag">DIWA SLOT</span>
+        <span class="tag">GOGO RUMMY</span>
+        <span class="tag">JOY RUMMY</span>
+        <span class="tag">SPIN GOLD</span>
+        <span class="tag">BINGO 101</span>
+        <span class="tag">YES SPIN</span>
+        <span class="tag">YONO ARCADES</span>
+        <span class="tag">VIP 777</span>
+        <span class="tag">OK RUMMY</span>
+        <span class="tag">HINDI 777</span>
+        <span class="tag">BET 213</span>
+        <span class="tag">BOSS RUMMY</span>
+        <span class="tag">YONO 777</span>
+        <span class="tag">DIWA VIP</span>
+        <span class="tag">DIWA 777</span>
+        <span class="tag">YONO GAMES</span>
+        <span class="tag">IN RUMMY</span>
+        <span class="tag">MBM BET</span>
+        <span class="tag">GOA SPIN 777 GAME</span>
+        <span class="tag">TEEN PATTI</span>
+        <span class="tag">ALL YONO GAMES</span>
+        <span class="tag">NEW YONO GAMES</span>
+        <span class="tag">YONO APPS</span>
+        <span class="tag">SPIN WINNER</span>
+        <span class="tag">YONO ALL GAMES</span>
+        <span class="tag">SPIN LUCKY</span>
+        <span class="tag">MAX RUMMY</span>
+        <span class="tag">RANI SLOTS</span>
+        <span class="tag">1GO PLUS</span>
+        <span class="tag">RUMMY ULTRA</span>
+        <span class="tag">789 JACKPOTS</span>
+        <span class="tag">JAIHO WIN</span>
+        <span class="tag">SLOTS SPIN</span>
+        <span class="tag">NETA VIP</span>
+        <span class="tag">JAIHO 777 VIP</span>
+        <span class="tag">DHAN GAME</span>
+        <span class="tag">DIWA GAME</span>
+        <span class="tag">BET 54 GAMES</span>
+        <span class="tag">ALL YONO APPS</span>
+        <span class="tag">ST989 APPS</span>
+        <span class="tag">765 CLUB</span>
+        <span class="tag">MKM BET APK</span>
+        <span class="tag">YN 777 SPIN</span>
+        <span class="tag">777 RUMMY</span>
+        <span class="tag">888 RUMMY</span>
+
+      </div>
+
     </article>
+
   </main>
 
 </body>
