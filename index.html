@@ -127,176 +127,166 @@
       display: none !important;
     }
 
-    .header-right { display: flex; align-items: center; gap: 8px; }
+    /* === HEADER RIGHT - 5 PREMIUM ICONS === */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
 
-    /* ===== PREMIUM TELEGRAM SVG ICON ===== */
-    .telegram-btn {
+    /* Common icon button styles */
+    .header-icon-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: transparent;
+      width: 36px;
+      height: 36px;
       border: none;
+      background: transparent;
       padding: 0;
       cursor: pointer;
       text-decoration: none;
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-      position: relative;
       flex-shrink: 0;
+      border-radius: 50%;
+      position: relative;
     }
-    .telegram-btn svg {
-      width: 100%;
-      height: 100%;
+    .header-icon-btn:active {
+      transform: scale(0.88);
+    }
+    .header-icon-btn svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+    .header-icon-btn:hover svg {
+      transform: scale(1.08);
+    }
+
+    /* Option 1: Home Icon - Blue */
+    .header-icon-btn.home-icon svg {
+      stroke: #3b82f6;
       fill: none;
-      stroke: #0088cc;
       stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
-      filter: drop-shadow(0 0 8px rgba(0, 136, 204, 0.4)) drop-shadow(0 0 20px rgba(0, 136, 204, 0.15));
-      transition: all 0.3s ease;
-      animation: telegramGlow 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.2));
     }
-    /* Proper Telegram Logo Shape */
-    .telegram-btn svg .telegram-icon-bg {
-      fill: #0088cc;
-      stroke: none;
-      transition: fill 0.3s ease;
-    }
-    .telegram-btn svg .telegram-icon-plane {
-      fill: #ffffff;
-      stroke: none;
-      transition: fill 0.3s ease;
-    }
-    .telegram-btn svg .telegram-icon-outline {
-      fill: none;
-      stroke: #0088cc;
-      stroke-width: 2;
-      transition: stroke 0.3s ease;
-    }
-    @keyframes telegramGlow {
-      0%, 100% { filter: drop-shadow(0 0 8px rgba(0, 136, 204, 0.4)) drop-shadow(0 0 20px rgba(0, 136, 204, 0.12)); }
-      50% { filter: drop-shadow(0 0 16px rgba(0, 136, 204, 0.7)) drop-shadow(0 0 35px rgba(0, 136, 204, 0.25)); }
-    }
-    .telegram-btn:hover svg {
-      transform: scale(1.06);
-      filter: drop-shadow(0 0 14px rgba(0, 136, 204, 0.6)) drop-shadow(0 0 30px rgba(0, 136, 204, 0.3));
-    }
-    .telegram-btn:active {
-      transform: scale(0.88);
-    }
-    .telegram-btn:active svg {
-      filter: drop-shadow(0 0 20px rgba(0, 136, 204, 0.8)) drop-shadow(0 0 45px rgba(0, 136, 204, 0.4));
-      animation: none;
-    }
-    .telegram-btn:active svg .telegram-icon-bg {
-      fill: #00aaff;
-    }
-    @media (max-width: 480px) {
-      .telegram-btn { width: 32px; height: 32px; }
-    }
-    @media (max-width: 380px) {
-      .telegram-btn { width: 28px; height: 28px; }
-    }
-    @media (min-width: 769px) {
-      .telegram-btn { width: 42px; height: 42px; }
+    .header-icon-btn.home-icon:hover svg {
+      filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.4));
     }
 
-    /* ===== PREMIUM SHARE SVG BUTTON ===== */
-    .share-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      background: transparent;
-      color: #0b1e33;
-      border: none;
-      padding: 6px 12px 6px 8px;
+    /* Option 2: About Icon - Purple */
+    .header-icon-btn.about-icon svg {
+      stroke: #8b5cf6;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.2));
+    }
+    .header-icon-btn.about-icon:hover svg {
+      filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.4));
+    }
+
+    /* Option 3: Contact Icon - Green */
+    .header-icon-btn.contact-icon svg {
+      stroke: #22c55e;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 6px rgba(34, 197, 94, 0.2));
+    }
+    .header-icon-btn.contact-icon:hover svg {
+      filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.4));
+    }
+
+    /* Option 4: Disclaimer Icon - Orange */
+    .header-icon-btn.disclaimer-icon svg {
+      stroke: #f59e0b;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.2));
+    }
+    .header-icon-btn.disclaimer-icon:hover svg {
+      filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.4));
+    }
+
+    /* Option 5: Share Icon - Special Color Changing Animation */
+    .header-icon-btn.share-icon {
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.06);
       border-radius: 40px;
+      padding: 4px 12px 4px 8px;
+      width: auto;
+      height: auto;
+      gap: 4px;
+    }
+    .header-icon-btn.share-icon .share-text {
       font-weight: 600;
       font-size: 0.6rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
-      position: relative;
-      background: rgba(0, 0, 0, 0.03);
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      color: #0b1e33;
+      transition: color 0.5s ease;
     }
-    .share-btn svg {
+    .header-icon-btn.share-icon svg {
       width: 20px;
       height: 20px;
       fill: none;
-      stroke: #0b1e33;
       stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
-      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.25)) drop-shadow(0 0 15px rgba(255, 215, 0, 0.08));
-      animation: shareGlow 2.8s ease-in-out infinite;
-      transition: stroke 0.3s ease, filter 0.3s ease;
+      animation: shareColorCycle 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.2));
+      transition: filter 0.5s ease;
     }
-    .share-btn svg .share-circle {
-      stroke: #0b1e33;
-      transition: stroke 0.3s ease;
+    @keyframes shareColorCycle {
+      0% { stroke: #3b82f6; fill: none; }
+      25% { stroke: #8b5cf6; fill: none; }
+      50% { stroke: #ec4899; fill: none; }
+      75% { stroke: #f59e0b; fill: none; }
+      100% { stroke: #3b82f6; fill: none; }
     }
-    .share-btn svg .share-line {
-      stroke: #0b1e33;
-      transition: stroke 0.3s ease;
+    .header-icon-btn.share-icon:hover svg {
+      filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 30px rgba(255, 215, 0, 0.15));
+      animation-duration: 2s;
     }
-    .share-btn svg .share-dot {
-      fill: #0b1e33;
-      stroke: none;
-      transition: fill 0.3s ease;
+    .header-icon-btn.share-icon:active {
+      transform: scale(0.92);
     }
-    @keyframes shareGlow {
-      0%, 100% { filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.25)) drop-shadow(0 0 15px rgba(255, 215, 0, 0.06)); }
-      50% { filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.55)) drop-shadow(0 0 30px rgba(255, 215, 0, 0.18)); }
+    .header-icon-btn.share-icon:active svg {
+      filter: drop-shadow(0 0 24px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 45px rgba(255, 215, 0, 0.25));
+      animation-duration: 0.5s;
     }
-    .share-btn .share-text {
-      font-weight: 600;
-      font-size: 0.6rem;
-      color: #0b1e33;
-      transition: color 0.3s ease;
-    }
-    .share-btn:hover {
-      background: rgba(255, 215, 0, 0.08);
-      border-color: rgba(255, 215, 0, 0.3);
-    }
-    .share-btn:hover svg {
-      stroke: #f5a623;
-      filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.5)) drop-shadow(0 0 30px rgba(255, 215, 0, 0.2));
-    }
-    .share-btn:hover svg .share-circle,
-    .share-btn:hover svg .share-line {
-      stroke: #f5a623;
-    }
-    .share-btn:hover svg .share-dot {
-      fill: #f5a623;
-    }
-    .share-btn:hover .share-text {
-      color: #f5a623;
-    }
-    .share-btn:active {
-      transform: scale(0.90);
-    }
-    .share-btn:active svg {
-      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7)) drop-shadow(0 0 40px rgba(255, 215, 0, 0.3));
-      animation: none;
-    }
+
+    /* Mobile responsiveness */
     @media (max-width: 480px) {
-      .share-btn { padding: 4px 8px 4px 6px; font-size: 0.5rem; }
-      .share-btn svg { width: 16px; height: 16px; }
-      .share-btn .share-text { font-size: 0.5rem; }
+      .header-icon-btn { width: 30px; height: 30px; }
+      .header-icon-btn svg { width: 18px; height: 18px; }
+      .header-right { gap: 4px; }
+      .header-icon-btn.share-icon { padding: 3px 8px 3px 6px; }
+      .header-icon-btn.share-icon svg { width: 16px; height: 16px; }
+      .header-icon-btn.share-icon .share-text { font-size: 0.5rem; }
     }
     @media (max-width: 380px) {
-      .share-btn { padding: 3px 6px 3px 5px; font-size: 0.45rem; }
-      .share-btn svg { width: 14px; height: 14px; }
-      .share-btn .share-text { font-size: 0.45rem; }
+      .header-icon-btn { width: 26px; height: 26px; }
+      .header-icon-btn svg { width: 16px; height: 16px; }
+      .header-right { gap: 3px; }
+      .header-icon-btn.share-icon { padding: 2px 6px 2px 5px; }
+      .header-icon-btn.share-icon svg { width: 14px; height: 14px; }
+      .header-icon-btn.share-icon .share-text { font-size: 0.45rem; }
     }
     @media (min-width: 769px) {
-      .share-btn { padding: 8px 18px 8px 12px; font-size: 0.7rem; }
-      .share-btn svg { width: 22px; height: 22px; }
-      .share-btn .share-text { font-size: 0.7rem; }
+      .header-icon-btn { width: 40px; height: 40px; }
+      .header-icon-btn svg { width: 26px; height: 26px; }
+      .header-right { gap: 8px; }
+      .header-icon-btn.share-icon { padding: 6px 16px 6px 10px; }
+      .header-icon-btn.share-icon svg { width: 22px; height: 22px; }
+      .header-icon-btn.share-icon .share-text { font-size: 0.7rem; }
     }
 
     /* --- MARQUEE REMOVED --- */
@@ -1605,10 +1595,9 @@
     @media (max-width: 420px) {
       .header-logo { width: 40px; height: 40px; border-width: 3px; border-radius: 10px; }
       .header-name-box { font-size: 0.6rem; padding: 4px 12px; }
-      .share-btn { font-size: 0.5rem; padding: 4px 8px 4px 6px; }
-      .share-btn svg { width: 16px; height: 16px; }
-      .share-btn .share-text { font-size: 0.5rem; }
-      .telegram-btn { width: 32px; height: 32px; }
+      .header-icon-btn.share-icon { padding: 3px 8px 3px 6px; }
+      .header-icon-btn.share-icon svg { width: 16px; height: 16px; }
+      .header-icon-btn.share-icon .share-text { font-size: 0.5rem; }
       .nav-small { font-size: 0.4rem; padding: 2px 6px; gap: 2px; }
       .nav-small svg { width: 10px; height: 10px; }
       .detail-img { width: 50px; height: 50px; }
@@ -1646,10 +1635,9 @@
     @media (max-width: 360px) {
       .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
       .header-name-box { font-size: 0.5rem; padding: 3px 10px; }
-      .share-btn { padding: 3px 6px 3px 5px; font-size: 0.45rem; }
-      .share-btn svg { width: 14px; height: 14px; }
-      .share-btn .share-text { font-size: 0.45rem; }
-      .telegram-btn { width: 28px; height: 28px; }
+      .header-icon-btn.share-icon { padding: 2px 6px 2px 5px; }
+      .header-icon-btn.share-icon svg { width: 14px; height: 14px; }
+      .header-icon-btn.share-icon .share-text { font-size: 0.45rem; }
       .nav-small { font-size: 0.4rem; padding: 3px 6px; gap: 2px; }
       .nav-small svg { width: 9px; height: 9px; }
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
@@ -1657,10 +1645,9 @@
       .back-btn svg { width: 11px; height: 11px; }
     }
     @media (min-width: 769px) {
-      .share-btn { padding: 8px 18px 8px 12px; font-size: 0.7rem; }
-      .share-btn svg { width: 22px; height: 22px; }
-      .share-btn .share-text { font-size: 0.7rem; }
-      .telegram-btn { width: 42px; height: 42px; }
+      .header-icon-btn.share-icon { padding: 6px 16px 6px 10px; }
+      .header-icon-btn.share-icon svg { width: 22px; height: 22px; }
+      .header-icon-btn.share-icon .share-text { font-size: 0.7rem; }
     }
     @media (min-width: 1201px) {
       .container { padding: 0 20px; }
@@ -1774,24 +1761,45 @@
       <span class="header-name-box">YONO GAMES POINT .com</span>
     </div>
     <div class="header-right">
-      <!-- Premium Telegram SVG Icon - Proper Telegram Logo -->
-      <a href="https://t.me/allyonogamesdite" target="_blank" rel="noopener noreferrer" class="telegram-btn" aria-label="Telegram">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="11" class="telegram-icon-bg"/>
-          <path d="M17.5 7.5L6.5 11.5L10 13.5L12.5 19L15.5 13.5L17.5 7.5Z" class="telegram-icon-plane" fill="#ffffff" stroke="none"/>
-          <path d="M10 13.5L12.5 19L15.5 13.5L17.5 7.5L12.5 10.5L10 13.5Z" class="telegram-icon-plane" fill="#ffffff" stroke="none"/>
-          <path d="M10 13.5L6.5 11.5L12.5 10.5" class="telegram-icon-plane" fill="none" stroke="#ffffff" stroke-width="1.5"/>
-          <path d="M17.5 7.5L12.5 10.5L15.5 13.5" class="telegram-icon-plane" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <!-- Option 1: Home Icon - Blue -->
+      <button class="header-icon-btn home-icon" id="homeBtn" aria-label="Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
         </svg>
-      </a>
-      <!-- Premium Share SVG Button - Standard 3-Node Share Logo -->
-      <button class="share-btn" id="shareBtn">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="18" cy="5" r="3" class="share-circle"/>
-          <circle cx="6" cy="12" r="3" class="share-circle"/>
-          <circle cx="18" cy="19" r="3" class="share-circle"/>
-          <line x1="8.59" y1="10.51" x2="15.42" y2="6.49" class="share-line"/>
-          <line x1="15.41" y1="17.51" x2="8.59" y2="13.49" class="share-line"/>
+      </button>
+      
+      <!-- Option 2: About Icon - Purple -->
+      <button class="header-icon-btn about-icon" id="aboutBtn" aria-label="About">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 16v-4M12 8h.01"/>
+        </svg>
+      </button>
+      
+      <!-- Option 3: Contact Icon - Green -->
+      <button class="header-icon-btn contact-icon" id="contactBtn" aria-label="Contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+      </button>
+      
+      <!-- Option 4: Disclaimer Icon - Orange -->
+      <button class="header-icon-btn disclaimer-icon" id="disclaimerBtn" aria-label="Disclaimer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </button>
+      
+      <!-- Option 5: Share Icon - Color Changing Animation -->
+      <button class="header-icon-btn share-icon" id="shareBtn" aria-label="Share">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"/>
+          <circle cx="6" cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="10.51" x2="15.42" y2="6.49"/>
+          <line x1="15.41" y1="17.51" x2="8.59" y2="13.49"/>
         </svg>
         <span class="share-text">Share</span>
       </button>
@@ -2360,6 +2368,24 @@
       });
     }
     populateGreenboxTags();
+
+    // ---- Header Button Click Handlers ----
+    document.getElementById('homeBtn').addEventListener('click', function() {
+      if (overlay.style.display === 'flex') overlay.style.display = 'none';
+      homeNav.click();
+    });
+    document.getElementById('aboutBtn').addEventListener('click', function() {
+      if (overlay.style.display === 'flex') overlay.style.display = 'none';
+      aboutNav.click();
+    });
+    document.getElementById('contactBtn').addEventListener('click', function() {
+      if (overlay.style.display === 'flex') overlay.style.display = 'none';
+      contactNav.click();
+    });
+    document.getElementById('disclaimerBtn').addEventListener('click', function() {
+      if (overlay.style.display === 'flex') overlay.style.display = 'none';
+      disclaimerNav.click();
+    });
 
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
