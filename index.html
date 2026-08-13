@@ -766,14 +766,15 @@
       background: #000000;
       animation: downloadBgCycle 12s ease-in-out infinite;
       box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      transition: all 0.5s ease;
     }
     @keyframes downloadBgCycle {
       0% { background: #000000; box-shadow: 0 0 30px rgba(0,0,0,0.3), 0 0 60px rgba(0,0,0,0.1); }
       16% { background: #00cc44; box-shadow: 0 0 40px rgba(0,204,68,0.4), 0 0 80px rgba(0,204,68,0.15); }
       33% { background: #00bcd4; box-shadow: 0 0 40px rgba(0,188,212,0.4), 0 0 80px rgba(0,188,212,0.15); }
-      50% { background: #e74c3c; box-shadow: 0 0 40px rgba(231,76,60,0.4), 0 0 80px rgba(231,76,60,0.15); }
-      66% { background: #3498db; box-shadow: 0 0 40px rgba(52,152,219,0.4), 0 0 80px rgba(52,152,219,0.15); }
-      83% { background: #f1c40f; box-shadow: 0 0 40px rgba(241,196,15,0.4), 0 0 80px rgba(241,196,15,0.15); }
+      50% { background: #f1c40f; box-shadow: 0 0 40px rgba(241,196,15,0.4), 0 0 80px rgba(241,196,15,0.15); }
+      66% { background: #ffd700; box-shadow: 0 0 40px rgba(255,215,0,0.4), 0 0 80px rgba(255,215,0,0.15); }
+      83% { background: #00cc44; box-shadow: 0 0 40px rgba(0,204,68,0.4), 0 0 80px rgba(0,204,68,0.15); }
       100% { background: #000000; box-shadow: 0 0 30px rgba(0,0,0,0.3), 0 0 60px rgba(0,0,0,0.1); }
     }
     .detail-download .download-btn {
@@ -822,66 +823,6 @@
       0% { box-shadow:0 0 15px rgba(0,255,0,0.3),0 0 30px rgba(0,188,212,0.1); border-color:#00ff00; }
       50% { box-shadow:0 0 30px rgba(0,255,0,0.6),0 0 60px rgba(0,188,212,0.3),0 0 80px rgba(0,255,255,0.15); border-color:#00ffff; }
       100% { box-shadow:0 0 15px rgba(0,255,0,0.3),0 0 30px rgba(0,188,212,0.1); border-color:#00ff00; }
-    }
-
-    /* ===== BOTTOM PREMIUM DOWNLOAD BUTTON ===== */
-    .bottom-download-wrapper {
-      padding: 14px 10px 10px 10px;
-      background: #ffffff;
-      border-top: 1px solid #eef2f6;
-      width: 100%;
-    }
-    .bottom-download-wrapper .bottom-download-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: #000;
-      color: #fff;
-      border: 2px solid #00cc44;
-      padding: 14px 20px;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      width: 100%;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      transition: all 0.4s ease;
-      position: relative;
-      box-shadow: 0 0 20px rgba(0,204,68,0.25), 0 0 40px rgba(0,188,212,0.1);
-      animation: bottomBtnGlow 4s ease-in-out infinite;
-      letter-spacing: 0.5px;
-    }
-    .bottom-download-wrapper .bottom-download-btn::before {
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      line-height: 1;
-      flex-shrink: 0;
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
-      transition: all 0.4s ease;
-    }
-    @keyframes bottomBtnGlow {
-      0% { box-shadow: 0 0 20px rgba(0,204,68,0.25), 0 0 40px rgba(0,188,212,0.1); border-color: #00cc44; }
-      33% { box-shadow: 0 0 30px rgba(0,188,212,0.4), 0 0 60px rgba(0,188,212,0.2); border-color: #00bcd4; }
-      66% { box-shadow: 0 0 30px rgba(241,196,15,0.4), 0 0 60px rgba(241,196,15,0.2); border-color: #f1c40f; }
-      100% { box-shadow: 0 0 20px rgba(0,204,68,0.25), 0 0 40px rgba(0,188,212,0.1); border-color: #00cc44; }
-    }
-    .bottom-download-wrapper .bottom-download-btn:hover {
-      transform: scale(1.03) translateY(-2px);
-      border-color: #00ffff;
-      box-shadow: 0 0 40px rgba(0,204,68,0.5), 0 0 80px rgba(0,188,212,0.3), 0 0 100px rgba(241,196,15,0.15);
-    }
-    .bottom-download-wrapper .bottom-download-btn:active {
-      transform: scale(0.95);
-    }
-    .bottom-download-wrapper .bottom-download-label {
-      font-size: 0.65rem;
-      color: #94a3b8;
-      text-align: center;
-      margin-top: 4px;
     }
 
     .apk-download-line {
@@ -1782,8 +1723,6 @@
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
       .yono-info-section { padding: 10px 6px 8px 6px; }
       .yono-tags-container { gap: 6px; }
-      .bottom-download-wrapper .bottom-download-btn { font-size: 0.8rem; padding: 12px 16px; gap: 8px; }
-      .bottom-download-wrapper .bottom-download-btn::before { width: 18px; height: 18px; }
     }
     @media (max-width: 360px) {
       .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
@@ -1797,8 +1736,6 @@
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
       .back-btn { font-size: 0.5rem; padding: 3px 8px 3px 6px; }
       .back-btn svg { width: 11px; height: 11px; }
-      .bottom-download-wrapper .bottom-download-btn { font-size: 0.7rem; padding: 10px 12px; gap: 6px; }
-      .bottom-download-wrapper .bottom-download-btn::before { width: 15px; height: 15px; }
     }
     @media (min-width: 769px) {
       .share-btn { padding: 8px 18px 8px 12px; font-size: 0.7rem; }
@@ -1807,8 +1744,6 @@
       .telegram-btn { width: 42px; height: 42px; }
       .nav-small { font-size: 0.6rem; padding: 4px 12px; gap: 6px; }
       .nav-small svg { width: 20px; height: 20px; }
-      .bottom-download-wrapper .bottom-download-btn { font-size: 1.05rem; padding: 16px 28px; gap: 14px; }
-      .bottom-download-wrapper .bottom-download-btn::before { width: 24px; height: 24px; }
     }
     @media (min-width: 1201px) {
       .container { padding: 0 20px; }
@@ -2288,12 +2223,6 @@
     <div class="yono-tags-container" id="yonoTagsContainer"></div>
   </div>
 
-  <!-- ===== BOTTOM PREMIUM DOWNLOAD BUTTON - NEW ===== -->
-  <div class="bottom-download-wrapper">
-    <a href="#" class="bottom-download-btn" id="bottomDownloadBtn" target="_blank">⬇ Download APK</a>
-    <div class="bottom-download-label">Premium Download – Get Bonus ₹45</div>
-  </div>
-
   <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
   <div class="footer-scroll-section">
     <div class="scroll-tags-wrapper">
@@ -2656,19 +2585,6 @@
     }
 
     loadYonoTags();
-
-    // Sync both download buttons to same URL
-    function syncDownloadButtons() {
-      const detailBtn = document.getElementById('detailDownloadBtn');
-      const bottomBtn = document.getElementById('bottomDownloadBtn');
-      // When detail button href changes, update bottom button
-      const observer = new MutationObserver(() => {
-        bottomBtn.href = detailBtn.href;
-      });
-      observer.observe(detailBtn, { attributes: true, attributeFilter: ['href'] });
-      // Initial sync
-      bottomBtn.href = detailBtn.href;
-    }
 
     function hideAllStatic() {
       aboutPage.classList.remove('visible');
@@ -3040,9 +2956,6 @@
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
       document.getElementById('apkBonusLine').textContent = game.bonus;
-
-      // Sync bottom download button
-      document.getElementById('bottomDownloadBtn').href = game.downloadUrl;
 
       var refData = generateReferralData(game.name, game.bonus);
       document.getElementById('refGameName').textContent = game.name;
