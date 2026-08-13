@@ -1203,14 +1203,87 @@
     .footer-note {
       padding: 10px 10px 8px 10px;
       text-align: center;
-      color: #94a3b8;
-      font-size: 0.5rem;
       border-top: 1px solid #e9edf4;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 4px;
     }
+
+    /* Bottom Scroll Tags Section */
+    .footer-scroll-tags {
+      width: 100%;
+      padding: 6px 0 4px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .footer-scroll-tags .scroll-lines {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      width: 100%;
+      max-width: 800px;
+    }
+    .footer-scroll-tags .scroll-lines .hline {
+      width: 100%;
+      height: 1.5px;
+      background: #000000;
+      opacity: 0.3;
+    }
+    .footer-scroll-tags .scroll-lines .hline2 {
+      width: 70%;
+      height: 1.5px;
+      background: #000000;
+      opacity: 0.2;
+    }
+    .footer-scroll-tags .tags-scroll-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4px 8px;
+      padding: 4px 6px;
+      width: 100%;
+      max-width: 1000px;
+    }
+    .footer-scroll-tags .tags-scroll-wrap .st {
+      background: transparent;
+      color: #1e293b;
+      font-size: 0.55rem;
+      font-weight: 500;
+      padding: 2px 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 30px;
+      white-space: nowrap;
+      letter-spacing: 0.1px;
+      background: #f8fafc;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.3;
+      min-height: 20px;
+      transition: all 0.2s ease;
+    }
+    .footer-scroll-tags .tags-scroll-wrap .st:hover {
+      background: #1e293b;
+      color: #ffffff;
+      border-color: #1e293b;
+    }
+    .footer-scroll-tags .tags-scroll-wrap .st.sep {
+      border: none;
+      background: transparent;
+      color: #94a3b8;
+      padding: 0 2px;
+      font-weight: 300;
+      cursor: default;
+    }
+    .footer-scroll-tags .tags-scroll-wrap .st.sep:hover {
+      background: transparent;
+      color: #94a3b8;
+    }
+
     .footer-note .footer-links {
       display: flex;
       justify-content: center;
@@ -1221,6 +1294,7 @@
       color: #64748b;
       width: 100%;
       flex-wrap: wrap;
+      padding-top: 2px;
     }
     .footer-note .footer-links a {
       color: #64748b;
@@ -1239,10 +1313,16 @@
       color: #94a3b8;
       font-size: 0.5rem;
       letter-spacing: 0.3px;
+      padding-top: 2px;
     }
     @media (max-width: 480px) {
       .footer-note .footer-links { gap: 10px; font-size: 0.45rem; }
       .footer-note .footer-copy { font-size: 0.4rem; }
+      .footer-scroll-tags .tags-scroll-wrap .st { font-size: 0.45rem; padding: 1px 6px; min-height: 16px; }
+      .footer-scroll-tags .tags-scroll-wrap { gap: 2px 4px; }
+    }
+    @media (max-width: 380px) {
+      .footer-scroll-tags .tags-scroll-wrap .st { font-size: 0.4rem; padding: 1px 5px; min-height: 14px; }
     }
 
     /* --- STATIC PAGES --- */
@@ -1925,8 +2005,19 @@
     </div>
   </div>
 
-  <!-- ===== FOOTER WITH About | Contact | Disclaimer ===== -->
+  <!-- ===== FOOTER WITH BOTTOM SCROLL TAGS + About | Contact | Disclaimer ===== -->
   <div class="footer-note">
+    <!-- Bottom Scroll Tags with 2 black lines above -->
+    <div class="footer-scroll-tags">
+      <div class="scroll-lines">
+        <div class="hline"></div>
+        <div class="hline2"></div>
+      </div>
+      <div class="tags-scroll-wrap" id="footerTagsWrap">
+        <!-- Tags will be injected by JS from original app names -->
+      </div>
+    </div>
+
     <div class="footer-links">
       <a class="footer-nav-link" data-page="about">About</a>
       <span class="sep">|</span>
@@ -2101,7 +2192,7 @@
       "GOOD SLOTS", "BINGO 101", "YONO RUMMY"
     ];
 
-    // Inject tags into greenbox from exact list - fixed order, no shuffle
+    // Inject tags into greenbox from exact list - fixed order, no shuffle (TOP section removed)
     function populateGreenboxTags() {
       const wrap = document.getElementById('greenboxTags');
       wrap.innerHTML = '';
@@ -2114,6 +2205,27 @@
       });
     }
     populateGreenboxTags();
+
+    // Inject tags into footer scroll tags section (same tags, same model)
+    function populateFooterTags() {
+      const wrap = document.getElementById('footerTagsWrap');
+      wrap.innerHTML = '';
+      // Use the exact list in the exact order provided
+      originalTags.forEach((name, index) => {
+        const tag = document.createElement('span');
+        tag.className = 'st';
+        tag.textContent = name;
+        wrap.appendChild(tag);
+        // Add separator pipe between tags except last
+        if (index < originalTags.length - 1) {
+          const sep = document.createElement('span');
+          sep.className = 'st sep';
+          sep.textContent = '|';
+          wrap.appendChild(sep);
+        }
+      });
+    }
+    populateFooterTags();
 
     overlayClose.addEventListener('click', function() { overlay.style.display = 'none'; });
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.style.display = 'none'; });
