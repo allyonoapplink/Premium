@@ -1505,12 +1505,13 @@
       .yono-custom-tags-wrapper .yono-tag { font-size: 0.65rem; padding: 7px 18px; }
     }
 
-    /* ===== NEW FOOTER SCROLL TAGS SECTION ===== */
+    /* ===== NEW FOOTER SCROLL TAGS SECTION - FIXED ===== */
     .footer-scroll-section {
       background: #ffffff;
       border-top: 1px solid #e9edf4;
-      padding: 6px 0;
+      padding: 4px 0 6px 0;
       overflow: hidden;
+      width: 100%;
     }
     .footer-scroll-section .black-lines {
       display: flex;
@@ -1518,18 +1519,20 @@
       align-items: center;
       gap: 2px;
       margin-bottom: 4px;
+      width: 100%;
     }
     .footer-scroll-section .black-lines .line {
-      width: 80%;
-      max-width: 600px;
+      width: 100%;
       height: 2px;
       background: #000000;
+      flex-shrink: 0;
     }
     .footer-scroll-section .scroll-tags-wrapper {
       overflow: hidden;
       width: 100%;
-      padding: 0 4px;
+      padding: 0;
       box-sizing: border-box;
+      display: block;
     }
     .footer-scroll-section marquee {
       color: #0b1e33 !important;
@@ -1540,6 +1543,7 @@
       padding: 4px 0;
       display: block;
       width: 100%;
+      white-space: nowrap;
     }
     .footer-scroll-section marquee span {
       margin: 0 12px;
@@ -1554,7 +1558,7 @@
     @media (max-width: 480px) {
       .footer-scroll-section marquee { font-size: 0.5rem; }
       .footer-scroll-section marquee span { margin: 0 8px; }
-      .footer-scroll-section .black-lines .line { width: 90%; }
+      .footer-scroll-section .black-lines .line { width: 100%; }
     }
     @media (max-width: 380px) {
       .footer-scroll-section marquee { font-size: 0.45rem; }
@@ -1923,7 +1927,7 @@
     </div>
   </div>
 
-  <!-- ===== NEW FOOTER SCROLL TAGS SECTION (added below app list) ===== -->
+  <!-- ===== NEW FOOTER SCROLL TAGS SECTION - FIXED POSITION ===== -->
   <div class="footer-scroll-section">
     <div class="black-lines">
       <div class="line"></div>
