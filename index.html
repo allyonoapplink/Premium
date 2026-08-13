@@ -247,7 +247,6 @@
       letter-spacing: 0.1px;
       background: rgba(255,255,255,0.06);
       transition: all 0.2s ease;
-      /* SMALL COMPACT SIZE */
       font-size: 0.45rem;
       padding: 1px 7px;
       line-height: 1.2;
@@ -261,7 +260,6 @@
       background: rgba(255,255,255,0.15);
       border-color: rgba(255,255,255,0.5);
     }
-    /* Responsive - maintain compact sizing */
     @media (max-width: 768px) {
       .home-greenbox { min-height: 100px; max-height: 145px; padding: 3px 8px; }
       .home-greenbox .info-text { font-size: 0.5rem; }
@@ -285,7 +283,6 @@
       .home-greenbox .tag-wrap .gtag { font-size: 0.5rem; padding: 2px 9px; min-height: 18px; border-radius: 30px; }
     }
 
-    /* Hide photo container, show greenbox on home */
     .home-photo-container {
       display: none !important;
     }
@@ -375,7 +372,6 @@
       color: #6b7280;
     }
 
-    /* --- Sign Up & Min Withdraw --- */
     .game-sub {
       display: flex;
       flex-direction: column;
@@ -413,12 +409,9 @@
       font-weight: 700;
       color: #0b1e33;
     }
-    /* Sign Up Bonus - Red Gift Box Icon */
     .info-row.signup .svg-icon svg { stroke: #dc2626; fill: #dc2626; }
-    /* Min Withdraw - Green Wallet Icon */
     .info-row.withdraw .svg-icon svg { stroke: #16a34a; fill: none; }
 
-    /* --- Update Version badge --- */
     .update-badge {
       display: inline-flex;
       align-items: center;
@@ -468,7 +461,6 @@
       50% { box-shadow:0 0 20px rgba(255,0,0,0.5),0 0 40px rgba(255,0,0,0.15); border-color:#ff4444; color:#ff4444; }
     }
 
-    /* --- Meta block --- */
     .meta-block {
       display: flex;
       flex-direction: column;
@@ -513,7 +505,6 @@
       font-weight: 700;
     }
 
-    /* Rating - PREMIUM ANIMATION - Rating Number Left, Stars Right */
     .meta-item.rating .rating-container {
       display: flex;
       align-items: center;
@@ -556,20 +547,17 @@
       filter: drop-shadow(0 0 3px rgba(0,204,68,0.15));
       transition: none;
     }
-    /* Filled star with glow */
     .meta-item.rating .stars .star-wrapper.filled svg {
       fill: #00cc44;
       stroke: #00cc44;
       filter: drop-shadow(0 0 6px rgba(0,204,68,0.5));
       animation: starFillPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
-    /* Half star */
     .meta-item.rating .stars .star-wrapper.half svg {
       fill: #00cc44;
       stroke: #00cc44;
       filter: drop-shadow(0 0 4px rgba(0,204,68,0.3));
     }
-    /* Sequential animation - each star fills with delay */
     .meta-item.rating .stars .star-wrapper.filled:nth-child(1) { animation-delay: 0s; }
     .meta-item.rating .stars .star-wrapper.filled:nth-child(2) { animation-delay: 0.08s; }
     .meta-item.rating .stars .star-wrapper.filled:nth-child(3) { animation-delay: 0.16s; }
@@ -585,7 +573,6 @@
     .meta-item.size .svg-icon svg { stroke: #000000; }
     .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
 
-    /* ===== DOWNLOAD BUTTON ===== */
     .detail-download { margin-top: 12px; }
     .detail-download .download-btn {
       display: flex;
@@ -635,7 +622,6 @@
       100% { box-shadow:0 0 15px rgba(0,255,0,0.3),0 0 30px rgba(0,188,212,0.1); border-color:#00ff00; }
     }
 
-    /* ===== APK DOWNLOAD LINE ===== */
     .apk-download-line {
       text-align: center;
       margin-top: 8px;
@@ -654,7 +640,6 @@
       font-size: 0.8rem;
     }
 
-    /* ===== REFERRAL SECTION - FIXED ===== */
     .referral-section {
       padding: 10px;
       background: #f8fafc;
@@ -711,7 +696,6 @@
       font-family: monospace;
       letter-spacing: 1px;
     }
-    /* PREMIUM CLICKABLE REFERRAL LINK ROW - FIXED */
     .ref-link-row {
       display: flex;
       align-items: center;
@@ -741,7 +725,6 @@
     .ref-link-row:active {
       transform: scale(0.98);
     }
-    /* Left SVG Icon - Fixed Left */
     .ref-link-row .ref-link-icon-left {
       flex-shrink: 0;
       display: inline-flex;
@@ -761,7 +744,6 @@
       stroke-linejoin: round;
       flex-shrink: 0;
     }
-    /* Link Name + URL - Center, Flexible, Single Line */
     .ref-link-row .ref-link-text {
       color: #1e293b;
       font-weight: 500;
@@ -792,7 +774,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    /* Right Arrow SVG - Fixed Right */
     .ref-link-row .ref-link-arrow-right {
       flex-shrink: 0;
       display: inline-flex;
@@ -840,7 +821,6 @@
     .ref-link-row:hover .ref-link-arrow-right .arrow-shine {
       opacity: 1;
     }
-    /* Mobile Responsive */
     @media (max-width: 480px) {
       .ref-link-row {
         padding: 6px 10px 6px 10px;
@@ -902,7 +882,6 @@
         font-size: 0.45rem;
       }
     }
-    /* Desktop */
     @media (min-width: 769px) {
       .ref-link-row .ref-link-text {
         font-size: 0.7rem;
@@ -912,7 +891,6 @@
       }
     }
 
-    /* ===== GAME TAGS SECTION (heading only, no tags) ===== */
     .game-tags-section {
       padding: 10px;
       background: white;
@@ -931,7 +909,6 @@
       display: none !important;
     }
 
-    /* ===== ALL GAMES TAGS (clickable) ===== */
     .all-games-tags-section {
       padding: 10px;
       background: #f8fafc;
@@ -978,7 +955,6 @@
       transform: scale(0.94);
     }
 
-    /* ===== TOP OFFERS & TOC ===== */
     .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .tag-grid { display: flex; flex-direction: column; gap: 6px; }
@@ -1018,7 +994,6 @@
     .toc-item .toc-content ul li { padding: 2px 0; font-size: 0.7rem; color: #334155; }
     .toc-item .toc-content ul li::before { content: "• "; color: #2563eb; font-weight: 700; }
 
-    /* ===== RELATED SECTION ===== */
     .related-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .related-title { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
     .related-grid { display: flex; flex-direction: column; gap: 5px; }
@@ -1075,22 +1050,23 @@
     .rdownload:active { transform: scale(0.92); }
 
     /* ============================================================
-       HOME PAGE GRID - FIXED SPACING
+       HOME PAGE GRID - FIXED MOBILE LAYOUT
        ============================================================ */
     #mainGrid { display: flex; flex-direction: column; gap: 6px; padding: 8px; }
     .card {
       background: white;
       border-radius: 12px;
-      padding: 8px 10px;
+      padding: 8px 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.03);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 0px;
       border: 1px solid #e9edf4;
       cursor: pointer;
       position: relative;
       overflow: hidden;
       justify-content: flex-start;
+      width: 100%;
     }
     .card:active { transform: scale(0.97); background: #fafcff; }
     .card-number {
@@ -1112,15 +1088,15 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
     .card-img { 
-      width: 42px; 
-      height: 42px; 
+      width: 50px; 
+      height: 50px; 
       border-radius: 10px; 
       background: #f0f4ff; 
       flex-shrink: 0; 
       overflow: hidden; 
       border: 1px solid #e2e8f0; 
-      margin-left: 18px;
-      margin-right: 4px;
+      margin-left: 20px;
+      margin-right: 8px;
     }
     .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .card-info { 
@@ -1133,7 +1109,6 @@
     }
     .card-name { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
     .card-name .alt { font-weight: 400; font-size: 0.5rem; color: #6b7280; }
-    /* Home page icons - premium SVG replacements */
     .card-bonus, .card-withdraw {
       display: flex;
       align-items: center;
@@ -1174,31 +1149,31 @@
     .card-withdraw { font-size: 0.5rem; }
 
     .card-download-sm {
-      margin-left: auto;
       flex-shrink: 0;
       background: #22c55e !important;
       color: #ffffff !important;
       border: 2px solid #22c55e !important;
-      padding: 6px 14px 6px 10px !important;
-      font-size: 0.65rem !important;
+      padding: 6px 12px 6px 8px !important;
+      font-size: 0.6rem !important;
       font-weight: 700 !important;
       border-radius: 50px !important;
       cursor: pointer;
       white-space: nowrap;
       display: inline-flex !important;
       align-items: center !important;
-      gap: 6px !important;
+      gap: 4px !important;
       box-shadow: none !important;
       transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94) !important;
       text-decoration: none;
-      letter-spacing: 0.3px;
-      margin-right: 0;
+      letter-spacing: 0.2px;
+      margin-left: 4px;
+      margin-right: 2px;
     }
     .card-download-sm::before {
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
       display: inline-block;
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       line-height: 1;
       flex-shrink: 0;
     }
@@ -1206,13 +1181,41 @@
       background: #16a34a !important;
       color: #ffffff !important;
       box-shadow: none !important;
-      transform: scale(1.05) translateY(-2px) !important;
+      transform: scale(1.04) translateY(-1px) !important;
       border-color: #16a34a !important;
     }
     .card-download-sm:hover::before {
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
     }
     .card-download-sm:active { transform: scale(0.92) !important; box-shadow: none !important; }
+
+    @media (max-width: 420px) {
+      .card-img { width: 42px; height: 42px; margin-left: 16px; margin-right: 6px; }
+      .card-number { width: 16px; height: 16px; font-size: 0.4rem; top: 2px; left: 2px; }
+      .card-name { font-size: 0.6rem; }
+      .card-name .alt { font-size: 0.45rem; }
+      .card-bonus { font-size: 0.5rem; }
+      .card-withdraw { font-size: 0.45rem; }
+      .card-download-sm { padding: 4px 10px 4px 6px !important; font-size: 0.5rem !important; gap: 3px !important; }
+      .card-download-sm::before { width: 12px; height: 12px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
+    }
+    @media (max-width: 360px) {
+      .card-img { width: 36px; height: 36px; margin-left: 14px; margin-right: 4px; }
+      .card-number { width: 14px; height: 14px; font-size: 0.35rem; top: 2px; left: 2px; }
+      .card-name { font-size: 0.5rem; }
+      .card-name .alt { font-size: 0.4rem; }
+      .card-bonus { font-size: 0.45rem; }
+      .card-withdraw { font-size: 0.4rem; }
+      .card-download-sm { padding: 3px 8px 3px 5px !important; font-size: 0.45rem !important; gap: 2px !important; }
+      .card-download-sm::before { width: 10px; height: 10px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 10px; height: 10px; }
+    }
+    @media (min-width: 769px) {
+      .card-img { width: 56px; height: 56px; margin-left: 22px; margin-right: 10px; }
+      .card-download-sm { padding: 8px 18px 8px 12px !important; font-size: 0.7rem !important; gap: 6px !important; }
+      .card-download-sm::before { width: 16px; height: 16px; }
+    }
 
     /* --- FOOTER --- */
     .footer-note {
@@ -1260,7 +1263,6 @@
       .footer-note .footer-copy { font-size: 0.4rem; }
     }
 
-    /* --- STATIC PAGES --- */
     .static-page {
       display: none;
       flex-direction: column;
@@ -1294,7 +1296,6 @@
     .static-back-btn:active { transform: scale(0.95); background: #dbeafe; }
     .static-back-btn svg { width: 18px; height: 18px; fill: #1e293b; }
 
-    /* --- OVERLAY --- */
     .info-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(3px); z-index: 99; justify-content: center; align-items: center; }
     .info-card { background: white; max-width: 400px; width: 90%; padding: 20px 18px; border-radius: 28px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
     .info-card h2 { font-size: 1.2rem; margin-bottom: 8px; color: #0b1e33; }
@@ -1303,7 +1304,6 @@
 
     .static-loading { padding: 40px 20px; text-align: center; color: #64748b; font-size: 0.9rem; }
 
-    /* ===== YONO GAMES INFORMATION SECTION - PREMIUM CHIP DESIGN ===== */
     .yono-info-section {
       padding: 14px 10px 10px 10px;
       background: #ffffff;
@@ -1339,7 +1339,6 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    /* Remove the badge completely */
     .yono-info-section .yono-info-title .title-badge {
       display: none !important;
     }
@@ -1399,7 +1398,6 @@
       .yono-tags-container { gap: 10px; }
     }
 
-    /* --- RESPONSIVE - Mobile First --- */
     @media (max-width: 420px) {
       .header-logo { width: 40px; height: 40px; border-width: 3px; border-radius: 10px; }
       .header-name-box { font-size: 0.6rem; padding: 4px 12px; }
@@ -1410,19 +1408,11 @@
       .nav-small svg { width: 10px; height: 10px; }
       .detail-img { width: 50px; height: 50px; }
       .detail-info .game-name { font-size: 0.9rem; }
-      .card-name { font-size: 0.6rem; }
-      .card-name .alt { font-size: 0.4rem; }
-      .card-bonus { font-size: 0.5rem; }
-      .card-withdraw { font-size: 0.45rem; }
-      .card-number { width: 16px; height: 16px; font-size: 0.4rem; top: 2px; left: 2px; }
-      .card-img { margin-left: 14px; width: 34px; height: 34px; margin-right: 3px; }
       .game-tag { font-size: 0.45rem; padding: 3px 8px; }
       .all-game-tag { font-size: 0.4rem; padding: 2px 8px; }
       .related-item .rname { font-size: 0.5rem; }
       .static-page p { font-size: 0.85rem; }
       .static-page h2 { font-size: 1.2rem; }
-      .card-download-sm { padding: 4px 10px 4px 8px !important; font-size: 0.55rem !important; gap: 4px !important; }
-      .card-download-sm::before { width: 12px !important; height: 12px !important; }
       .detail-download .download-btn { font-size: 0.8rem; padding: 10px 16px; gap: 8px; }
       .detail-download .download-btn::before { width: 18px; height: 18px; }
       .meta-row { gap: 8px; font-size: 0.6rem; }
@@ -1450,21 +1440,15 @@
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
       .yono-info-section { padding: 10px 6px 8px 6px; }
       .yono-tags-container { gap: 6px; }
-      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
     }
     @media (max-width: 360px) {
       .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
       .header-name-box { font-size: 0.5rem; padding: 3px 10px; }
       .nav-small { font-size: 0.4rem; padding: 3px 6px; gap: 2px; }
       .nav-small svg { width: 9px; height: 9px; }
-      .card-name { font-size: 0.55rem; }
-      .card-bonus { font-size: 0.45rem; }
-      .card-withdraw { font-size: 0.4rem; }
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
       .back-btn { font-size: 0.5rem; padding: 3px 8px 3px 6px; }
       .back-btn svg { width: 11px; height: 11px; }
-      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 10px; height: 10px; }
-      .card-img { margin-left: 12px; width: 30px; height: 30px; margin-right: 2px; }
     }
     @media (min-width: 1201px) {
       .container { padding: 0 20px; }
@@ -1472,10 +1456,8 @@
       .yono-tags-container { gap: 10px; }
       .header-logo { width: 54px; height: 54px; border-width: 4px; border-radius: 14px; }
       .header-name-box { font-size: 1rem; padding: 8px 24px; }
-      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 16px; height: 16px; }
     }
 
-    /* ===== YONO INFO SECTION - CUSTOM HTML RENDERER ===== */
     .yono-custom-tags-wrapper {
       width: 100%;
       display: flex;
@@ -1526,7 +1508,6 @@
       .yono-custom-tags-wrapper { gap: 10px; }
     }
 
-    /* ===== NEW FOOTER SCROLL TAGS SECTION - BLACK BACKGROUND ===== */
     .footer-scroll-section {
       background: #000000;
       width: 100%;
@@ -1593,7 +1574,7 @@
 
   <!-- MARQUEE REMOVED -->
 
-  <!-- NAV ROW with premium SVG icons -->
+  <!-- NAV ROW -->
   <div class="nav-row-small">
     <span class="nav-small active" id="homeNav">
       <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
@@ -1613,12 +1594,10 @@
     </span>
   </div>
 
-  <!-- ===== HOME PAGE GREEN-LINE BOX (replaces photo) ===== -->
+  <!-- ===== HOME PAGE GREEN-LINE BOX ===== -->
   <div id="homeGreenBox" class="home-greenbox show">
     <div class="info-text">All Yono Games View is a gaming platform where users can discover different online game apps, categories, features, and download information in one place.</div>
-    <div class="tag-wrap" id="greenboxTags">
-      <!-- Tags will be injected by JS from original app names -->
-    </div>
+    <div class="tag-wrap" id="greenboxTags"></div>
   </div>
 
   <!-- STATIC PAGES -->
@@ -1716,7 +1695,6 @@
       </div>
     </div>
 
-    <!-- ===== TOP OFFERS (DYNAMIC) ===== -->
     <div class="tag-section">
       <div class="tag-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -1727,7 +1705,6 @@
       <div class="tag-grid" id="tagGridContainer"></div>
     </div>
 
-    <!-- ===== TABLE OF CONTENTS ===== -->
     <div class="toc-section">
       <div class="toc-header" id="tocToggle">
         <div class="toc-left">
@@ -1808,7 +1785,6 @@
       </div>
     </div>
 
-    <!-- ===== FAQ ===== -->
     <div class="faq-section">
       <div class="faq-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -1848,7 +1824,6 @@
       </div>
     </div>
 
-    <!-- ===== REFERRAL SECTION - FIXED ===== -->
     <div class="referral-section" id="referralSection">
       <div class="referral-title">
         <span class="title-icon">
@@ -1862,18 +1837,14 @@
         <span>for each successful referral! Use your unique referral code:</span>
         <span class="ref-code" id="refCode">YONO7X9P</span>
         <span>or share your referral link:</span>
-        <!-- PREMIUM CLICKABLE REFERRAL LINK ROW - FIXED -->
         <a href="https://www.earntp.com/m/jm9n7r" target="_blank" rel="noopener noreferrer" class="ref-link-row" id="refLinkRow">
-          <!-- Left SVG Icon - Fixed Left -->
           <span class="ref-link-icon-left">
             <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
           </span>
-          <!-- Link Name + URL - Center, Single Line -->
           <span class="ref-link-text" id="refLinkText">
             <span class="link-label">Referral Link:</span>
             <span class="link-url">https://www.earntp.com/m/jm9n7r</span>
           </span>
-          <!-- Right Arrow SVG - Fixed Right -->
           <span class="ref-link-arrow-right">
             <span class="arrow-shine"></span>
             <svg viewBox="0 0 24 24" stroke="currentColor"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1882,7 +1853,6 @@
       </div>
     </div>
 
-    <!-- ===== GAME TAGS SECTION (heading only, tags removed) ===== -->
     <div class="game-tags-section">
       <div class="game-tags-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -1893,7 +1863,6 @@
       <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
-    <!-- ===== ALL GAMES TAGS (clickable) ===== -->
     <div class="all-games-tags-section">
       <div class="all-games-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px;">
@@ -1904,7 +1873,6 @@
       <div class="all-games-tags-container" id="allGamesTagsContainer"></div>
     </div>
 
-    <!-- ===== RELATED ===== -->
     <div class="related-section">
       <div class="related-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -1916,23 +1884,18 @@
     </div>
   </div>
 
-  <!-- ============================================================
-       YONO GAMES INFORMATION SECTION (Home Page) - PREMIUM CHIP DESIGN
-       ============================================================ -->
+  <!-- ===== YONO GAMES INFORMATION SECTION ===== -->
   <div class="yono-info-section" id="yonoInfoSection">
     <div class="yono-info-title">
       <span class="title-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="12" y2="12"/></svg>
       </span>
       <span class="title-text">YONO Games Information</span>
-      <!-- Title badge removed completely -->
     </div>
-    <div class="yono-tags-container" id="yonoTagsContainer">
-      <!-- Custom HTML from yono-games-information.html rendered here -->
-    </div>
+    <div class="yono-tags-container" id="yonoTagsContainer"></div>
   </div>
 
-  <!-- ===== NEW FOOTER SCROLL TAGS SECTION - BLACK BACKGROUND ===== -->
+  <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
   <div class="footer-scroll-section">
     <div class="scroll-tags-wrapper">
       <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
@@ -1987,7 +1950,7 @@
     </div>
   </div>
 
-  <!-- ===== FOOTER WITH About | Contact | Disclaimer ===== -->
+  <!-- ===== FOOTER ===== -->
   <div class="footer-note">
     <div class="footer-links">
       <a class="footer-nav-link" data-page="about">About</a>
@@ -2011,7 +1974,7 @@
 
 <script>
   (function() {
-    // ---------- GAME DATA (74 total - fixed missing app) ----------
+    // ---------- GAME DATA (74 total) ----------
     const games = [
       { name: "YONO NEW APP", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/CssC2WbG/1000022725.jpg" },
       { name: "567 SLOTS", altName: "567 SLOTS Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/hFytMXY2/1000022725.jpg" },
@@ -2081,7 +2044,6 @@
       { name: "MAHA GAMES", altName: "MAHA GAMES App", bonus: "₹57", withdrawal: "₹100", downloadUrl: "https://good-mahagames.com/?code=J24U9DHRWR8&t=1785589525", img: "https://i.ibb.co/1txbB818/MAHA-GAMES.jpg" },
       { name: "IND RUMMY", altName: "IND RUMMY Game", bonus: "₹46", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/zWRG3pSv/IND-RUMMY.jpg" },
       { name: "Hi RUMMY", altName: "Hi RUMMY APK", bonus: "₹49", withdrawal: "₹100", downloadUrl: "https://joinhirummy.net/?code=RX35XQBCPC9&t=1785590074", img: "https://i.ibb.co/JFx9d9C3/Hi-RUMMY.jpg" },
-      { name: "INR RUMMY", altName: "INR RUMMY Game", bonus: "₹52", withdrawal: "₹100", downloadUrl: "https://inrrummy.club/?code=JMQBV8TAPD7&t=1785589618", img: "https://i.ibb.co/5hGMPXGH/INR-RUMMY.jpg" },
       { name: "JAIHO SPIN", altName: "JAIHO SPIN APK", bonus: "₹44", withdrawal: "₹100", downloadUrl: "https://18jaihospinpro.com/?code=U3VDD22Q&t=1785590326", img: "https://i.ibb.co/qL4kSnBn/JAIHO-SPIN.jpg" },
       { name: "JAIHO RUMMY", altName: "JAIHO RUMMY Game", bonus: "₹53", withdrawal: "₹100", downloadUrl: "https://jaihoclud.com/?code=E744HJRF6W7&t=1785590487", img: "https://i.ibb.co/C5xsXRLW/JAIHO-RUMMY.jpg" },
       { name: "YONO SLOTS", altName: "YONO SLOTS APK", bonus: "₹48", withdrawal: "₹100", downloadUrl: "https://www.yonoslotsm.com/?code=KU899FV2GFY&t=1785590595", img: "https://i.ibb.co/SXrPLwd6/YONO-SLOTS.jpg" },
@@ -2098,7 +2060,6 @@
       return true;
     });
 
-    // Store game data by name
     var gameDataMap = {};
     uniqueGames.forEach(function(g) {
       var seed = g.name.length * 7 + g.name.charCodeAt(0);
@@ -2139,7 +2100,6 @@
     const overlay = document.getElementById('infoOverlay');
     const overlayClose = document.getElementById('overlayClose');
 
-    // ---------- Home Green Box ----------
     const homeGreenBox = document.getElementById('homeGreenBox');
 
     function showHomeGreenBox() {
@@ -2150,7 +2110,6 @@
       homeGreenBox.className = 'home-greenbox hidden';
     }
 
-    // Exact original game tags from the user's list - fixed order, no duplication
     const originalTags = [
       "SVIP 777", "MAHA GAMES", "GOA SPIN", "765 CLUB", "SLOTS SPIN", "TEEN PATTI",
       "MKM BET APK", "BET 213", "SAGA SLOTS", "JAIHO WIN", "SPIN CRUSH", "567 SLOTS",
@@ -2163,11 +2122,9 @@
       "GOOD SLOTS", "BINGO 101", "YONO RUMMY"
     ];
 
-    // Inject tags into greenbox from exact list - fixed order, no shuffle
     function populateGreenboxTags() {
       const wrap = document.getElementById('greenboxTags');
       wrap.innerHTML = '';
-      // Use the exact list in the exact order provided
       originalTags.forEach(name => {
         const tag = document.createElement('span');
         tag.className = 'gtag';
@@ -2220,12 +2177,9 @@
     loadPageContent(contactContent, 'Contact.html');
     loadPageContent(disclaimerContent, 'Disclaimer.html');
 
-    // ---------- Load YONO Games Information from external file (CUSTOM HTML RENDER) ----------
     function loadYonoTags() {
       const container = document.getElementById('yonoTagsContainer');
-      
       container.innerHTML = '';
-      
       fetch('yono-games-information.html?' + Date.now())
         .then(response => {
           if (!response.ok) throw new Error('File not found');
@@ -2234,32 +2188,25 @@
         .then(html => {
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = html;
-          
           const removeTags = tempDiv.querySelectorAll('script, style, link, meta, title, head, noscript, iframe, object, embed');
           removeTags.forEach(el => el.remove());
-          
           let bodyContent = tempDiv.innerHTML;
           const bodyEl = tempDiv.querySelector('body');
           if (bodyEl) {
             bodyContent = bodyEl.innerHTML;
           }
-          
           bodyContent = bodyContent.replace(/<!--[\s\S]*?-->/g, '');
           bodyContent = bodyContent.trim();
-          
           if (!bodyContent || bodyContent.length < 2) {
             container.innerHTML = '<span class="yono-tag" style="color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0;">No tags found</span>';
             return;
           }
-          
           const wrapper = document.createElement('div');
           wrapper.className = 'yono-custom-tags-wrapper';
-          
           const fragment = document.createDocumentFragment();
           const parser = new DOMParser();
           const doc = parser.parseFromString(bodyContent, 'text/html');
           const nodes = doc.body ? doc.body.childNodes : doc.childNodes;
-          
           let hasContent = false;
           nodes.forEach(node => {
             if (node.nodeType === 1 || (node.nodeType === 3 && node.textContent.trim().length > 0)) {
@@ -2297,12 +2244,10 @@
               }
             }
           });
-          
           if (!hasContent) {
             container.innerHTML = '<span class="yono-tag" style="color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0;">No tags found</span>';
             return;
           }
-          
           wrapper.appendChild(fragment);
           container.appendChild(wrapper);
         })
@@ -2330,7 +2275,6 @@
       if (metaKeywords) metaKeywords.setAttribute('content', originalKeywords);
     }
 
-    // ---- History Stack ----
     var historyStack = [];
 
     function pushHistory(state, title, url) {
@@ -2350,7 +2294,6 @@
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
 
-    // ---- Navigation Functions ----
     function showMainGrid() {
       detailView.style.display = 'none';
       detailView.classList.remove('show');
@@ -2376,7 +2319,6 @@
       scrollToTop();
     }
 
-    // ---- Home Navigation ----
     homeNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -2386,7 +2328,6 @@
       pushHistory({ page: 'home' }, 'Home', location.href);
     });
 
-    // ---- About Navigation ----
     aboutNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -2402,7 +2343,6 @@
       pushHistory({ page: 'about' }, 'About', location.href);
     });
 
-    // ---- Contact Navigation ----
     contactNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -2418,7 +2358,6 @@
       pushHistory({ page: 'contact' }, 'Contact', location.href);
     });
 
-    // ---- Disclaimer Navigation ----
     disclaimerNav.addEventListener('click', function() {
       if (overlay.style.display === 'flex') overlay.style.display = 'none';
       hideAllNavActive();
@@ -2434,7 +2373,6 @@
       pushHistory({ page: 'disclaimer' }, 'Disclaimer', location.href);
     });
 
-    // ---- Static Back Buttons ----
     document.querySelectorAll('.static-back-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         if (overlay.style.display === 'flex') overlay.style.display = 'none';
@@ -2449,10 +2387,8 @@
       });
     });
 
-    // ---- Detail Back Button ----
     backBtn.addEventListener('click', function() {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
-      
       var prev = popHistory();
       if (prev) {
         if (prev.state.page === 'home') {
@@ -2505,14 +2441,12 @@
       }
     });
 
-    // Helper: Generate star HTML with premium animation
     function generateStars(rating) {
       var num = parseFloat(rating) || 0;
       var full = Math.floor(num);
       var half = (num - full) >= 0.5 ? 1 : 0;
       var html = '';
       var starSvg = '<svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
-      
       for (var i = 0; i < 5; i++) {
         var wrapperClass = 'star-wrapper';
         if (i < full) {
@@ -2543,20 +2477,17 @@
     function generateTopOfferTags(gameName, bonus, altName) {
       var seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
       var bonusNum = parseInt(bonus.replace('₹', '')) || 45;
-      
       var icons = [
         '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
         '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>',
         '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
         '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
       ];
-
       var b1 = '₹' + (bonusNum + (seed * 3) % 50 + 10);
       var b2 = '₹' + (bonusNum + (seed * 7) % 40 + 20);
       var b3 = '₹' + (bonusNum + (seed * 2) % 30 + 30);
       var b4 = '₹' + (bonusNum + (seed * 5) % 60 + 5);
       var b5 = '₹' + (bonusNum + (seed * 11) % 45 + 15);
-
       var tagTemplates = [
         {
           title: function(n) { return n + ' APK – Get ' + b1 + ' Welcome Bonus!'; },
@@ -2579,7 +2510,6 @@
           content: function(n) { return 'Join ' + n + ' and receive ' + b5 + ' instant bonus. Play rummy, slots, and teen patti. Minimum withdrawal ₹100.'; }
         }
       ];
-
       var shuffled = tagTemplates.slice();
       for (var i = shuffled.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -2608,54 +2538,6 @@
         });
       }
       return result;
-    }
-
-    // Generate game tags (but now hidden)
-    function generateGameTags(gameName, bonus) {
-      var forbidden = ['Poker', 'Reels', 'Bonus: ₹40', 'Casino', 'Card Games'];
-      var tagPool = [
-        'Rummy', 'Slots', 'Teen Patti', 'Card Games', 'Real Money', 'Earn Cash',
-        'UPI Withdrawal', 'Fast Payout', 'Trusted App', 'Indian Game', 'Casino',
-        'Poker', 'Aviator', 'Dragon vs Tiger', 'Bingo', 'Spin', 'Lucky',
-        'Jackpot', 'Refer & Earn', 'Daily Bonus', 'Free Spins', 'Welcome Offer',
-        'Instant Withdrawal', 'Low Deposit', 'High RTP', 'Multiplayer'
-      ];
-      var custom = [];
-      var nameLower = gameName.toLowerCase();
-      if (nameLower.includes('rummy')) custom.push('Rummy Game', 'Sequence');
-      if (nameLower.includes('slot')) custom.push('Slot Machine', 'Jackpot');
-      if (nameLower.includes('patti')) custom.push('Teen Patti', 'Indian Poker');
-      if (nameLower.includes('spin')) custom.push('Spin Wheel', 'Lucky Spin');
-      if (nameLower.includes('bingo')) custom.push('Bingo', 'Number Game');
-      if (nameLower.includes('gold')) custom.push('Gold', 'Premium');
-      if (nameLower.includes('ludo')) custom.push('Ludo', 'Board Game');
-      if (nameLower.includes('max')) custom.push('Max Bonus', 'High Limit');
-      if (nameLower.includes('rani')) custom.push('Queen', 'Royal');
-      if (nameLower.includes('ultra')) custom.push('Ultra', 'Extreme');
-      if (nameLower.includes('jackpot')) custom.push('Jackpot', 'Big Win');
-      if (nameLower.includes('netavip')) custom.push('VIP', 'Premium');
-      if (nameLower.includes('dhan')) custom.push('Wealth', 'Fortune');
-      if (nameLower.includes('yn')) custom.push('YN', 'New');
-      if (nameLower.includes('maha')) custom.push('Maha', 'Grand');
-      if (nameLower.includes('rumble')) custom.push('Rumble', 'Fight');
-      if (nameLower.includes('diwa win')) custom.push('Diwa Win', 'Victory');
-      var pool = tagPool.concat(custom);
-      pool = pool.filter(function(tag) { return forbidden.indexOf(tag) === -1; });
-      pool = pool.filter(function(item, index) { return pool.indexOf(item) === index; });
-      for (var i = pool.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = pool[i];
-        pool[i] = pool[j];
-        pool[j] = temp;
-      }
-      var count = 5 + Math.floor(Math.random() * 4);
-      var selected = pool.slice(0, count);
-      var bonusTag = '🎁 Bonus: ' + bonus;
-      if (selected.length > 0) {
-        var replaceIdx = Math.floor(Math.random() * selected.length);
-        selected[replaceIdx] = bonusTag;
-      }
-      return selected;
     }
 
     function renderGrid() {
@@ -2907,14 +2789,12 @@
       document.getElementById('tocArrow').classList.toggle('open');
     });
 
-    // ---- Share Button: Alternate WhatsApp / Facebook with fixed URL ----
     var shareClickCount = 0;
     document.getElementById('shareBtn').addEventListener('click', function() {
       shareClickCount++;
       var shareUrl = 'https://www.earntp.com/m/jm9n7r';
       var encodedUrl = encodeURIComponent(shareUrl);
       var text = encodeURIComponent('YONO NEW APP – Download 77+ Yono Games. Get ₹45 Bonus & ₹100 Withdrawal!');
-      
       if (shareClickCount % 2 === 1) {
         var whatsappUrl = 'https://api.whatsapp.com/send?text=' + text + '%20' + encodedUrl;
         window.open(whatsappUrl, '_blank');
@@ -2924,7 +2804,6 @@
       }
     });
 
-    // ---------- Footer Navigation Links ----------
     document.querySelectorAll('.footer-nav-link').forEach(function(link) {
       link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -2936,17 +2815,13 @@
         } else if (page === 'disclaimer') {
           disclaimerNav.click();
         }
-        // Scroll to top when navigating
         window.scrollTo({ top: 0, behavior: 'auto' });
       });
     });
 
-    // ---------- popstate (browser back/forward) ----------
     window.addEventListener('popstate', function(e) {
       if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
-      
       var state = e.state;
-      
       if (detailView.style.display === 'block') {
         var prev = popHistory();
         if (prev) {
@@ -3000,7 +2875,6 @@
         }
         return;
       }
-      
       if (aboutPage.classList.contains('visible') || contactPage.classList.contains('visible') || disclaimerPage.classList.contains('visible')) {
         hideAllNavActive();
         homeNav.classList.add('active');
@@ -3009,7 +2883,6 @@
       }
     });
 
-    // ---- Initialize home state ----
     historyStack.push({ state: { page: 'home' }, title: 'Home', url: location.href });
     history.replaceState({ page: 'home' }, 'Home', location.href);
   })();
