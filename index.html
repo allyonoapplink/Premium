@@ -161,9 +161,6 @@
       color: #ffffff !important;
       transition: all 0.3s ease;
     }
-    .home-page .nav-row-small .nav-small svg {
-      stroke: #ffffff !important;
-    }
     .home-page .nav-row-small .nav-small:hover {
       background: rgba(255, 255, 255, 0.3) !important;
       border-color: rgba(255, 255, 255, 0.6);
@@ -175,7 +172,37 @@
       border-color: #ffffff;
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
     }
-    .home-page .nav-row-small .nav-small.active svg {
+
+    /* ===== HOME PAGE ICON COLORS - NEW PREMIUM STYLES ===== */
+    /* Home icon → White */
+    .home-page .nav-row-small .nav-small .nav-icon-home {
+      stroke: #ffffff !important;
+    }
+    .home-page .nav-row-small .nav-small.active .nav-icon-home {
+      stroke: #0b1e33 !important;
+    }
+    
+    /* About icon → Black */
+    .home-page .nav-row-small .nav-small .nav-icon-about {
+      stroke: #000000 !important;
+    }
+    .home-page .nav-row-small .nav-small.active .nav-icon-about {
+      stroke: #0b1e33 !important;
+    }
+    
+    /* Contact icon → Gold */
+    .home-page .nav-row-small .nav-small .nav-icon-contact {
+      stroke: #FFD700 !important;
+    }
+    .home-page .nav-row-small .nav-small.active .nav-icon-contact {
+      stroke: #0b1e33 !important;
+    }
+    
+    /* Disclaimer icon → Red */
+    .home-page .nav-row-small .nav-small .nav-icon-disclaimer {
+      stroke: #FF0000 !important;
+    }
+    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer {
       stroke: #0b1e33 !important;
     }
 
@@ -217,7 +244,7 @@
     .nav-small.active .nav-icon-about { stroke: white !important; }
     .nav-small.active .nav-icon-contact { stroke: white !important; }
     .nav-small.active .nav-icon-disclaimer { stroke: white !important; }
-    /* Premium SVG Icons - Each with distinct fixed color */
+    /* Premium SVG Icons - Each with distinct fixed color (Original) */
     .nav-small svg {
       width: 18px;
       height: 18px;
@@ -228,13 +255,13 @@
       stroke-linejoin: round;
       transition: stroke 0.3s ease;
     }
-    /* Home - Premium Blue */
+    /* Home - Premium Blue (Original) */
     .nav-icon-home { stroke: #2563eb; }
-    /* About - Premium Emerald Green */
+    /* About - Premium Emerald Green (Original) */
     .nav-icon-about { stroke: #059669; }
-    /* Contact - Premium Purple */
+    /* Contact - Premium Purple (Original) */
     .nav-icon-contact { stroke: #7c3aed; }
-    /* Disclaimer - Premium Amber/Orange */
+    /* Disclaimer - Premium Amber/Orange (Original) */
     .nav-icon-disclaimer { stroke: #d97706; }
     /* Hover states - subtle color shift */
     .nav-small:not(.active):hover .nav-icon-home { stroke: #3b82f6; }
