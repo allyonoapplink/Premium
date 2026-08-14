@@ -300,8 +300,6 @@
       .share-btn .share-text { font-size: 0.7rem; }
     }
 
-    /* --- MARQUEE REMOVED --- */
-
     /* --- NAV ROW - PREMIUM SVG ICONS WITH DISTINCT FIXED COLORS --- */
     .nav-row-small { display: flex; justify-content: space-around; align-items: center; background: #ffffff !important; padding: 4px 6px; border-bottom: 1px solid #e9edf4; gap: 2px; }
     .nav-small {
@@ -1390,6 +1388,8 @@
     /* App name - only one name, no duplicate */
     .card-name { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; flex-wrap: wrap; }
     .card-name .alt { display: none !important; }
+
+    /* --- UPDATED CARD BONUS & WITHDRAW STYLES (Premium Red & Green) --- */
     .card-bonus, .card-withdraw {
       display: flex;
       align-items: center;
@@ -1414,19 +1414,41 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    .card-bonus { color: #dc2626; }
-    .card-bonus .icon-svg svg { stroke: #dc2626; fill: #dc2626; }
-    .card-withdraw { color: #0a0a0a; }
-    .card-withdraw .icon-svg svg { stroke: #0a0a0a; }
-    .card-bonus .value, .card-withdraw .value {
+
+    /* Sign Up Bonus - Premium Red */
+    .card-bonus {
+      color: #dc2626;
+    }
+    .card-bonus .icon-svg svg {
+      stroke: #dc2626;
+      fill: #dc2626;
+    }
+    .card-bonus .label {
+      color: #dc2626;
+      font-weight: 600;
+    }
+    .card-bonus .value {
+      color: #dc2626;
       font-weight: 700;
-      color: inherit;
     }
-    .card-bonus .label, .card-withdraw .label {
-      font-weight: 500;
-      color: #64748b;
+
+    /* Min. Withdraw - Full Green */
+    .card-withdraw {
+      color: #16a34a;
     }
-    .card-withdraw .label { color: #64748b; }
+    .card-withdraw .icon-svg svg {
+      stroke: #16a34a;
+      fill: none;
+    }
+    .card-withdraw .label {
+      color: #16a34a;
+      font-weight: 600;
+    }
+    .card-withdraw .value {
+      color: #16a34a;
+      font-weight: 700;
+    }
+
     .card-withdraw { font-size: 0.5rem; }
 
     /* PREMIUM GREEN DOWNLOAD BUTTON - HOME PAGE */
@@ -2893,10 +2915,13 @@
         card.dataset.metaBonus = metaBonus;
         card.dataset.version = version;
 
-        const bonusIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
-        const withdrawIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
+        // --- UPDATED ICONS AND STYLES (Premium Red & Green) ---
+        // Sign Up Bonus: 🎁 Gift SVG
+        const bonusIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/><path d="M2 7v10"/><path d="M12 2v20"/><path d="M22 7v10"/></svg></span>`;
+        
+        // Min. Withdraw: 🏦 Bank SVG
+        const withdrawIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg></span>`;
 
-        // HOME PAGE: Only app name, no duplicate alt name
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
           <div class="card-img"><img src="${game.img}" alt="${game.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
@@ -3079,9 +3104,9 @@
         item.dataset.metaBonus = mb;
         item.dataset.version = ver;
 
-        // Bonus icon for related section
-        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
-        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
+        // Bonus icon for related section (using new gift icon)
+        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/><path d="M2 7v10"/><path d="M12 2v20"/><path d="M22 7v10"/></svg></span>`;
+        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg></span>`;
 
         item.innerHTML = `
           <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
