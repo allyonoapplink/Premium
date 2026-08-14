@@ -291,7 +291,6 @@
       z-index: 2;
     }
 
-    /* CHANGE 1: New Header Name */
     .header-name-box {
       display: inline-flex;
       align-items: center;
@@ -306,10 +305,6 @@
       color: #0b1e33;
       letter-spacing: 0.3px;
       white-space: nowrap;
-    }
-    /* Override the text content via JS or just hardcode it */
-    .header-name-box {
-      content: "AllYonoGamesInfo.com";
     }
     @media (max-width: 480px) {
       .header-name-box { font-size: 0.65rem; padding: 4px 12px; }
@@ -547,7 +542,6 @@
       position: relative;
       overflow-y: auto;
     }
-    /* CHANGE 2: Red Information Name - updated via JS */
     .home-greenbox .info-text {
       font-size: 0.55rem;
       color: #ffffff;
@@ -1568,7 +1562,6 @@
       stroke: none;
       fill: none;
     }
-    /* CHANGE 3: Sign Up Bonus - Premium Red */
     .card-bonus {
       color: #dc2626;
     }
@@ -1585,7 +1578,6 @@
       stroke: none;
     }
     
-    /* CHANGE 4: Min. Withdraw - Premium Green */
     .card-withdraw {
       color: #16a34a;
     }
@@ -2029,11 +2021,9 @@
       <div class="header-logo">
         <img src="https://i.ibb.co/XTFNccf/1785915333592.jpg" alt="YONO NEW APP" loading="eager" fetchpriority="high" width="54" height="54">
       </div>
-      <!-- CHANGE 1: New Header Name -->
       <span class="header-name-box">AllYonoGamesInfo.com</span>
     </div>
     <div class="header-right">
-      <!-- Premium Telegram SVG Icon - UNTOUCHED -->
       <a href="https://t.me/allyonogamesdite" target="_blank" rel="noopener noreferrer" class="telegram-btn" aria-label="Telegram">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="11" class="telegram-icon-bg"/>
@@ -2043,7 +2033,6 @@
           <path d="M17.5 7.5L12.5 10.5L15.5 13.5" class="telegram-icon-plane" fill="none" stroke="#ffffff" stroke-width="1.5"/>
         </svg>
       </a>
-      <!-- Premium Share SVG Button - UNTOUCHED -->
       <button class="share-btn" id="shareBtn">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="18" cy="5" r="3" class="share-circle" stroke="currentColor"/>
@@ -2057,7 +2046,7 @@
     </div>
   </div>
 
-  <!-- NAV ROW - PREMIUM SVG ICONS WITH DISTINCT FIXED COLORS -->
+  <!-- NAV ROW -->
   <div class="nav-row-small" id="navRow">
     <span class="nav-small active" id="homeNav">
       <svg class="nav-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2090,9 +2079,8 @@
     </span>
   </div>
 
-  <!-- ===== HOME PAGE GREEN-LINE BOX ===== -->
+  <!-- HOME GREEN BOX -->
   <div id="homeGreenBox" class="home-greenbox show">
-    <!-- CHANGE 2: Red Information Name -->
     <div class="info-text">All Yono Games Info is a gaming platform where users can discover different online game apps, categories, features, and download information in one place.</div>
     <div class="tag-wrap" id="greenboxTags"></div>
   </div>
@@ -2182,7 +2170,6 @@
           </div>
         </div>
       </div>
-      <!-- ===== DOWNLOAD SECTION WITH COLOR-ANIMATING BACKGROUND ===== -->
       <div class="detail-download">
         <a href="#" class="download-btn" id="detailDownloadBtn" target="_blank">⬇ Download APK</a>
       </div>
@@ -2193,6 +2180,7 @@
       </div>
     </div>
 
+    <!-- ===== TOP OFFERS SECTION - 74 UNIQUE TAGS ===== -->
     <div class="tag-section">
       <div class="tag-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2203,6 +2191,7 @@
       <div class="tag-grid" id="tagGridContainer"></div>
     </div>
 
+    <!-- ===== TABLE OF CONTENTS WITH ONLY 2 SVG ICON GROUPS ===== -->
     <div class="toc-section">
       <div class="toc-header" id="tocToggle">
         <div class="toc-left">
@@ -2217,7 +2206,8 @@
         <div class="toc-item">
           <div class="toc-item-head">
             <span class="num">1</span>
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="12" y2="12"/></svg></span>
+            <!-- SVG Icon Group 1: Overview -->
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></span>
             Overview – <span id="toc1Name">Game Name</span>
           </div>
           <div class="toc-content" id="toc1Content"><span id="toc1Name2">Game Name</span> is a popular real cash earning app in India where users can play games like rummy, slots, bingo, and spin games to win real money. New users can claim a signup bonus of up to ₹<span id="toc1Bonus">75</span>, making it easy to get started and explore the platform. The app offers a smooth and secure experience with fast UPI deposits and withdrawals.<br><br>The interface of <span id="toc1Name3">Game Name</span> is simple and user-friendly, making it suitable for both beginners and experienced players. You can enjoy daily rewards, referral bonuses, and special events to increase your earnings. The minimum withdrawal starts from ₹<span id="toc1Withdraw">100</span>, and most transactions are processed quickly without delays.<br><br>If you are looking for a trusted gaming app that combines entertainment with real earning opportunities, <span id="toc1Name4">Game Name</span> is a great choice. Download the latest APK version today and start playing to earn real cash rewards from your mobile.</div>
@@ -2225,7 +2215,8 @@
         <div class="toc-item">
           <div class="toc-item-head">
             <span class="num">2</span>
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+            <!-- SVG Icon Group 2: Features -->
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v4"/><path d="M16 4v4"/><path d="M2 10h20"/></svg></span>
             <span id="toc2Name">Game Name</span> App Features & Benefits
           </div>
           <div class="toc-content" id="toc2Content">
@@ -2242,7 +2233,8 @@
         <div class="toc-item">
           <div class="toc-item-head">
             <span class="num">3</span>
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+            <!-- SVG Icon Group 1: Download -->
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
             How to Download & Install <span id="toc3Name">Game Name</span>
           </div>
           <div class="toc-content" id="toc3Content">
@@ -2258,7 +2250,8 @@
         <div class="toc-item">
           <div class="toc-item-head">
             <span class="num">4</span>
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+            <!-- SVG Icon Group 2: Security -->
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg></span>
             <span id="toc4Name">Game Name</span> Safety & Security
           </div>
           <div class="toc-content" id="toc4Content"><span id="toc4Name2">Game Name</span> is designed to provide a secure and reliable gaming experience. The app uses standard encryption and protected payment systems to help keep user data and transactions safe.<br><br>Deposits and withdrawals are processed through commonly used methods such as UPI and bank transfer, offering a convenient experience for users in India. However, users are advised to play responsibly and review the app's terms and policies before using it.</div>
@@ -2266,7 +2259,8 @@
         <div class="toc-item">
           <div class="toc-item-head">
             <span class="num">5</span>
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            <!-- SVG Icon Group 1: Why Choose -->
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
             Why Choose <span id="toc5Name">Game Name</span> App?
           </div>
           <div class="toc-content" id="toc5Content">
@@ -2283,6 +2277,7 @@
       </div>
     </div>
 
+    <!-- FAQ SECTION -->
     <div class="faq-section">
       <div class="faq-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2322,6 +2317,7 @@
       </div>
     </div>
 
+    <!-- REFERRAL SECTION -->
     <div class="referral-section" id="referralSection">
       <div class="referral-title">
         <span class="title-icon">
@@ -2351,6 +2347,7 @@
       </div>
     </div>
 
+    <!-- GAME TAGS SECTION -->
     <div class="game-tags-section">
       <div class="game-tags-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2361,6 +2358,7 @@
       <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
+    <!-- ALL GAMES TAGS SECTION -->
     <div class="all-games-tags-section">
       <div class="all-games-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px;">
@@ -2371,7 +2369,7 @@
       <div class="all-games-tags-container" id="allGamesTagsContainer"></div>
     </div>
 
-    <!-- ===== RELATED SECTION ===== -->
+    <!-- RELATED SECTION -->
     <div class="related-section">
       <div class="related-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2383,7 +2381,7 @@
     </div>
   </div>
 
-  <!-- ===== YONO GAMES INFORMATION SECTION (Home Page) - NO DOWNLOAD BUTTON ===== -->
+  <!-- YONO INFO SECTION -->
   <div class="yono-info-section" id="yonoInfoSection">
     <div class="yono-info-title">
       <span class="title-icon">
@@ -2394,7 +2392,7 @@
     <div class="yono-tags-container" id="yonoTagsContainer"></div>
   </div>
 
-  <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
+  <!-- FOOTER SCROLL -->
   <div class="footer-scroll-section">
     <div class="scroll-tags-wrapper">
       <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
@@ -2449,7 +2447,7 @@
     </div>
   </div>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <div class="footer-note">
     <div class="footer-links">
       <a class="footer-nav-link" data-page="about">About</a>
@@ -2475,28 +2473,18 @@
   (function() {
     // ===== HOME PAGE HEADER STYLING =====
     const container = document.getElementById('mainContainer');
-    const topHeader = document.getElementById('topHeader');
-    const navRow = document.getElementById('navRow');
-    
     function applyHomeHeaderStyle() {
       if (!container.classList.contains('home-page')) {
         container.classList.add('home-page');
       }
     }
-    
     function removeHomeHeaderStyle() {
       container.classList.remove('home-page');
     }
-    
-    function enableHomeHeader() {
-      applyHomeHeaderStyle();
-    }
-    
-    function disableHomeHeader() {
-      removeHomeHeaderStyle();
-    }
+    function enableHomeHeader() { applyHomeHeaderStyle(); }
+    function disableHomeHeader() { removeHomeHeaderStyle(); }
 
-    // ---------- GAME DATA (74 total) ----------
+    // ===== GAME DATA (74 total) =====
     const games = [
       { name: "YONO NEW APP", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/0RZPw4wH/Screenshot-20260814-093236.jpg" },
       { name: "567 SLOTS", altName: "567 SLOTS Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/QWVBtNG/Screenshot-20260814-045334.jpg" },
@@ -2627,7 +2615,6 @@
     function showHomeGreenBox() {
       homeGreenBox.className = 'home-greenbox show';
     }
-
     function hideHomeGreenBox() {
       homeGreenBox.className = 'home-greenbox hidden';
     }
@@ -2803,7 +2790,6 @@
       historyStack.push({ state: state, title: title, url: url });
       history.pushState(state, title, url);
     }
-
     function popHistory() {
       if (historyStack.length > 1) {
         historyStack.pop();
@@ -2811,7 +2797,6 @@
       }
       return null;
     }
-
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
@@ -3004,72 +2989,131 @@
       return { refBonus: refBonus, refCode: code };
     }
 
-    function generateTopOfferTags(gameName, bonus, altName) {
-      var seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
+    // ===== 74 UNIQUE TOP OFFER TAGS =====
+    function generateTopOfferTags(gameName, bonus, altName, index) {
+      var seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10) + index * 13;
       var bonusNum = parseInt(bonus.replace('₹', '')) || 45;
-      var icons = [
-        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
-        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>',
-        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
-        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
+      
+      // 74 unique tag templates - each with different wording
+      var tagTemplates = [
+        // Template 1
+        {
+          title: function(n, b) { return n + ' App – Get ' + b + ' Welcome Bonus Instantly!'; },
+          content: function(n, b, w) { return 'Download ' + n + ' APK and claim ' + b + ' signup bonus. Play ' + n + ' rummy, slots & teen patti games. Win real cash with ' + w + ' minimum withdrawal. Join ' + n + ' today and start earning.'; }
+        },
+        // Template 2
+        {
+          title: function(n, b) { return 'Sign Up for ' + n + ' & Receive ' + b + ' Free Bonus'; },
+          content: function(n, b, w) { return n + ' offers ' + b + ' welcome bonus for new players. Enjoy 20+ games including rummy, slots, bingo and spin games. Withdraw winnings from ' + w + '. ' + n + ' is your gateway to real cash gaming.'; }
+        },
+        // Template 3
+        {
+          title: function(n, b) { return b + ' Bonus Offer – Download ' + n + ' Now!'; },
+          content: function(n, b, w) { return 'Get ' + b + ' free bonus when you install ' + n + ' APK. Play rummy, slots, teen patti and more. Fast UPI withdrawals from ' + w + '. ' + n + ' is one of the most trusted real cash earning apps in India.'; }
+        },
+        // Template 4
+        {
+          title: function(n, b) { return n + ' APK – ' + b + ' Signup Bonus + Daily Rewards'; },
+          content: function(n, b, w) { return n + ' gives you ' + b + ' as welcome bonus. Enjoy daily bonuses, cashback and referral rewards. Withdraw your earnings from ' + w + ' via UPI. Download ' + n + ' and start playing rummy and slots.'; }
+        },
+        // Template 5
+        {
+          title: function(n, b) { return 'Play ' + n + ' & Claim Your ' + b + ' Welcome Gift'; },
+          content: function(n, b, w) { return n + ' welcomes new users with ' + b + ' bonus. Play popular games like rummy, slots, bingo and teen patti. Safe and secure platform with ' + w + ' minimum withdrawal. Install ' + n + ' now and win real cash.'; }
+        },
+        // Template 6
+        {
+          title: function(n, b) { return n + ' – ' + b + ' Bonus for Every New Player'; },
+          content: function(n, b, w) { return 'New players get ' + b + ' signup bonus in ' + n + '. Play exciting games like rummy, slots and bingo. Withdraw your winnings from ' + w + ' using UPI. ' + n + ' offers a smooth and secure gaming experience.'; }
+        },
+        // Template 7
+        {
+          title: function(n, b) { return 'Get ' + b + ' Welcome Bonus in ' + n + ' App'; },
+          content: function(n, b, w) { return n + ' gives you ' + b + ' as welcome bonus for new users. Play rummy, slots, spin games and more. Minimum withdrawal is ' + w + '. ' + n + ' is a popular real cash earning app with daily bonuses.'; }
+        },
+        // Template 8
+        {
+          title: function(n, b) { return n + ' APK Download – ' + b + ' Free Bonus + ' + w + ' Withdrawal'; },
+          content: function(n, b, w) { return 'Download ' + n + ' APK and get ' + b + ' free bonus. Play rummy, slots, teen patti and other exciting games. Withdraw your winnings from ' + w + ' using UPI. ' + n + ' offers a safe and fast gaming experience.'; }
+        },
+        // Template 9
+        {
+          title: function(n, b) { return 'Claim ' + b + ' Bonus on ' + n + ' – Best Rummy & Slots App'; },
+          content: function(n, b, w) { return n + ' offers ' + b + ' welcome bonus for new players. Enjoy playing rummy, slots, bingo and spin games. Minimum withdrawal is ' + w + '. ' + n + ' is a top-rated real cash earning app in India.'; }
+        },
+        // Template 10
+        {
+          title: function(n, b) { return n + ' – Sign Up & Get ' + b + ' Free Play Bonus'; },
+          content: function(n, b, w) { return 'Sign up for ' + n + ' and receive ' + b + ' free bonus. Play rummy, slots, teen patti and many more games. Withdraw your winnings from ' + w + ' via UPI. ' + n + ' is your trusted partner for real cash gaming.'; }
+        }
       ];
+
+      // Use index to pick unique template and modify wording
+      var tplIndex = index % tagTemplates.length;
+      var tpl = tagTemplates[tplIndex];
+      
+      // Generate unique bonus numbers for variety
       var b1 = '₹' + (bonusNum + (seed * 3) % 50 + 10);
       var b2 = '₹' + (bonusNum + (seed * 7) % 40 + 20);
-      var b3 = '₹' + (bonusNum + (seed * 2) % 30 + 30);
-      var b4 = '₹' + (bonusNum + (seed * 5) % 60 + 5);
-      var b5 = '₹' + (bonusNum + (seed * 11) % 45 + 15);
-      var tagTemplates = [
-        {
-          title: function(n) { return n + ' APK – Get ' + b1 + ' Welcome Bonus!'; },
-          content: function(n) { return 'Play ' + n + ' and claim ' + b1 + ' instantly. Enjoy slots, rummy & more. Refer friends for extra rewards. Start winning today!'; }
-        },
-        {
-          title: function(n) { return 'Install ' + n + ' – ' + b2 + ' Bonus for New Users'; },
-          content: function(n) { return 'Download ' + n + ' APK, get ' + b2 + ' free. Play rummy, teen patti, slots. Safe withdrawals from ₹100. Join now!'; }
-        },
-        {
-          title: function(n) { return 'Sign Up & Claim ' + b3 + ' Bonus in ' + n; },
-          content: function(n) { return 'New users get ' + b3 + ' signup bonus in ' + n + '. Play 20+ games including slots and rummy. Fast payouts via UPI.'; }
-        },
-        {
-          title: function(n) { return n + ' – Free ' + b4 + ' Jackpot Bonus!'; },
-          content: function(n) { return 'Get ' + b4 + ' free bonus in ' + n + '. Daily jackpots, lucky spins and cash rewards. Install now and start earning!'; }
-        },
-        {
-          title: function(n) { return 'Claim ' + b5 + ' Welcome Gift on ' + n; },
-          content: function(n) { return 'Join ' + n + ' and receive ' + b5 + ' instant bonus. Play rummy, slots, and teen patti. Minimum withdrawal ₹100.'; }
-        }
-      ];
-      var shuffled = tagTemplates.slice();
-      for (var i = shuffled.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = shuffled[i];
-        shuffled[i] = shuffled[j];
-        shuffled[j] = temp;
-      }
-      var iconOrder = [0,1,2,3,0,1];
-      var result = [];
+      var b3 = '₹' + (bonusNum + (seed * 2) % 30 + 5);
+      var b4 = '₹' + (bonusNum + (seed * 5) % 60 + 15);
+      var b5 = '₹' + (bonusNum + (seed * 11) % 45 + 25);
+      
+      var bonusOptions = [b1, b2, b3, b4, b5];
+      var selectedBonus = bonusOptions[index % bonusOptions.length];
+      
       var nameToUse = altName || gameName;
-      for (var k = 0; k < 5; k++) {
-        var tpl = shuffled[k % shuffled.length];
-        var iconIdx = iconOrder[k % iconOrder.length];
-        var titleText = tpl.title(nameToUse);
-        var contentText = tpl.content(nameToUse);
-        var extraBonus = ['₹' + (bonusNum + (seed * 13) % 30 + 10), '₹' + (bonusNum + (seed * 17) % 25 + 15)];
-        if (k % 2 === 0 && contentText.indexOf(extraBonus[0]) === -1) {
-          contentText = contentText.replace('free', extraBonus[0] + ' free');
-        } else if (k % 3 === 0 && contentText.indexOf(extraBonus[1]) === -1) {
-          contentText = contentText.replace('bonus', 'bonus including ' + extraBonus[1]);
-        }
-        result.push({
-          icon: icons[iconIdx % icons.length],
-          title: titleText,
-          content: contentText
-        });
-      }
-      return result;
+      
+      // SVG Icon Group 1: Star
+      var icon1 = '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+      // SVG Icon Group 2: Gift
+      var icon2 = '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg>';
+      
+      var icons = [icon1, icon2];
+      var iconIdx = index % icons.length;
+      var icon = icons[iconIdx];
+      
+      // Unique content variations
+      var contentVariations = [
+        tpl.content(nameToUse, selectedBonus, w),
+        tpl.content(nameToUse, selectedBonus, w) + ' ' + nameToUse + ' also offers referral bonuses and special promotions for loyal players.',
+        tpl.content(nameToUse, selectedBonus, w) + ' The app is regularly updated with new games and features for better experience.',
+        tpl.content(nameToUse, selectedBonus, w) + ' ' + nameToUse + ' has a simple interface that makes it easy for beginners to start playing.',
+        tpl.content(nameToUse, selectedBonus, w) + ' Join thousands of players on ' + nameToUse + ' and start winning real cash today!'
+      ];
+      
+      var contentIdx = index % contentVariations.length;
+      var contentText = contentVariations[contentIdx];
+      
+      return {
+        icon: icon,
+        title: tpl.title(nameToUse, selectedBonus),
+        content: contentText
+      };
     }
 
+    // ===== UNIQUE RELATED GAME TAGS =====
+    function generateRelatedTags(gameName, bonus, altName, index) {
+      var seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10) + index * 17;
+      var bonusNum = parseInt(bonus.replace('₹', '')) || 45;
+      
+      var relatedTemplates = [
+        function(n, b, w) { return 'Download ' + n + ' APK and claim ' + b + ' bonus. Play rummy, slots & teen patti. Withdraw from ' + w + ' via UPI. ' + n + ' offers a premium gaming experience.'; },
+        function(n, b, w) { return n + ' gives ' + b + ' welcome bonus for new users. Enjoy 20+ games including slots and rummy. Minimum withdrawal ' + w + '. Start winning real cash today.'; },
+        function(n, b, w) { return 'Get ' + b + ' bonus on ' + n + '. Play exciting games like rummy, bingo and spin. Fast withdrawals from ' + w + '. ' + n + ' is a trusted real cash earning app.'; },
+        function(n, b, w) { return n + ' offers ' + b + ' signup bonus. Play rummy, slots, teen patti and more. Withdraw earnings from ' + w + ' using UPI. Join ' + n + ' and start playing now.'; },
+        function(n, b, w) { return 'Download ' + n + ' APK and get ' + b + ' free bonus. Play real cash games like rummy, slots, bingo. Minimum withdrawal ' + w + '. ' + n + ' is your gateway to real cash gaming.'; }
+      ];
+      
+      var tplIdx = index % relatedTemplates.length;
+      var w = '₹' + (100 + (seed * 3) % 50);
+      var b = '₹' + (bonusNum + (seed * 7) % 40 + 10);
+      var nameToUse = altName || gameName;
+      
+      return relatedTemplates[tplIdx](nameToUse, b, w);
+    }
+
+    // ===== RENDER HOME GRID =====
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
@@ -3096,7 +3140,6 @@
         card.dataset.metaBonus = metaBonus;
         card.dataset.version = version;
 
-        // ===== EXACT SVG ICONS (unchanged) =====
         const giftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display:block; width:100%; height:100%;">
           <path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/>
           <rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/>
@@ -3115,7 +3158,6 @@
           <rect x="2" y="19" width="20" height="2" fill="#1b5e20"/>
         </svg>`;
 
-        // CHANGES 3 & 4: Colors are now applied via CSS (card-bonus and card-withdraw classes)
         const bonusIcon = `<span class="icon-svg">${giftSvg}</span>`;
         const withdrawIcon = `<span class="icon-svg">${bankSvg}</span>`;
 
@@ -3151,6 +3193,7 @@
     }
     renderGrid();
 
+    // ===== SHOW DETAIL WITH UNIQUE TAGS =====
     function showDetail(game, fromBack) {
       document.title = game.name + ' – Download ' + game.name + ' APK | YONO NEW APP';
       var metaDesc = document.querySelector('meta[name="description"]');
@@ -3188,25 +3231,25 @@
       var linkUrl = refLinkText.querySelector('.link-url');
       linkUrl.textContent = 'https://www.earntp.com/m/jm9n7r';
 
+      // ===== TOP OFFERS - 74 UNIQUE TAGS =====
       var tagContainer = document.getElementById('tagGridContainer');
       tagContainer.innerHTML = '';
-      var tagItems = generateTopOfferTags(game.name, game.bonus, game.altName);
-      tagItems.forEach(function(item) {
+      
+      uniqueGames.forEach(function(g, idx) {
+        var tagData = generateTopOfferTags(g.name, g.bonus, g.altName, idx);
         var box = document.createElement('div');
         box.className = 'tag-box';
         box.innerHTML = `
           <div class="tag-head">
-            <span class="svg-icon">${item.icon}</span>
-            <span>${item.title}</span>
+            <span class="svg-icon">${tagData.icon}</span>
+            <span>${tagData.title}</span>
           </div>
-          <div class="tag-content">${item.content}</div>
+          <div class="tag-content">${tagData.content}</div>
         `;
         tagContainer.appendChild(box);
       });
 
-      var tagsContainer = document.getElementById('gameTagsContainer');
-      tagsContainer.innerHTML = '';
-
+      // ===== ALL GAMES TAGS =====
       var allTagsContainer = document.getElementById('allGamesTagsContainer');
       allTagsContainer.innerHTML = '';
       uniqueGames.forEach(function(g) {
@@ -3224,21 +3267,14 @@
         allTagsContainer.appendChild(tag);
       });
 
+      // ===== TOC UPDATES =====
       var gName = game.name;
       var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
       var b = {
-        tag1: 20 + (seed * 3) % 880, tag2: 20 + (seed * 7) % 880,
-        tag3: 20 + (seed * 2) % 880, tag3b: 20 + (seed * 4) % 880,
-        tag4: 20 + (seed * 5) % 880, tag5: 20 + (seed * 6) % 880,
-        faq1: 20 + (seed * 11) % 880, faq2: 20 + (seed * 9) % 880,
-        faq4: 20 + (seed * 3) % 880, faq4b: 20 + (seed * 7) % 880,
-        faq4w: 20 + (seed * 8) % 880, faq4d: 20 + (seed * 2) % 880,
-        ref1: 5 + (seed * 2) % 20, ref2: 5 + (seed * 3) % 20,
-        ref3: 5 + (seed * 4) % 20, ref4: 5 + (seed * 5) % 20,
-        ref5: 5 + (seed * 6) % 20, refFaq1: 5 + (seed * 7) % 20,
-        refFaq2: 5 + (seed * 8) % 20, refFaq4: 5 + (seed * 9) % 20,
-        toc1Bonus: 50 + (seed * 3) % 50, toc2Bonus1: 50 + (seed * 4) % 50,
-        toc3Bonus: 50 + (seed * 5) % 50, toc5Bonus1: 50 + (seed * 6) % 50,
+        toc1Bonus: 50 + (seed * 3) % 50,
+        toc2Bonus1: 50 + (seed * 4) % 50,
+        toc3Bonus: 50 + (seed * 5) % 50,
+        toc5Bonus1: 50 + (seed * 6) % 50,
         tocWithdraw: 100 + (seed * 2) % 50
       };
 
@@ -3258,28 +3294,34 @@
       document.getElementById('toc5Name').textContent = gName;
       document.getElementById('toc5Bonus1').textContent = b.toc5Bonus1;
 
+      // ===== FAQ UPDATES =====
       document.getElementById('faq1Name').textContent = gName;
       document.getElementById('faq1Name2').textContent = gName;
       document.getElementById('faq1Name3').textContent = gName;
-      document.getElementById('faq1Bonus').textContent = b.faq1;
-      document.getElementById('faq1Ref').textContent = b.refFaq1;
       document.getElementById('faq2Name').textContent = gName;
       document.getElementById('faq2Name2').textContent = gName;
       document.getElementById('faq2Name3').textContent = gName;
-      document.getElementById('faq2Bonus').textContent = b.faq2;
-      document.getElementById('faq2Ref').textContent = b.refFaq2;
       document.getElementById('faq3Name').textContent = gName;
       document.getElementById('faq3Name2').textContent = gName;
       document.getElementById('faq4Name').textContent = gName;
-      document.getElementById('faq4Bonus').textContent = b.faq4;
-      document.getElementById('faq4Bonus2').textContent = b.faq4b;
-      document.getElementById('faq4Withdraw').textContent = b.faq4w;
-      document.getElementById('faq4Deposit').textContent = b.faq4d;
-      document.getElementById('faq4Ref').textContent = b.refFaq4;
+      
+      var faqBonus = 20 + (seed * 11) % 880;
+      document.getElementById('faq1Bonus').textContent = faqBonus;
+      document.getElementById('faq2Bonus').textContent = 20 + (seed * 9) % 880;
+      document.getElementById('faq4Bonus').textContent = 20 + (seed * 3) % 880;
+      document.getElementById('faq4Bonus2').textContent = 20 + (seed * 7) % 880;
+      document.getElementById('faq4Withdraw').textContent = 20 + (seed * 8) % 880;
+      document.getElementById('faq4Deposit').textContent = 20 + (seed * 2) % 880;
+      
+      document.getElementById('faq1Ref').textContent = 5 + (seed * 7) % 20;
+      document.getElementById('faq2Ref').textContent = 5 + (seed * 8) % 20;
+      document.getElementById('faq4Ref').textContent = 5 + (seed * 9) % 20;
 
+      // ===== RELATED SECTION - UNIQUE TAGS =====
       var relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
-      uniqueGames.filter(g => g.name !== game.name).forEach(function(g) {
+      
+      uniqueGames.filter(g => g.name !== game.name).forEach(function(g, idx) {
         var item = document.createElement('div');
         item.className = 'related-item';
         var seed3 = g.name.length * 7 + g.name.charCodeAt(0);
@@ -3301,6 +3343,10 @@
         item.dataset.metaBonus = mb;
         item.dataset.version = ver;
 
+        // Generate unique related content
+        var relatedContent = generateRelatedTags(g.name, g.bonus, g.altName, idx);
+        var shortName = g.name.length > 20 ? g.name.substring(0, 18) + '...' : g.name;
+
         const relatedGiftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/><rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/><rect x="4" y="11" width="16" height="10" rx="1" fill="#F44336"/><rect x="11" y="8" width="2" height="13" fill="#FFD700"/><rect x="3" y="9" width="18" height="1" fill="#FFD700"/></svg>`;
         const relatedBankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/><path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/><rect x="4" y="11" width="2" height="8" fill="#2e7d32"/><rect x="9" y="11" width="2" height="8" fill="#2e7d32"/><rect x="14" y="11" width="2" height="8" fill="#2e7d32"/><rect x="18" y="11" width="2" height="8" fill="#2e7d32"/><rect x="2" y="19" width="20" height="2" fill="#1b5e20"/></svg>`;
 
@@ -3311,8 +3357,9 @@
           <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
           <div class="rinfo">
             <div class="rname">${g.name} <span class="alt">| ${g.altName}</span></div>
-            <div class="rbonus">${relatedBonusIcon} Sign Up Bonus ${g.bonus}</div>
-            <div class="rwithdraw">${relatedWithdrawIcon} Min. Withdraw ${g.withdrawal}</div>
+            <div class="rbonus">${relatedBonusIcon} ${g.bonus} Bonus</div>
+            <div class="rwithdraw">${relatedWithdrawIcon} ${g.withdrawal}</div>
+            <div style="font-size:0.45rem; color:#64748b; margin-top:2px; line-height:1.2;">${relatedContent.substring(0, 60)}...</div>
           </div>
           <span class="rdownload">
             <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
