@@ -291,6 +291,7 @@
       z-index: 2;
     }
 
+    /* CHANGE 1: New Header Name */
     .header-name-box {
       display: inline-flex;
       align-items: center;
@@ -305,6 +306,10 @@
       color: #0b1e33;
       letter-spacing: 0.3px;
       white-space: nowrap;
+    }
+    /* Override the text content via JS or just hardcode it */
+    .header-name-box {
+      content: "AllYonoGamesInfo.com";
     }
     @media (max-width: 480px) {
       .header-name-box { font-size: 0.65rem; padding: 4px 12px; }
@@ -542,6 +547,7 @@
       position: relative;
       overflow-y: auto;
     }
+    /* CHANGE 2: Red Information Name - updated via JS */
     .home-greenbox .info-text {
       font-size: 0.55rem;
       color: #ffffff;
@@ -1562,19 +1568,40 @@
       stroke: none;
       fill: none;
     }
-    .card-bonus { color: #dc2626; }
-    .card-bonus .icon-svg svg { fill: none; stroke: none; }
-    .card-withdraw { color: #0a0a0a; }
-    .card-withdraw .icon-svg svg { fill: none; stroke: none; }
-    .card-bonus .value, .card-withdraw .value {
+    /* CHANGE 3: Sign Up Bonus - Premium Red */
+    .card-bonus {
+      color: #dc2626;
+    }
+    .card-bonus .label {
+      color: #dc2626;
+      font-weight: 600;
+    }
+    .card-bonus .value {
+      color: #dc2626;
       font-weight: 700;
-      color: inherit;
     }
-    .card-bonus .label, .card-withdraw .label {
-      font-weight: 500;
-      color: #64748b;
+    .card-bonus .icon-svg svg {
+      fill: none;
+      stroke: none;
     }
-    .card-withdraw .label { color: #64748b; }
+    
+    /* CHANGE 4: Min. Withdraw - Premium Green */
+    .card-withdraw {
+      color: #16a34a;
+    }
+    .card-withdraw .label {
+      color: #16a34a;
+      font-weight: 600;
+    }
+    .card-withdraw .value {
+      color: #16a34a;
+      font-weight: 700;
+    }
+    .card-withdraw .icon-svg svg {
+      fill: none;
+      stroke: none;
+    }
+
     .card-withdraw { font-size: 0.5rem; }
 
     /* PREMIUM GREEN DOWNLOAD BUTTON - HOME PAGE */
@@ -2002,7 +2029,8 @@
       <div class="header-logo">
         <img src="https://i.ibb.co/XTFNccf/1785915333592.jpg" alt="YONO NEW APP" loading="eager" fetchpriority="high" width="54" height="54">
       </div>
-      <span class="header-name-box">YONO GAMES POINT .com</span>
+      <!-- CHANGE 1: New Header Name -->
+      <span class="header-name-box">AllYonoGamesInfo.com</span>
     </div>
     <div class="header-right">
       <!-- Premium Telegram SVG Icon - UNTOUCHED -->
@@ -2064,7 +2092,8 @@
 
   <!-- ===== HOME PAGE GREEN-LINE BOX ===== -->
   <div id="homeGreenBox" class="home-greenbox show">
-    <div class="info-text">All Yono Games View is a gaming platform where users can discover different online game apps, categories, features, and download information in one place.</div>
+    <!-- CHANGE 2: Red Information Name -->
+    <div class="info-text">All Yono Games Info is a gaming platform where users can discover different online game apps, categories, features, and download information in one place.</div>
     <div class="tag-wrap" id="greenboxTags"></div>
   </div>
 
@@ -3067,8 +3096,7 @@
         card.dataset.metaBonus = metaBonus;
         card.dataset.version = version;
 
-        // ===== EXACT SVG ICONS =====
-        // Gift SVG - Gold + Red
+        // ===== EXACT SVG ICONS (unchanged) =====
         const giftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display:block; width:100%; height:100%;">
           <path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/>
           <rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/>
@@ -3077,7 +3105,6 @@
           <rect x="3" y="9" width="18" height="1" fill="#FFD700"/>
         </svg>`;
 
-        // Bank SVG - Green + Gold
         const bankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display:block; width:100%; height:100%;">
           <path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/>
           <path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/>
@@ -3088,6 +3115,7 @@
           <rect x="2" y="19" width="20" height="2" fill="#1b5e20"/>
         </svg>`;
 
+        // CHANGES 3 & 4: Colors are now applied via CSS (card-bonus and card-withdraw classes)
         const bonusIcon = `<span class="icon-svg">${giftSvg}</span>`;
         const withdrawIcon = `<span class="icon-svg">${bankSvg}</span>`;
 
