@@ -824,66 +824,6 @@
       100% { box-shadow:0 0 15px rgba(0,255,0,0.3),0 0 30px rgba(0,188,212,0.1); border-color:#00ff00; }
     }
 
-    /* ===== BOTTOM PREMIUM DOWNLOAD BUTTON ===== */
-    .bottom-download-wrapper {
-      padding: 14px 10px 10px 10px;
-      background: #ffffff;
-      border-top: 1px solid #eef2f6;
-      width: 100%;
-    }
-    .bottom-download-wrapper .bottom-download-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: #000;
-      color: #fff;
-      border: 2px solid #00cc44;
-      padding: 14px 20px;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      width: 100%;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      transition: all 0.4s ease;
-      position: relative;
-      box-shadow: 0 0 20px rgba(0,204,68,0.25), 0 0 40px rgba(0,188,212,0.1);
-      animation: bottomBtnGlow 4s ease-in-out infinite;
-      letter-spacing: 0.5px;
-    }
-    .bottom-download-wrapper .bottom-download-btn::before {
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      line-height: 1;
-      flex-shrink: 0;
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
-      transition: all 0.4s ease;
-    }
-    @keyframes bottomBtnGlow {
-      0% { box-shadow: 0 0 20px rgba(0,204,68,0.25), 0 0 40px rgba(0,188,212,0.1); border-color: #00cc44; }
-      33% { box-shadow: 0 0 30px rgba(0,188,212,0.4), 0 0 60px rgba(0,188,212,0.2); border-color: #00bcd4; }
-      66% { box-shadow: 0 0 30px rgba(241,196,15,0.4), 0 0 60px rgba(241,196,15,0.2); border-color: #f1c40f; }
-      100% { box-shadow: 0 0 20px rgba(0,204,68,0.25), 0 0 40px rgba(0,188,212,0.1); border-color: #00cc44; }
-    }
-    .bottom-download-wrapper .bottom-download-btn:hover {
-      transform: scale(1.03) translateY(-2px);
-      border-color: #00ffff;
-      box-shadow: 0 0 40px rgba(0,204,68,0.5), 0 0 80px rgba(0,188,212,0.3), 0 0 100px rgba(241,196,15,0.15);
-    }
-    .bottom-download-wrapper .bottom-download-btn:active {
-      transform: scale(0.95);
-    }
-    .bottom-download-wrapper .bottom-download-label {
-      font-size: 0.65rem;
-      color: #94a3b8;
-      text-align: center;
-      margin-top: 4px;
-    }
-
     .apk-download-line {
       text-align: center;
       margin-top: 8px;
@@ -1390,7 +1330,7 @@
     }
 
     /* ============================================================
-       HOME PAGE GRID - PREMIUM CYAN + GREEN DOWNLOAD BUTTONS
+       HOME PAGE GRID - FIXED: No duplicate name, Premium Green Download Button
        ============================================================ */
     #mainGrid { display: flex; flex-direction: column; gap: 6px; padding: 8px; }
     .card {
@@ -1447,8 +1387,18 @@
       min-width: 0;
       padding-right: 4px;
     }
-    .card-name { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
-    .card-name .alt { font-weight: 400; font-size: 0.5rem; color: #6b7280; }
+    .card-name { 
+      font-weight: 700; 
+      font-size: 0.7rem; 
+      color: #0b1e33; 
+      display: flex; 
+      align-items: center; 
+      gap: 3px; 
+      flex-wrap: wrap; 
+    }
+    .card-name .alt { 
+      display: none !important; /* Hide duplicate right-side app name */
+    }
     .card-bonus, .card-withdraw {
       display: flex;
       align-items: center;
@@ -1488,12 +1438,12 @@
     .card-withdraw .label { color: #64748b; }
     .card-withdraw { font-size: 0.5rem; }
 
-    /* PREMIUM CYAN + GREEN DOWNLOAD BUTTON - HOME PAGE */
+    /* PREMIUM GREEN DOWNLOAD BUTTON - HOME PAGE - Fixed SVG Icon */
     .card-download-sm {
       flex-shrink: 0;
-      background: linear-gradient(135deg, #00d4ff, #00e676) !important;
+      background: #00cc44;
       color: #ffffff !important;
-      border: 2px solid #00e676 !important;
+      border: 2px solid #00cc44;
       padding: 10px 22px 10px 16px !important;
       font-size: 0.75rem !important;
       font-weight: 700 !important;
@@ -1503,7 +1453,7 @@
       display: inline-flex !important;
       align-items: center !important;
       gap: 8px !important;
-      box-shadow: 0 0 20px rgba(0,212,255,0.25), 0 0 40px rgba(0,230,118,0.15) !important;
+      box-shadow: 0 0 20px rgba(0,204,68,0.2), 0 0 40px rgba(0,204,68,0.08);
       transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94) !important;
       text-decoration: none;
       letter-spacing: 0.3px;
@@ -1511,54 +1461,78 @@
       margin-right: 4px;
       min-width: 100px;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
     }
     .card-download-sm::before {
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffd700' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
-      display: inline-block;
+      content: "";
+      display: none;
+    }
+    .card-download-sm .download-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
       width: 18px;
       height: 18px;
-      line-height: 1;
-      flex-shrink: 0;
-      filter: drop-shadow(0 0 6px rgba(255,215,0,0.3));
+      filter: drop-shadow(0 0 6px rgba(0,204,68,0.3));
+      animation: downloadIconPulse 3s ease-in-out infinite;
+    }
+    .card-download-sm .download-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    @keyframes downloadIconPulse {
+      0%, 100% { filter: drop-shadow(0 0 6px rgba(0,204,68,0.3)) drop-shadow(0 0 12px rgba(0,204,68,0.1)); }
+      50% { filter: drop-shadow(0 0 14px rgba(0,204,68,0.5)) drop-shadow(0 0 30px rgba(0,204,68,0.2)); }
+    }
+    .card-download-sm .download-text {
+      color: #ffffff;
+      font-weight: 700;
+      letter-spacing: 0.3px;
     }
     .card-download-sm:hover {
-      background: linear-gradient(135deg, #00e5ff, #69f0ae) !important;
+      background: #00b83a !important;
       color: #ffffff !important;
-      box-shadow: 0 0 30px rgba(0,212,255,0.4), 0 0 60px rgba(0,230,118,0.25) !important;
+      box-shadow: 0 0 30px rgba(0,204,68,0.4), 0 0 60px rgba(0,204,68,0.15) !important;
       transform: scale(1.04) translateY(-2px) !important;
-      border-color: #69f0ae !important;
+      border-color: #00b83a !important;
     }
-    .card-download-sm:hover::before {
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffd700' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+    .card-download-sm:hover .download-icon {
+      animation: none;
+      filter: drop-shadow(0 0 20px rgba(0,204,68,0.6)) drop-shadow(0 0 40px rgba(0,204,68,0.3));
     }
-    .card-download-sm:active { transform: scale(0.94) !important; box-shadow: 0 0 20px rgba(0,212,255,0.3) !important; }
+    .card-download-sm:active { transform: scale(0.94) !important; box-shadow: 0 0 20px rgba(0,204,68,0.3) !important; }
 
     @media (max-width: 420px) {
       .card-img { width: 60px; height: 52px; margin-left: 25px; margin-right: 18px; }
       .card-number { width: 16px; height: 16px; font-size: 0.4rem; top: 2px; left: 2px; }
       .card-name { font-size: 0.6rem; }
-      .card-name .alt { font-size: 0.45rem; }
       .card-bonus { font-size: 0.5rem; }
       .card-withdraw { font-size: 0.45rem; }
       .card-download-sm { padding: 8px 16px 8px 12px !important; font-size: 0.65rem !important; gap: 6px !important; min-width: 80px; }
-      .card-download-sm::before { width: 15px; height: 15px; }
+      .card-download-sm .download-icon { width: 15px; height: 15px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
     }
     @media (max-width: 360px) {
       .card-img { width: 52px; height: 46px; margin-left: 22px; margin-right: 14px; }
       .card-number { width: 14px; height: 14px; font-size: 0.35rem; top: 2px; left: 2px; }
       .card-name { font-size: 0.5rem; }
-      .card-name .alt { font-size: 0.4rem; }
       .card-bonus { font-size: 0.45rem; }
       .card-withdraw { font-size: 0.4rem; }
       .card-download-sm { padding: 6px 12px 6px 10px !important; font-size: 0.55rem !important; gap: 4px !important; min-width: 65px; }
-      .card-download-sm::before { width: 12px; height: 12px; }
+      .card-download-sm .download-icon { width: 12px; height: 12px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 10px; height: 10px; }
     }
     @media (min-width: 769px) {
       .card-img { width: 76px; height: 68px; margin-left: 32px; margin-right: 24px; }
       .card-download-sm { padding: 12px 28px 12px 20px !important; font-size: 0.85rem !important; gap: 10px !important; min-width: 130px; }
-      .card-download-sm::before { width: 20px; height: 20px; }
+      .card-download-sm .download-icon { width: 22px; height: 22px; }
     }
 
     /* --- FOOTER --- */
@@ -1648,6 +1622,7 @@
 
     .static-loading { padding: 40px 20px; text-align: center; color: #64748b; font-size: 0.9rem; }
 
+    /* ===== YONO GAMES INFORMATION SECTION - NO DOWNLOAD BUTTON ===== */
     .yono-info-section {
       padding: 14px 10px 10px 10px;
       background: #ffffff;
@@ -1782,8 +1757,6 @@
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
       .yono-info-section { padding: 10px 6px 8px 6px; }
       .yono-tags-container { gap: 6px; }
-      .bottom-download-wrapper .bottom-download-btn { font-size: 0.8rem; padding: 12px 16px; gap: 8px; }
-      .bottom-download-wrapper .bottom-download-btn::before { width: 18px; height: 18px; }
     }
     @media (max-width: 360px) {
       .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
@@ -1797,8 +1770,6 @@
       .yono-tag { font-size: 0.45rem; padding: 4px 10px; }
       .back-btn { font-size: 0.5rem; padding: 3px 8px 3px 6px; }
       .back-btn svg { width: 11px; height: 11px; }
-      .bottom-download-wrapper .bottom-download-btn { font-size: 0.7rem; padding: 10px 12px; gap: 6px; }
-      .bottom-download-wrapper .bottom-download-btn::before { width: 15px; height: 15px; }
     }
     @media (min-width: 769px) {
       .share-btn { padding: 8px 18px 8px 12px; font-size: 0.7rem; }
@@ -1807,8 +1778,6 @@
       .telegram-btn { width: 42px; height: 42px; }
       .nav-small { font-size: 0.6rem; padding: 4px 12px; gap: 6px; }
       .nav-small svg { width: 20px; height: 20px; }
-      .bottom-download-wrapper .bottom-download-btn { font-size: 1.05rem; padding: 16px 28px; gap: 14px; }
-      .bottom-download-wrapper .bottom-download-btn::before { width: 24px; height: 24px; }
     }
     @media (min-width: 1201px) {
       .container { padding: 0 20px; }
@@ -2286,12 +2255,7 @@
       <span class="title-text">YONO Games Information</span>
     </div>
     <div class="yono-tags-container" id="yonoTagsContainer"></div>
-  </div>
-
-  <!-- ===== BOTTOM PREMIUM DOWNLOAD BUTTON - NEW ===== -->
-  <div class="bottom-download-wrapper">
-    <a href="#" class="bottom-download-btn" id="bottomDownloadBtn" target="_blank">⬇ Download APK</a>
-    <div class="bottom-download-label">Premium Download – Get Bonus ₹45</div>
+    <!-- Download button and label removed from this section -->
   </div>
 
   <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
@@ -2657,19 +2621,6 @@
 
     loadYonoTags();
 
-    // Sync both download buttons to same URL
-    function syncDownloadButtons() {
-      const detailBtn = document.getElementById('detailDownloadBtn');
-      const bottomBtn = document.getElementById('bottomDownloadBtn');
-      // When detail button href changes, update bottom button
-      const observer = new MutationObserver(() => {
-        bottomBtn.href = detailBtn.href;
-      });
-      observer.observe(detailBtn, { attributes: true, attributeFilter: ['href'] });
-      // Initial sync
-      bottomBtn.href = detailBtn.href;
-    }
-
     function hideAllStatic() {
       aboutPage.classList.remove('visible');
       contactPage.classList.remove('visible');
@@ -2981,15 +2932,26 @@
         const bonusIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
         const withdrawIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
 
+        // Premium green download icon
+        const downloadIcon = `
+          <span class="download-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </span>
+        `;
+
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
-          <div class="card-img"><img src="${game.img}" alt="${game.name} | ${game.altName}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
+          <div class="card-img"><img src="${game.img}" alt="${game.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
           <div class="card-info">
-            <div class="card-name">${game.name} <span class="alt">| ${game.altName}</span></div>
+            <div class="card-name">${game.name}</div>
             <div class="card-bonus">${bonusIcon} <span class="label">Sign Up Bonus</span> <span class="value">${game.bonus}</span></div>
             <div class="card-withdraw">${withdrawIcon} <span class="label">Min. Withdraw</span> <span class="value">${game.withdrawal}</span></div>
           </div>
-          <span class="card-download-sm">Download</span>
+          <span class="card-download-sm">${downloadIcon}<span class="download-text">Download</span></span>
         `;
         mainGrid.appendChild(card);
 
@@ -3040,9 +3002,6 @@
       document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
       document.getElementById('apkBonusLine').textContent = game.bonus;
-
-      // Sync bottom download button
-      document.getElementById('bottomDownloadBtn').href = game.downloadUrl;
 
       var refData = generateReferralData(game.name, game.bonus);
       document.getElementById('refGameName').textContent = game.name;
