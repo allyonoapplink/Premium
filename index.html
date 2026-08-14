@@ -66,55 +66,70 @@
     #detailView.show { display: block !important; opacity: 1 !important; }
 
     /* --- HEADER & LOGO --- */
-    .top-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; background: white; border-bottom: 1px solid #e9edf4; position: sticky; top: 0; z-index: 10; }
-    .header-left { display: flex; align-items: center; gap: 8px; }
-    
-    /* Header Logo - Rounded Square with Gold Border */
-    .header-logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      overflow: hidden;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 4px solid #ffd700;
-      box-shadow: 0 0 20px rgba(255,215,0,0.4), 0 0 40px rgba(255,215,0,0.15);
-      background: #000;
+    .top-header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 8px 10px; 
+      background: #ffffff !important;
+      border-bottom: 4px solid #00cc44;
+      position: sticky; 
+      top: 0; 
+      z-index: 10;
+      /* === PREMIUM CYAN + GREEN MIXED GLOWING HD STYLE (NO LED ANIMATION) === */
+      background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
+      background-size: 200% 200% !important;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 80px rgba(0, 230, 118, 0.2), inset 0 0 60px rgba(0, 255, 200, 0.1) !important;
+      border-bottom: 4px solid #00ff88 !important;
       position: relative;
     }
-    .header-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    /* Glowing overlay effect - static */
+    .top-header::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(0, 230, 118, 0.4));
+      filter: blur(20px);
+      z-index: -1;
+      border-radius: 0;
+      opacity: 0.6;
     }
-    @media (max-width: 480px) {
-      .header-logo { width: 40px; height: 40px; border-width: 3px; border-radius: 10px; }
+    .top-header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 50%, rgba(0, 230, 118, 0.15) 0%, transparent 60%);
+      pointer-events: none;
     }
-    @media (max-width: 380px) {
-      .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
-    }
-    @media (min-width: 1201px) {
-      .header-logo { width: 54px; height: 54px; border-width: 4px; border-radius: 14px; }
+    .top-header .header-left,
+    .top-header .header-right {
+      position: relative;
+      z-index: 2;
     }
 
-    /* White Round Box for Header Name */
+    /* White background for header name box to make it readable */
     .header-name-box {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.95) !important;
       border-radius: 50px;
       padding: 6px 18px;
-      border: 2px solid #e5e7eb;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.8);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
       font-weight: 700;
       font-size: 0.85rem;
       color: #0b1e33;
       letter-spacing: 0.3px;
       white-space: nowrap;
+      backdrop-filter: blur(4px);
     }
     @media (max-width: 480px) {
       .header-name-box { font-size: 0.65rem; padding: 4px 12px; }
@@ -127,7 +142,7 @@
       display: none !important;
     }
 
-    .header-right { display: flex; align-items: center; gap: 8px; }
+    .header-right { display: flex; align-items: center; gap: 8px; position: relative; z-index: 2; }
 
     /* ===== PREMIUM TELEGRAM SVG ICON - UNTOUCHED ===== */
     .telegram-btn {
@@ -205,9 +220,9 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      background: transparent;
+      background: rgba(255, 255, 255, 0.9) !important;
       color: #0b1e33;
-      border: none;
+      border: 1px solid rgba(255, 255, 255, 0.6);
       padding: 6px 12px 6px 8px;
       border-radius: 40px;
       font-weight: 600;
@@ -216,9 +231,9 @@
       text-decoration: none;
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
       position: relative;
-      background: rgba(0, 0, 0, 0.03);
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      backdrop-filter: blur(4px);
       flex-shrink: 0;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
     .share-btn svg {
       width: 20px;
@@ -270,8 +285,9 @@
       100% { color: #0b1e33; }
     }
     .share-btn:hover {
-      background: rgba(0, 0, 0, 0.08);
-      border-color: rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.98) !important;
+      border-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
     }
     .share-btn:hover svg {
       filter: drop-shadow(0 0 12px rgba(0,0,0,0.2)) !important;
@@ -299,6 +315,40 @@
       .share-btn svg { width: 22px; height: 22px; }
       .share-btn .share-text { font-size: 0.7rem; }
     }
+
+    /* Header Logo - Rounded Square with Gold Border (unchanged) */
+    .header-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid #ffd700;
+      box-shadow: 0 0 20px rgba(255,215,0,0.4), 0 0 40px rgba(255,215,0,0.15);
+      background: #000;
+      position: relative;
+      z-index: 2;
+    }
+    .header-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 480px) {
+      .header-logo { width: 40px; height: 40px; border-width: 3px; border-radius: 10px; }
+    }
+    @media (max-width: 380px) {
+      .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
+    }
+    @media (min-width: 1201px) {
+      .header-logo { width: 54px; height: 54px; border-width: 4px; border-radius: 14px; }
+    }
+
+    /* --- MARQUEE REMOVED --- */
 
     /* --- NAV ROW - PREMIUM SVG ICONS WITH DISTINCT FIXED COLORS --- */
     .nav-row-small { display: flex; justify-content: space-around; align-items: center; background: #ffffff !important; padding: 4px 6px; border-bottom: 1px solid #e9edf4; gap: 2px; }
@@ -1388,8 +1438,6 @@
     /* App name - only one name, no duplicate */
     .card-name { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; flex-wrap: wrap; }
     .card-name .alt { display: none !important; }
-
-    /* --- UPDATED CARD BONUS & WITHDRAW STYLES (Premium Red & Green) --- */
     .card-bonus, .card-withdraw {
       display: flex;
       align-items: center;
@@ -1414,41 +1462,19 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
-    /* Sign Up Bonus - Premium Red */
-    .card-bonus {
-      color: #dc2626;
-    }
-    .card-bonus .icon-svg svg {
-      stroke: #dc2626;
-      fill: #dc2626;
-    }
-    .card-bonus .label {
-      color: #dc2626;
-      font-weight: 600;
-    }
-    .card-bonus .value {
-      color: #dc2626;
+    .card-bonus { color: #dc2626; }
+    .card-bonus .icon-svg svg { stroke: #dc2626; fill: #dc2626; }
+    .card-withdraw { color: #0a0a0a; }
+    .card-withdraw .icon-svg svg { stroke: #0a0a0a; }
+    .card-bonus .value, .card-withdraw .value {
       font-weight: 700;
+      color: inherit;
     }
-
-    /* Min. Withdraw - Full Green */
-    .card-withdraw {
-      color: #16a34a;
+    .card-bonus .label, .card-withdraw .label {
+      font-weight: 500;
+      color: #64748b;
     }
-    .card-withdraw .icon-svg svg {
-      stroke: #16a34a;
-      fill: none;
-    }
-    .card-withdraw .label {
-      color: #16a34a;
-      font-weight: 600;
-    }
-    .card-withdraw .value {
-      color: #16a34a;
-      font-weight: 700;
-    }
-
+    .card-withdraw .label { color: #64748b; }
     .card-withdraw { font-size: 0.5rem; }
 
     /* PREMIUM GREEN DOWNLOAD BUTTON - HOME PAGE */
@@ -2915,13 +2941,10 @@
         card.dataset.metaBonus = metaBonus;
         card.dataset.version = version;
 
-        // --- UPDATED ICONS AND STYLES (Premium Red & Green) ---
-        // Sign Up Bonus: 🎁 Gift SVG
-        const bonusIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/><path d="M2 7v10"/><path d="M12 2v20"/><path d="M22 7v10"/></svg></span>`;
-        
-        // Min. Withdraw: 🏦 Bank SVG
-        const withdrawIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg></span>`;
+        const bonusIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
+        const withdrawIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
 
+        // HOME PAGE: Only app name, no duplicate alt name
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
           <div class="card-img"><img src="${game.img}" alt="${game.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
@@ -3104,9 +3127,9 @@
         item.dataset.metaBonus = mb;
         item.dataset.version = ver;
 
-        // Bonus icon for related section (using new gift icon)
-        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/><path d="M2 7v10"/><path d="M12 2v20"/><path d="M22 7v10"/></svg></span>`;
-        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg></span>`;
+        // Bonus icon for related section
+        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
+        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
 
         item.innerHTML = `
           <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
