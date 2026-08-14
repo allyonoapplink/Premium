@@ -2393,47 +2393,387 @@
     </div>
     <div class="yono-tags-container" id="yonoTagsContainer"></div>
   </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Important Responsible Gaming Notice</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 7px;
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111827;
+}
+
+/* ===== PREMIUM COMPACT CARD ===== */
+
+.responsible-card {
+  width: 100%;
+  max-width: 680px;
+  margin: 6px auto;
+  padding: 10px 10px 12px;
+
+  background: #fff;
+  border: 1px solid #e53935;
+  border-radius: 13px;
+
+  box-shadow:
+    0 3px 14px rgba(229, 57, 53, 0.10),
+    0 1px 4px rgba(0, 0, 0, 0.05);
+
+  overflow: hidden;
+}
+
+/* ===== TITLE ===== */
+
+.notice-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  margin: 0 0 7px;
+
+  color: #111827;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+}
+
+/* ===== SMALL LED WARNING SVG ===== */
+
+.warning-icon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+
+  pointer-events: none;
+  user-select: none;
+
+  animation: ledPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes ledPulse {
+
+  0% {
+    transform: scale(1);
+    filter:
+      drop-shadow(0 0 2px rgba(255,193,7,.55))
+      drop-shadow(0 0 5px rgba(255,152,0,.30));
+  }
+
+  50% {
+    transform: scale(1.06);
+    filter:
+      drop-shadow(0 0 5px rgba(255,235,59,.85))
+      drop-shadow(0 0 10px rgba(255,152,0,.55));
+  }
+
+  100% {
+    transform: scale(1);
+    filter:
+      drop-shadow(0 0 2px rgba(255,193,7,.55))
+      drop-shadow(0 0 5px rgba(255,152,0,.30));
+  }
+}
+
+/* ===== CONTENT ===== */
+
+.notice-content {
+  font-size: 11.5px;
+  line-height: 1.48;
+  color: #1f2937;
+}
+
+.notice-content p {
+  margin: 0 0 7px;
+}
+
+.notice-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== WEBSITE NAME ===== */
+
+.site-name {
+  font-weight: 800;
+  color: #111827;
+}
+
+/* ===== IMPORTANT TEXT ===== */
+
+.important {
+  font-weight: 800;
+  color: #111827;
+}
+
+/* ===== SMALL PREMIUM TAGS ===== */
+
+.info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin: 7px 0;
+}
+
+.info-tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 3px 5px;
+
+  background: #fff;
+  border: 1px solid #e53935;
+  border-radius: 4px;
+
+  color: #b71c1c;
+  font-size: 8.5px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  box-shadow:
+    0 1px 4px rgba(229,57,53,.07);
+}
+
+/* ===== DISCLAIMER ===== */
+
+.disclaimer-link {
+  color: #c62828;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 480px) {
+
+  body {
+    padding: 6px;
+  }
+
+  .responsible-card {
+    margin: 5px auto;
+    padding: 9px 9px 11px;
+    border-width: 1px;
+    border-radius: 12px;
+  }
+
+  .notice-title {
+    gap: 5px;
+    margin-bottom: 6px;
+    font-size: 12.5px;
+  }
+
+  .warning-icon {
+    width: 16px;
+    height: 16px;
+    flex-basis: 16px;
+  }
+
+  .notice-content {
+    font-size: 11px;
+    line-height: 1.46;
+  }
+
+  .notice-content p {
+    margin-bottom: 6px;
+  }
+
+  .info-tags {
+    gap: 3px;
+    margin: 6px 0;
+  }
+
+  .info-tag {
+    padding: 2.5px 5px;
+    border-radius: 4px;
+    font-size: 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="responsible-card">
+
+  <!-- NON-CLICKABLE WARNING ICON + TITLE -->
+  <h2 class="notice-title">
+
+    <svg
+      class="warning-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false">
+
+      <path
+        d="M12 2L1 21H23L12 2Z"
+        fill="url(#grad-amber)"
+        stroke="#FFC107"
+        stroke-width="1.5"
+        stroke-linejoin="round"/>
+
+      <path
+        d="M12 8V13"
+        stroke="#0f172a"
+        stroke-width="2.2"
+        stroke-linecap="round"/>
+
+      <circle
+        cx="12"
+        cy="16.5"
+        r="1.2"
+        fill="#0f172a"/>
+
+      <defs>
+        <linearGradient
+          id="grad-amber"
+          x1="12"
+          y1="2"
+          x2="12"
+          y2="21"
+          gradientUnits="userSpaceOnUse">
+
+          <stop stop-color="#FFEB3B"/>
+          <stop offset="1" stop-color="#FF9800"/>
+
+        </linearGradient>
+      </defs>
+
+    </svg>
+
+    <span>IMPORTANT RESPONSIBLE GAMING NOTICE</span>
+
+  </h2>
+
+
+  <div class="notice-content">
+
+    <p>
+      <span class="site-name">allyonogamesinfo.com</span>
+      is an independent informational website only.
+    </p>
+
+    <p>
+      We do not own, operate, manage, sponsor, or control any
+      Yono-style game app, wallet, deposit system, withdrawal system,
+      bonus system, referral program, or related platform.
+    </p>
+
+
+    <!-- PREMIUM INFORMATION TAGS -->
+
+    <div class="info-tags">
+
+      <span class="info-tag">18+ Only</span>
+
+      <span class="info-tag">Financial Risk</span>
+
+      <span class="info-tag">Independent Information</span>
+
+      <span class="info-tag">Play Responsibly</span>
+
+      <span class="info-tag">Check Local Laws</span>
+
+    </div>
+
+
+    <p>
+      Real-money gaming may involve
+      <span class="important">financial risk</span>
+      and may become addictive. Users who choose to access such
+      platforms should be
+      <span class="important">18+ years old</span>,
+      legally permitted to do so in their region, and capable of
+      making independent financial decisions.
+    </p>
+
+    <p>
+      Never use borrowed money, loan money, or emergency savings.
+      Always check the laws and regulations applicable to your
+      location before using any third-party platform.
+    </p>
+
+    <p>
+      Please read our full
+      <span class="disclaimer-link">Disclaimer</span>,
+      privacy policy, and each app's own terms and conditions
+      before using any platform.
+    </p>
+
+    <p>
+      Bonus, deposit, withdrawal, account restriction, KYC,
+      transaction, customer support, and account-related decisions
+      are controlled solely by the respective app or platform
+      operators.
+    </p>
+
+    <p>
+      <span class="site-name">allyonogamesinfo.com</span>
+      does not guarantee the availability, accuracy, security,
+      performance, withdrawals, bonuses, or services of any
+      third-party platform.
+    </p>
+
+  </div>
+
+</section>
+
+</body>
+</html>
   <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
   <div class="footer-scroll-section">
     <div class="scroll-tags-wrapper">
       <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
         <span class="highlight">🏆 YONO NEW APP</span>
-        <span>🎰 567 SLOTS | 567 SLOTS Game</span>
-        <span>🎰 SAGA SLOTS | SAGA SLOTS APK</span>
-        <span>🎰 JAIHO 91 | JAIHO 91 Game</span>
-        <span>🃏 RUMMY LUDO | RUMMY LUDO APK</span>
-        <span>🃏 ABC RUMMY | ABC RUMMY Game</span>
-        <span>🃏 RUMMY 91 | RUMMY 91 APK</span>
-        <span>🃏 LOVE RUMMY | LOVE RUMMY Game</span>
-        <span>🎰 SPIN CRUSH | SPIN CRUSH APK</span>
-        <span>🃏 TOP RUMMY | TOP RUMMY Game</span>
-        <span>🃏 RUMMY 365 | RUMMY 365 APK</span>
-        <span>🃏 TEEN PATTI GOLD | TEEN PATTI GOLD Game</span>
-        <span>🃏 TEEN PATTI MASTER | TEEN PATTI MASTER APK</span>
-        <span>🃏 YONO RUMMY | YONO RUMMY Game</span>
-        <span>🎰 SLOTS WINNER | SLOTS WINNER APK</span>
-        <span>🎰 GOOD SLOTS | GOOD SLOTS Game</span>
-        <span>🎰 Diwa Slot | Diwa Slot APK</span>
-        <span>🃏 GOGO RUMMY | GOGO RUMMY Game</span>
-        <span>🃏 JOY RUMMY | JOY RUMMY APK</span>
-        <span>🎰 SPIN GOLD | SPIN GOLD Game</span>
-        <span>🎰 BINGO 101 | BINGO 101 APK</span>
-        <span>🎰 YES SPIN | YES SPIN Game</span>
-        <span>🎰 YONO ARCADE | YONO ARCADE APK</span>
-        <span>🎰 SVIP 777 | SVIP 777 Game</span>
-        <span>🃏 OK RUMMY | OK RUMMY APK</span>
-        <span>🎰 HINDI 777 | HINDI 777 Game</span>
-        <span>🎰 BET 213 | BET 213 APK</span>
-        <span>🃏 BOSS RUMMY | BOSS RUMMY Game</span>
-        <span>🎰 YONO 777 | YONO 777 APK</span>
-        <span>🎰 Diwa VIP | Diwa VIP Game</span>
-        <span>🎰 Diwa 777 | Diwa 777 APK</span>
-        <span>🎰 INR RUMMY | INR RUMMY Game</span>
-        <span>🎰 MBM BET | MBM BET APK</span>
-        <span>🎰 GOA SPIN | GOA SPIN Game</span>
-        <span>🎰 777 GAME | 777 GAME APK</span>
-        <span>🃏 TEEN PATTI | TEEN PATTI Game</span>
+        <span>🎰 567 SLOTS |</span>
+        <span>🎰 SAGA SLOTS |</span>
+        <span>🎰 JAIHO 91 | </span>
+        <span>🃏 RUMMY LUDO |</span>
+        <span>🃏 ABC RUMMY |</span>
+        <span>🃏 RUMMY 91 |</span>
+        <span>🃏 LOVE RUMMY |</span>
+        <span>🎰 SPIN CRUSH |</span>
+        <span>🃏 TOP RUMMY |</span>
+        <span>🃏 RUMMY 365 |</span>
+        <span>🃏 TEEN PATTI GOLD |</span>
+        <span>🃏 TEEN PATTI MASTER |</span>
+        <span>🃏 YONO RUMMY |</span>
+        <span>🎰 SLOTS WINNER |</span>
+        <span>🎰 GOOD SLOTS |</span>
+        <span>🎰 Diwa Slot |</span>
+        <span>🃏 GOGO RUMMY |</span>
+        <span>🃏 JOY RUMMY |</span>
+        <span>🎰 SPIN GOLD |</span>
+        <span>🎰 BINGO 101 |</span>
+        <span>🎰 YES SPIN |</span>
+        <span>🎰 YONO ARCADE |</span>
+        <span>🎰 SVIP 777 |</span>
+        <span>🃏 OK RUMMY |</span>
+        <span>🎰 HINDI 777 |</span>
+        <span>🎰 BET 213 |</span>
+        <span>🃏 BOSS RUMMY |</span>
+        <span>🎰 YONO 777 |</span>
+        <span>🎰 Diwa VIP |</span>
+        <span>🎰 Diwa 777 |</span>
+        <span>🎰 INR RUMMY |</span>
+        <span>🎰 MBM BET |</span>
+        <span>🎰 GOA SPIN |</span>
+        <span>🎰 777 GAME |</span>
+        <span>🃏 TEEN PATTI |</span>
         <span>🎰 SPIN WINNER | SPIN WINNER APK</span>
         <span>🎰 YONO All GAMES | YONO All GAMES Game</span>
         <span>🎰 SPIN LUCKY | SPIN LUCKY APK</span>
