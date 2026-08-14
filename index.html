@@ -115,12 +115,14 @@
       position: relative;
       z-index: 2;
     }
+    /* Make header name box readable on home page */
     .home-page .header-name-box {
       background: rgba(255, 255, 255, 0.95) !important;
       backdrop-filter: blur(4px);
       border: 2px solid rgba(255, 255, 255, 0.8);
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
+    /* Make share button readable on home page */
     .home-page .share-btn {
       background: rgba(255, 255, 255, 0.9) !important;
       backdrop-filter: blur(4px);
@@ -172,14 +174,37 @@
     }
 
     /* ===== HOME PAGE ICON COLORS - NEW PREMIUM STYLES ===== */
-    .home-page .nav-row-small .nav-small .nav-icon-home { stroke: #ffffff !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-home { stroke: #0b1e33 !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-about { stroke: #000000 !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-about { stroke: #0b1e33 !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-contact { stroke: #FFD700 !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-contact { stroke: #0b1e33 !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-disclaimer { stroke: #FF0000 !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer { stroke: #0b1e33 !important; }
+    /* Home icon → White */
+    .home-page .nav-row-small .nav-small .nav-icon-home {
+      stroke: #ffffff !important;
+    }
+    .home-page .nav-row-small .nav-small.active .nav-icon-home {
+      stroke: #0b1e33 !important;
+    }
+    
+    /* About icon → Black */
+    .home-page .nav-row-small .nav-small .nav-icon-about {
+      stroke: #000000 !important;
+    }
+    .home-page .nav-row-small .nav-small.active .nav-icon-about {
+      stroke: #0b1e33 !important;
+    }
+    
+    /* Contact icon → Gold */
+    .home-page .nav-row-small .nav-small .nav-icon-contact {
+      stroke: #FFD700 !important;
+    }
+    .home-page .nav-row-small .nav-small.active .nav-icon-contact {
+      stroke: #0b1e33 !important;
+    }
+    
+    /* Disclaimer icon → Red */
+    .home-page .nav-row-small .nav-small .nav-icon-disclaimer {
+      stroke: #FF0000 !important;
+    }
+    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer {
+      stroke: #0b1e33 !important;
+    }
 
     /* --- OTHER PAGES: Original white nav row --- */
     .nav-row-small { 
@@ -219,6 +244,7 @@
     .nav-small.active .nav-icon-about { stroke: white !important; }
     .nav-small.active .nav-icon-contact { stroke: white !important; }
     .nav-small.active .nav-icon-disclaimer { stroke: white !important; }
+    /* Premium SVG Icons - Each with distinct fixed color (Original) */
     .nav-small svg {
       width: 18px;
       height: 18px;
@@ -229,10 +255,15 @@
       stroke-linejoin: round;
       transition: stroke 0.3s ease;
     }
+    /* Home - Premium Blue (Original) */
     .nav-icon-home { stroke: #2563eb; }
+    /* About - Premium Emerald Green (Original) */
     .nav-icon-about { stroke: #059669; }
+    /* Contact - Premium Purple (Original) */
     .nav-icon-contact { stroke: #7c3aed; }
+    /* Disclaimer - Premium Amber/Orange (Original) */
     .nav-icon-disclaimer { stroke: #d97706; }
+    /* Hover states - subtle color shift */
     .nav-small:not(.active):hover .nav-icon-home { stroke: #3b82f6; }
     .nav-small:not(.active):hover .nav-icon-about { stroke: #10b981; }
     .nav-small:not(.active):hover .nav-icon-contact { stroke: #8b5cf6; }
@@ -253,6 +284,7 @@
       .nav-small svg { width: 20px; height: 20px; }
     }
 
+    /* --- HEADER & LOGO (original styles) --- */
     .top-header .header-left,
     .top-header .header-right {
       position: relative;
@@ -459,6 +491,7 @@
       .share-btn .share-text { font-size: 0.7rem; }
     }
 
+    /* Header Logo - Rounded Square with Gold Border (unchanged) */
     .header-logo {
       width: 48px;
       height: 48px;
@@ -1505,6 +1538,7 @@
       min-width: 0;
       padding-right: 4px;
     }
+    /* App name - only one name, no duplicate */
     .card-name { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; flex-wrap: wrap; }
     .card-name .alt { display: none !important; }
     .card-bonus, .card-withdraw {
@@ -1519,22 +1553,19 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
     .card-bonus .icon-svg svg, .card-withdraw .icon-svg svg {
       width: 100%;
       height: 100%;
-      stroke: currentColor;
+      stroke: none;
       fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
     }
     .card-bonus { color: #dc2626; }
-    .card-bonus .icon-svg svg { stroke: #dc2626; fill: #dc2626; }
+    .card-bonus .icon-svg svg { fill: none; stroke: none; }
     .card-withdraw { color: #0a0a0a; }
-    .card-withdraw .icon-svg svg { stroke: #0a0a0a; }
+    .card-withdraw .icon-svg svg { fill: none; stroke: none; }
     .card-bonus .value, .card-withdraw .value {
       font-weight: 700;
       color: inherit;
@@ -1615,7 +1646,7 @@
       .card-img { width: 76px; height: 68px; margin-left: 32px; margin-right: 24px; }
       .card-download-sm { padding: 12px 28px 12px 20px !important; font-size: 0.85rem !important; gap: 10px !important; min-width: 130px; }
       .card-download-sm::before { width: 20px; height: 20px; }
-      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 20px; height: 20px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 18px; height: 18px; }
     }
 
     /* --- FOOTER --- */
@@ -1974,6 +2005,7 @@
       <span class="header-name-box">YONO GAMES POINT .com</span>
     </div>
     <div class="header-right">
+      <!-- Premium Telegram SVG Icon - UNTOUCHED -->
       <a href="https://t.me/allyonogamesdite" target="_blank" rel="noopener noreferrer" class="telegram-btn" aria-label="Telegram">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="11" class="telegram-icon-bg"/>
@@ -1983,6 +2015,7 @@
           <path d="M17.5 7.5L12.5 10.5L15.5 13.5" class="telegram-icon-plane" fill="none" stroke="#ffffff" stroke-width="1.5"/>
         </svg>
       </a>
+      <!-- Premium Share SVG Button - UNTOUCHED -->
       <button class="share-btn" id="shareBtn">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="18" cy="5" r="3" class="share-circle" stroke="currentColor"/>
@@ -1996,7 +2029,7 @@
     </div>
   </div>
 
-  <!-- NAV ROW -->
+  <!-- NAV ROW - PREMIUM SVG ICONS WITH DISTINCT FIXED COLORS -->
   <div class="nav-row-small" id="navRow">
     <span class="nav-small active" id="homeNav">
       <svg class="nav-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2029,7 +2062,7 @@
     </span>
   </div>
 
-  <!-- HOME PAGE GREEN-LINE BOX -->
+  <!-- ===== HOME PAGE GREEN-LINE BOX ===== -->
   <div id="homeGreenBox" class="home-greenbox show">
     <div class="info-text">All Yono Games View is a gaming platform where users can discover different online game apps, categories, features, and download information in one place.</div>
     <div class="tag-wrap" id="greenboxTags"></div>
@@ -2120,6 +2153,7 @@
           </div>
         </div>
       </div>
+      <!-- ===== DOWNLOAD SECTION WITH COLOR-ANIMATING BACKGROUND ===== -->
       <div class="detail-download">
         <a href="#" class="download-btn" id="detailDownloadBtn" target="_blank">⬇ Download APK</a>
       </div>
@@ -2308,7 +2342,7 @@
       <div class="all-games-tags-container" id="allGamesTagsContainer"></div>
     </div>
 
-    <!-- RELATED SECTION -->
+    <!-- ===== RELATED SECTION ===== -->
     <div class="related-section">
       <div class="related-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2320,7 +2354,7 @@
     </div>
   </div>
 
-  <!-- YONO GAMES INFORMATION SECTION -->
+  <!-- ===== YONO GAMES INFORMATION SECTION (Home Page) - NO DOWNLOAD BUTTON ===== -->
   <div class="yono-info-section" id="yonoInfoSection">
     <div class="yono-info-title">
       <span class="title-icon">
@@ -2331,7 +2365,7 @@
     <div class="yono-tags-container" id="yonoTagsContainer"></div>
   </div>
 
-  <!-- FOOTER SCROLL TAGS SECTION -->
+  <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
   <div class="footer-scroll-section">
     <div class="scroll-tags-wrapper">
       <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
@@ -2386,7 +2420,7 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- ===== FOOTER ===== -->
   <div class="footer-note">
     <div class="footer-links">
       <a class="footer-nav-link" data-page="about">About</a>
@@ -2412,6 +2446,8 @@
   (function() {
     // ===== HOME PAGE HEADER STYLING =====
     const container = document.getElementById('mainContainer');
+    const topHeader = document.getElementById('topHeader');
+    const navRow = document.getElementById('navRow');
     
     function applyHomeHeaderStyle() {
       if (!container.classList.contains('home-page')) {
@@ -3005,12 +3041,6 @@
       return result;
     }
 
-    // --- GIFT SVG ICON (for Sign Up Bonus) ---
-    const giftIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48"><path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/><rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/><rect x="4" y="11" width="16" height="10" rx="1" fill="#F44336"/><rect x="11" y="8" width="2" height="13" fill="#FFD700"/><rect x="3" y="9" width="18" height="1" fill="#FFD700"/></svg>`;
-
-    // --- BANK SVG ICON (for Min. Withdraw) ---
-    const bankIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48"><path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/><path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/><rect x="4" y="11" width="2" height="8" fill="#2e7d32"/><rect x="9" y="11" width="2" height="8" fill="#2e7d32"/><rect x="14" y="11" width="2" height="8" fill="#2e7d32"/><rect x="18" y="11" width="2" height="8" fill="#2e7d32"/><rect x="2" y="19" width="20" height="2" fill="#1b5e20"/></svg>`;
-
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
@@ -3037,11 +3067,29 @@
         card.dataset.metaBonus = metaBonus;
         card.dataset.version = version;
 
-        // NEW GIFT ICON for Sign Up Bonus
-        const bonusIcon = `<span class="icon-svg">${giftIconSvg}</span>`;
-        
-        // NEW BANK ICON for Min. Withdraw
-        const withdrawIcon = `<span class="icon-svg">${bankIconSvg}</span>`;
+        // ===== EXACT SVG ICONS =====
+        // Gift SVG - Gold + Red
+        const giftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display:block; width:100%; height:100%;">
+          <path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/>
+          <rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/>
+          <rect x="4" y="11" width="16" height="10" rx="1" fill="#F44336"/>
+          <rect x="11" y="8" width="2" height="13" fill="#FFD700"/>
+          <rect x="3" y="9" width="18" height="1" fill="#FFD700"/>
+        </svg>`;
+
+        // Bank SVG - Green + Gold
+        const bankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display:block; width:100%; height:100%;">
+          <path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/>
+          <path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/>
+          <rect x="4" y="11" width="2" height="8" fill="#2e7d32"/>
+          <rect x="9" y="11" width="2" height="8" fill="#2e7d32"/>
+          <rect x="14" y="11" width="2" height="8" fill="#2e7d32"/>
+          <rect x="18" y="11" width="2" height="8" fill="#2e7d32"/>
+          <rect x="2" y="19" width="20" height="2" fill="#1b5e20"/>
+        </svg>`;
+
+        const bonusIcon = `<span class="icon-svg">${giftSvg}</span>`;
+        const withdrawIcon = `<span class="icon-svg">${bankSvg}</span>`;
 
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
@@ -3225,8 +3273,11 @@
         item.dataset.metaBonus = mb;
         item.dataset.version = ver;
 
-        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;">${giftIconSvg}</span>`;
-        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;">${bankIconSvg}</span>`;
+        const relatedGiftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/><rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/><rect x="4" y="11" width="16" height="10" rx="1" fill="#F44336"/><rect x="11" y="8" width="2" height="13" fill="#FFD700"/><rect x="3" y="9" width="18" height="1" fill="#FFD700"/></svg>`;
+        const relatedBankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/><path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/><rect x="4" y="11" width="2" height="8" fill="#2e7d32"/><rect x="9" y="11" width="2" height="8" fill="#2e7d32"/><rect x="14" y="11" width="2" height="8" fill="#2e7d32"/><rect x="18" y="11" width="2" height="8" fill="#2e7d32"/><rect x="2" y="19" width="20" height="2" fill="#1b5e20"/></svg>`;
+
+        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedGiftSvg}</span>`;
+        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedBankSvg}</span>`;
 
         item.innerHTML = `
           <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
@@ -3364,7 +3415,7 @@
     });
 
     historyStack.push({ state: { page: 'home' }, title: 'Home', url: location.href });
-    history.replaceState({ page: 'home' }, 'Home', location.href);
+    history.replaceState({ state: { page: 'home' } }, 'Home', location.href);
     
     enableHomeHeader();
   })();
