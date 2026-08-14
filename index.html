@@ -115,14 +115,12 @@
       position: relative;
       z-index: 2;
     }
-    /* Make header name box readable on home page */
     .home-page .header-name-box {
       background: rgba(255, 255, 255, 0.95) !important;
       backdrop-filter: blur(4px);
       border: 2px solid rgba(255, 255, 255, 0.8);
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
-    /* Make share button readable on home page */
     .home-page .share-btn {
       background: rgba(255, 255, 255, 0.9) !important;
       backdrop-filter: blur(4px);
@@ -174,37 +172,14 @@
     }
 
     /* ===== HOME PAGE ICON COLORS - NEW PREMIUM STYLES ===== */
-    /* Home icon → White */
-    .home-page .nav-row-small .nav-small .nav-icon-home {
-      stroke: #ffffff !important;
-    }
-    .home-page .nav-row-small .nav-small.active .nav-icon-home {
-      stroke: #0b1e33 !important;
-    }
-    
-    /* About icon → Black */
-    .home-page .nav-row-small .nav-small .nav-icon-about {
-      stroke: #000000 !important;
-    }
-    .home-page .nav-row-small .nav-small.active .nav-icon-about {
-      stroke: #0b1e33 !important;
-    }
-    
-    /* Contact icon → Gold */
-    .home-page .nav-row-small .nav-small .nav-icon-contact {
-      stroke: #FFD700 !important;
-    }
-    .home-page .nav-row-small .nav-small.active .nav-icon-contact {
-      stroke: #0b1e33 !important;
-    }
-    
-    /* Disclaimer icon → Red */
-    .home-page .nav-row-small .nav-small .nav-icon-disclaimer {
-      stroke: #FF0000 !important;
-    }
-    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer {
-      stroke: #0b1e33 !important;
-    }
+    .home-page .nav-row-small .nav-small .nav-icon-home { stroke: #ffffff !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-home { stroke: #0b1e33 !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-about { stroke: #000000 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-about { stroke: #0b1e33 !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-contact { stroke: #FFD700 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-contact { stroke: #0b1e33 !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-disclaimer { stroke: #FF0000 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer { stroke: #0b1e33 !important; }
 
     /* --- OTHER PAGES: Original white nav row --- */
     .nav-row-small { 
@@ -244,7 +219,6 @@
     .nav-small.active .nav-icon-about { stroke: white !important; }
     .nav-small.active .nav-icon-contact { stroke: white !important; }
     .nav-small.active .nav-icon-disclaimer { stroke: white !important; }
-    /* Premium SVG Icons - Each with distinct fixed color (Original) */
     .nav-small svg {
       width: 18px;
       height: 18px;
@@ -255,15 +229,10 @@
       stroke-linejoin: round;
       transition: stroke 0.3s ease;
     }
-    /* Home - Premium Blue (Original) */
     .nav-icon-home { stroke: #2563eb; }
-    /* About - Premium Emerald Green (Original) */
     .nav-icon-about { stroke: #059669; }
-    /* Contact - Premium Purple (Original) */
     .nav-icon-contact { stroke: #7c3aed; }
-    /* Disclaimer - Premium Amber/Orange (Original) */
     .nav-icon-disclaimer { stroke: #d97706; }
-    /* Hover states - subtle color shift */
     .nav-small:not(.active):hover .nav-icon-home { stroke: #3b82f6; }
     .nav-small:not(.active):hover .nav-icon-about { stroke: #10b981; }
     .nav-small:not(.active):hover .nav-icon-contact { stroke: #8b5cf6; }
@@ -284,7 +253,6 @@
       .nav-small svg { width: 20px; height: 20px; }
     }
 
-    /* --- HEADER & LOGO (original styles) --- */
     .top-header .header-left,
     .top-header .header-right {
       position: relative;
@@ -491,7 +459,6 @@
       .share-btn .share-text { font-size: 0.7rem; }
     }
 
-    /* Header Logo - Rounded Square with Gold Border (unchanged) */
     .header-logo {
       width: 48px;
       height: 48px;
@@ -1538,7 +1505,6 @@
       min-width: 0;
       padding-right: 4px;
     }
-    /* App name - only one name, no duplicate */
     .card-name { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; flex-wrap: wrap; }
     .card-name .alt { display: none !important; }
     .card-bonus, .card-withdraw {
@@ -1553,8 +1519,8 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      width: 14px;
-      height: 14px;
+      width: 18px;
+      height: 18px;
     }
     .card-bonus .icon-svg svg, .card-withdraw .icon-svg svg {
       width: 100%;
@@ -1633,7 +1599,7 @@
       .card-withdraw { font-size: 0.45rem; }
       .card-download-sm { padding: 8px 16px 8px 12px !important; font-size: 0.65rem !important; gap: 6px !important; min-width: 80px; }
       .card-download-sm::before { width: 15px; height: 15px; }
-      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 14px; height: 14px; }
     }
     @media (max-width: 360px) {
       .card-img { width: 52px; height: 46px; margin-left: 22px; margin-right: 14px; }
@@ -1643,12 +1609,13 @@
       .card-withdraw { font-size: 0.4rem; }
       .card-download-sm { padding: 6px 12px 6px 10px !important; font-size: 0.55rem !important; gap: 4px !important; min-width: 65px; }
       .card-download-sm::before { width: 12px; height: 12px; }
-      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 10px; height: 10px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
     }
     @media (min-width: 769px) {
       .card-img { width: 76px; height: 68px; margin-left: 32px; margin-right: 24px; }
       .card-download-sm { padding: 12px 28px 12px 20px !important; font-size: 0.85rem !important; gap: 10px !important; min-width: 130px; }
       .card-download-sm::before { width: 20px; height: 20px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 20px; height: 20px; }
     }
 
     /* --- FOOTER --- */
@@ -2007,7 +1974,6 @@
       <span class="header-name-box">YONO GAMES POINT .com</span>
     </div>
     <div class="header-right">
-      <!-- Premium Telegram SVG Icon - UNTOUCHED -->
       <a href="https://t.me/allyonogamesdite" target="_blank" rel="noopener noreferrer" class="telegram-btn" aria-label="Telegram">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="11" class="telegram-icon-bg"/>
@@ -2017,7 +1983,6 @@
           <path d="M17.5 7.5L12.5 10.5L15.5 13.5" class="telegram-icon-plane" fill="none" stroke="#ffffff" stroke-width="1.5"/>
         </svg>
       </a>
-      <!-- Premium Share SVG Button - UNTOUCHED -->
       <button class="share-btn" id="shareBtn">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="18" cy="5" r="3" class="share-circle" stroke="currentColor"/>
@@ -2031,19 +1996,15 @@
     </div>
   </div>
 
-  <!-- MARQUEE REMOVED -->
-
-  <!-- NAV ROW - PREMIUM SVG ICONS WITH DISTINCT FIXED COLORS -->
+  <!-- NAV ROW -->
   <div class="nav-row-small" id="navRow">
     <span class="nav-small active" id="homeNav">
-      <!-- Home - Premium Blue -->
       <svg class="nav-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/>
       </svg>
       Home
     </span>
     <span class="nav-small" id="aboutNav">
-      <!-- About - Premium Emerald Green -->
       <svg class="nav-icon-about" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"/>
         <line x1="12" y1="16" x2="12" y2="12"/>
@@ -2052,7 +2013,6 @@
       About
     </span>
     <span class="nav-small" id="contactNav">
-      <!-- Contact - Premium Purple -->
       <svg class="nav-icon-contact" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2"/>
         <path d="M22 7l-8.97 5.7a2 2 0 01-2.06 0L2 7"/>
@@ -2060,7 +2020,6 @@
       Contact
     </span>
     <span class="nav-small" id="disclaimerNav">
-      <!-- Disclaimer - Premium Amber/Orange -->
       <svg class="nav-icon-disclaimer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"/>
         <line x1="12" y1="8" x2="12" y2="12"/>
@@ -2070,7 +2029,7 @@
     </span>
   </div>
 
-  <!-- ===== HOME PAGE GREEN-LINE BOX ===== -->
+  <!-- HOME PAGE GREEN-LINE BOX -->
   <div id="homeGreenBox" class="home-greenbox show">
     <div class="info-text">All Yono Games View is a gaming platform where users can discover different online game apps, categories, features, and download information in one place.</div>
     <div class="tag-wrap" id="greenboxTags"></div>
@@ -2161,7 +2120,6 @@
           </div>
         </div>
       </div>
-      <!-- ===== DOWNLOAD SECTION WITH COLOR-ANIMATING BACKGROUND ===== -->
       <div class="detail-download">
         <a href="#" class="download-btn" id="detailDownloadBtn" target="_blank">⬇ Download APK</a>
       </div>
@@ -2350,7 +2308,7 @@
       <div class="all-games-tags-container" id="allGamesTagsContainer"></div>
     </div>
 
-    <!-- ===== RELATED SECTION ===== -->
+    <!-- RELATED SECTION -->
     <div class="related-section">
       <div class="related-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2362,7 +2320,7 @@
     </div>
   </div>
 
-  <!-- ===== YONO GAMES INFORMATION SECTION (Home Page) - NO DOWNLOAD BUTTON ===== -->
+  <!-- YONO GAMES INFORMATION SECTION -->
   <div class="yono-info-section" id="yonoInfoSection">
     <div class="yono-info-title">
       <span class="title-icon">
@@ -2373,7 +2331,7 @@
     <div class="yono-tags-container" id="yonoTagsContainer"></div>
   </div>
 
-  <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
+  <!-- FOOTER SCROLL TAGS SECTION -->
   <div class="footer-scroll-section">
     <div class="scroll-tags-wrapper">
       <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
@@ -2428,7 +2386,7 @@
     </div>
   </div>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <div class="footer-note">
     <div class="footer-links">
       <a class="footer-nav-link" data-page="about">About</a>
@@ -2454,8 +2412,6 @@
   (function() {
     // ===== HOME PAGE HEADER STYLING =====
     const container = document.getElementById('mainContainer');
-    const topHeader = document.getElementById('topHeader');
-    const navRow = document.getElementById('navRow');
     
     function applyHomeHeaderStyle() {
       if (!container.classList.contains('home-page')) {
@@ -2467,12 +2423,10 @@
       container.classList.remove('home-page');
     }
     
-    // Call this when home page is shown
     function enableHomeHeader() {
       applyHomeHeaderStyle();
     }
     
-    // Call this when leaving home page
     function disableHomeHeader() {
       removeHomeHeaderStyle();
     }
@@ -2807,7 +2761,6 @@
       hideAllStatic();
       restoreMetaTags();
       showHomeGreenBox();
-      // Enable home header style
       enableHomeHeader();
       scrollToTop();
     }
@@ -2821,7 +2774,6 @@
       detailView.classList.add('show');
       hideAllStatic();
       hideHomeGreenBox();
-      // Disable home header style when not on home
       disableHomeHeader();
       scrollToTop();
     }
@@ -2846,7 +2798,6 @@
       hideAllStatic();
       hideHomeGreenBox();
       aboutPage.classList.add('visible');
-      // Disable home header style
       disableHomeHeader();
       scrollToTop();
       pushHistory({ page: 'about' }, 'About', location.href);
@@ -2863,7 +2814,6 @@
       hideAllStatic();
       hideHomeGreenBox();
       contactPage.classList.add('visible');
-      // Disable home header style
       disableHomeHeader();
       scrollToTop();
       pushHistory({ page: 'contact' }, 'Contact', location.href);
@@ -2880,7 +2830,6 @@
       hideAllStatic();
       hideHomeGreenBox();
       disclaimerPage.classList.add('visible');
-      // Disable home header style
       disableHomeHeader();
       scrollToTop();
       pushHistory({ page: 'disclaimer' }, 'Disclaimer', location.href);
@@ -3056,6 +3005,12 @@
       return result;
     }
 
+    // --- GIFT SVG ICON (for Sign Up Bonus) ---
+    const giftIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48"><path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/><rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/><rect x="4" y="11" width="16" height="10" rx="1" fill="#F44336"/><rect x="11" y="8" width="2" height="13" fill="#FFD700"/><rect x="3" y="9" width="18" height="1" fill="#FFD700"/></svg>`;
+
+    // --- BANK SVG ICON (for Min. Withdraw) ---
+    const bankIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48"><path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/><path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/><rect x="4" y="11" width="2" height="8" fill="#2e7d32"/><rect x="9" y="11" width="2" height="8" fill="#2e7d32"/><rect x="14" y="11" width="2" height="8" fill="#2e7d32"/><rect x="18" y="11" width="2" height="8" fill="#2e7d32"/><rect x="2" y="19" width="20" height="2" fill="#1b5e20"/></svg>`;
+
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
@@ -3082,10 +3037,12 @@
         card.dataset.metaBonus = metaBonus;
         card.dataset.version = version;
 
-        const bonusIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
-        const withdrawIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
+        // NEW GIFT ICON for Sign Up Bonus
+        const bonusIcon = `<span class="icon-svg">${giftIconSvg}</span>`;
+        
+        // NEW BANK ICON for Min. Withdraw
+        const withdrawIcon = `<span class="icon-svg">${bankIconSvg}</span>`;
 
-        // HOME PAGE: Only app name, no duplicate alt name
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
           <div class="card-img"><img src="${game.img}" alt="${game.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
@@ -3268,9 +3225,8 @@
         item.dataset.metaBonus = mb;
         item.dataset.version = ver;
 
-        // Bonus icon for related section
-        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
-        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%; height:100%;"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
+        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;">${giftIconSvg}</span>`;
+        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; flex-shrink:0;">${bankIconSvg}</span>`;
 
         item.innerHTML = `
           <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
@@ -3410,7 +3366,6 @@
     historyStack.push({ state: { page: 'home' }, title: 'Home', url: location.href });
     history.replaceState({ page: 'home' }, 'Home', location.href);
     
-    // Enable home header on initial load (home page)
     enableHomeHeader();
   })();
 </script>
