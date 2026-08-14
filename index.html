@@ -1330,7 +1330,7 @@
     }
 
     /* ============================================================
-       HOME PAGE GRID - FIXED: No duplicate name, Premium Green Download Button
+       HOME PAGE GRID - PREMIUM GREEN DOWNLOAD BUTTONS (NO DUPLICATE NAME)
        ============================================================ */
     #mainGrid { display: flex; flex-direction: column; gap: 6px; padding: 8px; }
     .card {
@@ -1387,18 +1387,9 @@
       min-width: 0;
       padding-right: 4px;
     }
-    .card-name { 
-      font-weight: 700; 
-      font-size: 0.7rem; 
-      color: #0b1e33; 
-      display: flex; 
-      align-items: center; 
-      gap: 3px; 
-      flex-wrap: wrap; 
-    }
-    .card-name .alt { 
-      display: none !important; /* Hide duplicate right-side app name */
-    }
+    /* App name - only one name, no duplicate */
+    .card-name { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; flex-wrap: wrap; }
+    .card-name .alt { display: none !important; }
     .card-bonus, .card-withdraw {
       display: flex;
       align-items: center;
@@ -1438,12 +1429,12 @@
     .card-withdraw .label { color: #64748b; }
     .card-withdraw { font-size: 0.5rem; }
 
-    /* PREMIUM GREEN DOWNLOAD BUTTON - HOME PAGE - Fixed SVG Icon */
+    /* PREMIUM GREEN DOWNLOAD BUTTON - HOME PAGE */
     .card-download-sm {
       flex-shrink: 0;
-      background: #00cc44;
+      background: #00c853 !important;
       color: #ffffff !important;
-      border: 2px solid #00cc44;
+      border: 2px solid #00c853 !important;
       padding: 10px 22px 10px 16px !important;
       font-size: 0.75rem !important;
       font-weight: 700 !important;
@@ -1453,7 +1444,7 @@
       display: inline-flex !important;
       align-items: center !important;
       gap: 8px !important;
-      box-shadow: 0 0 20px rgba(0,204,68,0.2), 0 0 40px rgba(0,204,68,0.08);
+      box-shadow: 0 0 15px rgba(0,200,83,0.25), 0 0 30px rgba(0,200,83,0.08) !important;
       transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94) !important;
       text-decoration: none;
       letter-spacing: 0.3px;
@@ -1461,53 +1452,27 @@
       margin-right: 4px;
       min-width: 100px;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
     }
     .card-download-sm::before {
-      content: "";
-      display: none;
-    }
-    .card-download-sm .download-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+      display: inline-block;
       width: 18px;
       height: 18px;
-      filter: drop-shadow(0 0 6px rgba(0,204,68,0.3));
-      animation: downloadIconPulse 3s ease-in-out infinite;
-    }
-    .card-download-sm .download-icon svg {
-      width: 100%;
-      height: 100%;
-      fill: none;
-      stroke: #ffffff;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    @keyframes downloadIconPulse {
-      0%, 100% { filter: drop-shadow(0 0 6px rgba(0,204,68,0.3)) drop-shadow(0 0 12px rgba(0,204,68,0.1)); }
-      50% { filter: drop-shadow(0 0 14px rgba(0,204,68,0.5)) drop-shadow(0 0 30px rgba(0,204,68,0.2)); }
-    }
-    .card-download-sm .download-text {
-      color: #ffffff;
-      font-weight: 700;
-      letter-spacing: 0.3px;
+      line-height: 1;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
     }
     .card-download-sm:hover {
-      background: #00b83a !important;
+      background: #00e676 !important;
       color: #ffffff !important;
-      box-shadow: 0 0 30px rgba(0,204,68,0.4), 0 0 60px rgba(0,204,68,0.15) !important;
+      box-shadow: 0 0 25px rgba(0,200,83,0.4), 0 0 50px rgba(0,200,83,0.15) !important;
       transform: scale(1.04) translateY(-2px) !important;
-      border-color: #00b83a !important;
+      border-color: #00e676 !important;
     }
-    .card-download-sm:hover .download-icon {
-      animation: none;
-      filter: drop-shadow(0 0 20px rgba(0,204,68,0.6)) drop-shadow(0 0 40px rgba(0,204,68,0.3));
+    .card-download-sm:hover::before {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
     }
-    .card-download-sm:active { transform: scale(0.94) !important; box-shadow: 0 0 20px rgba(0,204,68,0.3) !important; }
+    .card-download-sm:active { transform: scale(0.94) !important; box-shadow: 0 0 20px rgba(0,200,83,0.3) !important; }
 
     @media (max-width: 420px) {
       .card-img { width: 60px; height: 52px; margin-left: 25px; margin-right: 18px; }
@@ -1516,7 +1481,7 @@
       .card-bonus { font-size: 0.5rem; }
       .card-withdraw { font-size: 0.45rem; }
       .card-download-sm { padding: 8px 16px 8px 12px !important; font-size: 0.65rem !important; gap: 6px !important; min-width: 80px; }
-      .card-download-sm .download-icon { width: 15px; height: 15px; }
+      .card-download-sm::before { width: 15px; height: 15px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
     }
     @media (max-width: 360px) {
@@ -1526,13 +1491,13 @@
       .card-bonus { font-size: 0.45rem; }
       .card-withdraw { font-size: 0.4rem; }
       .card-download-sm { padding: 6px 12px 6px 10px !important; font-size: 0.55rem !important; gap: 4px !important; min-width: 65px; }
-      .card-download-sm .download-icon { width: 12px; height: 12px; }
+      .card-download-sm::before { width: 12px; height: 12px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 10px; height: 10px; }
     }
     @media (min-width: 769px) {
       .card-img { width: 76px; height: 68px; margin-left: 32px; margin-right: 24px; }
       .card-download-sm { padding: 12px 28px 12px 20px !important; font-size: 0.85rem !important; gap: 10px !important; min-width: 130px; }
-      .card-download-sm .download-icon { width: 22px; height: 22px; }
+      .card-download-sm::before { width: 20px; height: 20px; }
     }
 
     /* --- FOOTER --- */
@@ -1622,7 +1587,7 @@
 
     .static-loading { padding: 40px 20px; text-align: center; color: #64748b; font-size: 0.9rem; }
 
-    /* ===== YONO GAMES INFORMATION SECTION - NO DOWNLOAD BUTTON ===== */
+    /* ===== YONO GAMES INFORMATION SECTION - NO DOWNLOAD BUTTON ON HOME ===== */
     .yono-info-section {
       padding: 14px 10px 10px 10px;
       background: #ffffff;
@@ -2246,7 +2211,7 @@
     </div>
   </div>
 
-  <!-- ===== YONO GAMES INFORMATION SECTION ===== -->
+  <!-- ===== YONO GAMES INFORMATION SECTION (Home Page) - NO DOWNLOAD BUTTON ===== -->
   <div class="yono-info-section" id="yonoInfoSection">
     <div class="yono-info-title">
       <span class="title-icon">
@@ -2255,7 +2220,6 @@
       <span class="title-text">YONO Games Information</span>
     </div>
     <div class="yono-tags-container" id="yonoTagsContainer"></div>
-    <!-- Download button and label removed from this section -->
   </div>
 
   <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
@@ -2932,17 +2896,7 @@
         const bonusIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg></span>`;
         const withdrawIcon = `<span class="icon-svg"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg></span>`;
 
-        // Premium green download icon
-        const downloadIcon = `
-          <span class="download-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-          </span>
-        `;
-
+        // HOME PAGE: Only app name, no duplicate alt name
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
           <div class="card-img"><img src="${game.img}" alt="${game.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
@@ -2951,7 +2905,7 @@
             <div class="card-bonus">${bonusIcon} <span class="label">Sign Up Bonus</span> <span class="value">${game.bonus}</span></div>
             <div class="card-withdraw">${withdrawIcon} <span class="label">Min. Withdraw</span> <span class="value">${game.withdrawal}</span></div>
           </div>
-          <span class="card-download-sm">${downloadIcon}<span class="download-text">Download</span></span>
+          <span class="card-download-sm">Download</span>
         `;
         mainGrid.appendChild(card);
 
