@@ -994,256 +994,8 @@
       font-size: 0.8rem;
     }
 
-    .referral-section {
-      padding: 10px;
-      background: #f8fafc;
-      border-top: 1px solid #e9edf4;
-      border-bottom: 1px solid #e9edf4;
-    }
-    .referral-section .referral-title {
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #0b1e33;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .referral-section .referral-title .title-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-    }
-    .referral-section .referral-title .title-icon svg {
-      width: 18px;
-      height: 18px;
-      stroke: #f59e0b;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .referral-section .referral-content {
-      font-size: 0.7rem;
-      color: #334155;
-      line-height: 1.7;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 4px 8px;
-    }
-    .referral-section .referral-content .ref-bonus {
-      color: #dc2626;
-      font-weight: 700;
-    }
-    .referral-section .referral-content .ref-code {
-      background: #eef2ff;
-      padding: 2px 10px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 0.65rem;
-      color: #1e293b;
-      border: 1px solid #cbd5e1;
-      font-family: monospace;
-      letter-spacing: 1px;
-    }
-    .ref-link-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #ffffff;
-      padding: 8px 14px 8px 12px;
-      border-radius: 30px;
-      border: 1px solid #d1d9e6;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      text-decoration: none;
-      color: inherit;
-      width: 100%;
-      max-width: 100%;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      flex: 1;
-      min-width: 0;
-    }
-    .ref-link-row:hover {
-      background: #f0f4ff;
-      border-color: #2563eb;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.12);
-    }
-    .ref-link-row:active {
-      transform: scale(0.98);
-    }
-    .ref-link-row .ref-link-icon-left {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      order: 1;
-    }
-    .ref-link-row .ref-link-icon-left svg {
-      width: 16px;
-      height: 16px;
-      stroke: #2563eb;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      flex-shrink: 0;
-    }
-    .ref-link-row .ref-link-text {
-      color: #1e293b;
-      font-weight: 500;
-      font-size: 0.65rem;
-      word-break: break-all;
-      flex: 1;
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      order: 2;
-      text-align: left;
-      padding: 0 4px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .ref-link-row .ref-link-text .link-label {
-      color: #2563eb;
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-    .ref-link-row .ref-link-text .link-url {
-      color: #64748b;
-      font-weight: 400;
-      flex-shrink: 1;
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .ref-link-row .ref-link-arrow-right {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      background: #2563eb;
-      border-radius: 50%;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      order: 3;
-      margin-left: auto;
-      position: relative;
-    }
-    .ref-link-row .ref-link-arrow-right svg {
-      width: 13px;
-      height: 13px;
-      stroke: #ffffff;
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      transition: transform 0.4s ease;
-    }
-    .ref-link-row:hover .ref-link-arrow-right {
-      background: #1d4ed8;
-      transform: translateX(3px);
-      box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
-    }
-    .ref-link-row:hover .ref-link-arrow-right svg {
-      transform: translateX(2px);
-    }
-    .ref-link-row .ref-link-arrow-right .arrow-shine {
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.6s ease;
-      pointer-events: none;
-      border-radius: 50%;
-    }
-    .ref-link-row:hover .ref-link-arrow-right .arrow-shine {
-      opacity: 1;
-    }
-    @media (max-width: 480px) {
-      .ref-link-row {
-        padding: 6px 10px 6px 10px;
-        gap: 6px;
-        border-radius: 25px;
-      }
-      .ref-link-row .ref-link-text {
-        font-size: 0.55rem;
-        white-space: nowrap;
-        gap: 3px;
-      }
-      .ref-link-row .ref-link-arrow-right {
-        width: 20px;
-        height: 20px;
-      }
-      .ref-link-row .ref-link-arrow-right svg {
-        width: 11px;
-        height: 11px;
-      }
-      .ref-link-row .ref-link-icon-left {
-        width: 16px;
-        height: 16px;
-      }
-      .ref-link-row .ref-link-icon-left svg {
-        width: 13px;
-        height: 13px;
-      }
-      .ref-link-row .ref-link-text .link-url {
-        font-size: 0.5rem;
-      }
-    }
-    @media (max-width: 380px) {
-      .ref-link-row {
-        padding: 5px 8px 5px 8px;
-        gap: 4px;
-        border-radius: 20px;
-      }
-      .ref-link-row .ref-link-text {
-        font-size: 0.5rem;
-        gap: 2px;
-      }
-      .ref-link-row .ref-link-arrow-right {
-        width: 18px;
-        height: 18px;
-      }
-      .ref-link-row .ref-link-arrow-right svg {
-        width: 10px;
-        height: 10px;
-      }
-      .ref-link-row .ref-link-icon-left {
-        width: 14px;
-        height: 14px;
-      }
-      .ref-link-row .ref-link-icon-left svg {
-        width: 11px;
-        height: 11px;
-      }
-      .ref-link-row .ref-link-text .link-url {
-        font-size: 0.45rem;
-      }
-    }
-    @media (min-width: 769px) {
-      .ref-link-row .ref-link-text {
-        font-size: 0.7rem;
-      }
-      .ref-link-row {
-        padding: 10px 18px 10px 16px;
-      }
-    }
+    /* ===== REFER & EARN SECTION - COMPLETELY REMOVED ===== */
+    /* The referral-section is removed from HTML */
 
     .game-tags-section {
       padding: 10px;
@@ -1263,53 +1015,10 @@
       display: none !important;
     }
 
-    .all-games-tags-section {
-      padding: 10px;
-      background: #f8fafc;
-      border-top: 1px solid #e9edf4;
-      border-bottom: 1px solid #e9edf4;
-    }
-    .all-games-tags-section .all-games-title {
-      font-weight: 700;
-      font-size: 0.8rem;
-      color: #0b1e33;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .all-games-tags-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-    .all-game-tag {
-      background: #ffffff;
-      color: #0b1e33;
-      padding: 3px 10px;
-      border-radius: 30px;
-      font-size: 0.5rem;
-      font-weight: 600;
-      border: 1px solid #d1d5db;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .all-game-tag:hover {
-      background: #1e293b;
-      color: #ffffff;
-      border-color: #1e293b;
-      transform: scale(1.04);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .all-game-tag:active {
-      transform: scale(0.94);
-    }
+    /* ===== ALL GAMES TAGS SECTION - COMPLETELY REMOVED ===== */
+    /* .all-games-tags-section is removed from HTML */
 
-    /* ===== TAG SECTION - UPDATED WITH 74 UNIQUE TAGS ===== */
+    /* ===== TAG SECTION - UPDATED WITH CLEAN UNIQUE TAGS ===== */
     .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .tag-grid { display: flex; flex-direction: column; gap: 6px; }
@@ -1349,7 +1058,7 @@
     .toc-item .toc-content ul li { padding: 2px 0; font-size: 0.7rem; color: #334155; }
     .toc-item .toc-content ul li::before { content: "• "; color: #2563eb; font-weight: 700; }
 
-    /* ===== RELATED SECTION - FIXED SIZING ===== */
+    /* ===== RELATED SECTION - UPDATED WITH CLEAN UNIQUE TAGS ===== */
     .related-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .related-title { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
     .related-grid { display: flex; flex-direction: column; gap: 5px; }
@@ -1413,6 +1122,17 @@
       align-items: center;
       gap: 4px;
     }
+    /* Related item tag content - clean and structured */
+    .related-item .rtag-content {
+      font-size: 0.5rem;
+      color: #64748b;
+      margin-top: 2px;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
     /* PREMIUM CYAN + GREEN DOWNLOAD BUTTON - RELATED SECTION */
     .rdownload {
@@ -1464,6 +1184,7 @@
       .related-item .rname .alt { font-size: 0.45rem; }
       .related-item .rbonus { font-size: 0.5rem; }
       .related-item .rwithdraw { font-size: 0.45rem; }
+      .related-item .rtag-content { font-size: 0.45rem; }
       .rdownload { padding: 8px 16px 8px 12px !important; font-size: 0.65rem !important; gap: 6px !important; min-width: 80px; }
       .rdownload svg { width: 15px; height: 15px; }
     }
@@ -1473,6 +1194,7 @@
       .related-item .rname .alt { font-size: 0.4rem; }
       .related-item .rbonus { font-size: 0.45rem; }
       .related-item .rwithdraw { font-size: 0.4rem; }
+      .related-item .rtag-content { font-size: 0.4rem; }
       .rdownload { padding: 6px 12px 6px 10px !important; font-size: 0.55rem !important; gap: 4px !important; min-width: 65px; }
       .rdownload svg { width: 12px; height: 12px; }
     }
@@ -1884,8 +1606,6 @@
       .back-btn svg { width: 13px; height: 13px; }
       .meta-item.rating .rating-label { font-size: 0.6rem; }
       .apk-download-line { font-size: 0.6rem; }
-      .referral-section .referral-content { font-size: 0.6rem; }
-      .referral-section .referral-content .ref-code { font-size: 0.55rem; padding: 1px 8px; }
       .tag-box .tag-head { font-size: 0.7rem; }
       .tag-box .tag-content { font-size: 0.6rem; }
       .tag-box .tag-head .svg-icon { width: 18px; height: 18px; }
@@ -2025,11 +1745,9 @@
       <div class="header-logo">
         <img src="https://i.ibb.co/XTFNccf/1785915333592.jpg" alt="YONO NEW APP" loading="eager" fetchpriority="high" width="54" height="54">
       </div>
-      <!-- Header Name: AllYonoGamesInfo.com -->
       <span class="header-name-box">AllYonoGamesInfo.com</span>
     </div>
     <div class="header-right">
-      <!-- Premium Telegram SVG Icon - UNTOUCHED -->
       <a href="https://t.me/allyonogamesdite" target="_blank" rel="noopener noreferrer" class="telegram-btn" aria-label="Telegram">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="11" class="telegram-icon-bg"/>
@@ -2039,7 +1757,6 @@
           <path d="M17.5 7.5L12.5 10.5L15.5 13.5" class="telegram-icon-plane" fill="none" stroke="#ffffff" stroke-width="1.5"/>
         </svg>
       </a>
-      <!-- Premium Share SVG Button - UNTOUCHED -->
       <button class="share-btn" id="shareBtn">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="18" cy="5" r="3" class="share-circle" stroke="currentColor"/>
@@ -2053,7 +1770,7 @@
     </div>
   </div>
 
-  <!-- NAV ROW - PREMIUM SVG ICONS WITH DISTINCT FIXED COLORS -->
+  <!-- NAV ROW -->
   <div class="nav-row-small" id="navRow">
     <span class="nav-small active" id="homeNav">
       <svg class="nav-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2086,9 +1803,8 @@
     </span>
   </div>
 
-  <!-- ===== HOME PAGE GREEN-LINE BOX ===== -->
+  <!-- HOME GREEN BOX -->
   <div id="homeGreenBox" class="home-greenbox show">
-    <!-- Red Information Name: All Yono Games Info -->
     <div class="info-text">All Yono Games Info is a gaming platform where users can discover different online game apps, categories, features, and download information in one place.</div>
     <div class="tag-wrap" id="greenboxTags"></div>
   </div>
@@ -2178,7 +1894,6 @@
           </div>
         </div>
       </div>
-      <!-- ===== DOWNLOAD SECTION WITH COLOR-ANIMATING BACKGROUND ===== -->
       <div class="detail-download">
         <a href="#" class="download-btn" id="detailDownloadBtn" target="_blank">⬇ Download APK</a>
       </div>
@@ -2189,7 +1904,7 @@
       </div>
     </div>
 
-    <!-- ===== UPDATED TAG SECTION WITH 74 UNIQUE TAGS ===== -->
+    <!-- ===== TOP OFFERS SECTION - CLEAN UNIQUE TAGS ===== -->
     <div class="tag-section">
       <div class="tag-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2319,34 +2034,7 @@
       </div>
     </div>
 
-    <div class="referral-section" id="referralSection">
-      <div class="referral-title">
-        <span class="title-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>
-        </span>
-        <span>Refer & Earn</span>
-      </div>
-      <div class="referral-content" id="referralContent">
-        <span>Invite your friends to <strong id="refGameName">Game Name</strong> and earn</span>
-        <span class="ref-bonus" id="refBonusAmount">₹25</span>
-        <span>for each successful referral! Use your unique referral code:</span>
-        <span class="ref-code" id="refCode">YONO7X9P</span>
-        <span>or share your referral link:</span>
-        <a href="https://www.earntp.com/m/jm9n7r" target="_blank" rel="noopener noreferrer" class="ref-link-row" id="refLinkRow">
-          <span class="ref-link-icon-left">
-            <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          </span>
-          <span class="ref-link-text" id="refLinkText">
-            <span class="link-label">Referral Link:</span>
-            <span class="link-url">https://www.earntp.com/m/jm9n7r</span>
-          </span>
-          <span class="ref-link-arrow-right">
-            <span class="arrow-shine"></span>
-            <svg viewBox="0 0 24 24" stroke="currentColor"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
-      </div>
-    </div>
+    <!-- ===== REFER & EARN SECTION - COMPLETELY REMOVED ===== -->
 
     <div class="game-tags-section">
       <div class="game-tags-title">
@@ -2358,17 +2046,9 @@
       <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
-    <div class="all-games-tags-section">
-      <div class="all-games-title">
-        <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
-        </span>
-        <span>All Games – Click to Explore</span>
-      </div>
-      <div class="all-games-tags-container" id="allGamesTagsContainer"></div>
-    </div>
+    <!-- ===== ALL GAMES TAGS SECTION - COMPLETELY REMOVED ===== -->
 
-    <!-- ===== RELATED SECTION WITH 74 UNIQUE TAGS ===== -->
+    <!-- ===== OTHER RELATED YONO GAMES - CLEAN UNIQUE TAGS ===== -->
     <div class="related-section">
       <div class="related-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2380,7 +2060,7 @@
     </div>
   </div>
 
-  <!-- ===== YONO GAMES INFORMATION SECTION (Home Page) - NO DOWNLOAD BUTTON ===== -->
+  <!-- YONO GAMES INFORMATION SECTION -->
   <div class="yono-info-section" id="yonoInfoSection">
     <div class="yono-info-title">
       <span class="title-icon">
@@ -2391,7 +2071,7 @@
     <div class="yono-tags-container" id="yonoTagsContainer"></div>
   </div>
 
-  <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
+  <!-- FOOTER SCROLL -->
   <div class="footer-scroll-section">
     <div class="scroll-tags-wrapper">
       <marquee behavior="scroll" direction="left" scrollamount="5" truespeed>
@@ -2446,7 +2126,7 @@
     </div>
   </div>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <div class="footer-note">
     <div class="footer-links">
       <a class="footer-nav-link" data-page="about">About</a>
@@ -3001,614 +2681,142 @@
       return { refBonus: refBonus, refCode: code };
     }
 
-    // ===== 74 UNIQUE TAG GENERATORS =====
-    function generateUniqueTags(gameName) {
+    // ===== CLEAN UNIQUE TOP OFFER TAGS (only 15 tags - ~20% of 74) =====
+    function generateCleanTopOfferTags(gameName) {
       const tagMap = {
         "YONO NEW APP": {
-          title: "YONO NEW APP APK – Exclusive ₹45 Welcome Bonus!",
-          content: "Get started with YONO NEW APP and claim a generous ₹45 signup bonus. This app brings you access to 75+ exciting games including rummy, slots, and teen patti. Enjoy fast UPI withdrawals with a minimum of ₹100. The platform is designed for smooth performance and secure transactions. Download today and start earning real cash rewards instantly."
+          title: "YONO NEW APP APK – ₹45 Welcome Bonus!",
+          content: "YONO NEW APP offers new users a ₹45 signup bonus.\nAccess 75+ games including rummy, slots, and teen patti.\nMinimum withdrawal: ₹100 via UPI.\nSecure platform with fast transactions.\nDownload now and start earning real cash."
         },
         "567 SLOTS": {
-          title: "567 SLOTS Game – Spin & Win ₹45 Free Bonus!",
-          content: "567 SLOTS offers a premium slot gaming experience with a ₹45 signup bonus for every new player. The app features high-quality slot machines with stunning graphics and fair play. Withdraw your winnings starting from ₹100 via UPI. Join thousands of players who enjoy daily bonuses and jackpot spins. Install 567 SLOTS APK now and hit the big wins!"
+          title: "567 SLOTS Game – ₹45 Free Spins Bonus!",
+          content: "567 SLOTS gives new players a ₹45 welcome bonus.\nEnjoy premium slot games with stunning graphics.\nWithdraw winnings from ₹100 via UPI.\nDaily bonuses and jackpot opportunities.\nInstall 567 SLOTS APK and spin to win."
         },
         "SAGA SLOTS": {
-          title: "SAGA SLOTS APK – Get ₹40 Free Bonus Today!",
-          content: "SAGA SLOTS welcomes new users with a ₹40 instant bonus. This app is packed with thrilling slot games, lucky spins, and exciting rewards. The minimum withdrawal is just ₹100, and payments are processed quickly through UPI. Experience a safe and user-friendly platform with regular promotions. Download SAGA SLOTS APK and start spinning for real cash."
+          title: "SAGA SLOTS APK – ₹40 Slot Bonus!",
+          content: "SAGA SLOTS provides a ₹40 signup bonus.\nPlay thrilling slot games with real cash rewards.\nMinimum withdrawal: ₹100 via UPI.\nUser-friendly interface with regular promotions.\nDownload SAGA SLOTS APK and start winning."
         },
         "JAIHO 91": {
-          title: "JAIHO 91 APK – Claim ₹50 Signup Reward!",
-          content: "JAIHO 91 is a rising star in the online gaming world, offering new users a ₹50 welcome bonus. Play rummy, slots, and many other games with real cash prizes. Withdraw your earnings from ₹100 using fast UPI transfers. The app provides a smooth and secure gaming environment. Sign up now and enjoy the thrill of winning with JAIHO 91."
+          title: "JAIHO 91 APK – ₹50 Welcome Reward!",
+          content: "JAIHO 91 offers a ₹50 welcome bonus.\nPlay rummy, slots, and many other games.\nWithdraw starting from ₹100 via UPI.\nSmooth gameplay with secure transactions.\nJoin JAIHO 91 and win real cash."
         },
         "RUMMY LUDO": {
-          title: "RUMMY LUDO APK – ₹35 Bonus for New Players!",
-          content: "RUMMY LUDO combines classic rummy and ludo gameplay with a ₹35 signup bonus. Perfect for casual and competitive players alike. The app supports UPI withdrawals starting at ₹100. Enjoy a seamless gaming experience with quick load times and fair play. Download RUMMY LUDO APK and start your winning journey today."
+          title: "RUMMY LUDO APK – ₹35 Bonus!",
+          content: "RUMMY LUDO gives new players a ₹35 bonus.\nPlay classic rummy and ludo games.\nMinimum withdrawal: ₹100 via UPI.\nPerfect for casual and competitive play.\nDownload RUMMY LUDO APK today."
         },
         "ABC RUMMY": {
-          title: "ABC RUMMY Game – ₹42 Instant Welcome Bonus!",
-          content: "ABC RUMMY offers a premium rummy experience with a ₹42 bonus for new registrations. The platform is known for its user-friendly interface and fast payment system. Withdrawals begin at ₹100 via UPI. Play exciting rummy tournaments and win real cash daily. Join ABC RUMMY APK and test your skills against real players."
+          title: "ABC RUMMY Game – ₹42 Instant Bonus!",
+          content: "ABC RUMMY provides a ₹42 signup bonus.\nPlay premium rummy games with real cash.\nWithdraw from ₹100 via UPI.\nUser-friendly interface with secure payments.\nJoin ABC RUMMY APK and play."
         },
         "RUMMY 91": {
-          title: "RUMMY 91 APK – ₹38 Bonus & Fast Withdrawals!",
-          content: "RUMMY 91 is a trusted rummy platform offering a ₹38 signup bonus to new users. Play classic rummy games with real opponents and win big. The minimum withdrawal is ₹100, with instant UPI payments. The app is optimized for both beginners and experts. Download RUMMY 91 APK and experience the excitement of online rummy."
+          title: "RUMMY 91 APK – ₹38 Welcome Bonus!",
+          content: "RUMMY 91 offers a ₹38 signup bonus.\nPlay classic rummy with real opponents.\nMinimum withdrawal: ₹100 via UPI.\nFast and secure platform for all players.\nDownload RUMMY 91 APK now."
         },
         "LOVE RUMMY": {
-          title: "LOVE RUMMY Game – ₹36 Welcome Gift!",
-          content: "LOVE RUMMY provides a romantic twist to traditional rummy with a ₹36 signup bonus. Enjoy a variety of rummy formats and daily tournaments. Withdraw your winnings starting from ₹100 via UPI. The app offers a secure and engaging platform for players. Get LOVE RUMMY APK and fall in love with winning."
+          title: "LOVE RUMMY Game – ₹36 Bonus!",
+          content: "LOVE RUMMY gives new players a ₹36 bonus.\nEnjoy themed rummy games with real cash.\nWithdraw from ₹100 via UPI.\nUnique and engaging gaming experience.\nGet LOVE RUMMY APK today."
         },
         "SPIN CRUSH": {
-          title: "SPIN CRUSH APK – ₹30 Free Bonus on Signup!",
-          content: "SPIN CRUSH is an exciting slots and spin game app that gives new users a ₹30 bonus. Spin the reels and win real cash prizes with every game. The minimum withdrawal is ₹100, and UPI payments are processed instantly. Enjoy a vibrant and colorful gaming interface. Download SPIN CRUSH APK and start crushing it today."
+          title: "SPIN CRUSH APK – ₹30 Free Bonus!",
+          content: "SPIN CRUSH offers a ₹30 signup bonus.\nSpin and win real cash with exciting games.\nMinimum withdrawal: ₹100 via UPI.\nVibrant graphics and fast gameplay.\nDownload SPIN CRUSH APK now."
         },
         "TOP RUMMY": {
-          title: "TOP RUMMY Game – ₹48 Premium Welcome Bonus!",
-          content: "TOP RUMMY stands out with a ₹48 signup bonus for every new player. Play high-stakes rummy games and compete with top players. Withdrawals start from ₹100 via quick UPI transfers. The app is designed for serious rummy enthusiasts. Join TOP RUMMY APK and aim for the top of the leaderboard."
+          title: "TOP RUMMY Game – ₹48 Premium Bonus!",
+          content: "TOP RUMMY provides a ₹48 welcome bonus.\nPlay high-quality rummy games with real cash.\nWithdraw from ₹100 via UPI.\nCompetitive environment for skilled players.\nJoin TOP RUMMY APK today."
         },
         "Hello Rummy": {
-          title: "Hello Rummy APK – ₹40 Bonus & Daily Rewards!",
-          content: "Hello Rummy greets new players with a ₹40 welcome bonus. The app offers a wide range of rummy games and daily bonus opportunities. Withdraw your earnings from ₹100 using fast UPI. Enjoy a friendly and competitive gaming community. Download Hello Rummy APK and say hello to big wins."
+          title: "Hello Rummy APK – ₹40 Bonus!",
+          content: "Hello Rummy gives new players a ₹40 bonus.\nPlay friendly rummy games with real cash.\nMinimum withdrawal: ₹100 via UPI.\nWelcoming community with daily rewards.\nDownload Hello Rummy APK now."
         },
         "RUMMY 365": {
           title: "RUMMY 365 APK – ₹44 Year-Round Bonus!",
-          content: "RUMMY 365 offers a ₹44 signup bonus and year-round gaming excitement. Play rummy anytime and earn real cash rewards. The minimum withdrawal is ₹100 with instant UPI payments. The app features daily challenges and exclusive promotions. Get RUMMY 365 APK and enjoy rummy every day."
+          content: "RUMMY 365 offers a ₹44 signup bonus.\nPlay rummy anytime and earn real cash.\nWithdraw from ₹100 via UPI.\nDaily challenges and exclusive promotions.\nGet RUMMY 365 APK today."
         },
         "TEEN PATTI GOLD": {
           title: "TEEN PATTI GOLD Game – ₹37 Golden Bonus!",
-          content: "TEEN PATTI GOLD gives new players a ₹37 welcome bonus to start their teen patti journey. Experience the thrill of India's favorite card game with real cash prizes. Withdraw starting from ₹100 via UPI. The app offers a premium and secure gaming environment. Download TEEN PATTI GOLD APK and shine bright."
+          content: "TEEN PATTI GOLD gives new players a ₹37 bonus.\nPlay India's favorite card game with real cash.\nMinimum withdrawal: ₹100 via UPI.\nPremium and secure gaming environment.\nDownload TEEN PATTI GOLD APK now."
         },
         "TEEN PATTI MASTER": {
-          title: "TEEN PATTI MASTER APK – ₹20 Bonus for Beginners!",
-          content: "TEEN PATTI MASTER provides a ₹20 signup bonus for newcomers to learn and play. Master the game of teen patti with real opponents and win cash. Withdrawals start from ₹100 with fast UPI processing. The app is ideal for both beginners and experienced players. Join TEEN PATTI MASTER APK and become a legend."
+          title: "TEEN PATTI MASTER APK – ₹20 Bonus!",
+          content: "TEEN PATTI MASTER provides a ₹20 signup bonus.\nLearn and play teen patti with real cash.\nWithdraw from ₹100 via UPI.\nIdeal for beginners and experienced players.\nJoin TEEN PATTI MASTER APK today."
         },
         "YONO RUMMY": {
-          title: "YONO RUMMY Game – ₹25 Bonus & Smooth Play!",
-          content: "YONO RUMMY offers a ₹25 welcome bonus and a smooth rummy experience. Play various rummy formats and compete for real cash prizes. The minimum withdrawal is ₹100 via UPI. The app is designed for stability and fair play. Download YONO RUMMY APK and enjoy effortless gaming."
-        },
-        "SLOTS WINNER": {
-          title: "SLOTS WINNER APK – ₹40 Jackpot Bonus!",
-          content: "SLOTS WINNER is your gateway to winning big with a ₹40 signup bonus. Spin the slot machines and hit jackpots for real cash. Withdraw starting from ₹100 via instant UPI. The app features high-quality graphics and exciting gameplay. Get SLOTS WINNER APK and become a winner today."
-        },
-        "GOOD SLOTS": {
-          title: "GOOD SLOTS Game – ₹15 Quick Bonus!",
-          content: "GOOD SLOTS provides a ₹15 instant bonus for new players. Enjoy a collection of slot games with fair winning chances. Withdraw your cash from ₹100 using UPI. The app is simple, fast, and secure. Download GOOD SLOTS APK and experience good luck."
-        },
-        "Diwa Slot": {
-          title: "Diwa Slot APK – ₹50 Premium Slot Bonus!",
-          content: "Diwa Slot offers a ₹50 welcome bonus for new slot enthusiasts. Play premium slot games with real cash rewards. The minimum withdrawal is ₹100 with fast UPI transfers. The app features stunning visuals and smooth gameplay. Install Diwa Slot APK and shine with every spin."
-        },
-        "GOGO RUMMY": {
-          title: "GOGO RUMMY Game – ₹28 Bonus & Fun Play!",
-          content: "GOGO RUMMY gives new players a ₹28 signup bonus to start their rummy adventure. Play exciting rummy games and win real cash daily. Withdraw starting from ₹100 via UPI. The app is perfect for casual and competitive players. Download GOGO RUMMY APK and go go win!"
-        },
-        "JOY RUMMY": {
-          title: "JOY RUMMY APK – ₹35 Bonus for Joyful Play!",
-          content: "JOY RUMMY brings joy to rummy players with a ₹35 welcome bonus. Enjoy a variety of rummy games and win real prizes. The minimum withdrawal is ₹100 with instant UPI payments. The app offers a cheerful and secure platform. Get JOY RUMMY APK and play with joy."
-        },
-        "SPIN GOLD": {
-          title: "SPIN GOLD Game – ₹22 Bonus & Golden Spins!",
-          content: "SPIN GOLD offers a ₹22 signup bonus for players who love spinning games. Win real cash with every lucky spin. Withdrawals start from ₹100 via fast UPI. The app is designed for thrilling and rewarding gameplay. Download SPIN GOLD APK and chase the gold."
-        },
-        "BINGO 101": {
-          title: "BINGO 101 APK – ₹45 Bingo Bonus!",
-          content: "BINGO 101 gives new players a ₹45 bonus to start playing bingo. Enjoy classic bingo games with real cash prizes. The minimum withdrawal is ₹100 via UPI. The app is perfect for bingo lovers of all levels. Join BINGO 101 APK and call out BINGO!"
-        },
-        "YES SPIN": {
-          title: "YES SPIN Game – ₹18 Bonus for Quick Wins!",
-          content: "YES SPIN welcomes new users with an ₹18 instant bonus. Spin and win real cash with this exciting game app. Withdraw starting from ₹100 via UPI. The app is fast, fun, and secure. Download YES SPIN APK and say yes to winning."
-        },
-        "YONO ARCADE": {
-          title: "YONO ARCADE APK – ₹32 Arcade Bonus!",
-          content: "YONO ARCADE offers a ₹32 signup bonus for arcade game lovers. Play a variety of arcade-style games and win real cash. Withdrawals start from ₹100 with quick UPI transfers. The app is packed with entertainment and rewards. Get YONO ARCADE APK and start the fun."
-        },
-        "SVIP 777": {
-          title: "SVIP 777 Game – ₹27 VIP Bonus!",
-          content: "SVIP 777 provides a ₹27 welcome bonus for VIP players. Enjoy premium slot and rummy games with high rewards. The minimum withdrawal is ₹100 via UPI. The app offers a luxurious gaming experience. Download SVIP 777 APK and feel like a VIP."
-        },
-        "OK RUMMY": {
-          title: "OK RUMMY APK – ₹38 Bonus for OK Players!",
-          content: "OK RUMMY offers a ₹38 signup bonus for rummy enthusiasts. Play rummy games and win real cash prizes daily. Withdraw starting from ₹100 with instant UPI. The app is reliable, secure, and user-friendly. Join OK RUMMY APK and say OK to winning."
-        },
-        "HINDI 777": {
-          title: "HINDI 777 Game – ₹42 Bonus in Hindi!",
-          content: "HINDI 777 is designed for Hindi-speaking players with a ₹42 welcome bonus. Enjoy rummy and slot games in your preferred language. Withdrawals start from ₹100 via UPI. The app offers a culturally familiar gaming experience. Download HINDI 777 APK and play in Hindi."
-        },
-        "BET 213": {
-          title: "BET 213 APK – ₹36 Betting Bonus!",
-          content: "BET 213 gives new users a ₹36 signup bonus for exciting betting games. Place your bets and win real cash on various games. The minimum withdrawal is ₹100 with fast UPI payments. The app is secure and offers fair play. Get BET 213 APK and start betting smart."
-        },
-        "BOSS RUMMY": {
-          title: "BOSS RUMMY Game – ₹40 Boss Bonus!",
-          content: "BOSS RUMMY offers a ₹40 welcome bonus for players who want to rule the rummy table. Compete in high-stakes games and win big. Withdraw starting from ₹100 via UPI. The app is designed for serious rummy players. Join BOSS RUMMY APK and be the boss."
-        },
-        "YONO 777": {
-          title: "YONO 777 APK – ₹35 Lucky 777 Bonus!",
-          content: "YONO 777 brings you a ₹35 signup bonus to start your lucky journey. Play slot and rummy games with real cash rewards. The minimum withdrawal is ₹100 via UPI. The app is loaded with exciting games and offers. Download YONO 777 APK and try your luck."
-        },
-        "Diwa VIP": {
-          title: "Diwa VIP Game – ₹60 Premium VIP Bonus!",
-          content: "Diwa VIP offers a ₹60 welcome bonus for VIP players. Enjoy exclusive games and premium rewards. Withdrawals start from ₹100 with fast UPI. The app provides a high-end gaming experience. Install Diwa VIP APK and enjoy the VIP treatment."
-        },
-        "Diwa 777": {
-          title: "Diwa 777 APK – ₹45 Bonus & Lucky Spins!",
-          content: "Diwa 777 gives new players a ₹45 signup bonus for slot and rummy games. Spin the wheels and win real cash daily. Withdraw starting from ₹100 via UPI. The app is vibrant and rewarding. Download Diwa 777 APK and let luck shine."
-        },
-        "YONO GAMES": {
-          title: "YONO GAMES APK – ₹45 All-in-One Bonus!",
-          content: "YONO GAMES offers a ₹45 welcome bonus to explore all game categories. Play rummy, slots, bingo, and more with real cash prizes. The minimum withdrawal is ₹100 via UPI. The app is a complete gaming hub. Get YONO GAMES APK and play them all."
-        },
-        "INR RUMMY": {
-          title: "INR RUMMY Game – ₹45 Bonus in INR!",
-          content: "INR RUMMY provides a ₹45 signup bonus for players who want to win in Indian Rupees. Play rummy and win real cash instantly. Withdraw starting from ₹100 via UPI. The app is optimized for Indian players. Join INR RUMMY APK and win in INR."
-        },
-        "MBM BET": {
-          title: "MBM BET Game – ₹45 Betting Bonus!",
-          content: "MBM BET offers a ₹45 welcome bonus for betting enthusiasts. Place bets on various games and win real money. The minimum withdrawal is ₹100 with fast UPI. The app is secure and easy to use. Download MBM BET APK and start betting."
-        },
-        "GOA SPIN": {
-          title: "GOA SPIN APK – ₹45 Casino-Style Bonus!",
-          content: "GOA SPIN brings the casino experience to your phone with a ₹45 signup bonus. Play slot games and win real cash prizes. Withdraw starting from ₹100 via UPI. The app features a vibrant casino-style interface. Get GOA SPIN APK and spin like in Goa."
-        },
-        "777 GAME": {
-          title: "777 GAME APK – ₹50 Lucky 777 Bonus!",
-          content: "777 GAME offers a ₹50 welcome bonus for all new players. Enjoy a variety of slot and card games with real cash rewards. The minimum withdrawal is ₹100 via UPI. The app is designed for exciting and fair gameplay. Download 777 GAME APK and get lucky."
-        },
-        "TEEN PATTI": {
-          title: "TEEN PATTI Game – ₹35 Bonus for Teen Patti!",
-          content: "TEEN PATTI provides a ₹35 signup bonus for fans of this classic card game. Play teen patti with real players and win cash. Withdraw starting from ₹100 via fast UPI. The app offers a secure and thrilling experience. Join TEEN PATTI APK and play the classic."
-        },
-        "All YONO GAMES": {
-          title: "All YONO GAMES APK – ₹42 Mega Bonus!",
-          content: "All YONO GAMES offers a ₹42 welcome bonus to access all games in one app. Enjoy rummy, slots, bingo, and more with real prizes. Withdrawals start from ₹100 via UPI. The app is your one-stop gaming destination. Download All YONO GAMES APK now."
-        },
-        "NEW YONO GAMES": {
-          title: "NEW YONO GAMES Game – ₹38 Fresh Bonus!",
-          content: "NEW YONO GAMES gives new users a ₹38 signup bonus to explore fresh gaming content. Play the latest games and win real cash. The minimum withdrawal is ₹100 via UPI. The app is updated regularly with new features. Get NEW YONO GAMES APK and stay fresh."
-        },
-        "YONO APPS": {
-          title: "YONO APPS APK – ₹36 Bonus for App Lovers!",
-          content: "YONO APPS offers a ₹36 welcome bonus to explore multiple apps in one platform. Play rummy, slots, and more with real cash rewards. Withdraw starting from ₹100 via UPI. The app is a collection of top gaming apps. Download YONO APPS APK and enjoy variety."
-        },
-        "SPIN WINNER": {
-          title: "SPIN WINNER Game – ₹30 Bonus & Big Wins!",
-          content: "SPIN WINNER provides a ₹30 signup bonus for slot game lovers. Spin the reels and become a winner with real cash. The minimum withdrawal is ₹100 via fast UPI. The app is designed for exciting and rewarding spins. Join SPIN WINNER APK and start winning."
-        },
-        "YONO All GAMES": {
-          title: "YONO All GAMES APK – ₹48 All-Game Bonus!",
-          content: "YONO All GAMES offers a ₹48 welcome bonus to play all game categories. Enjoy unlimited gaming with real cash prizes. Withdraw starting from ₹100 via UPI. The app is a complete gaming package. Download YONO All GAMES APK and play unlimited."
-        },
-        "SPIN LUCKY": {
-          title: "SPIN LUCKY Game – ₹44 Bonus for Lucky Players!",
-          content: "SPIN LUCKY gives new users a ₹44 signup bonus to test their luck. Spin and win real cash with this exciting game. The minimum withdrawal is ₹100 via UPI. The app is perfect for players who believe in luck. Get SPIN LUCKY APK and get lucky."
-        },
-        "MAX RUMMY": {
-          title: "MAX RUMMY APK – ₹55 Maximum Bonus!",
-          content: "MAX RUMMY offers a ₹55 welcome bonus for maximum rummy enjoyment. Play premium rummy games and win big cash prizes. Withdraw starting from ₹100 via fast UPI. The app is designed for serious rummy players. Join MAX RUMMY APK and go max."
-        },
-        "RANI SLOTS": {
-          title: "RANI SLOTS Game – ₹48 Queen of Slots Bonus!",
-          content: "RANI SLOTS gives new players a ₹48 signup bonus to rule the slot games. Spin the reels and win like a queen. The minimum withdrawal is ₹100 via UPI. The app features royal graphics and rewards. Download RANI SLOTS APK and become royalty."
-        },
-        "1GO PLUS": {
-          title: "1GO PLUS APK – ₹52 Bonus & Go!",
-          content: "1GO PLUS offers a ₹52 welcome bonus for players on the go. Play quick games and win real cash instantly. Withdraw starting from ₹100 via fast UPI. The app is fast, fun, and mobile-friendly. Get 1GO PLUS APK and go play."
-        },
-        "RUMMY ULTRA": {
-          title: "RUMMY ULTRA Game – ₹60 Ultra Bonus!",
-          content: "RUMMY ULTRA provides a ₹60 signup bonus for ultra rummy experience. Play high-quality rummy games with real cash prizes. The minimum withdrawal is ₹100 via UPI. The app is premium and performance-optimized. Download RUMMY ULTRA APK and go ultra."
-        },
-        "789 JACKPOTS": {
-          title: "789 JACKPOTS APK – ₹45 Jackpot Bonus!",
-          content: "789 JACKPOTS offers a ₹45 welcome bonus for jackpot hunters. Hit the jackpots and win massive real cash rewards. Withdraw starting from ₹100 via UPI. The app is thrilling and rewarding. Join 789 JACKPOTS APK and chase the jackpot."
-        },
-        "JAIHO WIN": {
-          title: "JAIHO WIN Game – ₹50 Winning Bonus!",
-          content: "JAIHO WIN gives new users a ₹50 signup bonus to start winning. Play various games and win real cash daily. The minimum withdrawal is ₹100 with fast UPI. The app is designed for winners. Download JAIHO WIN APK and start winning."
-        },
-        "SLOTS SPIN": {
-          title: "SLOTS SPIN APK – ₹42 Spin Bonus!",
-          content: "SLOTS SPIN offers a ₹42 welcome bonus for slot spinning fun. Spin the slots and win real cash rewards instantly. Withdraw starting from ₹100 via UPI. The app is vibrant and full of action. Get SLOTS SPIN APK and spin away."
-        },
-        "NETA VIP": {
-          title: "NETA VIP Game – ₹58 VIP Bonus!",
-          content: "NETA VIP provides a ₹58 signup bonus for VIP gaming experience. Enjoy exclusive games and premium rewards. The minimum withdrawal is ₹100 via fast UPI. The app is for elite players. Join NETA VIP APK and feel the VIP status."
-        },
-        "JAIHO 777 VIP": {
-          title: "JAIHO 777 VIP APK – ₹55 Premium VIP Bonus!",
-          content: "JAIHO 777 VIP offers a ₹55 welcome bonus for premium VIP players. Play high-stakes games and win big real cash. Withdraw starting from ₹100 via UPI. The app is luxurious and rewarding. Download JAIHO 777 VIP APK and live the VIP life."
-        },
-        "DHAN GAME": {
-          title: "DHAN GAME App – ₹47 Wealth Bonus!",
-          content: "DHAN GAME gives new users a ₹47 signup bonus to build wealth. Play games and win real cash prizes daily. The minimum withdrawal is ₹100 with fast UPI. The app is designed for wealth creation. Get DHAN GAME APK and grow your wealth."
-        },
-        "DIWA GAME": {
-          title: "DIWA GAME APK – ₹53 Game Bonus!",
-          content: "DIWA GAME offers a ₹53 welcome bonus for game enthusiasts. Play a variety of games and win real cash. Withdraw starting from ₹100 via UPI. The app is fun, secure, and rewarding. Join DIWA GAME APK and play the DIWA way."
-        },
-        "BET 54 GAMES": {
-          title: "BET 54 GAMES App – ₹46 Betting Bonus!",
-          content: "BET 54 GAMES provides a ₹46 signup bonus for betting lovers. Place bets on multiple games and win real money. The minimum withdrawal is ₹100 via fast UPI. The app is comprehensive and user-friendly. Download BET 54 GAMES APK and bet smart."
-        },
-        "ALL YONO APPS": {
-          title: "ALL YONO APPS Collection – ₹50 Mega Bonus!",
-          content: "ALL YONO APPS offers a ₹50 welcome bonus to access all Yono apps. Play rummy, slots, and more with real cash. Withdraw starting from ₹100 via UPI. The app is a complete collection. Get ALL YONO APPS APK and play all."
-        },
-        "T989 APPS": {
-          title: "T989 APPS APK – ₹44 Premium Bonus!",
-          content: "T989 APPS gives new users a ₹44 signup bonus for premium gaming. Enjoy high-quality games with real cash rewards. The minimum withdrawal is ₹100 with fast UPI. The app is sophisticated and rewarding. Download T989 APPS APK and go premium."
-        },
-        "765 CLUB": {
-          title: "765 CLUB Game – ₹56 Club Bonus!",
-          content: "765 CLUB offers a ₹56 welcome bonus for club members. Play exclusive games and win real cash prizes. Withdraw starting from ₹100 via UPI. The app is exclusive and exciting. Join 765 CLUB APK and be part of the club."
-        },
-        "MKM BET APK": {
-          title: "MKM BET APK Game – ₹49 Betting Bonus!",
-          content: "MKM BET APK provides a ₹49 signup bonus for betting enthusiasts. Place bets on various games and win big. The minimum withdrawal is ₹100 via fast UPI. The app is reliable and secure. Download MKM BET APK and start betting."
-        },
-        "YN 777": {
-          title: "YN 777 APK – ₹54 Lucky YN Bonus!",
-          content: "YN 777 gives new players a ₹54 signup bonus for lucky gaming. Play slots and rummy with real cash rewards. Withdraw starting from ₹100 via UPI. The app is packed with winning opportunities. Get YN 777 APK and try your luck."
-        },
-        "SPIN 777": {
-          title: "SPIN 777 Game – ₹47 Spin & Win Bonus!",
-          content: "SPIN 777 offers a ₹47 welcome bonus for spin game lovers. Spin the wheel and win real cash daily. The minimum withdrawal is ₹100 with fast UPI. The app is thrilling and rewarding. Join SPIN 777 APK and spin to win."
-        },
-        "RUMMY 888": {
-          title: "RUMMY 888 APK – ₹59 Premium Rummy Bonus!",
-          content: "RUMMY 888 is a premium rummy platform offering a ₹59 signup bonus. Play high-stakes rummy and win real cash rewards. Withdraw starting from ₹100 via UPI. The app is designed for serious rummy players. Download RUMMY 888 APK and enjoy premium rummy."
-        },
-        "RUMMY 77": {
-          title: "RUMMY 77 Game – ₹43 Bonus & Fun Play!",
-          content: "RUMMY 77 gives new players a ₹43 signup bonus for fun-filled rummy. Play various rummy formats and win cash. The minimum withdrawal is ₹100 with instant UPI. The app is user-friendly and entertaining. Get RUMMY 77 APK and have fun."
-        },
-        "MQM BET": {
-          title: "MQM BET APK – ₹51 MQM Betting Bonus!",
-          content: "MQM BET offers a ₹51 welcome bonus for betting enthusiasts. Place bets on games and win real money. Withdraw starting from ₹100 via fast UPI. The app is secure and offers fair play. Join MQM BET APK and bet with MQM."
-        },
-        "MAHA GAMES": {
-          title: "MAHA GAMES App – ₹57 Maha Bonus!",
-          content: "MAHA GAMES provides a ₹57 signup bonus for Maha gaming experience. Play a variety of games and win real cash. The minimum withdrawal is ₹100 with fast UPI. The app is grand and rewarding. Download MAHA GAMES APK and play Maha."
-        },
-        "IND RUMMY": {
-          title: "IND RUMMY Game – ₹46 India's Rummy Bonus!",
-          content: "IND RUMMY offers a ₹46 welcome bonus for Indian rummy players. Play traditional rummy and win real cash. Withdraw starting from ₹100 via UPI. The app is tailored for Indian players. Join IND RUMMY APK and play India's rummy."
-        },
-        "Hi RUMMY": {
-          title: "Hi RUMMY APK – ₹49 Bonus & Hi Wins!",
-          content: "Hi RUMMY gives new users a ₹49 signup bonus to start their rummy journey. Play exciting rummy games and win big. The minimum withdrawal is ₹100 with fast UPI. The app is friendly and competitive. Get Hi RUMMY APK and say hi to wins."
-        },
-        "JAIHO SPIN": {
-          title: "JAIHO SPIN APK – ₹44 Spin Bonus!",
-          content: "JAIHO SPIN offers a ₹44 welcome bonus for spin game lovers. Spin and win real cash with this exciting app. Withdraw starting from ₹100 via UPI. The app is vibrant and full of action. Download JAIHO SPIN APK and spin with Jaiho."
-        },
-        "JAIHO RUMMY": {
-          title: "JAIHO RUMMY Game – ₹53 Jaiho Rummy Bonus!",
-          content: "JAIHO RUMMY provides a ₹53 signup bonus for rummy players. Play classic rummy games and win real cash. The minimum withdrawal is ₹100 with fast UPI. The app is reliable and rewarding. Join JAIHO RUMMY APK and play Jaiho."
-        },
-        "YONO SLOTS": {
-          title: "YONO SLOTS APK – ₹48 Slot Bonus!",
-          content: "YONO SLOTS offers a ₹48 welcome bonus for slot game lovers. Spin the reels and win real cash rewards. Withdraw starting from ₹100 via UPI. The app is designed for thrilling slot action. Get YONO SLOTS APK and start spinning."
-        },
-        "Diwa Win": {
-          title: "Diwa Win Game – ₹56 Win Bonus!",
-          content: "Diwa Win gives new users a ₹56 signup bonus to start winning. Play various games and win real cash daily. The minimum withdrawal is ₹100 with fast UPI. The app is designed for winners. Download Diwa Win APK and win with Diwa."
-        },
-        "RUMBLE RUMMY": {
-          title: "RUMBLE RUMMY APK – ₹45 Rumble Bonus!",
-          content: "RUMBLE RUMMY offers a ₹45 welcome bonus for rumble rummy action. Play fast-paced rummy games and win real cash. Withdraw starting from ₹100 via UPI. The app is energetic and fun. Join RUMBLE RUMMY APK and rumble to win."
-        },
-        "YONO VIP": {
-          title: "YONO VIP Game – ₹58 VIP Bonus!",
-          content: "YONO VIP provides a ₹58 signup bonus for VIP players. Enjoy exclusive games and premium rewards. The minimum withdrawal is ₹100 with fast UPI. The app is for elite players only. Download YONO VIP APK and experience VIP gaming."
+          title: "YONO RUMMY Game – ₹25 Bonus!",
+          content: "YONO RUMMY offers a ₹25 welcome bonus.\nPlay smooth rummy games with real cash.\nMinimum withdrawal: ₹100 via UPI.\nStable and user-friendly platform.\nDownload YONO RUMMY APK now."
         }
       };
       return tagMap[gameName] || {
         title: gameName + " APK – ₹45 Welcome Bonus!",
-        content: gameName + " offers new players a ₹45 signup bonus. Play exciting games and win real cash. Withdraw starting from ₹100 via UPI. Download the APK now and start your winning journey."
+        content: gameName + " offers new users a ₹45 signup bonus.\nPlay exciting games and win real cash.\nMinimum withdrawal: ₹100 via UPI.\nDownload the APK now and start winning."
       };
     }
 
-    // ===== 74 UNIQUE RELATED TAGS =====
-    function generateUniqueRelatedTags(gameName) {
+    // ===== CLEAN UNIQUE RELATED TAGS (only 15 tags - ~20% of 74) =====
+    function generateCleanRelatedTags(gameName) {
       const relatedMap = {
         "YONO NEW APP": {
-          title: "YONO NEW APP – ₹45 Bonus, 75+ Games, ₹100 Withdrawal",
-          content: "YONO NEW APP is the ultimate gaming destination with a ₹45 signup bonus. Access over 75 games including rummy, slots, and teen patti. Withdraw your winnings from just ₹100 via UPI. Enjoy a seamless, secure, and rewarding gaming experience. Download now and start playing."
+          title: "YONO NEW APP – ₹45 Bonus, 75+ Games",
+          content: "YONO NEW APP is the ultimate gaming destination. Get a ₹45 signup bonus. Access over 75 games including rummy, slots, and teen patti. Withdraw your winnings from just ₹100 via UPI. Enjoy a seamless, secure, and rewarding gaming experience. Download now and start playing."
         },
         "567 SLOTS": {
-          title: "567 SLOTS – ₹45 Bonus, Premium Slots, ₹100 Withdrawal",
+          title: "567 SLOTS – ₹45 Bonus, Premium Slots",
           content: "567 SLOTS brings you premium slot gaming with a ₹45 welcome bonus. Spin high-quality slots and win real cash. Withdraw starting from ₹100 using UPI. The app offers stunning graphics and fair play. Join now for exciting slot action."
         },
         "SAGA SLOTS": {
-          title: "SAGA SLOTS – ₹40 Bonus, Lucky Spins, ₹100 Withdrawal",
+          title: "SAGA SLOTS – ₹40 Bonus, Lucky Spins",
           content: "SAGA SLOTS offers a ₹40 signup bonus for lucky slot players. Enjoy thrilling spins and win real cash rewards. Minimum withdrawal is ₹100 via UPI. The app is user-friendly and packed with slot games. Download and start winning."
         },
         "JAIHO 91": {
-          title: "JAIHO 91 – ₹50 Bonus, Rummy & Slots, ₹100 Withdrawal",
+          title: "JAIHO 91 – ₹50 Bonus, Rummy & Slots",
           content: "JAIHO 91 gives new users a ₹50 welcome bonus. Play rummy, slots, and many more games. Withdraw from ₹100 via UPI. The app offers a smooth and secure gaming environment. Join JAIHO 91 and win big."
         },
         "RUMMY LUDO": {
-          title: "RUMMY LUDO – ₹35 Bonus, Classic Games, ₹100 Withdrawal",
+          title: "RUMMY LUDO – ₹35 Bonus, Classic Games",
           content: "RUMMY LUDO combines classic games with a ₹35 signup bonus. Enjoy rummy and ludo with real cash prizes. Withdraw starting from ₹100 via UPI. The app is perfect for casual and competitive players. Download now."
         },
         "ABC RUMMY": {
-          title: "ABC RUMMY – ₹42 Bonus, Premium Rummy, ₹100 Withdrawal",
+          title: "ABC RUMMY – ₹42 Bonus, Premium Rummy",
           content: "ABC RUMMY offers a ₹42 welcome bonus for premium rummy. Play high-quality rummy games and win cash. Withdraw from ₹100 using UPI. The app is designed for a superior gaming experience. Join ABC RUMMY today."
         },
         "RUMMY 91": {
-          title: "RUMMY 91 – ₹38 Bonus, Fast Rummy, ₹100 Withdrawal",
+          title: "RUMMY 91 – ₹38 Bonus, Fast Rummy",
           content: "RUMMY 91 provides a ₹38 signup bonus for fast rummy action. Compete with real players and win cash. Minimum withdrawal is ₹100 via UPI. The app is optimized for quick and fair play. Download RUMMY 91 now."
         },
         "LOVE RUMMY": {
-          title: "LOVE RUMMY – ₹36 Bonus, Romantic Rummy, ₹100 Withdrawal",
+          title: "LOVE RUMMY – ₹36 Bonus, Romantic Rummy",
           content: "LOVE RUMMY gives a ₹36 welcome bonus for rummy lovers. Play romantic-themed rummy games and win real cash. Withdraw from ₹100 via UPI. The app offers a unique and enjoyable experience. Get LOVE RUMMY today."
         },
         "SPIN CRUSH": {
-          title: "SPIN CRUSH – ₹30 Bonus, Crush Slots, ₹100 Withdrawal",
+          title: "SPIN CRUSH – ₹30 Bonus, Crush Slots",
           content: "SPIN CRUSH offers a ₹30 signup bonus for slot game lovers. Crush the reels and win real cash. Withdraw starting from ₹100 via UPI. The app is vibrant and exciting. Download SPIN CRUSH now."
         },
         "TOP RUMMY": {
-          title: "TOP RUMMY – ₹48 Bonus, Top Rummy, ₹100 Withdrawal",
+          title: "TOP RUMMY – ₹48 Bonus, Top Rummy",
           content: "TOP RUMMY provides a ₹48 welcome bonus for top-tier rummy. Play high-stakes games and win big. Minimum withdrawal is ₹100 via UPI. The app is for serious rummy enthusiasts. Join TOP RUMMY today."
         },
         "Hello Rummy": {
-          title: "Hello Rummy – ₹40 Bonus, Friendly Rummy, ₹100 Withdrawal",
+          title: "Hello Rummy – ₹40 Bonus, Friendly Rummy",
           content: "Hello Rummy offers a ₹40 signup bonus for friendly rummy. Play with a community and win cash. Withdraw from ₹100 using UPI. The app is welcoming and rewarding. Download Hello Rummy now."
         },
         "RUMMY 365": {
-          title: "RUMMY 365 – ₹44 Bonus, Year-Round Rummy, ₹100 Withdrawal",
+          title: "RUMMY 365 – ₹44 Bonus, Year-Round Rummy",
           content: "RUMMY 365 gives a ₹44 welcome bonus for year-round rummy. Play daily and win real cash. Withdraw starting from ₹100 via UPI. The app offers daily challenges and rewards. Get RUMMY 365 today."
         },
         "TEEN PATTI GOLD": {
-          title: "TEEN PATTI GOLD – ₹37 Bonus, Gold Teen Patti, ₹100 Withdrawal",
+          title: "TEEN PATTI GOLD – ₹37 Bonus, Gold Teen Patti",
           content: "TEEN PATTI GOLD provides a ₹37 signup bonus for golden teen patti. Play the classic card game and win cash. Withdraw from ₹100 via UPI. The app is premium and secure. Join TEEN PATTI GOLD now."
         },
         "TEEN PATTI MASTER": {
-          title: "TEEN PATTI MASTER – ₹20 Bonus, Master Teen Patti, ₹100 Withdrawal",
+          title: "TEEN PATTI MASTER – ₹20 Bonus, Master Teen Patti",
           content: "TEEN PATTI MASTER offers a ₹20 welcome bonus for mastering teen patti. Learn and play with real cash prizes. Minimum withdrawal is ₹100 via UPI. The app is ideal for beginners and pros. Download TEEN PATTI MASTER."
         },
         "YONO RUMMY": {
-          title: "YONO RUMMY – ₹25 Bonus, Smooth Rummy, ₹100 Withdrawal",
+          title: "YONO RUMMY – ₹25 Bonus, Smooth Rummy",
           content: "YONO RUMMY gives a ₹25 signup bonus for smooth rummy play. Enjoy various rummy formats and win cash. Withdraw from ₹100 using UPI. The app is stable and user-friendly. Get YONO RUMMY today."
-        },
-        "SLOTS WINNER": {
-          title: "SLOTS WINNER – ₹40 Bonus, Win Slots, ₹100 Withdrawal",
-          content: "SLOTS WINNER provides a ₹40 welcome bonus for winning slots. Spin and win real cash rewards. Withdraw starting from ₹100 via UPI. The app is designed for big wins. Download SLOTS WINNER now."
-        },
-        "GOOD SLOTS": {
-          title: "GOOD SLOTS – ₹15 Bonus, Good Luck, ₹100 Withdrawal",
-          content: "GOOD SLOTS offers a ₹15 signup bonus for good luck slots. Enjoy a collection of slot games and win cash. Minimum withdrawal is ₹100 via UPI. The app is simple and rewarding. Get GOOD SLOTS today."
-        },
-        "Diwa Slot": {
-          title: "Diwa Slot – ₹50 Bonus, Shining Slots, ₹100 Withdrawal",
-          content: "Diwa Slot gives a ₹50 welcome bonus for shining slot games. Play premium slots and win real cash. Withdraw from ₹100 using UPI. The app features stunning visuals. Download Diwa Slot now."
-        },
-        "GOGO RUMMY": {
-          title: "GOGO RUMMY – ₹28 Bonus, Go-Go Rummy, ₹100 Withdrawal",
-          content: "GOGO RUMMY provides a ₹28 signup bonus for go-go rummy action. Play exciting games and win cash. Withdraw starting from ₹100 via UPI. The app is fun and fast. Join GOGO RUMMY today."
-        },
-        "JOY RUMMY": {
-          title: "JOY RUMMY – ₹35 Bonus, Joyful Rummy, ₹100 Withdrawal",
-          content: "JOY RUMMY offers a ₹35 welcome bonus for joyful rummy. Play with happiness and win real cash. Minimum withdrawal is ₹100 via UPI. The app is cheerful and secure. Get JOY RUMMY now."
-        },
-        "SPIN GOLD": {
-          title: "SPIN GOLD – ₹22 Bonus, Golden Spins, ₹100 Withdrawal",
-          content: "SPIN GOLD gives a ₹22 signup bonus for golden spins. Spin and win real cash rewards. Withdraw from ₹100 using UPI. The app is thrilling and rewarding. Download SPIN GOLD today."
-        },
-        "BINGO 101": {
-          title: "BINGO 101 – ₹45 Bonus, Bingo Fun, ₹100 Withdrawal",
-          content: "BINGO 101 provides a ₹45 welcome bonus for bingo fun. Play classic bingo and win cash. Withdraw starting from ₹100 via UPI. The app is perfect for bingo lovers. Join BINGO 101 now."
-        },
-        "YES SPIN": {
-          title: "YES SPIN – ₹18 Bonus, Quick Wins, ₹100 Withdrawal",
-          content: "YES SPIN offers a ₹18 signup bonus for quick wins. Spin and win real cash instantly. Minimum withdrawal is ₹100 via UPI. The app is fast and fun. Get YES SPIN today."
-        },
-        "YONO ARCADE": {
-          title: "YONO ARCADE – ₹32 Bonus, Arcade Fun, ₹100 Withdrawal",
-          content: "YONO ARCADE gives a ₹32 welcome bonus for arcade fun. Play arcade-style games and win cash. Withdraw from ₹100 using UPI. The app is packed with entertainment. Download YONO ARCADE now."
-        },
-        "SVIP 777": {
-          title: "SVIP 777 – ₹27 Bonus, VIP Games, ₹100 Withdrawal",
-          content: "SVIP 777 provides a ₹27 signup bonus for VIP games. Enjoy premium slots and rummy. Withdraw starting from ₹100 via UPI. The app offers a luxurious experience. Join SVIP 777 today."
-        },
-        "OK RUMMY": {
-          title: "OK RUMMY – ₹38 Bonus, OK Rummy, ₹100 Withdrawal",
-          content: "OK RUMMY offers a ₹38 welcome bonus for OK rummy. Play and win cash with a reliable app. Minimum withdrawal is ₹100 via UPI. The app is secure and user-friendly. Get OK RUMMY now."
-        },
-        "HINDI 777": {
-          title: "HINDI 777 – ₹42 Bonus, Hindi Games, ₹100 Withdrawal",
-          content: "HINDI 777 gives a ₹42 signup bonus for Hindi games. Play in your preferred language and win cash. Withdraw from ₹100 using UPI. The app offers a familiar experience. Download HINDI 777 today."
-        },
-        "BET 213": {
-          title: "BET 213 – ₹36 Bonus, Smart Betting, ₹100 Withdrawal",
-          content: "BET 213 provides a ₹36 welcome bonus for smart betting. Place bets and win real cash. Withdraw starting from ₹100 via UPI. The app is fair and rewarding. Join BET 213 now."
-        },
-        "BOSS RUMMY": {
-          title: "BOSS RUMMY – ₹40 Bonus, Boss Rummy, ₹100 Withdrawal",
-          content: "BOSS RUMMY offers a ₹40 signup bonus for boss rummy. Compete and win like a boss. Minimum withdrawal is ₹100 via UPI. The app is for serious players. Get BOSS RUMMY today."
-        },
-        "YONO 777": {
-          title: "YONO 777 – ₹35 Bonus, Lucky 777, ₹100 Withdrawal",
-          content: "YONO 777 gives a ₹35 welcome bonus for lucky 777 games. Play slots and rummy with real cash. Withdraw from ₹100 using UPI. The app is packed with winning opportunities. Download YONO 777 now."
-        },
-        "Diwa VIP": {
-          title: "Diwa VIP – ₹60 Bonus, Premium VIP, ₹100 Withdrawal",
-          content: "Diwa VIP provides a ₹60 signup bonus for premium VIP gaming. Enjoy exclusive games and rewards. Withdraw starting from ₹100 via UPI. The app is for elite players. Join Diwa VIP today."
-        },
-        "Diwa 777": {
-          title: "Diwa 777 – ₹45 Bonus, Lucky Diwa, ₹100 Withdrawal",
-          content: "Diwa 777 offers a ₹45 welcome bonus for lucky Diwa games. Spin and win real cash. Minimum withdrawal is ₹100 via UPI. The app is vibrant and rewarding. Get Diwa 777 now."
-        },
-        "YONO GAMES": {
-          title: "YONO GAMES – ₹45 Bonus, All Games, ₹100 Withdrawal",
-          content: "YONO GAMES gives a ₹45 signup bonus for all games. Play rummy, slots, bingo, and more. Withdraw from ₹100 using UPI. The app is a complete gaming hub. Download YONO GAMES today."
-        },
-        "INR RUMMY": {
-          title: "INR RUMMY – ₹45 Bonus, INR Games, ₹100 Withdrawal",
-          content: "INR RUMMY provides a ₹45 welcome bonus for INR games. Play and win in Indian Rupees. Withdraw starting from ₹100 via UPI. The app is optimized for India. Join INR RUMMY now."
-        },
-        "MBM BET": {
-          title: "MBM BET – ₹45 Bonus, Betting Fun, ₹100 Withdrawal",
-          content: "MBM BET offers a ₹45 signup bonus for betting fun. Place bets and win real cash. Minimum withdrawal is ₹100 via UPI. The app is secure and easy to use. Get MBM BET today."
-        },
-        "GOA SPIN": {
-          title: "GOA SPIN – ₹45 Bonus, Casino Spin, ₹100 Withdrawal",
-          content: "GOA SPIN gives a ₹45 welcome bonus for casino-style spins. Enjoy slot games and win cash. Withdraw from ₹100 using UPI. The app features a vibrant casino interface. Download GOA SPIN now."
-        },
-        "777 GAME": {
-          title: "777 GAME – ₹50 Bonus, Lucky 777, ₹100 Withdrawal",
-          content: "777 GAME provides a ₹50 signup bonus for lucky 777 games. Play slots and card games. Withdraw starting from ₹100 via UPI. The app is exciting and fair. Join 777 GAME today."
-        },
-        "TEEN PATTI": {
-          title: "TEEN PATTI – ₹35 Bonus, Classic Teen Patti, ₹100 Withdrawal",
-          content: "TEEN PATTI offers a ₹35 welcome bonus for classic teen patti. Play the card game and win cash. Minimum withdrawal is ₹100 via UPI. The app is secure and thrilling. Get TEEN PATTI now."
-        },
-        "All YONO GAMES": {
-          title: "All YONO GAMES – ₹42 Bonus, Mega Collection, ₹100 Withdrawal",
-          content: "All YONO GAMES gives a ₹42 signup bonus for a mega game collection. Play all games in one app. Withdraw from ₹100 using UPI. The app is a one-stop destination. Download All YONO GAMES today."
-        },
-        "NEW YONO GAMES": {
-          title: "NEW YONO GAMES – ₹38 Bonus, Fresh Games, ₹100 Withdrawal",
-          content: "NEW YONO GAMES provides a ₹38 welcome bonus for fresh games. Explore new content and win cash. Withdraw starting from ₹100 via UPI. The app is updated regularly. Join NEW YONO GAMES now."
-        },
-        "YONO APPS": {
-          title: "YONO APPS – ₹36 Bonus, App Variety, ₹100 Withdrawal",
-          content: "YONO APPS offers a ₹36 signup bonus for app variety. Play multiple games in one platform. Minimum withdrawal is ₹100 via UPI. The app is versatile and fun. Get YONO APPS today."
-        },
-        "SPIN WINNER": {
-          title: "SPIN WINNER – ₹30 Bonus, Big Wins, ₹100 Withdrawal",
-          content: "SPIN WINNER gives a ₹30 welcome bonus for big wins. Spin and become a winner. Withdraw from ₹100 using UPI. The app is designed for exciting spins. Download SPIN WINNER now."
-        },
-        "YONO All GAMES": {
-          title: "YONO All GAMES – ₹48 Bonus, Unlimited Games, ₹100 Withdrawal",
-          content: "YONO All GAMES provides a ₹48 signup bonus for unlimited games. Play endlessly and win cash. Withdraw starting from ₹100 via UPI. The app is a complete package. Join YONO All GAMES today."
-        },
-        "SPIN LUCKY": {
-          title: "SPIN LUCKY – ₹44 Bonus, Lucky Spins, ₹100 Withdrawal",
-          content: "SPIN LUCKY offers a ₹44 welcome bonus for lucky spins. Spin and test your luck. Minimum withdrawal is ₹100 via UPI. The app is for believers in luck. Get SPIN LUCKY now."
-        },
-        "MAX RUMMY": {
-          title: "MAX RUMMY – ₹55 Bonus, Maximum Rummy, ₹100 Withdrawal",
-          content: "MAX RUMMY gives a ₹55 signup bonus for maximum rummy. Play premium games and win big. Withdraw from ₹100 using UPI. The app is for serious rummy players. Download MAX RUMMY today."
-        },
-        "RANI SLOTS": {
-          title: "RANI SLOTS – ₹48 Bonus, Queen of Slots, ₹100 Withdrawal",
-          content: "RANI SLOTS provides a ₹48 welcome bonus for queen of slots. Spin and rule the reels. Withdraw starting from ₹100 via UPI. The app features royal graphics. Join RANI SLOTS now."
-        },
-        "1GO PLUS": {
-          title: "1GO PLUS – ₹52 Bonus, Go Play, ₹100 Withdrawal",
-          content: "1GO PLUS offers a ₹52 signup bonus for go play action. Play quick games and win cash. Minimum withdrawal is ₹100 via UPI. The app is fast and mobile-friendly. Get 1GO PLUS today."
-        },
-        "RUMMY ULTRA": {
-          title: "RUMMY ULTRA – ₹60 Bonus, Ultra Rummy, ₹100 Withdrawal",
-          content: "RUMMY ULTRA gives a ₹60 welcome bonus for ultra rummy. Experience premium rummy and win. Withdraw from ₹100 using UPI. The app is performance-optimized. Download RUMMY ULTRA now."
-        },
-        "789 JACKPOTS": {
-          title: "789 JACKPOTS – ₹45 Bonus, Jackpot Hunt, ₹100 Withdrawal",
-          content: "789 JACKPOTS provides a ₹45 signup bonus for jackpot hunting. Chase big wins and real cash. Withdraw starting from ₹100 via UPI. The app is thrilling. Join 789 JACKPOTS today."
-        },
-        "JAIHO WIN": {
-          title: "JAIHO WIN – ₹50 Bonus, Winning Streak, ₹100 Withdrawal",
-          content: "JAIHO WIN offers a ₹50 welcome bonus for winning streak. Play and win real cash daily. Minimum withdrawal is ₹100 via UPI. The app is for winners. Get JAIHO WIN now."
-        },
-        "SLOTS SPIN": {
-          title: "SLOTS SPIN – ₹42 Bonus, Spin Action, ₹100 Withdrawal",
-          content: "SLOTS SPIN gives a ₹42 signup bonus for spin action. Enjoy slot spinning and win cash. Withdraw from ₹100 using UPI. The app is vibrant and full of action. Download SLOTS SPIN today."
-        },
-        "NETA VIP": {
-          title: "NETA VIP – ₹58 Bonus, VIP Experience, ₹100 Withdrawal",
-          content: "NETA VIP provides a ₹58 welcome bonus for VIP experience. Play exclusive games and win. Withdraw starting from ₹100 via UPI. The app is for elite players. Join NETA VIP now."
-        },
-        "JAIHO 777 VIP": {
-          title: "JAIHO 777 VIP – ₹55 Bonus, Premium VIP, ₹100 Withdrawal",
-          content: "JAIHO 777 VIP offers a ₹55 signup bonus for premium VIP gaming. Enjoy high-stakes games and win big. Minimum withdrawal is ₹100 via UPI. The app is luxurious. Get JAIHO 777 VIP today."
-        },
-        "DHAN GAME": {
-          title: "DHAN GAME – ₹47 Bonus, Wealth Game, ₹100 Withdrawal",
-          content: "DHAN GAME gives a ₹47 welcome bonus for wealth game. Build your wealth through gaming. Withdraw from ₹100 using UPI. The app is designed for growth. Download DHAN GAME now."
-        },
-        "DIWA GAME": {
-          title: "DIWA GAME – ₹53 Bonus, DIWA Fun, ₹100 Withdrawal",
-          content: "DIWA GAME provides a ₹53 signup bonus for DIWA fun. Play a variety of games and win. Withdraw starting from ₹100 via UPI. The app is secure and rewarding. Join DIWA GAME today."
-        },
-        "BET 54 GAMES": {
-          title: "BET 54 GAMES – ₹46 Bonus, Betting Variety, ₹100 Withdrawal",
-          content: "BET 54 GAMES offers a ₹46 welcome bonus for betting variety. Place bets on multiple games. Minimum withdrawal is ₹100 via UPI. The app is comprehensive. Get BET 54 GAMES now."
-        },
-        "ALL YONO APPS": {
-          title: "ALL YONO APPS – ₹50 Bonus, Complete Collection, ₹100 Withdrawal",
-          content: "ALL YONO APPS gives a ₹50 signup bonus for complete collection. Access all Yono apps in one place. Withdraw from ₹100 using UPI. The app is a mega collection. Download ALL YONO APPS today."
-        },
-        "T989 APPS": {
-          title: "T989 APPS – ₹44 Bonus, Premium Apps, ₹100 Withdrawal",
-          content: "T989 APPS provides a ₹44 welcome bonus for premium apps. Enjoy high-quality games and win. Withdraw starting from ₹100 via UPI. The app is sophisticated. Join T989 APPS now."
-        },
-        "765 CLUB": {
-          title: "765 CLUB – ₹56 Bonus, Club Games, ₹100 Withdrawal",
-          content: "765 CLUB offers a ₹56 signup bonus for club games. Play exclusive games and win. Minimum withdrawal is ₹100 via UPI. The app is exclusive. Get 765 CLUB today."
-        },
-        "MKM BET APK": {
-          title: "MKM BET APK – ₹49 Bonus, Betting Hub, ₹100 Withdrawal",
-          content: "MKM BET APK gives a ₹49 welcome bonus for betting hub. Place bets and win real cash. Withdraw from ₹100 using UPI. The app is reliable. Download MKM BET APK now."
-        },
-        "YN 777": {
-          title: "YN 777 – ₹54 Bonus, Lucky YN, ₹100 Withdrawal",
-          content: "YN 777 provides a ₹54 signup bonus for lucky YN games. Play and win with luck. Withdraw starting from ₹100 via UPI. The app is packed with opportunities. Join YN 777 today."
-        },
-        "SPIN 777": {
-          title: "SPIN 777 – ₹47 Bonus, Spin to Win, ₹100 Withdrawal",
-          content: "SPIN 777 offers a ₹47 welcome bonus for spin to win games. Spin the wheel and win cash. Minimum withdrawal is ₹100 via UPI. The app is thrilling. Get SPIN 777 now."
-        },
-        "RUMMY 888": {
-          title: "RUMMY 888 – ₹59 Bonus, Premium Rummy, ₹100 Withdrawal",
-          content: "RUMMY 888 gives a ₹59 signup bonus for premium rummy. Play high-stakes games and win big. Withdraw from ₹100 using UPI. The app is for serious rummy players. Download RUMMY 888 today."
-        },
-        "RUMMY 77": {
-          title: "RUMMY 77 – ₹43 Bonus, Fun Rummy, ₹100 Withdrawal",
-          content: "RUMMY 77 provides a ₹43 welcome bonus for fun rummy. Play and enjoy winning. Withdraw starting from ₹100 via UPI. The app is user-friendly. Join RUMMY 77 now."
-        },
-        "MQM BET": {
-          title: "MQM BET – ₹51 Bonus, MQM Betting, ₹100 Withdrawal",
-          content: "MQM BET offers a ₹51 signup bonus for MQM betting. Place bets and win cash. Minimum withdrawal is ₹100 via UPI. The app is secure. Get MQM BET today."
-        },
-        "MAHA GAMES": {
-          title: "MAHA GAMES – ₹57 Bonus, Maha Gaming, ₹100 Withdrawal",
-          content: "MAHA GAMES gives a ₹57 welcome bonus for Maha gaming. Play grand games and win. Withdraw from ₹100 using UPI. The app is grand and rewarding. Download MAHA GAMES now."
-        },
-        "IND RUMMY": {
-          title: "IND RUMMY – ₹46 Bonus, India Rummy, ₹100 Withdrawal",
-          content: "IND RUMMY provides a ₹46 signup bonus for India rummy. Play traditional games and win. Withdraw starting from ₹100 via UPI. The app is for Indian players. Join IND RUMMY today."
-        },
-        "Hi RUMMY": {
-          title: "Hi RUMMY – ₹49 Bonus, Hi Wins, ₹100 Withdrawal",
-          content: "Hi RUMMY offers a ₹49 welcome bonus for hi wins. Play and say hi to winning. Minimum withdrawal is ₹100 via UPI. The app is friendly. Get Hi RUMMY now."
-        },
-        "JAIHO SPIN": {
-          title: "JAIHO SPIN – ₹44 Bonus, Jaiho Spins, ₹100 Withdrawal",
-          content: "JAIHO SPIN gives a ₹44 signup bonus for Jaiho spins. Spin and win with Jaiho. Withdraw from ₹100 using UPI. The app is full of action. Download JAIHO SPIN today."
-        },
-        "JAIHO RUMMY": {
-          title: "JAIHO RUMMY – ₹53 Bonus, Jaiho Rummy, ₹100 Withdrawal",
-          content: "JAIHO RUMMY provides a ₹53 welcome bonus for Jaiho rummy. Play and win the Jaiho way. Withdraw starting from ₹100 via UPI. The app is reliable. Join JAIHO RUMMY now."
-        },
-        "YONO SLOTS": {
-          title: "YONO SLOTS – ₹48 Bonus, Slot Fun, ₹100 Withdrawal",
-          content: "YONO SLOTS offers a ₹48 signup bonus for slot fun. Spin and win real cash. Minimum withdrawal is ₹100 via UPI. The app is designed for slot lovers. Get YONO SLOTS today."
-        },
-        "Diwa Win": {
-          title: "Diwa Win – ₹56 Bonus, Win with Diwa, ₹100 Withdrawal",
-          content: "Diwa Win gives a ₹56 welcome bonus for winning with Diwa. Play and win real cash. Withdraw from ₹100 using UPI. The app is for winners. Download Diwa Win now."
-        },
-        "RUMBLE RUMMY": {
-          title: "RUMBLE RUMMY – ₹45 Bonus, Rumble Action, ₹100 Withdrawal",
-          content: "RUMBLE RUMMY provides a ₹45 signup bonus for rumble action. Play fast-paced rummy and win. Withdraw starting from ₹100 via UPI. The app is energetic. Join RUMBLE RUMMY today."
-        },
-        "YONO VIP": {
-          title: "YONO VIP – ₹58 Bonus, VIP Gaming, ₹100 Withdrawal",
-          content: "YONO VIP offers a ₹58 welcome bonus for VIP gaming. Enjoy exclusive games and rewards. Minimum withdrawal is ₹100 via UPI. The app is for elite players. Get YONO VIP now."
         }
       };
       return relatedMap[gameName] || {
-        title: gameName + " – ₹45 Bonus, Exciting Games, ₹100 Withdrawal",
+        title: gameName + " – ₹45 Bonus, Exciting Games",
         content: gameName + " offers a ₹45 signup bonus for exciting games. Play and win real cash. Withdraw from ₹100 via UPI. Download now and start playing."
       };
     }
@@ -3729,27 +2937,29 @@
       var linkUrl = refLinkText.querySelector('.link-url');
       linkUrl.textContent = 'https://www.earntp.com/m/jm9n7r';
 
-      // ===== GENERATE 74 UNIQUE TOP OFFER TAGS =====
+      // ===== GENERATE CLEAN TOP OFFER TAGS (only ~20% - 15 unique tags) =====
       var tagContainer = document.getElementById('tagGridContainer');
       tagContainer.innerHTML = '';
-      uniqueGames.forEach(function(g) {
-        var tagData = generateUniqueTags(g.name);
+      // Select 15 unique games for Top Offers (first 15 from uniqueGames)
+      var selectedForTopOffers = uniqueGames.slice(0, 15);
+      selectedForTopOffers.forEach(function(g) {
+        var tagData = generateCleanTopOfferTags(g.name);
         var box = document.createElement('div');
         box.className = 'tag-box';
-        // Use different icons for variety
         var icons = [
           '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
           '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>',
-          '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
-          '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
+          '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>'
         ];
         var iconIdx = (g.name.length * 7) % icons.length;
+        // Format content with line breaks
+        var formattedContent = tagData.content.replace(/\n/g, '<br>');
         box.innerHTML = `
           <div class="tag-head">
             <span class="svg-icon">${icons[iconIdx]}</span>
             <span>${tagData.title}</span>
           </div>
-          <div class="tag-content">${tagData.content}</div>
+          <div class="tag-content">${formattedContent}</div>
         `;
         tagContainer.appendChild(box);
       });
@@ -3757,23 +2967,66 @@
       var tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
 
-      var allTagsContainer = document.getElementById('allGamesTagsContainer');
-      allTagsContainer.innerHTML = '';
-      uniqueGames.forEach(function(g) {
-        var tag = document.createElement('span');
-        tag.className = 'all-game-tag';
-        tag.textContent = g.name;
-        tag.dataset.name = g.name;
-        tag.addEventListener('click', function(e) {
+      // ===== GENERATE CLEAN RELATED TAGS (only ~20% - 15 unique tags) =====
+      var relatedGrid = document.getElementById('relatedGrid');
+      relatedGrid.innerHTML = '';
+      // Select 15 unique games for Related section (excluding current game)
+      var selectedForRelated = uniqueGames.filter(g => g.name !== game.name).slice(0, 15);
+      selectedForRelated.forEach(function(g) {
+        var item = document.createElement('div');
+        item.className = 'related-item';
+        var seed3 = g.name.length * 7 + g.name.charCodeAt(0);
+        var r = (3 + (seed3 % 5) / 10).toFixed(1);
+        if (parseFloat(r) > 4.9) r = '4.8';
+        var s = (30 + (seed3 % 40)) + ' MB';
+        var v = Math.floor(100 + (seed3 * 137) % 49900);
+        var mb = '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed3 % 20) + 5);
+        var ver = generateVersion(seed3);
+        item.dataset.name = g.name;
+        item.dataset.altName = g.altName || g.name;
+        item.dataset.bonus = g.bonus;
+        item.dataset.withdrawal = g.withdrawal;
+        item.dataset.downloadUrl = g.downloadUrl;
+        item.dataset.img = g.img;
+        item.dataset.rating = r;
+        item.dataset.size = s;
+        item.dataset.votes = v;
+        item.dataset.metaBonus = mb;
+        item.dataset.version = ver;
+
+        var relatedTag = generateCleanRelatedTags(g.name);
+
+        const relatedGiftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/><rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/><rect x="4" y="11" width="16" height="10" rx="1" fill="#F44336"/><rect x="11" y="8" width="2" height="13" fill="#FFD700"/><rect x="3" y="9" width="18" height="1" fill="#FFD700"/></svg>`;
+        const relatedBankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/><path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/><rect x="4" y="11" width="2" height="8" fill="#2e7d32"/><rect x="9" y="11" width="2" height="8" fill="#2e7d32"/><rect x="14" y="11" width="2" height="8" fill="#2e7d32"/><rect x="18" y="11" width="2" height="8" fill="#2e7d32"/><rect x="2" y="19" width="20" height="2" fill="#1b5e20"/></svg>`;
+
+        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedGiftSvg}</span>`;
+        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedBankSvg}</span>`;
+
+        item.innerHTML = `
+          <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
+          <div class="rinfo">
+            <div class="rname">${g.name} <span class="alt">| ${g.altName}</span></div>
+            <div class="rbonus">${relatedBonusIcon} Sign Up Bonus ${g.bonus}</div>
+            <div class="rwithdraw">${relatedWithdrawIcon} Min. Withdraw ${g.withdrawal}</div>
+            <div class="rtag-content">${relatedTag.content.substring(0, 80)}...</div>
+          </div>
+          <span class="rdownload">
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </span>
+        `;
+        relatedGrid.appendChild(item);
+
+        item.addEventListener('click', function(e) {
           e.stopPropagation();
           var gData = gameDataMap[this.dataset.name];
           if (gData) {
             showDetail(gData);
           }
         });
-        allTagsContainer.appendChild(tag);
       });
 
+      // Update TOC and FAQ with current game name
       var gName = game.name;
       var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
       var b = {
@@ -3826,63 +3079,6 @@
       document.getElementById('faq4Withdraw').textContent = b.faq4w;
       document.getElementById('faq4Deposit').textContent = b.faq4d;
       document.getElementById('faq4Ref').textContent = b.refFaq4;
-
-      // ===== GENERATE 74 UNIQUE RELATED TAGS =====
-      var relatedGrid = document.getElementById('relatedGrid');
-      relatedGrid.innerHTML = '';
-      uniqueGames.filter(g => g.name !== game.name).forEach(function(g) {
-        var item = document.createElement('div');
-        item.className = 'related-item';
-        var seed3 = g.name.length * 7 + g.name.charCodeAt(0);
-        var r = (3 + (seed3 % 5) / 10).toFixed(1);
-        if (parseFloat(r) > 4.9) r = '4.8';
-        var s = (30 + (seed3 % 40)) + ' MB';
-        var v = Math.floor(100 + (seed3 * 137) % 49900);
-        var mb = '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed3 % 20) + 5);
-        var ver = generateVersion(seed3);
-        item.dataset.name = g.name;
-        item.dataset.altName = g.altName || g.name;
-        item.dataset.bonus = g.bonus;
-        item.dataset.withdrawal = g.withdrawal;
-        item.dataset.downloadUrl = g.downloadUrl;
-        item.dataset.img = g.img;
-        item.dataset.rating = r;
-        item.dataset.size = s;
-        item.dataset.votes = v;
-        item.dataset.metaBonus = mb;
-        item.dataset.version = ver;
-
-        var relatedTag = generateUniqueRelatedTags(g.name);
-
-        const relatedGiftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/><rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/><rect x="4" y="11" width="16" height="10" rx="1" fill="#F44336"/><rect x="11" y="8" width="2" height="13" fill="#FFD700"/><rect x="3" y="9" width="18" height="1" fill="#FFD700"/></svg>`;
-        const relatedBankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/><path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/><rect x="4" y="11" width="2" height="8" fill="#2e7d32"/><rect x="9" y="11" width="2" height="8" fill="#2e7d32"/><rect x="14" y="11" width="2" height="8" fill="#2e7d32"/><rect x="18" y="11" width="2" height="8" fill="#2e7d32"/><rect x="2" y="19" width="20" height="2" fill="#1b5e20"/></svg>`;
-
-        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedGiftSvg}</span>`;
-        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedBankSvg}</span>`;
-
-        item.innerHTML = `
-          <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
-          <div class="rinfo">
-            <div class="rname">${g.name} <span class="alt">| ${g.altName}</span></div>
-            <div class="rbonus">${relatedBonusIcon} Sign Up Bonus ${g.bonus}</div>
-            <div class="rwithdraw">${relatedWithdrawIcon} Min. Withdraw ${g.withdrawal}</div>
-            <div style="font-size:0.45rem;color:#64748b;margin-top:2px;line-height:1.3;">${relatedTag.content.substring(0, 60)}...</div>
-          </div>
-          <span class="rdownload">
-            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download
-          </span>
-        `;
-        relatedGrid.appendChild(item);
-
-        item.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var gData = gameDataMap[this.dataset.name];
-          if (gData) {
-            showDetail(gData);
-          }
-        });
-      });
 
       showDetailView();
       hideAllNavActive();
