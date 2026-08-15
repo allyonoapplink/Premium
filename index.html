@@ -1315,6 +1315,8 @@
       flex-wrap: wrap;
       gap: 6px;
     }
+
+    /* ===== 74 UNIQUE TAG STYLES ===== */
     .all-game-tag {
       padding: 6px 14px;
       border-radius: 30px;
@@ -1352,7 +1354,7 @@
       transform: scale(0.92);
     }
 
-    /* 74 unique tag styles */
+    /* 74 unique tag styles - each completely different */
     .tag-style-0 { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: #fff; border-color: #ee5a24; border-radius: 30px; padding: 6px 16px; }
     .tag-style-1 { background: linear-gradient(135deg, #4ecdc4, #0abde3); color: #fff; border-color: #0abde3; border-radius: 8px 30px 8px 30px; padding: 8px 18px; }
     .tag-style-2 { background: linear-gradient(135deg, #a29bfe, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 30px 8px 30px 8px; padding: 6px 20px; }
@@ -2146,6 +2148,82 @@
     @media (max-width: 380px) {
       .footer-scroll-section marquee { font-size: 0.45rem; }
     }
+
+    /* Responsive Gaming Notice */
+    .responsible-card {
+      width: 100%;
+      max-width: 680px;
+      margin: 6px auto;
+      padding: 10px 10px 12px;
+      background: #fff;
+      border: 1px solid #e53935;
+      border-radius: 13px;
+      box-shadow: 0 3px 14px rgba(229,57,53,0.10), 0 1px 4px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .notice-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin: 0 0 7px;
+      color: #111827;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+    }
+    .warning-icon {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 17px;
+      pointer-events: none;
+      user-select: none;
+      animation: ledPulse 1.8s infinite ease-in-out;
+    }
+    @keyframes ledPulse {
+      0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,193,7,.55)) drop-shadow(0 0 5px rgba(255,152,0,.30)); }
+      50% { transform: scale(1.06); filter: drop-shadow(0 0 5px rgba(255,235,59,.85)) drop-shadow(0 0 10px rgba(255,152,0,.55)); }
+      100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,193,7,.55)) drop-shadow(0 0 5px rgba(255,152,0,.30)); }
+    }
+    .notice-content {
+      font-size: 11.5px;
+      line-height: 1.48;
+      color: #1f2937;
+    }
+    .notice-content p { margin: 0 0 7px; }
+    .notice-content p:last-child { margin-bottom: 0; }
+    .site-name { font-weight: 800; color: #111827; }
+    .important { font-weight: 800; color: #111827; }
+    .info-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin: 7px 0;
+    }
+    .info-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 5px;
+      background: #fff;
+      border: 1px solid #e53935;
+      border-radius: 4px;
+      color: #b71c1c;
+      font-size: 8.5px;
+      font-weight: 700;
+      line-height: 1.2;
+      box-shadow: 0 1px 4px rgba(229,57,53,.07);
+    }
+    .disclaimer-link { color: #c62828; font-weight: 800; text-decoration: underline; text-underline-offset: 2px; }
+    @media (max-width: 480px) {
+      .responsible-card { margin: 5px auto; padding: 9px 9px 11px; border-width: 1px; border-radius: 12px; }
+      .notice-title { gap: 5px; margin-bottom: 6px; font-size: 12.5px; }
+      .warning-icon { width: 16px; height: 16px; flex-basis: 16px; }
+      .notice-content { font-size: 11px; line-height: 1.46; }
+      .notice-content p { margin-bottom: 6px; }
+      .info-tags { gap: 3px; margin: 6px 0; }
+      .info-tag { padding: 2.5px 5px; border-radius: 4px; font-size: 8px; }
+    }
   </style>
 </head>
 <body>
@@ -2473,6 +2551,7 @@
       </div>
     </div>
 
+    <!-- ===== GAME TAGS SECTION ===== -->
     <div class="game-tags-section">
       <div class="game-tags-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2483,6 +2562,7 @@
       <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
+    <!-- ===== ALL GAMES TAGS - 74 UNIQUE MODELS ===== -->
     <div class="all-games-tags-section">
       <div class="all-games-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px;">
@@ -2517,7 +2597,7 @@
   </div>
 
   <!-- RESPONSIBLE GAMING NOTICE -->
-  <section class="responsible-card">
+  <div class="responsible-card">
     <h2 class="notice-title">
       <svg class="warning-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
         <path d="M12 2L1 21H23L12 2Z" fill="url(#grad-amber)" stroke="#FFC107" stroke-width="1.5" stroke-linejoin="round"/>
@@ -2548,7 +2628,7 @@
       <p>Bonus, deposit, withdrawal, account restriction, KYC, transaction, customer support, and account-related decisions are controlled solely by the respective app or platform operators.</p>
       <p><span class="site-name">allyonogamesinfo.com</span> does not guarantee the availability, accuracy, security, performance, withdrawals, bonuses, or services of any third-party platform.</p>
     </div>
-  </section>
+  </div>
 
   <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
   <div class="footer-scroll-section">
@@ -2631,8 +2711,6 @@
   (function() {
     // ===== HOME PAGE HEADER STYLING =====
     const container = document.getElementById('mainContainer');
-    const topHeader = document.getElementById('topHeader');
-    const navRow = document.getElementById('navRow');
     
     function applyHomeHeaderStyle() {
       if (!container.classList.contains('home-page')) {
