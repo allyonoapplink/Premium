@@ -1118,6 +1118,7 @@
       gap: 6px;
     }
 
+    /* 74 unique tag styles for ALL GAMES TAGS */
     .all-game-tag {
       padding: 6px 14px;
       border-radius: 30px;
@@ -1234,14 +1235,96 @@
     .faq-box.unique-faq-2 { border-left: 4px solid #2ecc71; background: linear-gradient(135deg, #f0fff5, #ffffff); }
     .faq-box.unique-faq-3 { border-left: 4px solid #f39c12; background: linear-gradient(135deg, #fffbf0, #ffffff); }
 
+    /* ===== TOP OFFERS TAG GRID - UNIQUE STYLES PER APP ===== */
     .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .tag-grid { display: flex; flex-direction: column; gap: 6px; }
-    .tag-box { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; }
+    
+    /* Base tag-box style - individual variations applied via JS */
+    .tag-box { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; transition: all 0.3s ease; }
+    .tag-box:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
     .tag-box .tag-head { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; }
     .tag-box .tag-head .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
     .tag-box .tag-head .svg-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
     .tag-box .tag-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
+
+    /* Unique tag-box styles - applied via JavaScript based on app index */
+    .tag-box-style-0 { border-left: 4px solid #ff6b6b; background: linear-gradient(135deg, #fff5f5, #ffffff); }
+    .tag-box-style-1 { border-right: 4px solid #4ecdc4; background: linear-gradient(135deg, #f0fffe, #ffffff); }
+    .tag-box-style-2 { border-top: 4px solid #a29bfe; background: linear-gradient(135deg, #f5f0ff, #ffffff); }
+    .tag-box-style-3 { border-bottom: 4px solid #fd79a8; background: linear-gradient(135deg, #fff0f5, #ffffff); }
+    .tag-box-style-4 { border-left: 4px solid #fdcb6e; background: linear-gradient(135deg, #fffbf0, #ffffff); border-radius: 20px 4px 20px 4px; }
+    .tag-box-style-5 { border-right: 4px solid #55efc4; background: linear-gradient(135deg, #f0fff5, #ffffff); border-radius: 4px 20px 4px 20px; }
+    .tag-box-style-6 { border-top: 4px solid #74b9ff; background: linear-gradient(135deg, #f0f7ff, #ffffff); border-radius: 20px 20px 4px 4px; }
+    .tag-box-style-7 { border-bottom: 4px solid #ffeaa7; background: linear-gradient(135deg, #fffbf0, #ffffff); border-radius: 4px 4px 20px 20px; }
+    .tag-box-style-8 { border-left: 4px solid #dfe6e9; background: linear-gradient(to right, #f8f9fa, #ffffff); border-radius: 30px 4px 30px 4px; }
+    .tag-box-style-9 { border-right: 4px solid #e17055; background: linear-gradient(to left, #fff5f5, #ffffff); border-radius: 4px 30px 4px 30px; }
+    .tag-box-style-10 { border-top: 4px solid #00cec9; background: linear-gradient(135deg, #e0f7fa, #ffffff); border-radius: 12px 12px 30px 30px; }
+    .tag-box-style-11 { border-bottom: 4px solid #d63031; background: linear-gradient(135deg, #ffebee, #ffffff); border-radius: 30px 30px 12px 12px; }
+    .tag-box-style-12 { border-left: 4px solid #6c5ce7; background: linear-gradient(135deg, #ede7f6, #ffffff); border-radius: 0 20px 0 20px; }
+    .tag-box-style-13 { border-right: 4px solid #00b894; background: linear-gradient(135deg, #e0f2f1, #ffffff); border-radius: 20px 0 20px 0; }
+    .tag-box-style-14 { border-top: 4px solid #e17055; background: linear-gradient(135deg, #fff3e0, #ffffff); border-radius: 30px 0 30px 0; }
+    .tag-box-style-15 { border-bottom: 4px solid #a29bfe; background: linear-gradient(135deg, #f3e5f5, #ffffff); border-radius: 0 30px 0 30px; }
+    .tag-box-style-16 { border-left: 4px solid #fd79a8; background: linear-gradient(to right, #fce4ec, #ffffff); border-radius: 20px 20px 4px 4px; }
+    .tag-box-style-17 { border-right: 4px solid #55efc4; background: linear-gradient(to left, #e8f5e9, #ffffff); border-radius: 4px 4px 20px 20px; }
+    .tag-box-style-18 { border-top: 4px solid #fdcb6e; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 0 0 30px 30px; }
+    .tag-box-style-19 { border-bottom: 4px solid #74b9ff; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 30px 30px 0 0; }
+    .tag-box-style-20 { border-left: 4px solid #e84393; background: linear-gradient(135deg, #fce4ec, #ffffff); border-radius: 15px 15px 15px 15px; }
+    .tag-box-style-21 { border-right: 4px solid #0984e3; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 25px 5px 25px 5px; }
+    .tag-box-style-22 { border-top: 4px solid #00cec9; background: linear-gradient(135deg, #e0f7fa, #ffffff); border-radius: 5px 25px 5px 25px; }
+    .tag-box-style-23 { border-bottom: 4px solid #6c5ce7; background: linear-gradient(135deg, #ede7f6, #ffffff); border-radius: 0 15px 0 15px; }
+    .tag-box-style-24 { border-left: 4px solid #ff6b6b; background: linear-gradient(to right, #ffebee, #ffffff); border-radius: 15px 0 15px 0; }
+    .tag-box-style-25 { border-right: 4px solid #4ecdc4; background: linear-gradient(to left, #e0f2f1, #ffffff); border-radius: 30px 30px 30px 30px; }
+    .tag-box-style-26 { border-top: 4px solid #a29bfe; background: linear-gradient(135deg, #f3e5f5, #ffffff); border-radius: 0 0 0 30px; }
+    .tag-box-style-27 { border-bottom: 4px solid #fd79a8; background: linear-gradient(135deg, #fce4ec, #ffffff); border-radius: 30px 0 0 0; }
+    .tag-box-style-28 { border-left: 4px solid #fdcb6e; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 10px 10px 30px 30px; }
+    .tag-box-style-29 { border-right: 4px solid #55efc4; background: linear-gradient(135deg, #e8f5e9, #ffffff); border-radius: 30px 30px 10px 10px; }
+
+    /* Continue unique styles for remaining apps - up to 74 */
+    .tag-box-style-30 { border-left: 4px solid #e17055; background: linear-gradient(135deg, #fff3e0, #ffffff); border-radius: 30px 8px 30px 8px; }
+    .tag-box-style-31 { border-right: 4px solid #d63031; background: linear-gradient(135deg, #ffebee, #ffffff); border-radius: 8px 30px 8px 30px; }
+    .tag-box-style-32 { border-top: 4px solid #0984e3; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 20px 4px 20px 4px; }
+    .tag-box-style-33 { border-bottom: 4px solid #00b894; background: linear-gradient(135deg, #e0f2f1, #ffffff); border-radius: 4px 20px 4px 20px; }
+    .tag-box-style-34 { border-left: 4px solid #6c5ce7; background: linear-gradient(to right, #ede7f6, #ffffff); border-radius: 16px 16px 16px 16px; }
+    .tag-box-style-35 { border-right: 4px solid #fd79a8; background: linear-gradient(to left, #fce4ec, #ffffff); border-radius: 30px 6px 30px 6px; }
+    .tag-box-style-36 { border-top: 4px solid #55efc4; background: linear-gradient(135deg, #e8f5e9, #ffffff); border-radius: 6px 30px 6px 30px; }
+    .tag-box-style-37 { border-bottom: 4px solid #fdcb6e; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 20px 20px 4px 4px; }
+    .tag-box-style-38 { border-left: 4px solid #74b9ff; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 4px 4px 20px 20px; }
+    .tag-box-style-39 { border-right: 4px solid #e84393; background: linear-gradient(135deg, #fce4ec, #ffffff); border-radius: 30px 30px 30px 30px; }
+    .tag-box-style-40 { border-top: 4px solid #ff6b6b; background: linear-gradient(to right, #ffebee, #ffffff); border-radius: 0 30px 0 30px; }
+    .tag-box-style-41 { border-bottom: 4px solid #4ecdc4; background: linear-gradient(to left, #e0f2f1, #ffffff); border-radius: 30px 0 30px 0; }
+    .tag-box-style-42 { border-left: 4px solid #a29bfe; background: radial-gradient(circle, #f3e5f5, #ffffff); border-radius: 10px 30px 10px 30px; }
+    .tag-box-style-43 { border-right: 4px solid #fd79a8; background: radial-gradient(circle, #fce4ec, #ffffff); border-radius: 30px 10px 30px 10px; }
+    .tag-box-style-44 { border-top: 4px solid #fdcb6e; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 0 0 30px 30px; }
+    .tag-box-style-45 { border-bottom: 4px solid #55efc4; background: linear-gradient(135deg, #e8f5e9, #ffffff); border-radius: 30px 30px 0 0; }
+    .tag-box-style-46 { border-left: 4px solid #74b9ff; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 20px 0 20px 0; }
+    .tag-box-style-47 { border-right: 4px solid #ffeaa7; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 0 20px 0 20px; }
+    .tag-box-style-48 { border-top: 4px solid #dfe6e9; background: linear-gradient(135deg, #f8f9fa, #ffffff); border-radius: 30px 0 0 30px; }
+    .tag-box-style-49 { border-bottom: 4px solid #e17055; background: linear-gradient(135deg, #fff3e0, #ffffff); border-radius: 0 30px 30px 0; }
+    .tag-box-style-50 { border-left: 4px solid #d63031; background: linear-gradient(135deg, #ffebee, #ffffff); border-radius: 25px 5px 25px 5px; }
+    .tag-box-style-51 { border-right: 4px solid #00cec9; background: linear-gradient(135deg, #e0f7fa, #ffffff); border-radius: 5px 25px 5px 25px; }
+    .tag-box-style-52 { border-top: 4px solid #6c5ce7; background: linear-gradient(135deg, #ede7f6, #ffffff); border-radius: 15px 15px 15px 15px; }
+    .tag-box-style-53 { border-bottom: 4px solid #00b894; background: linear-gradient(135deg, #e0f2f1, #ffffff); border-radius: 0 15px 0 15px; }
+    .tag-box-style-54 { border-left: 4px solid #fd79a8; background: linear-gradient(135deg, #fce4ec, #ffffff); border-radius: 15px 0 15px 0; }
+    .tag-box-style-55 { border-right: 4px solid #55efc4; background: linear-gradient(135deg, #e8f5e9, #ffffff); border-radius: 30px 30px 30px 30px; }
+    .tag-box-style-56 { border-top: 4px solid #fdcb6e; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 0 0 0 30px; }
+    .tag-box-style-57 { border-bottom: 4px solid #74b9ff; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 30px 0 0 0; }
+    .tag-box-style-58 { border-left: 4px solid #e84393; background: linear-gradient(135deg, #fce4ec, #ffffff); border-radius: 10px 10px 30px 30px; }
+    .tag-box-style-59 { border-right: 4px solid #ff6b6b; background: linear-gradient(135deg, #ffebee, #ffffff); border-radius: 30px 30px 10px 10px; }
+    .tag-box-style-60 { border-top: 4px solid #4ecdc4; background: linear-gradient(to right, #e0f2f1, #ffffff); border-radius: 8px 8px 8px 8px; }
+    .tag-box-style-61 { border-bottom: 4px solid #a29bfe; background: linear-gradient(to left, #f3e5f5, #ffffff); border-radius: 20px 5px 20px 5px; }
+    .tag-box-style-62 { border-left: 4px solid #fd79a8; background: linear-gradient(to right, #fce4ec, #ffffff); border-radius: 5px 20px 5px 20px; }
+    .tag-box-style-63 { border-right: 4px solid #fdcb6e; background: linear-gradient(to left, #fff8e1, #ffffff); border-radius: 0 25px 0 25px; }
+    .tag-box-style-64 { border-top: 4px solid #55efc4; background: linear-gradient(to right, #e8f5e9, #ffffff); border-radius: 25px 0 25px 0; }
+    .tag-box-style-65 { border-bottom: 4px solid #74b9ff; background: linear-gradient(to left, #e3f2fd, #ffffff); border-radius: 12px 12px 12px 12px; }
+    .tag-box-style-66 { border-left: 4px solid #e17055; background: radial-gradient(ellipse at top, #fff3e0, #ffffff); border-radius: 30px 5px 30px 5px; }
+    .tag-box-style-67 { border-right: 4px solid #d63031; background: radial-gradient(ellipse at bottom, #ffebee, #ffffff); border-radius: 5px 30px 5px 30px; }
+    .tag-box-style-68 { border-top: 4px solid #0984e3; background: radial-gradient(ellipse at left, #e3f2fd, #ffffff); border-radius: 18px 18px 18px 18px; }
+    .tag-box-style-69 { border-bottom: 4px solid #00b894; background: radial-gradient(ellipse at right, #e0f2f1, #ffffff); border-radius: 0 0 30px 30px; }
+    .tag-box-style-70 { border-left: 4px solid #6c5ce7; background: radial-gradient(ellipse at center, #ede7f6, #ffffff); border-radius: 30px 30px 0 0; }
+    .tag-box-style-71 { border-right: 4px solid #fd79a8; background: radial-gradient(ellipse at top left, #fce4ec, #ffffff); border-radius: 0 30px 0 30px; }
+    .tag-box-style-72 { border-top: 4px solid #55efc4; background: radial-gradient(ellipse at bottom right, #e8f5e9, #ffffff); border-radius: 30px 0 30px 0; }
+    .tag-box-style-73 { border-bottom: 4px solid #fdcb6e; background: radial-gradient(ellipse at top right, #fff8e1, #ffffff); border-radius: 20px 4px 20px 4px; }
 
     .faq-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .faq-section .faq-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
@@ -2018,6 +2101,7 @@
       </div>
     </div>
 
+    <!-- ===== TOP OFFERS SECTION - UPDATED WITH UNIQUE STYLES ===== -->
     <div class="tag-section">
       <div class="tag-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2176,7 +2260,6 @@
       </div>
     </div>
 
-    <!-- ===== GAME TAGS SECTION ===== -->
     <div class="game-tags-section">
       <div class="game-tags-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2187,7 +2270,6 @@
       <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
-    <!-- ===== ALL GAMES TAGS - 74 UNIQUE MODELS ===== -->
     <div class="all-games-tags-section">
       <div class="all-games-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px;">
@@ -2198,7 +2280,6 @@
       <div class="all-games-tags-container" id="allGamesTagsContainer"></div>
     </div>
 
-    <!-- ===== RELATED SECTION ===== -->
     <div class="related-section">
       <div class="related-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2863,70 +2944,75 @@
       return { refBonus: refBonus, refCode: code };
     }
 
-    function generateTopOfferTags(gameName, bonus, altName) {
+    function generateTopOfferTags(gameName, bonus, altName, appIndex) {
       var seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
       var bonusNum = parseInt(bonus.replace('₹', '')) || 45;
-      var icons = [
-        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
-        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>',
-        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
-        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
+      
+      // Different icon sets based on app index for variety
+      var iconSets = [
+        ['🎯', '🏆', '⭐', '💎', '🎮'],
+        ['🎰', '🃏', '🎲', '💰', '🏅'],
+        ['🔥', '💫', '🌟', '🎯', '⚡'],
+        ['🎪', '🎭', '🎨', '🌈', '🎵'],
+        ['🚀', '🛸', '🌍', '🎯', '💪'],
+        ['🎁', '🎀', '🎉', '🎊', '🎈'],
+        ['🏁', '🎯', '🎪', '🎨', '🌈'],
+        ['💎', '👑', '⭐', '🌟', '✨']
       ];
+      
+      var iconSet = iconSets[appIndex % iconSets.length];
+      var shuffledIcons = iconSet.slice();
+      for (var i = shuffledIcons.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = shuffledIcons[i];
+        shuffledIcons[i] = shuffledIcons[j];
+        shuffledIcons[j] = temp;
+      }
+
+      // Different content patterns based on app index
+      var contentPatterns = [
+        function(n, b) { return '🎯 Download ' + n + ' APK now and claim ' + b + ' bonus! Play exciting games and win real cash. Fast withdrawals, secure platform, and daily rewards await you!'; },
+        function(n, b) { return '📱 ' + n + ' offers ' + b + ' welcome bonus for new users. Join thousands of players and start earning real money today with India\'s favorite gaming app!'; },
+        function(n, b) { return '💰 Get ' + b + ' signup bonus on ' + n + ' app. Play slots, rummy, and more. Withdraw your winnings instantly via UPI. Don\'t miss this offer!'; },
+        function(n, b) { return '🏆 ' + n + ' is India\'s top real cash gaming app! New users get ' + b + ' free bonus. Experience premium gaming with secure payments and fast withdrawals.'; },
+        function(n, b) { return '🎮 Play ' + n + ' and claim ' + b + ' welcome bonus. Enjoy 50+ games including rummy, slots, teen patti. Start your winning journey today!'; },
+        function(n, b) { return '🔥 ' + n + ' gives ' + b + ' free bonus to all new players. Play your favorite games and win real money. Safe, secure, and trusted by millions!'; },
+        function(n, b) { return '⚡ Download ' + n + ' APK and get ' + b + ' instantly. Play rummy, slots, and more. Withdraw to bank account in minutes. Join the fun now!'; },
+        function(n, b) { return '✨ ' + n + ' welcomes you with ' + b + ' bonus. Experience the thrill of real cash gaming with India\'s most trusted platform. Play and win big!'; }
+      ];
+
+      var titles = [
+        function(n, b) { return n + ' APK – Get ' + b + ' Welcome Bonus!'; },
+        function(n, b) { return '🏆 ' + n + ' – Claim ' + b + ' Free Bonus'; },
+        function(n, b) { return '📱 Download ' + n + ' & Get ' + b + ' Bonus'; },
+        function(n, b) { return '🔥 ' + n + ' – ' + b + ' Signup Bonus Offer'; },
+        function(n, b) { return '💰 ' + n + ' APK – ' + b + ' Free Welcome Gift'; },
+        function(n, b) { return '⭐ ' + n + ' – ' + b + ' Instant Bonus on Signup'; }
+      ];
+
+      var contentTpl = contentPatterns[appIndex % contentPatterns.length];
+      var titleTpl = titles[appIndex % titles.length];
+      
+      // Different bonus amounts for variety
       var b1 = '₹' + (bonusNum + (seed * 3) % 50 + 10);
       var b2 = '₹' + (bonusNum + (seed * 7) % 40 + 20);
       var b3 = '₹' + (bonusNum + (seed * 2) % 30 + 30);
       var b4 = '₹' + (bonusNum + (seed * 5) % 60 + 5);
       var b5 = '₹' + (bonusNum + (seed * 11) % 45 + 15);
-      var tagTemplates = [
-        {
-          title: function(n) { return n + ' APK – Get ' + b1 + ' Welcome Bonus!'; },
-          content: function(n) { return 'Play ' + n + ' and claim ' + b1 + ' instantly. Enjoy slots, rummy & more. Refer friends for extra rewards. Start winning today!'; }
-        },
-        {
-          title: function(n) { return 'Install ' + n + ' – ' + b2 + ' Bonus for New Users'; },
-          content: function(n) { return 'Download ' + n + ' APK, get ' + b2 + ' free. Play rummy, teen patti, slots. Safe withdrawals from ₹100. Join now!'; }
-        },
-        {
-          title: function(n) { return 'Sign Up & Claim ' + b3 + ' Bonus in ' + n; },
-          content: function(n) { return 'New users get ' + b3 + ' signup bonus in ' + n + '. Play 20+ games including slots and rummy. Fast payouts via UPI.'; }
-        },
-        {
-          title: function(n) { return n + ' – Free ' + b4 + ' Jackpot Bonus!'; },
-          content: function(n) { return 'Get ' + b4 + ' free bonus in ' + n + '. Daily jackpots, lucky spins and cash rewards. Install now and start earning!'; }
-        },
-        {
-          title: function(n) { return 'Claim ' + b5 + ' Welcome Gift on ' + n; },
-          content: function(n) { return 'Join ' + n + ' and receive ' + b5 + ' instant bonus. Play rummy, slots, and teen patti. Minimum withdrawal ₹100.'; }
-        }
-      ];
-      var shuffled = tagTemplates.slice();
-      for (var i = shuffled.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = shuffled[i];
-        shuffled[i] = shuffled[j];
-        shuffled[j] = temp;
-      }
-      var iconOrder = [0,1,2,3,0,1];
-      var result = [];
+
+      var tagItems = [];
       var nameToUse = altName || gameName;
-      for (var k = 0; k < 5; k++) {
-        var tpl = shuffled[k % shuffled.length];
-        var iconIdx = iconOrder[k % iconOrder.length];
-        var titleText = tpl.title(nameToUse);
-        var contentText = tpl.content(nameToUse);
-        var extraBonus = ['₹' + (bonusNum + (seed * 13) % 30 + 10), '₹' + (bonusNum + (seed * 17) % 25 + 15)];
-        if (k % 2 === 0 && contentText.indexOf(extraBonus[0]) === -1) {
-          contentText = contentText.replace('free', extraBonus[0] + ' free');
-        } else if (k % 3 === 0 && contentText.indexOf(extraBonus[1]) === -1) {
-          contentText = contentText.replace('bonus', 'bonus including ' + extraBonus[1]);
-        }
-        result.push({
-          icon: icons[iconIdx % icons.length],
-          title: titleText,
-          content: contentText
-        });
-      }
-      return result;
+
+      // Generate 5 unique tag items with different content
+      var tagContents = [
+        { icon: shuffledIcons[0], title: titleTpl(nameToUse, b1), content: contentTpl(nameToUse, b1) },
+        { icon: shuffledIcons[1], title: titleTpl(nameToUse, b2), content: contentTpl(nameToUse, b2) },
+        { icon: shuffledIcons[2], title: titleTpl(nameToUse, b3), content: contentTpl(nameToUse, b3) },
+        { icon: shuffledIcons[3], title: titleTpl(nameToUse, b4), content: contentTpl(nameToUse, b4) },
+        { icon: shuffledIcons[4], title: titleTpl(nameToUse, b5), content: contentTpl(nameToUse, b5) }
+      ];
+
+      return tagContents;
     }
 
     function renderGrid() {
@@ -3045,15 +3131,29 @@
       var linkUrl = refLinkText.querySelector('.link-url');
       linkUrl.textContent = 'https://www.earntp.com/m/jm9n7r';
 
+      // ===== TOP OFFERS - UNIQUE TAG MODELS PER APP =====
       var tagContainer = document.getElementById('tagGridContainer');
       tagContainer.innerHTML = '';
-      var tagItems = generateTopOfferTags(game.name, game.bonus, game.altName);
-      tagItems.forEach(function(item) {
+      
+      // Find the index of this game in the uniqueGames array
+      var appIndex = uniqueGames.findIndex(function(g) { return g.name === game.name; });
+      if (appIndex === -1) appIndex = 0;
+      
+      var tagItems = generateTopOfferTags(game.name, game.bonus, game.altName, appIndex);
+      
+      tagItems.forEach(function(item, idx) {
         var box = document.createElement('div');
-        box.className = 'tag-box';
+        // Each tag box gets a unique style based on app index + item index
+        var styleIndex = (appIndex + idx * 7) % 74;
+        box.className = 'tag-box tag-box-style-' + styleIndex;
+        
+        // Different title heading styles based on index
+        var headingTag = (idx % 2 === 0) ? 'h3' : 'div';
+        var iconSpan = item.icon || '🎯';
+        
         box.innerHTML = `
           <div class="tag-head">
-            <span class="svg-icon">${item.icon}</span>
+            <span class="svg-icon" style="font-size:1.1rem;">${iconSpan}</span>
             <span>${item.title}</span>
           </div>
           <div class="tag-content">${item.content}</div>
