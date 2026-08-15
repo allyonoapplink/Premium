@@ -1932,6 +1932,29 @@
       .info-tags { gap: 3px; margin: 6px 0; }
       .info-tag { padding: 2.5px 5px; border-radius: 4px; font-size: 8px; }
     }
+
+    /* Unique Tag Content Styles - Different layouts per app */
+    .tag-content-style-0 { font-size: 0.7rem; line-height: 1.8; color: #1a202c; }
+    .tag-content-style-1 { font-size: 0.65rem; line-height: 1.9; color: #2d3748; font-weight: 400; }
+    .tag-content-style-2 { font-size: 0.75rem; line-height: 1.6; color: #1a202c; letter-spacing: 0.2px; }
+    .tag-content-style-3 { font-size: 0.7rem; line-height: 2; color: #2d3748; font-weight: 300; }
+    .tag-content-style-4 { font-size: 0.68rem; line-height: 1.85; color: #1a202c; font-style: italic; }
+    .tag-content-style-5 { font-size: 0.72rem; line-height: 1.7; color: #2d3748; font-weight: 500; }
+    .tag-content-style-6 { font-size: 0.66rem; line-height: 2.1; color: #1a202c; letter-spacing: 0.5px; }
+    .tag-content-style-7 { font-size: 0.74rem; line-height: 1.55; color: #2d3748; font-weight: 400; }
+    .tag-content-style-8 { font-size: 0.7rem; line-height: 1.9; color: #1a202c; font-weight: 300; }
+    .tag-content-style-9 { font-size: 0.68rem; line-height: 2.2; color: #2d3748; letter-spacing: 0.3px; }
+    
+    .tag-head-style-0 { font-size: 0.8rem; font-weight: 800; color: #0b1e33; }
+    .tag-head-style-1 { font-size: 0.75rem; font-weight: 700; color: #1a202c; text-transform: uppercase; letter-spacing: 0.5px; }
+    .tag-head-style-2 { font-size: 0.85rem; font-weight: 600; color: #2d3748; }
+    .tag-head-style-3 { font-size: 0.78rem; font-weight: 800; color: #0b1e33; text-decoration: underline; text-underline-offset: 2px; }
+    .tag-head-style-4 { font-size: 0.82rem; font-weight: 700; color: #1a202c; letter-spacing: -0.3px; }
+    .tag-head-style-5 { font-size: 0.76rem; font-weight: 600; color: #2d3748; font-style: italic; }
+    .tag-head-style-6 { font-size: 0.84rem; font-weight: 800; color: #0b1e33; text-transform: uppercase; }
+    .tag-head-style-7 { font-size: 0.8rem; font-weight: 700; color: #1a202c; letter-spacing: 0.3px; }
+    .tag-head-style-8 { font-size: 0.77rem; font-weight: 600; color: #2d3748; text-decoration: underline; }
+    .tag-head-style-9 { font-size: 0.83rem; font-weight: 800; color: #0b1e33; font-style: italic; }
   </style>
 </head>
 <body>
@@ -2101,8 +2124,8 @@
       </div>
     </div>
 
-    <!-- ===== TOP OFFERS SECTION - UPDATED WITH UNIQUE STYLES ===== -->
-    <div class="tag-section">
+    <!-- ===== TOP OFFERS SECTION ===== -->
+    <div class="tag-section" id="tagSection">
       <div class="tag-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
           <svg viewBox="0 0 24 24" fill="none" stroke="#00bcd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -2112,6 +2135,7 @@
       <div class="tag-grid" id="tagGridContainer"></div>
     </div>
 
+    <!-- ===== TABLE OF CONTENTS ===== -->
     <div class="toc-section">
       <div class="toc-header" id="tocToggle">
         <div class="toc-left">
@@ -2192,6 +2216,7 @@
       </div>
     </div>
 
+    <!-- ===== FAQ SECTION ===== -->
     <div class="faq-section">
       <div class="faq-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2231,6 +2256,7 @@
       </div>
     </div>
 
+    <!-- ===== REFER & EARN ===== -->
     <div class="referral-section" id="referralSection">
       <div class="referral-title">
         <span class="title-icon">
@@ -2260,6 +2286,7 @@
       </div>
     </div>
 
+    <!-- ===== GAME TAGS SECTION ===== -->
     <div class="game-tags-section">
       <div class="game-tags-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2270,6 +2297,7 @@
       <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
+    <!-- ===== ALL GAMES TAGS ===== -->
     <div class="all-games-tags-section">
       <div class="all-games-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px;">
@@ -2280,6 +2308,7 @@
       <div class="all-games-tags-container" id="allGamesTagsContainer"></div>
     </div>
 
+    <!-- ===== RELATED SECTION ===== -->
     <div class="related-section">
       <div class="related-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2944,41 +2973,56 @@
       return { refBonus: refBonus, refCode: code };
     }
 
+    // ===== 74 UNIQUE TOP OFFERS MODELS =====
     function generateTopOfferTags(gameName, bonus, altName, appIndex) {
       var seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
       var bonusNum = parseInt(bonus.replace('₹', '')) || 45;
       
-      // Different icon sets based on app index for variety
-      var iconSets = [
-        ['🎯', '🏆', '⭐', '💎', '🎮'],
-        ['🎰', '🃏', '🎲', '💰', '🏅'],
-        ['🔥', '💫', '🌟', '🎯', '⚡'],
-        ['🎪', '🎭', '🎨', '🌈', '🎵'],
-        ['🚀', '🛸', '🌍', '🎯', '💪'],
-        ['🎁', '🎀', '🎉', '🎊', '🎈'],
-        ['🏁', '🎯', '🎪', '🎨', '🌈'],
-        ['💎', '👑', '⭐', '🌟', '✨']
+      // 5 Premium SVG icons per app with unique colors
+      var svgIcons = [
+        // Icon 1: Star with gradient
+        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'a)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+        // Icon 2: Gift box
+        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>',
+        // Icon 3: Trophy
+        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'c)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><path d="M18 9v3c0 2.5-2.5 4.5-6 4.5S6 14.5 6 12V9"/><path d="M8 21h8"/><path d="M12 16.5V21"/></svg>',
+        // Icon 4: Medal
+        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'd)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 14.5l-2 7L12 18l5.5 3.5-2-7"/></svg>',
+        // Icon 5: Crown
+        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'e)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20l2-12h16l2 12H2z"/><path d="M6 8V4h12v4"/><circle cx="8" cy="8" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="16" cy="8" r="2"/></svg>'
+      ];
+
+      // Different gradient colors per app
+      var colorPairs = [
+        ['#ff6b6b', '#ee5a24'], ['#4ecdc4', '#0abde3'], ['#a29bfe', '#6c5ce7'], ['#fd79a8', '#e84393'],
+        ['#fdcb6e', '#f39c12'], ['#55efc4', '#00b894'], ['#74b9ff', '#0984e3'], ['#ffeaa7', '#fdcb6e'],
+        ['#dfe6e9', '#b2bec3'], ['#fd79a8', '#e17055'], ['#00cec9', '#0984e3'], ['#e17055', '#d63031'],
+        ['#6c5ce7', '#a29bfe'], ['#00b894', '#55efc4'], ['#fdcb6e', '#e17055'], ['#74b9ff', '#a29bfe'],
+        ['#fd79a8', '#6c5ce7'], ['#55efc4', '#fdcb6e'], ['#e84393', '#fd79a8'], ['#0984e3', '#00cec9']
       ];
       
-      var iconSet = iconSets[appIndex % iconSets.length];
-      var shuffledIcons = iconSet.slice();
-      for (var i = shuffledIcons.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = shuffledIcons[i];
-        shuffledIcons[i] = shuffledIcons[j];
-        shuffledIcons[j] = temp;
-      }
+      var cp = colorPairs[appIndex % colorPairs.length];
+      var gradDefs = '';
+      
+      // Generate gradient definitions for icons
+      var gradColors = [
+        [cp[0], cp[1]],
+        [cp[1], cp[0]],
+        ['#f093fb', '#f5576c'],
+        ['#4facfe', '#00f2fe'],
+        ['#43e97b', '#38f9d7']
+      ];
 
+      var tagItems = [];
+      var nameToUse = altName || gameName;
+      
       // Different content patterns based on app index
-      var contentPatterns = [
-        function(n, b) { return '🎯 Download ' + n + ' APK now and claim ' + b + ' bonus! Play exciting games and win real cash. Fast withdrawals, secure platform, and daily rewards await you!'; },
-        function(n, b) { return '📱 ' + n + ' offers ' + b + ' welcome bonus for new users. Join thousands of players and start earning real money today with India\'s favorite gaming app!'; },
-        function(n, b) { return '💰 Get ' + b + ' signup bonus on ' + n + ' app. Play slots, rummy, and more. Withdraw your winnings instantly via UPI. Don\'t miss this offer!'; },
-        function(n, b) { return '🏆 ' + n + ' is India\'s top real cash gaming app! New users get ' + b + ' free bonus. Experience premium gaming with secure payments and fast withdrawals.'; },
-        function(n, b) { return '🎮 Play ' + n + ' and claim ' + b + ' welcome bonus. Enjoy 50+ games including rummy, slots, teen patti. Start your winning journey today!'; },
-        function(n, b) { return '🔥 ' + n + ' gives ' + b + ' free bonus to all new players. Play your favorite games and win real money. Safe, secure, and trusted by millions!'; },
-        function(n, b) { return '⚡ Download ' + n + ' APK and get ' + b + ' instantly. Play rummy, slots, and more. Withdraw to bank account in minutes. Join the fun now!'; },
-        function(n, b) { return '✨ ' + n + ' welcomes you with ' + b + ' bonus. Experience the thrill of real cash gaming with India\'s most trusted platform. Play and win big!'; }
+      var patterns = [
+        function(n, b) { return '🎯 Download ' + n + ' APK and claim ' + b + ' bonus! Play exciting games and win real cash. Fast withdrawals, secure platform, daily rewards!'; },
+        function(n, b) { return '📱 ' + n + ' offers ' + b + ' welcome bonus. Join thousands of players and start earning real money with India\'s favorite gaming app!'; },
+        function(n, b) { return '💰 Get ' + b + ' signup bonus on ' + n + '. Play slots, rummy, and more. Withdraw instantly via UPI. Don\'t miss this offer!'; },
+        function(n, b) { return '🏆 ' + n + ' is India\'s top real cash gaming app! New users get ' + b + ' free bonus. Premium gaming with secure payments.'; },
+        function(n, b) { return '🎮 Play ' + n + ' and claim ' + b + ' welcome bonus. Enjoy 50+ games including rummy, slots, teen patti. Start winning today!'; }
       ];
 
       var titles = [
@@ -2986,33 +3030,37 @@
         function(n, b) { return '🏆 ' + n + ' – Claim ' + b + ' Free Bonus'; },
         function(n, b) { return '📱 Download ' + n + ' & Get ' + b + ' Bonus'; },
         function(n, b) { return '🔥 ' + n + ' – ' + b + ' Signup Bonus Offer'; },
-        function(n, b) { return '💰 ' + n + ' APK – ' + b + ' Free Welcome Gift'; },
-        function(n, b) { return '⭐ ' + n + ' – ' + b + ' Instant Bonus on Signup'; }
+        function(n, b) { return '💰 ' + n + ' APK – ' + b + ' Free Welcome Gift'; }
       ];
 
-      var contentTpl = contentPatterns[appIndex % contentPatterns.length];
-      var titleTpl = titles[appIndex % titles.length];
-      
-      // Different bonus amounts for variety
-      var b1 = '₹' + (bonusNum + (seed * 3) % 50 + 10);
-      var b2 = '₹' + (bonusNum + (seed * 7) % 40 + 20);
-      var b3 = '₹' + (bonusNum + (seed * 2) % 30 + 30);
-      var b4 = '₹' + (bonusNum + (seed * 5) % 60 + 5);
-      var b5 = '₹' + (bonusNum + (seed * 11) % 45 + 15);
-
-      var tagItems = [];
-      var nameToUse = altName || gameName;
-
-      // Generate 5 unique tag items with different content
-      var tagContents = [
-        { icon: shuffledIcons[0], title: titleTpl(nameToUse, b1), content: contentTpl(nameToUse, b1) },
-        { icon: shuffledIcons[1], title: titleTpl(nameToUse, b2), content: contentTpl(nameToUse, b2) },
-        { icon: shuffledIcons[2], title: titleTpl(nameToUse, b3), content: contentTpl(nameToUse, b3) },
-        { icon: shuffledIcons[3], title: titleTpl(nameToUse, b4), content: contentTpl(nameToUse, b4) },
-        { icon: shuffledIcons[4], title: titleTpl(nameToUse, b5), content: contentTpl(nameToUse, b5) }
+      var bonusVals = [
+        '₹' + (bonusNum + (seed * 3) % 50 + 10),
+        '₹' + (bonusNum + (seed * 7) % 40 + 20),
+        '₹' + (bonusNum + (seed * 2) % 30 + 30),
+        '₹' + (bonusNum + (seed * 5) % 60 + 5),
+        '₹' + (bonusNum + (seed * 11) % 45 + 15)
       ];
 
-      return tagContents;
+      for (var k = 0; k < 5; k++) {
+        var content = patterns[appIndex % patterns.length](nameToUse, bonusVals[k]);
+        var title = titles[appIndex % titles.length](nameToUse, bonusVals[k]);
+        
+        // Different content styles per item
+        var contentStyle = 'tag-content-style-' + ((appIndex + k * 3) % 10);
+        var headStyle = 'tag-head-style-' + ((appIndex + k * 2) % 10);
+        
+        tagItems.push({
+          icon: svgIcons[k % svgIcons.length],
+          title: title,
+          content: content,
+          contentStyle: contentStyle,
+          headStyle: headStyle,
+          gradientDefs: gradDefs,
+          gradColors: gradColors[k % gradColors.length]
+        });
+      }
+
+      return tagItems;
     }
 
     function renderGrid() {
@@ -3131,32 +3179,42 @@
       var linkUrl = refLinkText.querySelector('.link-url');
       linkUrl.textContent = 'https://www.earntp.com/m/jm9n7r';
 
-      // ===== TOP OFFERS - UNIQUE TAG MODELS PER APP =====
+      // ===== TOP OFFERS - UNIQUE PER APP =====
       var tagContainer = document.getElementById('tagGridContainer');
       tagContainer.innerHTML = '';
       
-      // Find the index of this game in the uniqueGames array
       var appIndex = uniqueGames.findIndex(function(g) { return g.name === game.name; });
       if (appIndex === -1) appIndex = 0;
       
       var tagItems = generateTopOfferTags(game.name, game.bonus, game.altName, appIndex);
       
+      // Add gradient defs for this app
+      var svgDefs = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svgDefs.setAttribute('style', 'position:absolute;width:0;height:0;');
+      svgDefs.innerHTML = '<defs>' +
+        '<linearGradient id="grad' + appIndex + 'a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff6b6b"/><stop offset="100%" stop-color="#ee5a24"/></linearGradient>' +
+        '<linearGradient id="grad' + appIndex + 'b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4ecdc4"/><stop offset="100%" stop-color="#0abde3"/></linearGradient>' +
+        '<linearGradient id="grad' + appIndex + 'c" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a29bfe"/><stop offset="100%" stop-color="#6c5ce7"/></linearGradient>' +
+        '<linearGradient id="grad' + appIndex + 'd" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fd79a8"/><stop offset="100%" stop-color="#e84393"/></linearGradient>' +
+        '<linearGradient id="grad' + appIndex + 'e" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fdcb6e"/><stop offset="100%" stop-color="#f39c12"/></linearGradient>' +
+        '</defs>';
+      document.body.appendChild(svgDefs);
+      
       tagItems.forEach(function(item, idx) {
         var box = document.createElement('div');
-        // Each tag box gets a unique style based on app index + item index
         var styleIndex = (appIndex + idx * 7) % 74;
         box.className = 'tag-box tag-box-style-' + styleIndex;
         
-        // Different title heading styles based on index
-        var headingTag = (idx % 2 === 0) ? 'h3' : 'div';
-        var iconSpan = item.icon || '🎯';
+        // Different content styles per item
+        var contentStyleClass = item.contentStyle || 'tag-content-style-0';
+        var headStyleClass = item.headStyle || 'tag-head-style-0';
         
         box.innerHTML = `
-          <div class="tag-head">
-            <span class="svg-icon" style="font-size:1.1rem;">${iconSpan}</span>
+          <div class="tag-head ${headStyleClass}">
+            <span class="svg-icon">${item.icon}</span>
             <span>${item.title}</span>
           </div>
-          <div class="tag-content">${item.content}</div>
+          <div class="tag-content ${contentStyleClass}">${item.content}</div>
         `;
         tagContainer.appendChild(box);
       });
