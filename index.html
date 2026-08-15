@@ -1148,51 +1148,6 @@
     
 
     /* ===== TOP OFFERS TAG GRID - UNIQUE STYLES PER APP ===== */
-    .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
-    .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .tag-grid { display: flex; flex-direction: column; gap: 6px; }
-    
-    /* Base tag-box style - individual variations applied via JS */
-    .tag-box { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; transition: all 0.3s ease; }
-    .tag-box:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
-    .tag-box .tag-head { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; }
-    .tag-box .tag-head .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
-    .tag-box .tag-head .svg-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
-    .tag-box .tag-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
-
-    /* Unique tag-box styles - applied via JavaScript based on app index */
-    
-    /* Continue unique styles for remaining apps - up to 74 */
-    
-    .faq-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
-    .faq-section .faq-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .faq-grid { display: flex; flex-direction: column; gap: 6px; }
-    .faq-box { background: #f8fafc; border-radius: 12px; padding: 10px 12px; border: 1px solid #e9edf4; }
-    .faq-box .faq-q { font-weight: 700; font-size: 0.75rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
-    .faq-box .faq-q .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex-shrink: 0; }
-    .faq-box .faq-q .svg-icon svg { width: 14px; height: 14px; stroke: #e74c3c; fill: none; stroke-width: 2; }
-    .faq-box .faq-a { font-size: 0.65rem; color: #334155; line-height: 1.5; }
-
-    .toc-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
-    .toc-header { display: flex; justify-content: space-between; align-items: center; background: white; padding: 10px 14px; border-radius: 12px; border: 1px solid #e9edf4; cursor: pointer; }
-    .toc-header:active { transform: scale(0.97); }
-    .toc-header .toc-left { display: flex; align-items: center; gap: 8px; }
-    .toc-header .toc-left .toc-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex-shrink: 0; }
-    .toc-header .toc-left .toc-icon svg { width: 18px; height: 18px; stroke: #e74c3c; fill: none; stroke-width: 2; }
-    .toc-header .toc-left .toc-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; }
-    .toc-header .toc-right { font-size: 1.2rem; color: #64748b; transition: transform 0.3s ease; }
-    .toc-header .toc-right.open { transform: rotate(180deg); }
-    .toc-body { display: none; margin-top: 8px; gap: 6px; flex-direction: column; }
-    .toc-body.open { display: flex; }
-    .toc-item { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; }
-    .toc-item .toc-item-head { font-weight: 700; font-size: 0.78rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
-    .toc-item .toc-item-head .num { background: #1e293b; color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 700; flex-shrink: 0; }
-    .toc-item .toc-item-head .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; flex-shrink: 0; }
-    .toc-item .toc-item-head .svg-icon svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
-    .toc-item .toc-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
-    .toc-item .toc-content ul { list-style: none; padding: 0; margin: 3px 0 0 0; }
-    .toc-item .toc-content ul li { padding: 2px 0; font-size: 0.7rem; color: #334155; }
-    .toc-item .toc-content ul li::before { content: "• "; color: #2563eb; font-weight: 700; }
 
     .related-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .related-title { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
@@ -2811,73 +2766,7 @@
       return { refBonus: refBonus, refCode: code };
     }
 
-    // ===== 74 UNIQUE TOP OFFERS MODELS =====
-    function generateTopOfferTags(gameName, bonus, altName, appIndex) {
-      var seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
-      var bonusNum = parseInt(bonus.replace('₹', '')) || 45;
-      
-      // 5 Premium SVG icons per app with unique colors
-      var svgIcons = [
-        // Icon 1: Star with gradient
-        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'a)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
-        // Icon 2: Gift box
-        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>',
-        // Icon 3: Trophy
-        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'c)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><path d="M18 9v3c0 2.5-2.5 4.5-6 4.5S6 14.5 6 12V9"/><path d="M8 21h8"/><path d="M12 16.5V21"/></svg>',
-        // Icon 4: Medal
-        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'd)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 14.5l-2 7L12 18l5.5 3.5-2-7"/></svg>',
-        // Icon 5: Crown
-        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'e)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20l2-12h16l2 12H2z"/><path d="M6 8V4h12v4"/><circle cx="8" cy="8" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="16" cy="8" r="2"/></svg>'
-      ];
-
-      // Different gradient colors per app
-      var colorPairs = [
-        ['#ff6b6b', '#ee5a24'], ['#4ecdc4', '#0abde3'], ['#a29bfe', '#6c5ce7'], ['#fd79a8', '#e84393'],
-        ['#fdcb6e', '#f39c12'], ['#55efc4', '#00b894'], ['#74b9ff', '#0984e3'], ['#ffeaa7', '#fdcb6e'],
-        ['#dfe6e9', '#b2bec3'], ['#fd79a8', '#e17055'], ['#00cec9', '#0984e3'], ['#e17055', '#d63031'],
-        ['#6c5ce7', '#a29bfe'], ['#00b894', '#55efc4'], ['#fdcb6e', '#e17055'], ['#74b9ff', '#a29bfe'],
-        ['#fd79a8', '#6c5ce7'], ['#55efc4', '#fdcb6e'], ['#e84393', '#fd79a8'], ['#0984e3', '#00cec9']
-      ];
-      
-      var cp = colorPairs[appIndex % colorPairs.length];
-      var gradDefs = '';
-      
-      // Generate gradient definitions for icons
-      var gradColors = [
-        [cp[0], cp[1]],
-        [cp[1], cp[0]],
-        ['#f093fb', '#f5576c'],
-        ['#4facfe', '#00f2fe'],
-        ['#43e97b', '#38f9d7']
-      ];
-
-      var tagItems = [];
-      var nameToUse = altName || gameName;
-      
-      // Different content patterns based on app index
-      var patterns = [
-        function(n, b) { return '🎯 Download ' + n + ' APK and claim ' + b + ' bonus! Play exciting games and win real cash. Fast withdrawals, secure platform, daily rewards!'; },
-        function(n, b) { return '📱 ' + n + ' offers ' + b + ' welcome bonus. Join thousands of players and start earning real money with India\'s favorite gaming app!'; },
-        function(n, b) { return '💰 Get ' + b + ' signup bonus on ' + n + '. Play slots, rummy, and more. Withdraw instantly via UPI. Don\'t miss this offer!'; },
-        function(n, b) { return '🏆 ' + n + ' is India\'s top real cash gaming app! New users get ' + b + ' free bonus. Premium gaming with secure payments.'; },
-        function(n, b) { return '🎮 Play ' + n + ' and claim ' + b + ' welcome bonus. Enjoy 50+ games including rummy, slots, teen patti. Start winning today!'; }
-      ];
-
-      var titles = [
-        function(n, b) { return n + ' APK – Get ' + b + ' Welcome Bonus!'; },
-        function(n, b) { return '🏆 ' + n + ' – Claim ' + b + ' Free Bonus'; },
-        function(n, b) { return '📱 Download ' + n + ' & Get ' + b + ' Bonus'; },
-        function(n, b) { return '🔥 ' + n + ' – ' + b + ' Signup Bonus Offer'; },
-        function(n, b) { return '💰 ' + n + ' APK – ' + b + ' Free Welcome Gift'; }
-      ];
-
-      var bonusVals = [
-        '₹' + (bonusNum + (seed * 3) % 50 + 10),
-        '₹' + (bonusNum + (seed * 7) % 40 + 20),
-        '₹' + (bonusNum + (seed * 2) % 30 + 30),
-        '₹' + (bonusNum + (seed * 5) % 60 + 5),
-        '₹' + (bonusNum + (seed * 11) % 45 + 15)
-      ];
+    
 
       for (var k = 0; k < 5; k++) {
         var content = patterns[appIndex % patterns.length](nameToUse, bonusVals[k]);
