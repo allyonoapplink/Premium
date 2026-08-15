@@ -1262,6 +1262,7 @@
       align-items: center;
       gap: 8px;
     }
+    /* Game tags container - visible with styled tags */
     .game-tags-container {
       display: flex !important;
       flex-wrap: wrap;
@@ -1312,27 +1313,25 @@
     .all-games-tags-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      padding: 6px 0;
+      gap: 6px;
     }
 
-    /* ===== BASE TAG STYLE - will be overridden by inline styles ===== */
+    /* ===== 74 UNIQUE TAG STYLES ===== */
     .all-game-tag {
-      padding: 8px 18px;
+      padding: 6px 14px;
       border-radius: 30px;
-      font-size: 0.6rem;
-      font-weight: 700;
+      font-size: 0.55rem;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       border: 2px solid transparent;
       position: relative;
       overflow: hidden;
       letter-spacing: 0.3px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .all-game-tag::before {
       content: '';
@@ -1341,19 +1340,95 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
       transition: left 0.6s ease;
     }
     .all-game-tag:hover::before {
       left: 100%;
     }
     .all-game-tag:hover {
-      transform: scale(1.06) translateY(-2px);
-      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
     .all-game-tag:active {
       transform: scale(0.92);
     }
+
+    /* 74 unique tag styles - each completely different */
+    .tag-style-0 { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: #fff; border-color: #ee5a24; border-radius: 30px; padding: 6px 16px; }
+    .tag-style-1 { background: linear-gradient(135deg, #4ecdc4, #0abde3); color: #fff; border-color: #0abde3; border-radius: 8px 30px 8px 30px; padding: 8px 18px; }
+    .tag-style-2 { background: linear-gradient(135deg, #a29bfe, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 30px 8px 30px 8px; padding: 6px 20px; }
+    .tag-style-3 { background: linear-gradient(135deg, #fd79a8, #e84393); color: #fff; border-color: #e84393; border-radius: 20px 4px 20px 4px; padding: 7px 14px; }
+    .tag-style-4 { background: linear-gradient(135deg, #fdcb6e, #f39c12); color: #2d3436; border-color: #f39c12; border-radius: 4px 30px 4px 30px; padding: 6px 22px; }
+    .tag-style-5 { background: linear-gradient(135deg, #55efc4, #00b894); color: #fff; border-color: #00b894; border-radius: 30px 4px 30px 4px; padding: 8px 12px; }
+    .tag-style-6 { background: linear-gradient(135deg, #74b9ff, #0984e3); color: #fff; border-color: #0984e3; border-radius: 12px 30px 12px 30px; padding: 6px 18px; }
+    .tag-style-7 { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); color: #2d3436; border-color: #fdcb6e; border-radius: 30px 12px 30px 12px; padding: 7px 16px; }
+    .tag-style-8 { background: linear-gradient(135deg, #dfe6e9, #b2bec3); color: #2d3436; border-color: #b2bec3; border-radius: 6px 6px 30px 30px; padding: 6px 20px; }
+    .tag-style-9 { background: linear-gradient(135deg, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 30px 30px 6px 6px; padding: 8px 14px; }
+    .tag-style-10 { background: linear-gradient(135deg, #00cec9, #0984e3); color: #fff; border-color: #0984e3; border-radius: 8px 8px 30px 30px; padding: 6px 22px; }
+    .tag-style-11 { background: linear-gradient(135deg, #e17055, #d63031); color: #fff; border-color: #d63031; border-radius: 30px 8px 30px 8px; padding: 7px 18px; }
+    .tag-style-12 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; border-color: #6c5ce7; border-radius: 4px 30px 30px 4px; padding: 6px 16px; }
+    .tag-style-13 { background: linear-gradient(135deg, #00b894, #55efc4); color: #fff; border-color: #00b894; border-radius: 30px 4px 4px 30px; padding: 8px 20px; }
+    .tag-style-14 { background: linear-gradient(135deg, #fdcb6e, #e17055); color: #fff; border-color: #e17055; border-radius: 16px 16px 16px 16px; padding: 6px 18px; }
+    .tag-style-15 { background: linear-gradient(135deg, #74b9ff, #a29bfe); color: #fff; border-color: #a29bfe; border-radius: 30px 6px 30px 6px; padding: 7px 14px; }
+    .tag-style-16 { background: linear-gradient(135deg, #fd79a8, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 6px 30px 30px 6px; padding: 6px 22px; }
+    .tag-style-17 { background: linear-gradient(135deg, #55efc4, #fdcb6e); color: #2d3436; border-color: #fdcb6e; border-radius: 20px 20px 4px 4px; padding: 8px 16px; }
+    .tag-style-18 { background: linear-gradient(135deg, #e84393, #fd79a8); color: #fff; border-color: #e84393; border-radius: 4px 4px 20px 20px; padding: 6px 20px; }
+    .tag-style-19 { background: linear-gradient(135deg, #0984e3, #00cec9); color: #fff; border-color: #0984e3; border-radius: 30px 30px 30px 30px; padding: 7px 18px; }
+    .tag-style-20 { background: linear-gradient(to right, #ff6b6b, #ee5a24); color: #fff; border-color: #ee5a24; border-radius: 0 30px 0 30px; padding: 6px 16px; }
+    .tag-style-21 { background: linear-gradient(to left, #4ecdc4, #0abde3); color: #fff; border-color: #0abde3; border-radius: 30px 0 30px 0; padding: 8px 18px; }
+    .tag-style-22 { background: radial-gradient(circle, #a29bfe, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 10px 30px 10px 30px; padding: 6px 20px; }
+    .tag-style-23 { background: radial-gradient(circle, #fd79a8, #e84393); color: #fff; border-color: #e84393; border-radius: 30px 10px 30px 10px; padding: 7px 14px; }
+    .tag-style-24 { background: linear-gradient(135deg, #fdcb6e, #f39c12); color: #2d3436; border-color: #f39c12; border-radius: 0 0 30px 30px; padding: 6px 22px; }
+    .tag-style-25 { background: linear-gradient(135deg, #55efc4, #00b894); color: #fff; border-color: #00b894; border-radius: 30px 30px 0 0; padding: 8px 12px; }
+    .tag-style-26 { background: linear-gradient(135deg, #74b9ff, #0984e3); color: #fff; border-color: #0984e3; border-radius: 20px 0 20px 0; padding: 6px 18px; }
+    .tag-style-27 { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); color: #2d3436; border-color: #fdcb6e; border-radius: 0 20px 0 20px; padding: 7px 16px; }
+    .tag-style-28 { background: linear-gradient(135deg, #dfe6e9, #b2bec3); color: #2d3436; border-color: #b2bec3; border-radius: 30px 0 0 30px; padding: 6px 20px; }
+    .tag-style-29 { background: linear-gradient(135deg, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 0 30px 30px 0; padding: 8px 14px; }
+    .tag-style-30 { background: linear-gradient(135deg, #00cec9, #0984e3); color: #fff; border-color: #0984e3; border-radius: 25px 5px 25px 5px; padding: 6px 22px; }
+    .tag-style-31 { background: linear-gradient(135deg, #e17055, #d63031); color: #fff; border-color: #d63031; border-radius: 5px 25px 5px 25px; padding: 7px 18px; }
+    .tag-style-32 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; border-color: #6c5ce7; border-radius: 15px 15px 15px 15px; padding: 6px 16px; }
+    .tag-style-33 { background: linear-gradient(135deg, #00b894, #55efc4); color: #fff; border-color: #00b894; border-radius: 0 15px 0 15px; padding: 8px 20px; }
+    .tag-style-34 { background: linear-gradient(135deg, #fdcb6e, #e17055); color: #fff; border-color: #e17055; border-radius: 15px 0 15px 0; padding: 6px 18px; }
+    .tag-style-35 { background: linear-gradient(135deg, #74b9ff, #a29bfe); color: #fff; border-color: #a29bfe; border-radius: 30px 30px 30px 30px; padding: 7px 14px; }
+    .tag-style-36 { background: linear-gradient(135deg, #fd79a8, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 0 0 0 30px; padding: 6px 22px; }
+    .tag-style-37 { background: linear-gradient(135deg, #55efc4, #fdcb6e); color: #2d3436; border-color: #fdcb6e; border-radius: 30px 0 0 0; padding: 8px 16px; }
+    .tag-style-38 { background: linear-gradient(135deg, #e84393, #fd79a8); color: #fff; border-color: #e84393; border-radius: 10px 10px 30px 30px; padding: 6px 20px; }
+    .tag-style-39 { background: linear-gradient(135deg, #0984e3, #00cec9); color: #fff; border-color: #0984e3; border-radius: 30px 30px 10px 10px; padding: 7px 18px; }
+    .tag-style-40 { background: linear-gradient(to right, #ff6b6b, #f093fb); color: #fff; border-color: #f093fb; border-radius: 8px 8px 8px 8px; padding: 6px 16px; }
+    .tag-style-41 { background: linear-gradient(to right, #4ecdc4, #a8e6cf); color: #1a1a1a; border-color: #a8e6cf; border-radius: 20px 5px 20px 5px; padding: 8px 18px; }
+    .tag-style-42 { background: linear-gradient(to right, #a29bfe, #d5a6ff); color: #fff; border-color: #d5a6ff; border-radius: 5px 20px 5px 20px; padding: 6px 20px; }
+    .tag-style-43 { background: linear-gradient(to right, #fd79a8, #ffb8b8); color: #1a1a1a; border-color: #ffb8b8; border-radius: 0 25px 0 25px; padding: 7px 14px; }
+    .tag-style-44 { background: linear-gradient(to right, #fdcb6e, #ffd93d); color: #1a1a1a; border-color: #ffd93d; border-radius: 25px 0 25px 0; padding: 6px 22px; }
+    .tag-style-45 { background: linear-gradient(to right, #55efc4, #81ecec); color: #1a1a1a; border-color: #81ecec; border-radius: 12px 12px 12px 12px; padding: 8px 12px; }
+    .tag-style-46 { background: linear-gradient(to right, #74b9ff, #a8d8ea); color: #1a1a1a; border-color: #a8d8ea; border-radius: 30px 5px 30px 5px; padding: 6px 18px; }
+    .tag-style-47 { background: linear-gradient(to right, #ffeaa7, #fdcb6e); color: #1a1a1a; border-color: #fdcb6e; border-radius: 5px 30px 5px 30px; padding: 7px 16px; }
+    .tag-style-48 { background: linear-gradient(to right, #dfe6e9, #b2bec3); color: #1a1a1a; border-color: #b2bec3; border-radius: 18px 18px 18px 18px; padding: 6px 20px; }
+    .tag-style-49 { background: linear-gradient(to right, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 0 0 30px 30px; padding: 8px 14px; }
+    .tag-style-50 { background: radial-gradient(ellipse at top, #ff6b6b, #ee5a24); color: #fff; border-color: #ee5a24; border-radius: 30px 30px 0 0; padding: 6px 16px; }
+    .tag-style-51 { background: radial-gradient(ellipse at bottom, #4ecdc4, #0abde3); color: #fff; border-color: #0abde3; border-radius: 0 0 30px 30px; padding: 8px 18px; }
+    .tag-style-52 { background: radial-gradient(ellipse at left, #a29bfe, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 0 30px 0 30px; padding: 6px 20px; }
+    .tag-style-53 { background: radial-gradient(ellipse at right, #fd79a8, #e84393); color: #fff; border-color: #e84393; border-radius: 30px 0 30px 0; padding: 7px 14px; }
+    .tag-style-54 { background: radial-gradient(ellipse at center, #fdcb6e, #f39c12); color: #1a1a1a; border-color: #f39c12; border-radius: 10px 30px 10px 30px; padding: 6px 22px; }
+    .tag-style-55 { background: radial-gradient(ellipse at top left, #55efc4, #00b894); color: #fff; border-color: #00b894; border-radius: 30px 10px 30px 10px; padding: 8px 12px; }
+    .tag-style-56 { background: radial-gradient(ellipse at bottom right, #74b9ff, #0984e3); color: #fff; border-color: #0984e3; border-radius: 6px 6px 30px 30px; padding: 6px 18px; }
+    .tag-style-57 { background: radial-gradient(ellipse at top right, #ffeaa7, #fdcb6e); color: #1a1a1a; border-color: #fdcb6e; border-radius: 30px 30px 6px 6px; padding: 7px 16px; }
+    .tag-style-58 { background: radial-gradient(ellipse at bottom left, #dfe6e9, #b2bec3); color: #1a1a1a; border-color: #b2bec3; border-radius: 20px 4px 20px 4px; padding: 6px 20px; }
+    .tag-style-59 { background: radial-gradient(ellipse at center, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 4px 20px 4px 20px; padding: 8px 14px; }
+    .tag-style-60 { background: linear-gradient(45deg, #ff6b6b, #f093fb); color: #fff; border-color: #f093fb; border-radius: 25px 5px 25px 5px; padding: 6px 16px; }
+    .tag-style-61 { background: linear-gradient(45deg, #4ecdc4, #a8e6cf); color: #1a1a1a; border-color: #a8e6cf; border-radius: 5px 25px 5px 25px; padding: 8px 18px; }
+    .tag-style-62 { background: linear-gradient(45deg, #a29bfe, #d5a6ff); color: #fff; border-color: #d5a6ff; border-radius: 15px 15px 15px 15px; padding: 6px 20px; }
+    .tag-style-63 { background: linear-gradient(45deg, #fd79a8, #ffb8b8); color: #1a1a1a; border-color: #ffb8b8; border-radius: 0 15px 0 15px; padding: 7px 14px; }
+    .tag-style-64 { background: linear-gradient(45deg, #fdcb6e, #ffd93d); color: #1a1a1a; border-color: #ffd93d; border-radius: 15px 0 15px 0; padding: 6px 22px; }
+    .tag-style-65 { background: linear-gradient(45deg, #55efc4, #81ecec); color: #1a1a1a; border-color: #81ecec; border-radius: 30px 30px 30px 30px; padding: 8px 12px; }
+    .tag-style-66 { background: linear-gradient(45deg, #74b9ff, #a8d8ea); color: #1a1a1a; border-color: #a8d8ea; border-radius: 0 0 0 30px; padding: 6px 18px; }
+    .tag-style-67 { background: linear-gradient(45deg, #ffeaa7, #fdcb6e); color: #1a1a1a; border-color: #fdcb6e; border-radius: 30px 0 0 0; padding: 7px 16px; }
+    .tag-style-68 { background: linear-gradient(45deg, #dfe6e9, #b2bec3); color: #1a1a1a; border-color: #b2bec3; border-radius: 10px 10px 30px 30px; padding: 6px 20px; }
+    .tag-style-69 { background: linear-gradient(45deg, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 30px 30px 10px 10px; padding: 8px 14px; }
+    .tag-style-70 { background: linear-gradient(135deg, #2d3436, #636e72); color: #fff; border-color: #636e72; border-radius: 8px 8px 8px 8px; padding: 6px 16px; }
+    .tag-style-71 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; border-color: #a29bfe; border-radius: 20px 5px 20px 5px; padding: 8px 18px; }
+    .tag-style-72 { background: linear-gradient(135deg, #00b894, #55efc4); color: #1a1a1a; border-color: #55efc4; border-radius: 5px 20px 5px 20px; padding: 6px 20px; }
+    .tag-style-73 { background: linear-gradient(135deg, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 0 25px 0 25px; padding: 7px 14px; }
 
     /* ===== UNIQUE TOC ITEM STYLES (5 unique styles) ===== */
     .toc-item.unique-toc-0 { border-left: 4px solid #ff6b6b; background: linear-gradient(135deg, #fff5f5, #ffffff); }
@@ -1924,7 +1999,7 @@
       .detail-img { width: 50px; height: 50px; }
       .detail-info .game-name { font-size: 0.9rem; }
       .game-tag { font-size: 0.45rem; padding: 3px 8px; }
-      .all-game-tag { font-size: 0.5rem; padding: 6px 14px; }
+      .all-game-tag { font-size: 0.45rem; padding: 4px 10px; }
       .static-page p { font-size: 0.85rem; }
       .static-page h2 { font-size: 1.2rem; }
       .detail-download .download-btn { font-size: 0.8rem; padding: 10px 16px; gap: 8px; }
@@ -3308,173 +3383,335 @@
     }
     renderGrid();
 
-    // ===== UNIQUE TAG MODEL GENERATOR =====
-    function generateUniqueTagModel(game, idx) {
-      var seed = game.name.length * 7 + game.name.charCodeAt(0) + idx * 31;
-      
-      // Different order patterns (8 unique orders)
-      var orderPatterns = [
-        ['name', 'title', 'info', 'bonus', 'other'],
-        ['bonus', 'name', 'info', 'title', 'other'],
-        ['title', 'info', 'bonus', 'name', 'other'],
-        ['info', 'name', 'bonus', 'title', 'other'],
-        ['other', 'name', 'title', 'info', 'bonus'],
-        ['bonus', 'title', 'info', 'name', 'other'],
-        ['name', 'bonus', 'other', 'title', 'info'],
-        ['title', 'bonus', 'name', 'other', 'info']
-      ];
-      
-      var order = orderPatterns[idx % orderPatterns.length];
-      
-      // Different layout styles
-      var layoutStyles = [
-        'flex-row', 'flex-col', 'grid-2col', 'grid-3col', 'stacked', 'inline-wrap',
-        'card-style', 'pill-style', 'badge-style', 'chip-style'
-      ];
-      
-      var layout = layoutStyles[idx % layoutStyles.length];
-      
-      // Generate unique content based on pattern
-      var nameDisplay = '<span class="tag-name-premium">' + game.name + '</span>';
-      var titleDisplay = '<span class="tag-title-premium">' + (game.altName || game.name) + '</span>';
-      var infoDisplay = '<span class="tag-info-premium">' + game.name + ' offers ' + game.bonus + ' welcome bonus</span>';
-      var bonusDisplay = '<span class="tag-bonus-premium">🎁 ' + game.bonus + ' Bonus</span>';
-      var otherDisplay = '<span class="tag-other-premium">💳 Min Withdraw ' + game.withdrawal + '</span>';
-      
-      var items = {
-        name: nameDisplay,
-        title: titleDisplay,
-        info: infoDisplay,
-        bonus: bonusDisplay,
-        other: otherDisplay
-      };
-      
-      var orderedHtml = order.map(key => items[key] || '').filter(h => h).join('');
-      
-      // Different container styles
-      var containerClasses = [
-        'tag-model-container style-a',
-        'tag-model-container style-b',
-        'tag-model-container style-c',
-        'tag-model-container style-d',
-        'tag-model-container style-e',
-        'tag-model-container style-f',
-        'tag-model-container style-g',
-        'tag-model-container style-h'
-      ];
-      
-      var containerClass = containerClasses[idx % containerClasses.length];
-      var modelId = 'tag-model-' + idx;
-      
-      return {
-        html: '<div class="' + containerClass + '" id="' + modelId + '" data-game="' + game.name + '">' + orderedHtml + '</div>',
-        css: generateUniqueCSS(idx, game.name)
-      };
-    }
-
-    function generateUniqueCSS(idx, name) {
-      var seed = name.length * 7 + name.charCodeAt(0) + idx * 13;
-      var colors = [
-        ['#ff6b6b', '#ee5a24'], ['#4ecdc4', '#0abde3'], ['#a29bfe', '#6c5ce7'],
-        ['#fd79a8', '#e84393'], ['#fdcb6e', '#f39c12'], ['#55efc4', '#00b894'],
-        ['#74b9ff', '#0984e3'], ['#ffeaa7', '#fdcb6e'], ['#dfe6e9', '#b2bec3'],
-        ['#fd79a8', '#e17055'], ['#00cec9', '#0984e3'], ['#e17055', '#d63031'],
-        ['#6c5ce7', '#a29bfe'], ['#00b894', '#55efc4'], ['#fdcb6e', '#e17055'],
-        ['#74b9ff', '#a29bfe'], ['#fd79a8', '#6c5ce7'], ['#55efc4', '#fdcb6e'],
-        ['#e84393', '#fd79a8'], ['#0984e3', '#00cec9']
-      ];
-      
-      var colorPair = colors[idx % colors.length];
-      var borderStyles = ['solid', 'dashed', 'dotted', 'double'];
-      var borderStyle = borderStyles[idx % borderStyles.length];
-      var borderRadius = [0, 4, 8, 12, 16, 20, 25, 30][idx % 8];
-      var padding = [6, 8, 10, 12, 14, 16][idx % 6];
-      
-      return '#tag-model-' + idx + ' .tag-name-premium { color: ' + colorPair[0] + '; font-size: ' + (0.7 + (idx % 5) * 0.05) + 'rem; font-weight: ' + (600 + (idx % 5) * 100) + '; } ' +
-             '#tag-model-' + idx + ' .tag-title-premium { color: ' + colorPair[1] + '; font-size: ' + (0.6 + (idx % 4) * 0.06) + 'rem; } ' +
-             '#tag-model-' + idx + ' { border: 2px ' + borderStyle + ' ' + colorPair[0] + '; border-radius: ' + borderRadius + 'px; padding: ' + padding + 'px; }';
-    }
-
-    // ===== APPLY UNIQUE TAGS TO ALL GAMES =====
-    function applyUniqueTags() {
-      var allTagsContainer = document.getElementById('allGamesTagsContainer');
-      allTagsContainer.innerHTML = '';
-      
-      // Create style element for unique CSS
-      var styleEl = document.createElement('style');
-      styleEl.id = 'unique-tag-styles';
-      
-      uniqueGames.forEach(function(g, idx) {
-        var model = generateUniqueTagModel(g, idx);
-        styleEl.textContent += model.css;
-        
-        var wrapper = document.createElement('div');
-        wrapper.innerHTML = model.html;
-        var tagEl = wrapper.firstElementChild;
-        tagEl.style.cursor = 'pointer';
-        tagEl.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var gData = gameDataMap[this.dataset.game];
-          if (gData) {
-            showDetail(gData);
-          }
-        });
-        allTagsContainer.appendChild(tagEl);
-      });
-      
-      document.head.appendChild(styleEl);
-    }
-
-    // ===== UPDATE SHOW DETAIL TO USE UNIQUE TAGS =====
-    var originalShowDetail = showDetail;
-    
     function showDetail(game, fromBack) {
-      // Call original function first
-      originalShowDetail.call(this, game, fromBack);
+      document.title = game.name + ' – Download ' + game.name + ' APK | YONO NEW APP';
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', 'Download ' + game.name + ' APK (' + (game.altName || game.name) + ') – Get ' + game.bonus + ' signup bonus, ' + game.withdrawal + ' min withdrawal. Play ' + game.name + ' and win real cash!');
+      }
+      var metaKeywords = document.querySelector('meta[name="keywords"]');
+      if (metaKeywords) {
+        var keywords = game.name + ', ' + (game.altName || game.name) + ', download, APK, real cash game, rummy, slots, teen patti, casino, online earning, ' + game.bonus + ' bonus';
+        metaKeywords.setAttribute('content', keywords);
+      }
+
+      document.getElementById('detailImg').src = game.img;
+      document.getElementById('detailName').innerHTML = game.name + ' <span class="alt">| ' + (game.altName || game.name) + '</span>';
+      document.getElementById('detailHeaderTitle').textContent = game.name + ' • Download APK';
+      document.getElementById('detailSignupText').textContent = game.bonus;
+      document.getElementById('detailWithdrawText').textContent = game.withdrawal;
+      document.querySelector('#detailVersionBadge .version').textContent = game.version;
       
-      // Then apply unique tags
-      var allTagsContainer = document.getElementById('allGamesTagsContainer');
-      allTagsContainer.innerHTML = '';
+      var ratingVal = parseFloat(game.rating) || 3.0;
+      document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
+      document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
+      document.getElementById('detailSize').textContent = game.size;
+      document.getElementById('detailVotes').textContent = game.votes;
+      document.getElementById('detailDownloadBtn').href = game.downloadUrl;
       
-      // Recreate unique tags
-      var styleEl = document.getElementById('unique-tag-styles');
-      if (styleEl) styleEl.remove();
+      document.getElementById('apkBonusLine').textContent = game.bonus;
+
+      var refData = generateReferralData(game.name, game.bonus);
+      document.getElementById('refGameName').textContent = game.name;
+      document.getElementById('refBonusAmount').textContent = '₹' + refData.refBonus;
+      document.getElementById('refCode').textContent = refData.refCode;
       
-      var newStyleEl = document.createElement('style');
-      newStyleEl.id = 'unique-tag-styles';
-      
-      uniqueGames.forEach(function(g, idx) {
-        var model = generateUniqueTagModel(g, idx);
-        newStyleEl.textContent += model.css;
-        
-        var wrapper = document.createElement('div');
-        wrapper.innerHTML = model.html;
-        var tagEl = wrapper.firstElementChild;
-        tagEl.style.cursor = 'pointer';
-        tagEl.addEventListener('click', function(e) {
+      var refLinkText = document.getElementById('refLinkText');
+      var linkUrl = refLinkText.querySelector('.link-url');
+      linkUrl.textContent = 'https://www.earntp.com/m/jm9n7r';
+
+      var tagContainer = document.getElementById('tagGridContainer');
+      tagContainer.innerHTML = '';
+      var tagItems = generateTopOfferTags(game.name, game.bonus, game.altName);
+      tagItems.forEach(function(item) {
+        var box = document.createElement('div');
+        box.className = 'tag-box';
+        box.innerHTML = `
+          <div class="tag-head">
+            <span class="svg-icon">${item.icon}</span>
+            <span>${item.title}</span>
+          </div>
+          <div class="tag-content">${item.content}</div>
+        `;
+        tagContainer.appendChild(box);
+      });
+
+      // ===== GAME TAGS CONTAINER =====
+      var tagsContainer = document.getElementById('gameTagsContainer');
+      tagsContainer.innerHTML = '';
+      var relatedTags = uniqueGames.filter(g => g.name !== game.name).slice(0, 12);
+      relatedTags.forEach(function(g) {
+        var tag = document.createElement('span');
+        tag.className = 'game-tag';
+        tag.textContent = g.name;
+        tag.dataset.name = g.name;
+        tag.addEventListener('click', function(e) {
           e.stopPropagation();
-          var gData = gameDataMap[this.dataset.game];
+          var gData = gameDataMap[this.dataset.name];
           if (gData) {
             showDetail(gData);
           }
         });
-        allTagsContainer.appendChild(tagEl);
+        tagsContainer.appendChild(tag);
       });
+
+      // ===== ALL GAMES TAGS - 74 UNIQUE STYLES =====
+      var allTagsContainer = document.getElementById('allGamesTagsContainer');
+      allTagsContainer.innerHTML = '';
+      uniqueGames.forEach(function(g, idx) {
+        var tag = document.createElement('span');
+        var styleIndex = idx % 74;
+        tag.className = 'all-game-tag tag-style-' + styleIndex;
+        tag.textContent = g.name;
+        tag.dataset.name = g.name;
+        tag.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var gData = gameDataMap[this.dataset.name];
+          if (gData) {
+            showDetail(gData);
+          }
+        });
+        allTagsContainer.appendChild(tag);
+      });
+
+      // ===== UNIQUE TOC ITEMS =====
+      for (var i = 1; i <= 5; i++) {
+        var tocItem = document.getElementById('tocItem' + i);
+        if (tocItem) {
+          tocItem.className = 'toc-item unique-toc-' + ((i - 1) % 5);
+        }
+      }
+
+      // ===== UNIQUE FAQ BOXES =====
+      for (var f = 1; f <= 4; f++) {
+        var faqBox = document.getElementById('faqBox' + f);
+        if (faqBox) {
+          faqBox.className = 'faq-box unique-faq-' + ((f - 1) % 4);
+        }
+      }
+
+      var gName = game.name;
+      var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
+      var b = {
+        tag1: 20 + (seed * 3) % 880, tag2: 20 + (seed * 7) % 880,
+        tag3: 20 + (seed * 2) % 880, tag3b: 20 + (seed * 4) % 880,
+        tag4: 20 + (seed * 5) % 880, tag5: 20 + (seed * 6) % 880,
+        faq1: 20 + (seed * 11) % 880, faq2: 20 + (seed * 9) % 880,
+        faq4: 20 + (seed * 3) % 880, faq4b: 20 + (seed * 7) % 880,
+        faq4w: 20 + (seed * 8) % 880, faq4d: 20 + (seed * 2) % 880,
+        ref1: 5 + (seed * 2) % 20, ref2: 5 + (seed * 3) % 20,
+        ref3: 5 + (seed * 4) % 20, ref4: 5 + (seed * 5) % 20,
+        ref5: 5 + (seed * 6) % 20, refFaq1: 5 + (seed * 7) % 20,
+        refFaq2: 5 + (seed * 8) % 20, refFaq4: 5 + (seed * 9) % 20,
+        toc1Bonus: 50 + (seed * 3) % 50, toc2Bonus1: 50 + (seed * 4) % 50,
+        toc3Bonus: 50 + (seed * 5) % 50, toc5Bonus1: 50 + (seed * 6) % 50,
+        tocWithdraw: 100 + (seed * 2) % 50
+      };
+
+      document.getElementById('toc1Name').textContent = gName;
+      document.getElementById('toc1Name2').textContent = gName;
+      document.getElementById('toc1Name3').textContent = gName;
+      document.getElementById('toc1Name4').textContent = gName;
+      document.getElementById('toc1Bonus').textContent = b.toc1Bonus;
+      document.getElementById('toc1Withdraw').textContent = b.tocWithdraw;
+      document.getElementById('toc2Name').textContent = gName;
+      document.getElementById('toc2Bonus1').textContent = b.toc2Bonus1;
+      document.getElementById('toc2Withdraw').textContent = b.tocWithdraw;
+      document.getElementById('toc3Name').textContent = gName;
+      document.getElementById('toc3Bonus').textContent = b.toc3Bonus;
+      document.getElementById('toc4Name').textContent = gName;
+      document.getElementById('toc4Name2').textContent = gName;
+      document.getElementById('toc5Name').textContent = gName;
+      document.getElementById('toc5Bonus1').textContent = b.toc5Bonus1;
+
+      document.getElementById('faq1Name').textContent = gName;
+      document.getElementById('faq1Name2').textContent = gName;
+      document.getElementById('faq1Name3').textContent = gName;
+      document.getElementById('faq1Bonus').textContent = b.faq1;
+      document.getElementById('faq1Ref').textContent = b.refFaq1;
+      document.getElementById('faq2Name').textContent = gName;
+      document.getElementById('faq2Name2').textContent = gName;
+      document.getElementById('faq2Name3').textContent = gName;
+      document.getElementById('faq2Bonus').textContent = b.faq2;
+      document.getElementById('faq2Ref').textContent = b.refFaq2;
+      document.getElementById('faq3Name').textContent = gName;
+      document.getElementById('faq3Name2').textContent = gName;
+      document.getElementById('faq4Name').textContent = gName;
+      document.getElementById('faq4Bonus').textContent = b.faq4;
+      document.getElementById('faq4Bonus2').textContent = b.faq4b;
+      document.getElementById('faq4Withdraw').textContent = b.faq4w;
+      document.getElementById('faq4Deposit').textContent = b.faq4d;
+      document.getElementById('faq4Ref').textContent = b.refFaq4;
+
+      var relatedGrid = document.getElementById('relatedGrid');
+      relatedGrid.innerHTML = '';
+      uniqueGames.filter(g => g.name !== game.name).forEach(function(g) {
+        var item = document.createElement('div');
+        item.className = 'related-item';
+        var seed3 = g.name.length * 7 + g.name.charCodeAt(0);
+        var r = (3 + (seed3 % 5) / 10).toFixed(1);
+        if (parseFloat(r) > 4.9) r = '4.8';
+        var s = (30 + (seed3 % 40)) + ' MB';
+        var v = Math.floor(100 + (seed3 * 137) % 49900);
+        var mb = '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed3 % 20) + 5);
+        var ver = generateVersion(seed3);
+        item.dataset.name = g.name;
+        item.dataset.altName = g.altName || g.name;
+        item.dataset.bonus = g.bonus;
+        item.dataset.withdrawal = g.withdrawal;
+        item.dataset.downloadUrl = g.downloadUrl;
+        item.dataset.img = g.img;
+        item.dataset.rating = r;
+        item.dataset.size = s;
+        item.dataset.votes = v;
+        item.dataset.metaBonus = mb;
+        item.dataset.version = ver;
+
+        const relatedGiftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/><rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/><rect x="4" y="11" width="16" height="10" rx="1" fill="#F44336"/><rect x="11" y="8" width="2" height="13" fill="#FFD700"/><rect x="3" y="9" width="18" height="1" fill="#FFD700"/></svg>`;
+        const relatedBankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/><path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/><rect x="4" y="11" width="2" height="8" fill="#2e7d32"/><rect x="9" y="11" width="2" height="8" fill="#2e7d32"/><rect x="14" y="11" width="2" height="8" fill="#2e7d32"/><rect x="18" y="11" width="2" height="8" fill="#2e7d32"/><rect x="2" y="19" width="20" height="2" fill="#1b5e20"/></svg>`;
+
+        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedGiftSvg}</span>`;
+        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedBankSvg}</span>`;
+
+        item.innerHTML = `
+          <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
+          <div class="rinfo">
+            <div class="rname">${g.name} <span class="alt">| ${g.altName}</span></div>
+            <div class="rbonus">${relatedBonusIcon} Sign Up Bonus ${g.bonus}</div>
+            <div class="rwithdraw">${relatedWithdrawIcon} Min. Withdraw ${g.withdrawal}</div>
+          </div>
+          <span class="rdownload">
+            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </span>
+        `;
+        relatedGrid.appendChild(item);
+
+        item.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var gData = gameDataMap[this.dataset.name];
+          if (gData) {
+            showDetail(gData);
+          }
+        });
+      });
+
+      showDetailView();
+      hideAllNavActive();
+      homeNav.classList.remove('active');
+      hideHomeGreenBox();
       
-      document.head.appendChild(newStyleEl);
+      if (!fromBack) {
+        pushHistory({ page: 'detail', game: game.name }, game.name, location.href);
+      }
     }
 
-    // Override the original showDetail
-    var _origShowDetail = window.showDetail;
-    window.showDetail = showDetail;
+    document.getElementById('tocToggle').addEventListener('click', function() {
+      document.getElementById('tocBody').classList.toggle('open');
+      document.getElementById('tocArrow').classList.toggle('open');
+    });
 
-    // Initialize
-    renderGrid();
-    applyUniqueTags();
+    var shareClickCount = 0;
+    document.getElementById('shareBtn').addEventListener('click', function() {
+      shareClickCount++;
+      var shareUrl = 'https://www.earntp.com/m/jm9n7r';
+      var encodedUrl = encodeURIComponent(shareUrl);
+      var text = encodeURIComponent('YONO NEW APP – Download 77+ Yono Games. Get ₹45 Bonus & ₹100 Withdrawal!');
+      if (shareClickCount % 2 === 1) {
+        var whatsappUrl = 'https://api.whatsapp.com/send?text=' + text + '%20' + encodedUrl;
+        window.open(whatsappUrl, '_blank');
+      } else {
+        var facebookUrl = 'https://www.facebook.com/sharer.php?u=' + encodedUrl + '&quote=' + text;
+        window.open(facebookUrl, '_blank');
+      }
+    });
 
-    // Rest of the existing code...
-    // (Keep all the existing event listeners, navigation, etc.)
+    document.querySelectorAll('.footer-nav-link').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var page = this.dataset.page;
+        if (page === 'about') {
+          aboutNav.click();
+        } else if (page === 'contact') {
+          contactNav.click();
+        } else if (page === 'disclaimer') {
+          disclaimerNav.click();
+        }
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      });
+    });
 
+    window.addEventListener('popstate', function(e) {
+      if (overlay.style.display === 'flex') { overlay.style.display = 'none'; return; }
+      var state = e.state;
+      if (detailView.style.display === 'block') {
+        var prev = popHistory();
+        if (prev) {
+          if (prev.state.page === 'home') {
+            hideAllNavActive();
+            homeNav.classList.add('active');
+            showMainGrid();
+          } else if (prev.state.page === 'about') {
+            hideAllNavActive();
+            aboutNav.classList.add('active');
+            mainGrid.style.display = 'none';
+            mainGrid.classList.add('hidden');
+            detailView.style.display = 'none';
+            detailView.classList.add('hidden');
+            hideAllStatic();
+            hideHomeGreenBox();
+            aboutPage.classList.add('visible');
+            disableHomeHeader();
+            scrollToTop();
+          } else if (prev.state.page === 'contact') {
+            hideAllNavActive();
+            contactNav.classList.add('active');
+            mainGrid.style.display = 'none';
+            mainGrid.classList.add('hidden');
+            detailView.style.display = 'none';
+            detailView.classList.add('hidden');
+            hideAllStatic();
+            hideHomeGreenBox();
+            contactPage.classList.add('visible');
+            disableHomeHeader();
+            scrollToTop();
+          } else if (prev.state.page === 'disclaimer') {
+            hideAllNavActive();
+            disclaimerNav.classList.add('active');
+            mainGrid.style.display = 'none';
+            mainGrid.classList.add('hidden');
+            detailView.style.display = 'none';
+            detailView.classList.add('hidden');
+            hideAllStatic();
+            hideHomeGreenBox();
+            disclaimerPage.classList.add('visible');
+            disableHomeHeader();
+            scrollToTop();
+          } else if (prev.state.page === 'detail' && prev.state.game) {
+            var gData = gameDataMap[prev.state.game];
+            if (gData) {
+              showDetail(gData, true);
+            }
+          }
+        } else {
+          hideAllNavActive();
+          homeNav.classList.add('active');
+          showMainGrid();
+        }
+        return;
+      }
+      if (aboutPage.classList.contains('visible') || contactPage.classList.contains('visible') || disclaimerPage.classList.contains('visible')) {
+        hideAllNavActive();
+        homeNav.classList.add('active');
+        showMainGrid();
+        return;
+      }
+    });
+
+    historyStack.push({ state: { page: 'home' }, title: 'Home', url: location.href });
+    history.replaceState({ state: { page: 'home' } }, 'Home', location.href);
+    
+    enableHomeHeader();
   })();
 </script>
 </body>
