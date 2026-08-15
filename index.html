@@ -1145,9 +1145,215 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
       transition: left 0.6s ease;
     }
-    
+    .all-game-tag:hover::before { left: 100%; }
+    .all-game-tag:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    .all-game-tag:active { transform: scale(0.92); }
+
+    .tag-style-0 { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: #fff; border-color: #ee5a24; border-radius: 30px; padding: 6px 16px; }
+    .tag-style-1 { background: linear-gradient(135deg, #4ecdc4, #0abde3); color: #fff; border-color: #0abde3; border-radius: 8px 30px 8px 30px; padding: 8px 18px; }
+    .tag-style-2 { background: linear-gradient(135deg, #a29bfe, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 30px 8px 30px 8px; padding: 6px 20px; }
+    .tag-style-3 { background: linear-gradient(135deg, #fd79a8, #e84393); color: #fff; border-color: #e84393; border-radius: 20px 4px 20px 4px; padding: 7px 14px; }
+    .tag-style-4 { background: linear-gradient(135deg, #fdcb6e, #f39c12); color: #2d3436; border-color: #f39c12; border-radius: 4px 30px 4px 30px; padding: 6px 22px; }
+    .tag-style-5 { background: linear-gradient(135deg, #55efc4, #00b894); color: #fff; border-color: #00b894; border-radius: 30px 4px 30px 4px; padding: 8px 12px; }
+    .tag-style-6 { background: linear-gradient(135deg, #74b9ff, #0984e3); color: #fff; border-color: #0984e3; border-radius: 12px 30px 12px 30px; padding: 6px 18px; }
+    .tag-style-7 { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); color: #2d3436; border-color: #fdcb6e; border-radius: 30px 12px 30px 12px; padding: 7px 16px; }
+    .tag-style-8 { background: linear-gradient(135deg, #dfe6e9, #b2bec3); color: #2d3436; border-color: #b2bec3; border-radius: 6px 6px 30px 30px; padding: 6px 20px; }
+    .tag-style-9 { background: linear-gradient(135deg, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 30px 30px 6px 6px; padding: 8px 14px; }
+    .tag-style-10 { background: linear-gradient(135deg, #00cec9, #0984e3); color: #fff; border-color: #0984e3; border-radius: 8px 8px 30px 30px; padding: 6px 22px; }
+    .tag-style-11 { background: linear-gradient(135deg, #e17055, #d63031); color: #fff; border-color: #d63031; border-radius: 30px 8px 30px 8px; padding: 7px 18px; }
+    .tag-style-12 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; border-color: #6c5ce7; border-radius: 4px 30px 30px 4px; padding: 6px 16px; }
+    .tag-style-13 { background: linear-gradient(135deg, #00b894, #55efc4); color: #fff; border-color: #00b894; border-radius: 30px 4px 4px 30px; padding: 8px 20px; }
+    .tag-style-14 { background: linear-gradient(135deg, #fdcb6e, #e17055); color: #fff; border-color: #e17055; border-radius: 16px 16px 16px 16px; padding: 6px 18px; }
+    .tag-style-15 { background: linear-gradient(135deg, #74b9ff, #a29bfe); color: #fff; border-color: #a29bfe; border-radius: 30px 6px 30px 6px; padding: 7px 14px; }
+    .tag-style-16 { background: linear-gradient(135deg, #fd79a8, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 6px 30px 30px 6px; padding: 6px 22px; }
+    .tag-style-17 { background: linear-gradient(135deg, #55efc4, #fdcb6e); color: #2d3436; border-color: #fdcb6e; border-radius: 20px 20px 4px 4px; padding: 8px 16px; }
+    .tag-style-18 { background: linear-gradient(135deg, #e84393, #fd79a8); color: #fff; border-color: #e84393; border-radius: 4px 4px 20px 20px; padding: 6px 20px; }
+    .tag-style-19 { background: linear-gradient(135deg, #0984e3, #00cec9); color: #fff; border-color: #0984e3; border-radius: 30px 30px 30px 30px; padding: 7px 18px; }
+    .tag-style-20 { background: linear-gradient(to right, #ff6b6b, #ee5a24); color: #fff; border-color: #ee5a24; border-radius: 0 30px 0 30px; padding: 6px 16px; }
+    .tag-style-21 { background: linear-gradient(to left, #4ecdc4, #0abde3); color: #fff; border-color: #0abde3; border-radius: 30px 0 30px 0; padding: 8px 18px; }
+    .tag-style-22 { background: radial-gradient(circle, #a29bfe, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 10px 30px 10px 30px; padding: 6px 20px; }
+    .tag-style-23 { background: radial-gradient(circle, #fd79a8, #e84393); color: #fff; border-color: #e84393; border-radius: 30px 10px 30px 10px; padding: 7px 14px; }
+    .tag-style-24 { background: linear-gradient(135deg, #fdcb6e, #f39c12); color: #2d3436; border-color: #f39c12; border-radius: 0 0 30px 30px; padding: 6px 22px; }
+    .tag-style-25 { background: linear-gradient(135deg, #55efc4, #00b894); color: #fff; border-color: #00b894; border-radius: 30px 30px 0 0; padding: 8px 12px; }
+    .tag-style-26 { background: linear-gradient(135deg, #74b9ff, #0984e3); color: #fff; border-color: #0984e3; border-radius: 20px 0 20px 0; padding: 6px 18px; }
+    .tag-style-27 { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); color: #2d3436; border-color: #fdcb6e; border-radius: 0 20px 0 20px; padding: 7px 16px; }
+    .tag-style-28 { background: linear-gradient(135deg, #dfe6e9, #b2bec3); color: #2d3436; border-color: #b2bec3; border-radius: 30px 0 0 30px; padding: 6px 20px; }
+    .tag-style-29 { background: linear-gradient(135deg, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 0 30px 30px 0; padding: 8px 14px; }
+    .tag-style-30 { background: linear-gradient(135deg, #00cec9, #0984e3); color: #fff; border-color: #0984e3; border-radius: 25px 5px 25px 5px; padding: 6px 22px; }
+    .tag-style-31 { background: linear-gradient(135deg, #e17055, #d63031); color: #fff; border-color: #d63031; border-radius: 5px 25px 5px 25px; padding: 7px 18px; }
+    .tag-style-32 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; border-color: #6c5ce7; border-radius: 15px 15px 15px 15px; padding: 6px 16px; }
+    .tag-style-33 { background: linear-gradient(135deg, #00b894, #55efc4); color: #fff; border-color: #00b894; border-radius: 0 15px 0 15px; padding: 8px 20px; }
+    .tag-style-34 { background: linear-gradient(135deg, #fdcb6e, #e17055); color: #fff; border-color: #e17055; border-radius: 15px 0 15px 0; padding: 6px 18px; }
+    .tag-style-35 { background: linear-gradient(135deg, #74b9ff, #a29bfe); color: #fff; border-color: #a29bfe; border-radius: 30px 30px 30px 30px; padding: 7px 14px; }
+    .tag-style-36 { background: linear-gradient(135deg, #fd79a8, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 0 0 0 30px; padding: 6px 22px; }
+    .tag-style-37 { background: linear-gradient(135deg, #55efc4, #fdcb6e); color: #2d3436; border-color: #fdcb6e; border-radius: 30px 0 0 0; padding: 8px 16px; }
+    .tag-style-38 { background: linear-gradient(135deg, #e84393, #fd79a8); color: #fff; border-color: #e84393; border-radius: 10px 10px 30px 30px; padding: 6px 20px; }
+    .tag-style-39 { background: linear-gradient(135deg, #0984e3, #00cec9); color: #fff; border-color: #0984e3; border-radius: 30px 30px 10px 10px; padding: 7px 18px; }
+    .tag-style-40 { background: linear-gradient(to right, #ff6b6b, #f093fb); color: #fff; border-color: #f093fb; border-radius: 8px 8px 8px 8px; padding: 6px 16px; }
+    .tag-style-41 { background: linear-gradient(to right, #4ecdc4, #a8e6cf); color: #1a1a1a; border-color: #a8e6cf; border-radius: 20px 5px 20px 5px; padding: 8px 18px; }
+    .tag-style-42 { background: linear-gradient(to right, #a29bfe, #d5a6ff); color: #fff; border-color: #d5a6ff; border-radius: 5px 20px 5px 20px; padding: 6px 20px; }
+    .tag-style-43 { background: linear-gradient(to right, #fd79a8, #ffb8b8); color: #1a1a1a; border-color: #ffb8b8; border-radius: 0 25px 0 25px; padding: 7px 14px; }
+    .tag-style-44 { background: linear-gradient(to right, #fdcb6e, #ffd93d); color: #1a1a1a; border-color: #ffd93d; border-radius: 25px 0 25px 0; padding: 6px 22px; }
+    .tag-style-45 { background: linear-gradient(to right, #55efc4, #81ecec); color: #1a1a1a; border-color: #81ecec; border-radius: 12px 12px 12px 12px; padding: 8px 12px; }
+    .tag-style-46 { background: linear-gradient(to right, #74b9ff, #a8d8ea); color: #1a1a1a; border-color: #a8d8ea; border-radius: 30px 5px 30px 5px; padding: 6px 18px; }
+    .tag-style-47 { background: linear-gradient(to right, #ffeaa7, #fdcb6e); color: #1a1a1a; border-color: #fdcb6e; border-radius: 5px 30px 5px 30px; padding: 7px 16px; }
+    .tag-style-48 { background: linear-gradient(to right, #dfe6e9, #b2bec3); color: #1a1a1a; border-color: #b2bec3; border-radius: 18px 18px 18px 18px; padding: 6px 20px; }
+    .tag-style-49 { background: linear-gradient(to right, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 0 0 30px 30px; padding: 8px 14px; }
+    .tag-style-50 { background: radial-gradient(ellipse at top, #ff6b6b, #ee5a24); color: #fff; border-color: #ee5a24; border-radius: 30px 30px 0 0; padding: 6px 16px; }
+    .tag-style-51 { background: radial-gradient(ellipse at bottom, #4ecdc4, #0abde3); color: #fff; border-color: #0abde3; border-radius: 0 0 30px 30px; padding: 8px 18px; }
+    .tag-style-52 { background: radial-gradient(ellipse at left, #a29bfe, #6c5ce7); color: #fff; border-color: #6c5ce7; border-radius: 0 30px 0 30px; padding: 6px 20px; }
+    .tag-style-53 { background: radial-gradient(ellipse at right, #fd79a8, #e84393); color: #fff; border-color: #e84393; border-radius: 30px 0 30px 0; padding: 7px 14px; }
+    .tag-style-54 { background: radial-gradient(ellipse at center, #fdcb6e, #f39c12); color: #1a1a1a; border-color: #f39c12; border-radius: 10px 30px 10px 30px; padding: 6px 22px; }
+    .tag-style-55 { background: radial-gradient(ellipse at top left, #55efc4, #00b894); color: #fff; border-color: #00b894; border-radius: 30px 10px 30px 10px; padding: 8px 12px; }
+    .tag-style-56 { background: radial-gradient(ellipse at bottom right, #74b9ff, #0984e3); color: #fff; border-color: #0984e3; border-radius: 6px 6px 30px 30px; padding: 6px 18px; }
+    .tag-style-57 { background: radial-gradient(ellipse at top right, #ffeaa7, #fdcb6e); color: #1a1a1a; border-color: #fdcb6e; border-radius: 30px 30px 6px 6px; padding: 7px 16px; }
+    .tag-style-58 { background: radial-gradient(ellipse at bottom left, #dfe6e9, #b2bec3); color: #1a1a1a; border-color: #b2bec3; border-radius: 20px 4px 20px 4px; padding: 6px 20px; }
+    .tag-style-59 { background: radial-gradient(ellipse at center, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 4px 20px 4px 20px; padding: 8px 14px; }
+    .tag-style-60 { background: linear-gradient(45deg, #ff6b6b, #f093fb); color: #fff; border-color: #f093fb; border-radius: 25px 5px 25px 5px; padding: 6px 16px; }
+    .tag-style-61 { background: linear-gradient(45deg, #4ecdc4, #a8e6cf); color: #1a1a1a; border-color: #a8e6cf; border-radius: 5px 25px 5px 25px; padding: 8px 18px; }
+    .tag-style-62 { background: linear-gradient(45deg, #a29bfe, #d5a6ff); color: #fff; border-color: #d5a6ff; border-radius: 15px 15px 15px 15px; padding: 6px 20px; }
+    .tag-style-63 { background: linear-gradient(45deg, #fd79a8, #ffb8b8); color: #1a1a1a; border-color: #ffb8b8; border-radius: 0 15px 0 15px; padding: 7px 14px; }
+    .tag-style-64 { background: linear-gradient(45deg, #fdcb6e, #ffd93d); color: #1a1a1a; border-color: #ffd93d; border-radius: 15px 0 15px 0; padding: 6px 22px; }
+    .tag-style-65 { background: linear-gradient(45deg, #55efc4, #81ecec); color: #1a1a1a; border-color: #81ecec; border-radius: 30px 30px 30px 30px; padding: 8px 12px; }
+    .tag-style-66 { background: linear-gradient(45deg, #74b9ff, #a8d8ea); color: #1a1a1a; border-color: #a8d8ea; border-radius: 0 0 0 30px; padding: 6px 18px; }
+    .tag-style-67 { background: linear-gradient(45deg, #ffeaa7, #fdcb6e); color: #1a1a1a; border-color: #fdcb6e; border-radius: 30px 0 0 0; padding: 7px 16px; }
+    .tag-style-68 { background: linear-gradient(45deg, #dfe6e9, #b2bec3); color: #1a1a1a; border-color: #b2bec3; border-radius: 10px 10px 30px 30px; padding: 6px 20px; }
+    .tag-style-69 { background: linear-gradient(45deg, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 30px 30px 10px 10px; padding: 8px 14px; }
+    .tag-style-70 { background: linear-gradient(135deg, #2d3436, #636e72); color: #fff; border-color: #636e72; border-radius: 8px 8px 8px 8px; padding: 6px 16px; }
+    .tag-style-71 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; border-color: #a29bfe; border-radius: 20px 5px 20px 5px; padding: 8px 18px; }
+    .tag-style-72 { background: linear-gradient(135deg, #00b894, #55efc4); color: #1a1a1a; border-color: #55efc4; border-radius: 5px 20px 5px 20px; padding: 6px 20px; }
+    .tag-style-73 { background: linear-gradient(135deg, #fd79a8, #e17055); color: #fff; border-color: #e17055; border-radius: 0 25px 0 25px; padding: 7px 14px; }
+
+    .toc-item.unique-toc-0 { border-left: 4px solid #ff6b6b; background: linear-gradient(135deg, #fff5f5, #ffffff); }
+    .toc-item.unique-toc-1 { border-left: 4px solid #4ecdc4; background: linear-gradient(135deg, #f0fffe, #ffffff); }
+    .toc-item.unique-toc-2 { border-left: 4px solid #a29bfe; background: linear-gradient(135deg, #f5f0ff, #ffffff); }
+    .toc-item.unique-toc-3 { border-left: 4px solid #fd79a8; background: linear-gradient(135deg, #fff0f5, #ffffff); }
+    .toc-item.unique-toc-4 { border-left: 4px solid #fdcb6e; background: linear-gradient(135deg, #fffbf0, #ffffff); }
+
+    .faq-box.unique-faq-0 { border-left: 4px solid #e74c3c; background: linear-gradient(135deg, #fff5f5, #ffffff); }
+    .faq-box.unique-faq-1 { border-left: 4px solid #3498db; background: linear-gradient(135deg, #f0f7ff, #ffffff); }
+    .faq-box.unique-faq-2 { border-left: 4px solid #2ecc71; background: linear-gradient(135deg, #f0fff5, #ffffff); }
+    .faq-box.unique-faq-3 { border-left: 4px solid #f39c12; background: linear-gradient(135deg, #fffbf0, #ffffff); }
 
     /* ===== TOP OFFERS TAG GRID - UNIQUE STYLES PER APP ===== */
+    .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
+    .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .tag-grid { display: flex; flex-direction: column; gap: 6px; }
+    
+    /* Base tag-box style - individual variations applied via JS */
+    .tag-box { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; transition: all 0.3s ease; }
+    .tag-box:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+    .tag-box .tag-head { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; }
+    .tag-box .tag-head .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
+    .tag-box .tag-head .svg-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .tag-box .tag-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
+
+    /* Unique tag-box styles - applied via JavaScript based on app index */
+    .tag-box-style-0 { border-left: 4px solid #ff6b6b; background: linear-gradient(135deg, #fff5f5, #ffffff); }
+    .tag-box-style-1 { border-right: 4px solid #4ecdc4; background: linear-gradient(135deg, #f0fffe, #ffffff); }
+    .tag-box-style-2 { border-top: 4px solid #a29bfe; background: linear-gradient(135deg, #f5f0ff, #ffffff); }
+    .tag-box-style-3 { border-bottom: 4px solid #fd79a8; background: linear-gradient(135deg, #fff0f5, #ffffff); }
+    .tag-box-style-4 { border-left: 4px solid #fdcb6e; background: linear-gradient(135deg, #fffbf0, #ffffff); border-radius: 20px 4px 20px 4px; }
+    .tag-box-style-5 { border-right: 4px solid #55efc4; background: linear-gradient(135deg, #f0fff5, #ffffff); border-radius: 4px 20px 4px 20px; }
+    .tag-box-style-6 { border-top: 4px solid #74b9ff; background: linear-gradient(135deg, #f0f7ff, #ffffff); border-radius: 20px 20px 4px 4px; }
+    .tag-box-style-7 { border-bottom: 4px solid #ffeaa7; background: linear-gradient(135deg, #fffbf0, #ffffff); border-radius: 4px 4px 20px 20px; }
+    .tag-box-style-8 { border-left: 4px solid #dfe6e9; background: linear-gradient(to right, #f8f9fa, #ffffff); border-radius: 30px 4px 30px 4px; }
+    .tag-box-style-9 { border-right: 4px solid #e17055; background: linear-gradient(to left, #fff5f5, #ffffff); border-radius: 4px 30px 4px 30px; }
+    .tag-box-style-10 { border-top: 4px solid #00cec9; background: linear-gradient(135deg, #e0f7fa, #ffffff); border-radius: 12px 12px 30px 30px; }
+    .tag-box-style-11 { border-bottom: 4px solid #d63031; background: linear-gradient(135deg, #ffebee, #ffffff); border-radius: 30px 30px 12px 12px; }
+    .tag-box-style-12 { border-left: 4px solid #6c5ce7; background: linear-gradient(135deg, #ede7f6, #ffffff); border-radius: 0 20px 0 20px; }
+    .tag-box-style-13 { border-right: 4px solid #00b894; background: linear-gradient(135deg, #e0f2f1, #ffffff); border-radius: 20px 0 20px 0; }
+    .tag-box-style-14 { border-top: 4px solid #e17055; background: linear-gradient(135deg, #fff3e0, #ffffff); border-radius: 30px 0 30px 0; }
+    .tag-box-style-15 { border-bottom: 4px solid #a29bfe; background: linear-gradient(135deg, #f3e5f5, #ffffff); border-radius: 0 30px 0 30px; }
+    .tag-box-style-16 { border-left: 4px solid #fd79a8; background: linear-gradient(to right, #fce4ec, #ffffff); border-radius: 20px 20px 4px 4px; }
+    .tag-box-style-17 { border-right: 4px solid #55efc4; background: linear-gradient(to left, #e8f5e9, #ffffff); border-radius: 4px 4px 20px 20px; }
+    .tag-box-style-18 { border-top: 4px solid #fdcb6e; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 0 0 30px 30px; }
+    .tag-box-style-19 { border-bottom: 4px solid #74b9ff; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 30px 30px 0 0; }
+    .tag-box-style-20 { border-left: 4px solid #e84393; background: linear-gradient(135deg, #fce4ec, #ffffff); border-radius: 15px 15px 15px 15px; }
+    .tag-box-style-21 { border-right: 4px solid #0984e3; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 25px 5px 25px 5px; }
+    .tag-box-style-22 { border-top: 4px solid #00cec9; background: linear-gradient(135deg, #e0f7fa, #ffffff); border-radius: 5px 25px 5px 25px; }
+    .tag-box-style-23 { border-bottom: 4px solid #6c5ce7; background: linear-gradient(135deg, #ede7f6, #ffffff); border-radius: 0 15px 0 15px; }
+    .tag-box-style-24 { border-left: 4px solid #ff6b6b; background: linear-gradient(to right, #ffebee, #ffffff); border-radius: 15px 0 15px 0; }
+    .tag-box-style-25 { border-right: 4px solid #4ecdc4; background: linear-gradient(to left, #e0f2f1, #ffffff); border-radius: 30px 30px 30px 30px; }
+    .tag-box-style-26 { border-top: 4px solid #a29bfe; background: linear-gradient(135deg, #f3e5f5, #ffffff); border-radius: 0 0 0 30px; }
+    .tag-box-style-27 { border-bottom: 4px solid #fd79a8; background: linear-gradient(135deg, #fce4ec, #ffffff); border-radius: 30px 0 0 0; }
+    .tag-box-style-28 { border-left: 4px solid #fdcb6e; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 10px 10px 30px 30px; }
+    .tag-box-style-29 { border-right: 4px solid #55efc4; background: linear-gradient(135deg, #e8f5e9, #ffffff); border-radius: 30px 30px 10px 10px; }
+
+    .tag-box-style-30 { border-left: 4px solid #e17055; background: linear-gradient(135deg, #fff3e0, #ffffff); border-radius: 30px 8px 30px 8px; }
+    .tag-box-style-31 { border-right: 4px solid #d63031; background: linear-gradient(135deg, #ffebee, #ffffff); border-radius: 8px 30px 8px 30px; }
+    .tag-box-style-32 { border-top: 4px solid #0984e3; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 20px 4px 20px 4px; }
+    .tag-box-style-33 { border-bottom: 4px solid #00b894; background: linear-gradient(135deg, #e0f2f1, #ffffff); border-radius: 4px 20px 4px 20px; }
+    .tag-box-style-34 { border-left: 4px solid #6c5ce7; background: linear-gradient(to right, #ede7f6, #ffffff); border-radius: 16px 16px 16px 16px; }
+    .tag-box-style-35 { border-right: 4px solid #fd79a8; background: linear-gradient(to left, #fce4ec, #ffffff); border-radius: 30px 6px 30px 6px; }
+    .tag-box-style-36 { border-top: 4px solid #55efc4; background: linear-gradient(135deg, #e8f5e9, #ffffff); border-radius: 6px 30px 6px 30px; }
+    .tag-box-style-37 { border-bottom: 4px solid #fdcb6e; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 20px 20px 4px 4px; }
+    .tag-box-style-38 { border-left: 4px solid #74b9ff; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 4px 4px 20px 20px; }
+    .tag-box-style-39 { border-right: 4px solid #e84393; background: linear-gradient(135deg, #fce4ec, #ffffff); border-radius: 30px 30px 30px 30px; }
+    .tag-box-style-40 { border-top: 4px solid #ff6b6b; background: linear-gradient(to right, #ffebee, #ffffff); border-radius: 0 30px 0 30px; }
+    .tag-box-style-41 { border-bottom: 4px solid #4ecdc4; background: linear-gradient(to left, #e0f2f1, #ffffff); border-radius: 30px 0 30px 0; }
+    .tag-box-style-42 { border-left: 4px solid #a29bfe; background: radial-gradient(circle, #f3e5f5, #ffffff); border-radius: 10px 30px 10px 30px; }
+    .tag-box-style-43 { border-right: 4px solid #fd79a8; background: radial-gradient(circle, #fce4ec, #ffffff); border-radius: 30px 10px 30px 10px; }
+    .tag-box-style-44 { border-top: 4px solid #fdcb6e; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 0 0 30px 30px; }
+    .tag-box-style-45 { border-bottom: 4px solid #55efc4; background: linear-gradient(135deg, #e8f5e9, #ffffff); border-radius: 30px 30px 0 0; }
+    .tag-box-style-46 { border-left: 4px solid #74b9ff; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 20px 0 20px 0; }
+    .tag-box-style-47 { border-right: 4px solid #ffeaa7; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 0 20px 0 20px; }
+    .tag-box-style-48 { border-top: 4px solid #dfe6e9; background: linear-gradient(135deg, #f8f9fa, #ffffff); border-radius: 30px 0 0 30px; }
+    .tag-box-style-49 { border-bottom: 4px solid #e17055; background: linear-gradient(135deg, #fff3e0, #ffffff); border-radius: 0 30px 30px 0; }
+    .tag-box-style-50 { border-left: 4px solid #d63031; background: linear-gradient(135deg, #ffebee, #ffffff); border-radius: 25px 5px 25px 5px; }
+    .tag-box-style-51 { border-right: 4px solid #00cec9; background: linear-gradient(135deg, #e0f7fa, #ffffff); border-radius: 5px 25px 5px 25px; }
+    .tag-box-style-52 { border-top: 4px solid #6c5ce7; background: linear-gradient(135deg, #ede7f6, #ffffff); border-radius: 15px 15px 15px 15px; }
+    .tag-box-style-53 { border-bottom: 4px solid #00b894; background: linear-gradient(135deg, #e0f2f1, #ffffff); border-radius: 0 15px 0 15px; }
+    .tag-box-style-54 { border-left: 4px solid #fd79a8; background: linear-gradient(135deg, #fce4ec, #ffffff); border-radius: 15px 0 15px 0; }
+    .tag-box-style-55 { border-right: 4px solid #55efc4; background: linear-gradient(135deg, #e8f5e9, #ffffff); border-radius: 30px 30px 30px 30px; }
+    .tag-box-style-56 { border-top: 4px solid #fdcb6e; background: linear-gradient(135deg, #fff8e1, #ffffff); border-radius: 0 0 0 30px; }
+    .tag-box-style-57 { border-bottom: 4px solid #74b9ff; background: linear-gradient(135deg, #e3f2fd, #ffffff); border-radius: 30px 0 0 0; }
+    .tag-box-style-58 { border-left: 4px solid #e84393; background: linear-gradient(135deg, #fce4ec, #ffffff); border-radius: 10px 10px 30px 30px; }
+    .tag-box-style-59 { border-right: 4px solid #ff6b6b; background: linear-gradient(135deg, #ffebee, #ffffff); border-radius: 30px 30px 10px 10px; }
+    .tag-box-style-60 { border-top: 4px solid #4ecdc4; background: linear-gradient(to right, #e0f2f1, #ffffff); border-radius: 8px 8px 8px 8px; }
+    .tag-box-style-61 { border-bottom: 4px solid #a29bfe; background: linear-gradient(to left, #f3e5f5, #ffffff); border-radius: 20px 5px 20px 5px; }
+    .tag-box-style-62 { border-left: 4px solid #fd79a8; background: linear-gradient(to right, #fce4ec, #ffffff); border-radius: 5px 20px 5px 20px; }
+    .tag-box-style-63 { border-right: 4px solid #fdcb6e; background: linear-gradient(to left, #fff8e1, #ffffff); border-radius: 0 25px 0 25px; }
+    .tag-box-style-64 { border-top: 4px solid #55efc4; background: linear-gradient(to right, #e8f5e9, #ffffff); border-radius: 25px 0 25px 0; }
+    .tag-box-style-65 { border-bottom: 4px solid #74b9ff; background: linear-gradient(to left, #e3f2fd, #ffffff); border-radius: 12px 12px 12px 12px; }
+    .tag-box-style-66 { border-left: 4px solid #e17055; background: radial-gradient(ellipse at top, #fff3e0, #ffffff); border-radius: 30px 5px 30px 5px; }
+    .tag-box-style-67 { border-right: 4px solid #d63031; background: radial-gradient(ellipse at bottom, #ffebee, #ffffff); border-radius: 5px 30px 5px 30px; }
+    .tag-box-style-68 { border-top: 4px solid #0984e3; background: radial-gradient(ellipse at left, #e3f2fd, #ffffff); border-radius: 18px 18px 18px 18px; }
+    .tag-box-style-69 { border-bottom: 4px solid #00b894; background: radial-gradient(ellipse at right, #e0f2f1, #ffffff); border-radius: 0 0 30px 30px; }
+    .tag-box-style-70 { border-left: 4px solid #6c5ce7; background: radial-gradient(ellipse at center, #ede7f6, #ffffff); border-radius: 30px 30px 0 0; }
+    .tag-box-style-71 { border-right: 4px solid #fd79a8; background: radial-gradient(ellipse at top left, #fce4ec, #ffffff); border-radius: 0 30px 0 30px; }
+    .tag-box-style-72 { border-top: 4px solid #55efc4; background: radial-gradient(ellipse at bottom right, #e8f5e9, #ffffff); border-radius: 30px 0 30px 0; }
+    .tag-box-style-73 { border-bottom: 4px solid #fdcb6e; background: radial-gradient(ellipse at top right, #fff8e1, #ffffff); border-radius: 20px 4px 20px 4px; }
+
+    .faq-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
+    .faq-section .faq-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .faq-grid { display: flex; flex-direction: column; gap: 6px; }
+    .faq-box { background: #f8fafc; border-radius: 12px; padding: 10px 12px; border: 1px solid #e9edf4; }
+    .faq-box .faq-q { font-weight: 700; font-size: 0.75rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+    .faq-box .faq-q .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex-shrink: 0; }
+    .faq-box .faq-q .svg-icon svg { width: 14px; height: 14px; stroke: #e74c3c; fill: none; stroke-width: 2; }
+    .faq-box .faq-a { font-size: 0.65rem; color: #334155; line-height: 1.5; }
+
+    .toc-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
+    .toc-header { display: flex; justify-content: space-between; align-items: center; background: white; padding: 10px 14px; border-radius: 12px; border: 1px solid #e9edf4; cursor: pointer; }
+    .toc-header:active { transform: scale(0.97); }
+    .toc-header .toc-left { display: flex; align-items: center; gap: 8px; }
+    .toc-header .toc-left .toc-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex-shrink: 0; }
+    .toc-header .toc-left .toc-icon svg { width: 18px; height: 18px; stroke: #e74c3c; fill: none; stroke-width: 2; }
+    .toc-header .toc-left .toc-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; }
+    .toc-header .toc-right { font-size: 1.2rem; color: #64748b; transition: transform 0.3s ease; }
+    .toc-header .toc-right.open { transform: rotate(180deg); }
+    .toc-body { display: none; margin-top: 8px; gap: 6px; flex-direction: column; }
+    .toc-body.open { display: flex; }
+    .toc-item { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; }
+    .toc-item .toc-item-head { font-weight: 700; font-size: 0.78rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+    .toc-item .toc-item-head .num { background: #1e293b; color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 700; flex-shrink: 0; }
+    .toc-item .toc-item-head .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; flex-shrink: 0; }
+    .toc-item .toc-item-head .svg-icon svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .toc-item .toc-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
+    .toc-item .toc-content ul { list-style: none; padding: 0; margin: 3px 0 0 0; }
+    .toc-item .toc-content ul li { padding: 2px 0; font-size: 0.7rem; color: #334155; }
+    .toc-item .toc-content ul li::before { content: "• "; color: #2563eb; font-weight: 700; }
 
     .related-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .related-title { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
@@ -2766,11 +2972,235 @@
       return { refBonus: refBonus, refCode: code };
     }
 
-    
+    // ===== 74 UNIQUE TOP OFFERS MODELS - Each app gets completely different content =====
+    function generateTopOfferTags(gameName, bonus, altName, appIndex) {
+      var seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
+      var bonusNum = parseInt(bonus.replace('₹', '')) || 45;
+      
+      // 5 Premium SVG icons per app with unique colors
+      var svgIcons = [
+        // Icon 1: Star with gradient
+        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'a)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+        // Icon 2: Gift box
+        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'b)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>',
+        // Icon 3: Trophy
+        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'c)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><path d="M18 9v3c0 2.5-2.5 4.5-6 4.5S6 14.5 6 12V9"/><path d="M8 21h8"/><path d="M12 16.5V21"/></svg>',
+        // Icon 4: Medal
+        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'd)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 14.5l-2 7L12 18l5.5 3.5-2-7"/></svg>',
+        // Icon 5: Crown
+        '<svg viewBox="0 0 24 24" fill="none" stroke="url(#grad' + appIndex + 'e)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20l2-12h16l2 12H2z"/><path d="M6 8V4h12v4"/><circle cx="8" cy="8" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="16" cy="8" r="2"/></svg>'
+      ];
 
+      // Different gradient colors per app
+      var colorPairs = [
+        ['#ff6b6b', '#ee5a24'], ['#4ecdc4', '#0abde3'], ['#a29bfe', '#6c5ce7'], ['#fd79a8', '#e84393'],
+        ['#fdcb6e', '#f39c12'], ['#55efc4', '#00b894'], ['#74b9ff', '#0984e3'], ['#ffeaa7', '#fdcb6e'],
+        ['#dfe6e9', '#b2bec3'], ['#fd79a8', '#e17055'], ['#00cec9', '#0984e3'], ['#e17055', '#d63031'],
+        ['#6c5ce7', '#a29bfe'], ['#00b894', '#55efc4'], ['#fdcb6e', '#e17055'], ['#74b9ff', '#a29bfe'],
+        ['#fd79a8', '#6c5ce7'], ['#55efc4', '#fdcb6e'], ['#e84393', '#fd79a8'], ['#0984e3', '#00cec9']
+      ];
+      
+      var cp = colorPairs[appIndex % colorPairs.length];
+      var gradDefs = '';
+      
+      // Generate gradient definitions for icons
+      var gradColors = [
+        [cp[0], cp[1]],
+        [cp[1], cp[0]],
+        ['#f093fb', '#f5576c'],
+        ['#4facfe', '#00f2fe'],
+        ['#43e97b', '#38f9d7']
+      ];
+
+      var tagItems = [];
+      var nameToUse = altName || gameName;
+      
+      // 74 UNIQUE CONTENT PATTERNS - Different for each app
+      var contentPatterns = [
+        // App 0
+        function(n, b) { return '🎯 Download ' + n + ' APK and claim ' + b + ' bonus! Play exciting games and win real cash. Fast withdrawals, secure platform, daily rewards!'; },
+        // App 1
+        function(n, b) { return '📱 ' + n + ' offers ' + b + ' welcome bonus. Join thousands of players and start earning real money with India\'s favorite gaming app!'; },
+        // App 2
+        function(n, b) { return '💰 Get ' + b + ' signup bonus on ' + n + '. Play slots, rummy, and more. Withdraw instantly via UPI. Don\'t miss this offer!'; },
+        // App 3
+        function(n, b) { return '🏆 ' + n + ' is India\'s top real cash gaming app! New users get ' + b + ' free bonus. Premium gaming with secure payments.'; },
+        // App 4
+        function(n, b) { return '🎮 Play ' + n + ' and claim ' + b + ' welcome bonus. Enjoy 50+ games including rummy, slots, teen patti. Start winning today!'; },
+        // App 5
+        function(n, b) { return '🔥 ' + n + ' gives ' + b + ' free bonus to all new players. Play your favorite games and win real money. Safe and trusted!'; },
+        // App 6
+        function(n, b) { return '⚡ Download ' + n + ' APK and get ' + b + ' instantly. Play rummy, slots, and more. Withdraw to bank in minutes!'; },
+        // App 7
+        function(n, b) { return '✨ ' + n + ' welcomes you with ' + b + ' bonus. Experience premium gaming with India\'s most trusted platform. Play and win big!'; },
+        // App 8
+        function(n, b) { return '🎰 ' + n + ' – ' + b + ' free bonus on signup. Play slots, rummy, teen patti. Withdraw winnings via UPI. Join now!'; },
+        // App 9
+        function(n, b) { return '🏅 ' + n + ' offers ' + b + ' welcome bonus. India\'s leading real cash gaming app. Secure, fast, and fun!'; },
+        // App 10
+        function(n, b) { return '💎 Get ' + b + ' free on ' + n + '. Play exciting games and earn real cash. Withdraw directly to your bank account.'; },
+        // App 11
+        function(n, b) { return '🎯 ' + n + ' APK – ' + b + ' bonus for new users. Play rummy, slots, and more. Fast UPI withdrawals guaranteed!'; },
+        // App 12
+        function(n, b) { return '🌟 ' + n + ' gives ' + b + ' welcome bonus. Join millions of players and start winning real money today!'; },
+        // App 13
+        function(n, b) { return '🏆 Download ' + n + ' and claim ' + b + ' bonus. Play your favorite games and withdraw winnings instantly.'; },
+        // App 14
+        function(n, b) { return '💰 ' + n + ' – ' + b + ' free bonus on registration. Play slots, rummy, teen patti. Win real cash every day!'; },
+        // App 15
+        function(n, b) { return '🎮 Get ' + b + ' bonus on ' + n + '. India\'s most trusted gaming platform. Play, win, and withdraw via UPI.'; },
+        // App 16
+        function(n, b) { return '🔥 ' + n + ' offers ' + b + ' welcome bonus. Play 50+ games and earn real money. Secure and fast withdrawals.'; },
+        // App 17
+        function(n, b) { return '⚡ ' + n + ' APK – ' + b + ' free bonus. Join now and start playing rummy, slots, and more. Win big today!'; },
+        // App 18
+        function(n, b) { return '✨ Get ' + b + ' bonus on ' + n + '. Play exciting games and withdraw winnings to your bank account instantly.'; },
+        // App 19
+        function(n, b) { return '🎰 ' + n + ' – ' + b + ' welcome bonus. Play slots, rummy, and teen patti. Win real cash every day!'; },
+        // App 20
+        function(n, b) { return '🏅 ' + n + ' gives ' + b + ' free bonus. Join India\'s leading gaming app and start winning real money.'; },
+        // App 21
+        function(n, b) { return '💎 Download ' + n + ' and get ' + b + ' bonus. Play your favorite games and withdraw winnings via UPI.'; },
+        // App 22
+        function(n, b) { return '🎯 ' + n + ' offers ' + b + ' welcome bonus. Play rummy, slots, and more. Secure platform with fast payouts.'; },
+        // App 23
+        function(n, b) { return '🌟 Get ' + b + ' free on ' + n + '. Join millions of players and start earning real cash today!'; },
+        // App 24
+        function(n, b) { return '🏆 ' + n + ' APK – ' + b + ' bonus. Play exciting games and win real money. Withdraw instantly to your bank.'; },
+        // App 25
+        function(n, b) { return '💰 ' + n + ' gives ' + b + ' welcome bonus. Play slots, rummy, teen patti. Start winning real cash now!'; },
+        // App 26
+        function(n, b) { return '🎮 Download ' + n + ' and claim ' + b + ' bonus. India\'s most trusted gaming app. Play and win big!'; },
+        // App 27
+        function(n, b) { return '🔥 ' + n + ' – ' + b + ' free bonus. Join now and play 50+ games. Withdraw winnings via UPI.'; },
+        // App 28
+        function(n, b) { return '⚡ Get ' + b + ' bonus on ' + n + '. Play rummy, slots, and more. Fast withdrawals and secure platform.'; },
+        // App 29
+        function(n, b) { return '✨ ' + n + ' offers ' + b + ' welcome bonus. Play exciting games and earn real cash every day!'; },
+        // App 30
+        function(n, b) { return '🎰 ' + n + ' APK – ' + b + ' free bonus. Play slots, rummy, teen patti. Win big and withdraw instantly.'; },
+        // App 31
+        function(n, b) { return '🏅 Get ' + b + ' bonus on ' + n + '. Join India\'s leading gaming platform and start winning real money.'; },
+        // App 32
+        function(n, b) { return '💎 ' + n + ' gives ' + b + ' welcome bonus. Play your favorite games and withdraw winnings to your bank.'; },
+        // App 33
+        function(n, b) { return '🎯 Download ' + n + ' and get ' + b + ' bonus. Play rummy, slots, and more. Secure and fast payouts.'; },
+        // App 34
+        function(n, b) { return '🌟 ' + n + ' – ' + b + ' free bonus. Join millions of players and start earning real cash today!'; },
+        // App 35
+        function(n, b) { return '🏆 Get ' + b + ' bonus on ' + n + '. Play exciting games and win real money. Withdraw instantly via UPI.'; },
+        // App 36
+        function(n, b) { return '💰 ' + n + ' APK – ' + b + ' welcome bonus. Play slots, rummy, teen patti. Start winning real cash now!'; },
+        // App 37
+        function(n, b) { return '🎮 ' + n + ' offers ' + b + ' free bonus. India\'s most trusted gaming app. Play and win big!'; },
+        // App 38
+        function(n, b) { return '🔥 Download ' + n + ' and claim ' + b + ' bonus. Play 50+ games and earn real money. Secure withdrawals.'; },
+        // App 39
+        function(n, b) { return '⚡ ' + n + ' – ' + b + ' bonus. Join now and play rummy, slots, and more. Win big today!'; },
+        // App 40
+        function(n, b) { return '✨ Get ' + b + ' bonus on ' + n + '. Play exciting games and withdraw winnings to your bank account.'; },
+        // App 41
+        function(n, b) { return '🎰 ' + n + ' gives ' + b + ' welcome bonus. Play slots, rummy, teen patti. Win real cash every day!'; },
+        // App 42
+        function(n, b) { return '🏅 Download ' + n + ' and get ' + b + ' bonus. Join India\'s leading gaming app and start winning.'; },
+        // App 43
+        function(n, b) { return '💎 ' + n + ' – ' + b + ' free bonus. Play your favorite games and withdraw winnings via UPI.'; },
+        // App 44
+        function(n, b) { return '🎯 Get ' + b + ' bonus on ' + n + '. Play rummy, slots, and more. Secure platform with fast payouts.'; },
+        // App 45
+        function(n, b) { return '🌟 ' + n + ' APK – ' + b + ' welcome bonus. Join millions of players and start earning real cash!'; },
+        // App 46
+        function(n, b) { return '🏆 ' + n + ' offers ' + b + ' free bonus. Play exciting games and win real money. Withdraw instantly.'; },
+        // App 47
+        function(n, b) { return '💰 Download ' + n + ' and claim ' + b + ' bonus. Play slots, rummy, teen patti. Start winning now!'; },
+        // App 48
+        function(n, b) { return '🎮 ' + n + ' – ' + b + ' bonus. India\'s most trusted gaming app. Play and win big every day!'; },
+        // App 49
+        function(n, b) { return '🔥 Get ' + b + ' bonus on ' + n + '. Play 50+ games and earn real money. Secure and fast withdrawals.'; },
+        // App 50
+        function(n, b) { return '⚡ ' + n + ' gives ' + b + ' welcome bonus. Join now and play rummy, slots, and more. Win big today!'; },
+        // App 51
+        function(n, b) { return '✨ Download ' + n + ' and get ' + b + ' bonus. Play exciting games and withdraw to your bank account.'; },
+        // App 52
+        function(n, b) { return '🎰 ' + n + ' – ' + b + ' free bonus. Play slots, rummy, teen patti. Win real cash every day!'; },
+        // App 53
+        function(n, b) { return '🏅 Get ' + b + ' bonus on ' + n + '. Join India\'s leading gaming platform and start winning.'; },
+        // App 54
+        function(n, b) { return '💎 ' + n + ' APK – ' + b + ' welcome bonus. Play your favorite games and withdraw via UPI.'; },
+        // App 55
+        function(n, b) { return '🎯 ' + n + ' offers ' + b + ' free bonus. Play rummy, slots, and more. Secure platform with fast payouts.'; },
+        // App 56
+        function(n, b) { return '🌟 Download ' + n + ' and claim ' + b + ' bonus. Join millions of players and start earning real cash!'; },
+        // App 57
+        function(n, b) { return '🏆 Get ' + b + ' bonus on ' + n + '. Play exciting games and win real money. Withdraw instantly via UPI.'; },
+        // App 58
+        function(n, b) { return '💰 ' + n + ' – ' + b + ' welcome bonus. Play slots, rummy, teen patti. Start winning real cash now!'; },
+        // App 59
+        function(n, b) { return '🎮 ' + n + ' gives ' + b + ' free bonus. India\'s most trusted gaming app. Play and win big!'; },
+        // App 60
+        function(n, b) { return '🔥 Download ' + n + ' and get ' + b + ' bonus. Play 50+ games and earn real money. Secure withdrawals.'; },
+        // App 61
+        function(n, b) { return '⚡ ' + n + ' – ' + b + ' bonus. Join now and play rummy, slots, and more. Win big today!'; },
+        // App 62
+        function(n, b) { return '✨ Get ' + b + ' bonus on ' + n + '. Play exciting games and withdraw to your bank account.'; },
+        // App 63
+        function(n, b) { return '🎰 ' + n + ' offers ' + b + ' welcome bonus. Play slots, rummy, teen patti. Win real cash every day!'; },
+        // App 64
+        function(n, b) { return '🏅 Download ' + n + ' and claim ' + b + ' bonus. Join India\'s leading gaming app and start winning.'; },
+        // App 65
+        function(n, b) { return '💎 ' + n + ' – ' + b + ' free bonus. Play your favorite games and withdraw winnings via UPI.'; },
+        // App 66
+        function(n, b) { return '🎯 Get ' + b + ' bonus on ' + n + '. Play rummy, slots, and more. Secure platform with fast payouts.'; },
+        // App 67
+        function(n, b) { return '🌟 ' + n + ' APK – ' + b + ' welcome bonus. Join millions of players and start earning real cash!'; },
+        // App 68
+        function(n, b) { return '🏆 ' + n + ' offers ' + b + ' free bonus. Play exciting games and win real money. Withdraw instantly.'; },
+        // App 69
+        function(n, b) { return '💰 Download ' + n + ' and claim ' + b + ' bonus. Play slots, rummy, teen patti. Start winning now!'; },
+        // App 70
+        function(n, b) { return '🎮 ' + n + ' – ' + b + ' bonus. India\'s most trusted gaming app. Play and win big every day!'; },
+        // App 71
+        function(n, b) { return '🔥 Get ' + b + ' bonus on ' + n + '. Play 50+ games and earn real money. Secure and fast withdrawals.'; },
+        // App 72
+        function(n, b) { return '⚡ ' + n + ' gives ' + b + ' welcome bonus. Join now and play rummy, slots, and more. Win big today!'; },
+        // App 73
+        function(n, b) { return '✨ Download ' + n + ' and get ' + b + ' bonus. Play exciting games and withdraw to your bank account.'; }
+      ];
+
+      var titlePatterns = [
+        function(n, b) { return n + ' APK – Get ' + b + ' Welcome Bonus!'; },
+        function(n, b) { return '🏆 ' + n + ' – Claim ' + b + ' Free Bonus'; },
+        function(n, b) { return '📱 Download ' + n + ' & Get ' + b + ' Bonus'; },
+        function(n, b) { return '🔥 ' + n + ' – ' + b + ' Signup Bonus Offer'; },
+        function(n, b) { return '💰 ' + n + ' APK – ' + b + ' Free Welcome Gift'; }
+      ];
+
+      var contentTpl = contentPatterns[appIndex % contentPatterns.length];
+      
+      var bonusVals = [
+        '₹' + (bonusNum + (seed * 3) % 50 + 10),
+        '₹' + (bonusNum + (seed * 7) % 40 + 20),
+        '₹' + (bonusNum + (seed * 2) % 30 + 30),
+        '₹' + (bonusNum + (seed * 5) % 60 + 5),
+        '₹' + (bonusNum + (seed * 11) % 45 + 15)
+      ];
+
+      // Ensure all 5 tags have completely different content
+      var usedContents = [];
       for (var k = 0; k < 5; k++) {
-        var content = patterns[appIndex % patterns.length](nameToUse, bonusVals[k]);
-        var title = titles[appIndex % titles.length](nameToUse, bonusVals[k]);
+        var content;
+        var attempt = 0;
+        do {
+          // Generate unique content by varying the pattern slightly
+          var baseContent = contentTpl(nameToUse, bonusVals[k]);
+          // Add unique suffix based on k and appIndex to ensure uniqueness
+          var suffixes = [' ⚡', ' 🎯', ' ✨', ' 🏅', ' 💎', ' 🎰', ' 🎮', ' 🔥'];
+          content = baseContent + suffixes[(appIndex + k * 3) % suffixes.length];
+          attempt++;
+        } while (usedContents.indexOf(content) !== -1 && attempt < 10);
+        usedContents.push(content);
+        
+        var title = titlePatterns[(appIndex + k * 2) % titlePatterns.length](nameToUse, bonusVals[k]);
         
         // Different content styles per item
         var contentStyle = 'tag-content-style-' + ((appIndex + k * 3) % 10);
@@ -2782,7 +3212,6 @@
           content: content,
           contentStyle: contentStyle,
           headStyle: headStyle,
-          gradientDefs: gradDefs,
           gradColors: gradColors[k % gradColors.length]
         });
       }
@@ -2932,7 +3361,6 @@
         var styleIndex = (appIndex + idx * 7) % 74;
         box.className = 'tag-box tag-box-style-' + styleIndex;
         
-        // Different content styles per item
         var contentStyleClass = item.contentStyle || 'tag-content-style-0';
         var headStyleClass = item.headStyle || 'tag-head-style-0';
         
