@@ -307,7 +307,6 @@
       letter-spacing: 0.3px;
       white-space: nowrap;
     }
-    /* Override the text content via JS or just hardcode it */
     .header-name-box {
       content: "AllYonoGamesInfo.com";
     }
@@ -547,7 +546,6 @@
       position: relative;
       overflow-y: auto;
     }
-    /* CHANGE 2: Red Information Name - updated via JS */
     .home-greenbox .info-text {
       font-size: 0.55rem;
       color: #ffffff;
@@ -1264,8 +1262,37 @@
       align-items: center;
       gap: 8px;
     }
+    /* FIXED: Game tags container now visible with proper styling */
     .game-tags-container {
-      display: none !important;
+      display: flex !important;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .game-tag {
+      background: #f1f5f9;
+      color: #1e293b;
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.55rem;
+      font-weight: 600;
+      border: 1px solid #e2e8f0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .game-tag:hover {
+      background: #1e293b;
+      color: #ffffff;
+      border-color: #1e293b;
+      transform: scale(1.04);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .game-tag:active {
+      transform: scale(0.94);
     }
 
     .all-games-tags-section {
@@ -1286,290 +1313,101 @@
     .all-games-tags-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 4px;
+      gap: 6px;
     }
+    /* ===== UNIQUE TAG STYLES - Each tag gets a unique design ===== */
     .all-game-tag {
-      background: #ffffff;
-      color: #0b1e33;
-      padding: 3px 10px;
+      padding: 6px 14px;
       border-radius: 30px;
-      font-size: 0.5rem;
+      font-size: 0.55rem;
       font-weight: 600;
-      border: 1px solid #d1d5db;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 0.3px;
+    }
+    .all-game-tag::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s ease;
+    }
+    .all-game-tag:hover::before {
+      left: 100%;
     }
     .all-game-tag:hover {
-      background: #1e293b;
-      color: #ffffff;
-      border-color: #1e293b;
-      transform: scale(1.04);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
     .all-game-tag:active {
-      transform: scale(0.94);
+      transform: scale(0.92);
     }
+    /* Different tag styles based on index - will be applied via JS */
+    .tag-style-0 { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: #fff; border-color: #ee5a24; }
+    .tag-style-1 { background: linear-gradient(135deg, #4ecdc4, #0abde3); color: #fff; border-color: #0abde3; }
+    .tag-style-2 { background: linear-gradient(135deg, #a29bfe, #6c5ce7); color: #fff; border-color: #6c5ce7; }
+    .tag-style-3 { background: linear-gradient(135deg, #fd79a8, #e84393); color: #fff; border-color: #e84393; }
+    .tag-style-4 { background: linear-gradient(135deg, #fdcb6e, #f39c12); color: #fff; border-color: #f39c12; }
+    .tag-style-5 { background: linear-gradient(135deg, #55efc4, #00b894); color: #fff; border-color: #00b894; }
+    .tag-style-6 { background: linear-gradient(135deg, #74b9ff, #0984e3); color: #fff; border-color: #0984e3; }
+    .tag-style-7 { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); color: #2d3436; border-color: #fdcb6e; }
+    .tag-style-8 { background: linear-gradient(135deg, #dfe6e9, #b2bec3); color: #2d3436; border-color: #b2bec3; }
+    .tag-style-9 { background: linear-gradient(135deg, #fd79a8, #e17055); color: #fff; border-color: #e17055; }
+    .tag-style-10 { background: linear-gradient(135deg, #00cec9, #0984e3); color: #fff; border-color: #0984e3; }
+    .tag-style-11 { background: linear-gradient(135deg, #e17055, #d63031); color: #fff; border-color: #d63031; }
+    .tag-style-12 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; border-color: #6c5ce7; }
+    .tag-style-13 { background: linear-gradient(135deg, #00b894, #55efc4); color: #fff; border-color: #00b894; }
+    .tag-style-14 { background: linear-gradient(135deg, #fdcb6e, #e17055); color: #fff; border-color: #e17055; }
+    /* Additional styles for more variety */
+    .tag-style-15 { background: linear-gradient(135deg, #74b9ff, #a29bfe); color: #fff; border-color: #a29bfe; }
+    .tag-style-16 { background: linear-gradient(135deg, #fd79a8, #6c5ce7); color: #fff; border-color: #6c5ce7; }
+    .tag-style-17 { background: linear-gradient(135deg, #55efc4, #fdcb6e); color: #2d3436; border-color: #fdcb6e; }
+    .tag-style-18 { background: linear-gradient(135deg, #e84393, #fd79a8); color: #fff; border-color: #e84393; }
+    .tag-style-19 { background: linear-gradient(135deg, #0984e3, #00cec9); color: #fff; border-color: #0984e3; }
 
-    /* ===== UPDATED TAG SECTION - PREMIUM UNIQUE DESIGNS ===== */
+    /* ===== UNIQUE TOC ITEM STYLES ===== */
+    .toc-item.unique-toc-0 { border-left: 4px solid #ff6b6b; background: linear-gradient(135deg, #fff5f5, #ffffff); }
+    .toc-item.unique-toc-1 { border-left: 4px solid #4ecdc4; background: linear-gradient(135deg, #f0fffe, #ffffff); }
+    .toc-item.unique-toc-2 { border-left: 4px solid #a29bfe; background: linear-gradient(135deg, #f5f0ff, #ffffff); }
+    .toc-item.unique-toc-3 { border-left: 4px solid #fd79a8; background: linear-gradient(135deg, #fff0f5, #ffffff); }
+    .toc-item.unique-toc-4 { border-left: 4px solid #fdcb6e; background: linear-gradient(135deg, #fffbf0, #ffffff); }
+
+    /* ===== UNIQUE FAQ BOX STYLES ===== */
+    .faq-box.unique-faq-0 { border-left: 4px solid #e74c3c; background: linear-gradient(135deg, #fff5f5, #ffffff); }
+    .faq-box.unique-faq-1 { border-left: 4px solid #3498db; background: linear-gradient(135deg, #f0f7ff, #ffffff); }
+    .faq-box.unique-faq-2 { border-left: 4px solid #2ecc71; background: linear-gradient(135deg, #f0fff5, #ffffff); }
+    .faq-box.unique-faq-3 { border-left: 4px solid #f39c12; background: linear-gradient(135deg, #fffbf0, #ffffff); }
+
     .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .tag-grid { display: flex; flex-direction: column; gap: 8px; }
-    
-    /* ===== UNIQUE TAG BOX STYLES - EACH WITH DISTINCT VISUAL DESIGN ===== */
-    .tag-box {
-      background: white;
-      border-radius: 16px;
-      padding: 14px 16px;
-      border: 1px solid #e9edf4;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .tag-box:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    }
-    .tag-box .tag-head {
-      font-weight: 700;
-      font-size: 0.8rem;
-      color: #0b1e33;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .tag-box .tag-head .svg-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-      border-radius: 8px;
-    }
-    .tag-box .tag-head .svg-icon svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-    }
-    .tag-box .tag-content {
-      font-size: 0.7rem;
-      color: #334155;
-      line-height: 1.7;
-      padding-left: 38px;
-    }
+    .tag-grid { display: flex; flex-direction: column; gap: 6px; }
+    .tag-box { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; }
+    .tag-box .tag-head { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; }
+    .tag-box .tag-head .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
+    .tag-box .tag-head .svg-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .tag-box .tag-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
 
-    /* Tag Box Style 1 - Premium Gold Gradient Accent */
-    .tag-box.style-1 {
-      border-left: 4px solid #ffd700;
-      background: linear-gradient(to right, #fffdf5, #ffffff);
-    }
-    .tag-box.style-1 .tag-head .svg-icon {
-      background: rgba(255, 215, 0, 0.15);
-      color: #f59e0b;
-    }
-
-    /* Tag Box Style 2 - Premium Blue Gradient Accent */
-    .tag-box.style-2 {
-      border-left: 4px solid #3b82f6;
-      background: linear-gradient(to right, #f5f9ff, #ffffff);
-    }
-    .tag-box.style-2 .tag-head .svg-icon {
-      background: rgba(59, 130, 246, 0.12);
-      color: #2563eb;
-    }
-
-    /* Tag Box Style 3 - Premium Green Gradient Accent */
-    .tag-box.style-3 {
-      border-left: 4px solid #22c55e;
-      background: linear-gradient(to right, #f5fff7, #ffffff);
-    }
-    .tag-box.style-3 .tag-head .svg-icon {
-      background: rgba(34, 197, 94, 0.12);
-      color: #16a34a;
-    }
-
-    /* Tag Box Style 4 - Premium Purple Gradient Accent */
-    .tag-box.style-4 {
-      border-left: 4px solid #8b5cf6;
-      background: linear-gradient(to right, #f8f5ff, #ffffff);
-    }
-    .tag-box.style-4 .tag-head .svg-icon {
-      background: rgba(139, 92, 246, 0.12);
-      color: #7c3aed;
-    }
-
-    /* Tag Box Style 5 - Premium Red Gradient Accent */
-    .tag-box.style-5 {
-      border-left: 4px solid #ef4444;
-      background: linear-gradient(to right, #fff5f5, #ffffff);
-    }
-    .tag-box.style-5 .tag-head .svg-icon {
-      background: rgba(239, 68, 68, 0.12);
-      color: #dc2626;
-    }
-
-    /* Tag Box Style 6 - Premium Teal Gradient Accent */
-    .tag-box.style-6 {
-      border-left: 4px solid #14b8a6;
-      background: linear-gradient(to right, #f5fffe, #ffffff);
-    }
-    .tag-box.style-6 .tag-head .svg-icon {
-      background: rgba(20, 184, 166, 0.12);
-      color: #0d9488;
-    }
-
-    /* Tag Box Style 7 - Premium Pink Gradient Accent */
-    .tag-box.style-7 {
-      border-left: 4px solid #ec4899;
-      background: linear-gradient(to right, #fff5fa, #ffffff);
-    }
-    .tag-box.style-7 .tag-head .svg-icon {
-      background: rgba(236, 72, 153, 0.12);
-      color: #db2777;
-    }
-
-    /* Tag Box Style 8 - Premium Orange Gradient Accent */
-    .tag-box.style-8 {
-      border-left: 4px solid #f97316;
-      background: linear-gradient(to right, #fff8f5, #ffffff);
-    }
-    .tag-box.style-8 .tag-head .svg-icon {
-      background: rgba(249, 115, 22, 0.12);
-      color: #ea580c;
-    }
-
-    /* Tag Box Style 9 - Premium Indigo Gradient Accent */
-    .tag-box.style-9 {
-      border-left: 4px solid #6366f1;
-      background: linear-gradient(to right, #f5f5ff, #ffffff);
-    }
-    .tag-box.style-9 .tag-head .svg-icon {
-      background: rgba(99, 102, 241, 0.12);
-      color: #4f46e5;
-    }
-
-    /* Tag Box Style 10 - Premium Rose Gradient Accent */
-    .tag-box.style-10 {
-      border-left: 4px solid #f43f5e;
-      background: linear-gradient(to right, #fff5f7, #ffffff);
-    }
-    .tag-box.style-10 .tag-head .svg-icon {
-      background: rgba(244, 63, 94, 0.12);
-      color: #e11d48;
-    }
-
-    /* ===== UPDATED FAQ SECTION - UNIQUE DESIGNS ===== */
     .faq-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .faq-section .faq-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .faq-grid { display: flex; flex-direction: column; gap: 8px; }
-    
-    .faq-box {
-      border-radius: 14px;
-      padding: 12px 16px;
-      border: 1px solid #e9edf4;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .faq-box:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-    }
-    .faq-box .faq-q {
-      font-weight: 700;
-      font-size: 0.78rem;
-      color: #0b1e33;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .faq-box .faq-q .svg-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      border-radius: 50%;
-    }
-    .faq-box .faq-q .svg-icon svg {
-      width: 14px;
-      height: 14px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-    }
-    .faq-box .faq-a {
-      font-size: 0.68rem;
-      color: #334155;
-      line-height: 1.6;
-      padding-left: 34px;
-    }
+    .faq-grid { display: flex; flex-direction: column; gap: 6px; }
+    .faq-box { background: #f8fafc; border-radius: 12px; padding: 10px 12px; border: 1px solid #e9edf4; }
+    .faq-box .faq-q { font-weight: 700; font-size: 0.75rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+    .faq-box .faq-q .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex-shrink: 0; }
+    .faq-box .faq-q .svg-icon svg { width: 14px; height: 14px; stroke: #e74c3c; fill: none; stroke-width: 2; }
+    .faq-box .faq-a { font-size: 0.65rem; color: #334155; line-height: 1.5; }
 
-    /* FAQ Style 1 - Premium Blue */
-    .faq-box.faq-style-1 {
-      background: #f0f7ff;
-      border-color: #93c5fd;
-    }
-    .faq-box.faq-style-1 .faq-q .svg-icon {
-      background: rgba(37, 99, 235, 0.12);
-      color: #2563eb;
-    }
-
-    /* FAQ Style 2 - Premium Green */
-    .faq-box.faq-style-2 {
-      background: #f0fdf4;
-      border-color: #86efac;
-    }
-    .faq-box.faq-style-2 .faq-q .svg-icon {
-      background: rgba(34, 197, 94, 0.12);
-      color: #16a34a;
-    }
-
-    /* FAQ Style 3 - Premium Purple */
-    .faq-box.faq-style-3 {
-      background: #f5f3ff;
-      border-color: #c4b5fd;
-    }
-    .faq-box.faq-style-3 .faq-q .svg-icon {
-      background: rgba(139, 92, 246, 0.12);
-      color: #7c3aed;
-    }
-
-    /* FAQ Style 4 - Premium Amber */
-    .faq-box.faq-style-4 {
-      background: #fffbeb;
-      border-color: #fcd34d;
-    }
-    .faq-box.faq-style-4 .faq-q .svg-icon {
-      background: rgba(245, 158, 11, 0.12);
-      color: #d97706;
-    }
-
-    /* ===== UPDATED TOC ITEMS - UNIQUE DESIGNS ===== */
     .toc-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
-    .toc-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid #e9edf4;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .toc-header:hover {
-      background: #f8fafc;
-    }
+    .toc-header { display: flex; justify-content: space-between; align-items: center; background: white; padding: 10px 14px; border-radius: 12px; border: 1px solid #e9edf4; cursor: pointer; }
     .toc-header:active { transform: scale(0.97); }
     .toc-header .toc-left { display: flex; align-items: center; gap: 8px; }
     .toc-header .toc-left .toc-icon { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex-shrink: 0; }
@@ -1577,117 +1415,17 @@
     .toc-header .toc-left .toc-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; }
     .toc-header .toc-right { font-size: 1.2rem; color: #64748b; transition: transform 0.3s ease; }
     .toc-header .toc-right.open { transform: rotate(180deg); }
-    .toc-body { display: none; margin-top: 8px; gap: 8px; flex-direction: column; }
+    .toc-body { display: none; margin-top: 8px; gap: 6px; flex-direction: column; }
     .toc-body.open { display: flex; }
-    
-    .toc-item {
-      border-radius: 14px;
-      padding: 14px 16px;
-      border: 1px solid #e9edf4;
-      transition: all 0.3s ease;
-      background: white;
-    }
-    .toc-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-    }
-    .toc-item .toc-item-head {
-      font-weight: 700;
-      font-size: 0.78rem;
-      color: #0b1e33;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .toc-item .toc-item-head .num {
-      background: #1e293b;
-      color: white;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.55rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .toc-item .toc-item-head .svg-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-      border-radius: 6px;
-    }
-    .toc-item .toc-item-head .svg-icon svg {
-      width: 14px;
-      height: 14px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-    }
-    .toc-item .toc-content {
-      font-size: 0.7rem;
-      color: #334155;
-      line-height: 1.7;
-      padding-left: 32px;
-    }
+    .toc-item { background: white; border-radius: 12px; padding: 12px 14px; border: 1px solid #e9edf4; }
+    .toc-item .toc-item-head { font-weight: 700; font-size: 0.78rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+    .toc-item .toc-item-head .num { background: #1e293b; color: white; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 700; flex-shrink: 0; }
+    .toc-item .toc-item-head .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; flex-shrink: 0; }
+    .toc-item .toc-item-head .svg-icon svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .toc-item .toc-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
     .toc-item .toc-content ul { list-style: none; padding: 0; margin: 3px 0 0 0; }
     .toc-item .toc-content ul li { padding: 2px 0; font-size: 0.7rem; color: #334155; }
     .toc-item .toc-content ul li::before { content: "• "; color: #2563eb; font-weight: 700; }
-
-    /* TOC Style 1 - Blue */
-    .toc-item.toc-style-1 {
-      border-left: 4px solid #3b82f6;
-      background: #f8faff;
-    }
-    .toc-item.toc-style-1 .toc-item-head .svg-icon {
-      background: rgba(59, 130, 246, 0.12);
-      color: #2563eb;
-    }
-
-    /* TOC Style 2 - Green */
-    .toc-item.toc-style-2 {
-      border-left: 4px solid #22c55e;
-      background: #f8fdf9;
-    }
-    .toc-item.toc-style-2 .toc-item-head .svg-icon {
-      background: rgba(34, 197, 94, 0.12);
-      color: #16a34a;
-    }
-
-    /* TOC Style 3 - Purple */
-    .toc-item.toc-style-3 {
-      border-left: 4px solid #8b5cf6;
-      background: #f9f7ff;
-    }
-    .toc-item.toc-style-3 .toc-item-head .svg-icon {
-      background: rgba(139, 92, 246, 0.12);
-      color: #7c3aed;
-    }
-
-    /* TOC Style 4 - Orange */
-    .toc-item.toc-style-4 {
-      border-left: 4px solid #f97316;
-      background: #fffaf5;
-    }
-    .toc-item.toc-style-4 .toc-item-head .svg-icon {
-      background: rgba(249, 115, 22, 0.12);
-      color: #ea580c;
-    }
-
-    /* TOC Style 5 - Rose */
-    .toc-item.toc-style-5 {
-      border-left: 4px solid #f43f5e;
-      background: #fff5f7;
-    }
-    .toc-item.toc-style-5 .toc-item-head .svg-icon {
-      background: rgba(244, 63, 94, 0.12);
-      color: #e11d48;
-    }
 
     /* ===== RELATED SECTION - FIXED SIZING ===== */
     .related-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
@@ -2206,7 +1944,7 @@
       .detail-img { width: 50px; height: 50px; }
       .detail-info .game-name { font-size: 0.9rem; }
       .game-tag { font-size: 0.45rem; padding: 3px 8px; }
-      .all-game-tag { font-size: 0.4rem; padding: 2px 8px; }
+      .all-game-tag { font-size: 0.45rem; padding: 4px 10px; }
       .static-page p { font-size: 0.85rem; }
       .static-page h2 { font-size: 1.2rem; }
       .detail-download .download-btn { font-size: 0.8rem; padding: 10px 16px; gap: 8px; }
@@ -2234,13 +1972,6 @@
       .yono-info-section .yono-info-title { font-size: 0.75rem; }
       .yono-info-section { padding: 10px 6px 8px 6px; }
       .yono-tags-container { gap: 6px; }
-      /* Tag box mobile adjustments */
-      .tag-box .tag-content { padding-left: 0; margin-top: 6px; }
-      .tag-box { padding: 12px 14px; }
-      .tag-box .tag-head .svg-icon { width: 24px; height: 24px; }
-      .tag-box .tag-head .svg-icon svg { width: 16px; height: 16px; }
-      .faq-box .faq-a { padding-left: 0; margin-top: 4px; }
-      .toc-item .toc-content { padding-left: 0; margin-top: 4px; }
     }
     @media (max-width: 360px) {
       .header-logo { width: 34px; height: 34px; border-width: 3px; border-radius: 8px; }
@@ -2372,11 +2103,9 @@
       <div class="header-logo">
         <img src="https://i.ibb.co/XTFNccf/1785915333592.jpg" alt="YONO NEW APP" loading="eager" fetchpriority="high" width="54" height="54">
       </div>
-      <!-- CHANGE 1: New Header Name -->
       <span class="header-name-box">AllYonoGamesInfo.com</span>
     </div>
     <div class="header-right">
-      <!-- Premium Telegram SVG Icon - UNTOUCHED -->
       <a href="https://t.me/allyonogamesdite" target="_blank" rel="noopener noreferrer" class="telegram-btn" aria-label="Telegram">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="11" class="telegram-icon-bg"/>
@@ -2386,7 +2115,6 @@
           <path d="M17.5 7.5L12.5 10.5L15.5 13.5" class="telegram-icon-plane" fill="none" stroke="#ffffff" stroke-width="1.5"/>
         </svg>
       </a>
-      <!-- Premium Share SVG Button - UNTOUCHED -->
       <button class="share-btn" id="shareBtn">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="18" cy="5" r="3" class="share-circle" stroke="currentColor"/>
@@ -2400,7 +2128,7 @@
     </div>
   </div>
 
-  <!-- NAV ROW - PREMIUM SVG ICONS WITH DISTINCT FIXED COLORS -->
+  <!-- NAV ROW -->
   <div class="nav-row-small" id="navRow">
     <span class="nav-small active" id="homeNav">
       <svg class="nav-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2433,9 +2161,8 @@
     </span>
   </div>
 
-  <!-- ===== HOME PAGE GREEN-LINE BOX ===== -->
+  <!-- HOME PAGE GREEN-LINE BOX -->
   <div id="homeGreenBox" class="home-greenbox show">
-    <!-- CHANGE 2: Red Information Name -->
     <div class="info-text">All Yono Games Info is a gaming platform where users can discover different online game apps, categories, features, and download information in one place.</div>
     <div class="tag-wrap" id="greenboxTags"></div>
   </div>
@@ -2525,7 +2252,6 @@
           </div>
         </div>
       </div>
-      <!-- ===== DOWNLOAD SECTION WITH COLOR-ANIMATING BACKGROUND ===== -->
       <div class="detail-download">
         <a href="#" class="download-btn" id="detailDownloadBtn" target="_blank">⬇ Download APK</a>
       </div>
@@ -2557,7 +2283,7 @@
         <div class="toc-right" id="tocArrow">▼</div>
       </div>
       <div class="toc-body" id="tocBody">
-        <div class="toc-item toc-style-1">
+        <div class="toc-item" id="tocItem1">
           <div class="toc-item-head">
             <span class="num">1</span>
             <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="12" y2="12"/></svg></span>
@@ -2565,7 +2291,7 @@
           </div>
           <div class="toc-content" id="toc1Content"><span id="toc1Name2">Game Name</span> is a popular real cash earning app in India where users can play games like rummy, slots, bingo, and spin games to win real money. New users can claim a signup bonus of up to ₹<span id="toc1Bonus">75</span>, making it easy to get started and explore the platform. The app offers a smooth and secure experience with fast UPI deposits and withdrawals.<br><br>The interface of <span id="toc1Name3">Game Name</span> is simple and user-friendly, making it suitable for both beginners and experienced players. You can enjoy daily rewards, referral bonuses, and special events to increase your earnings. The minimum withdrawal starts from ₹<span id="toc1Withdraw">100</span>, and most transactions are processed quickly without delays.<br><br>If you are looking for a trusted gaming app that combines entertainment with real earning opportunities, <span id="toc1Name4">Game Name</span> is a great choice. Download the latest APK version today and start playing to earn real cash rewards from your mobile.</div>
         </div>
-        <div class="toc-item toc-style-2">
+        <div class="toc-item" id="tocItem2">
           <div class="toc-item-head">
             <span class="num">2</span>
             <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
@@ -2582,7 +2308,7 @@
             </ul>
           </div>
         </div>
-        <div class="toc-item toc-style-3">
+        <div class="toc-item" id="tocItem3">
           <div class="toc-item-head">
             <span class="num">3</span>
             <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
@@ -2598,7 +2324,7 @@
             </ul>
           </div>
         </div>
-        <div class="toc-item toc-style-4">
+        <div class="toc-item" id="tocItem4">
           <div class="toc-item-head">
             <span class="num">4</span>
             <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
@@ -2606,7 +2332,7 @@
           </div>
           <div class="toc-content" id="toc4Content"><span id="toc4Name2">Game Name</span> is designed to provide a secure and reliable gaming experience. The app uses standard encryption and protected payment systems to help keep user data and transactions safe.<br><br>Deposits and withdrawals are processed through commonly used methods such as UPI and bank transfer, offering a convenient experience for users in India. However, users are advised to play responsibly and review the app's terms and policies before using it.</div>
         </div>
-        <div class="toc-item toc-style-5">
+        <div class="toc-item" id="tocItem5">
           <div class="toc-item-head">
             <span class="num">5</span>
             <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
@@ -2634,30 +2360,30 @@
         <span>Frequently Asked Questions</span>
       </div>
       <div class="faq-grid">
-        <div class="faq-box faq-style-1">
+        <div class="faq-box" id="faqBox1">
           <div class="faq-q">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
             1. What Is The <span id="faq1Name">Game Name</span> app APK?
           </div>
           <div class="faq-a" id="faq1Content">The <span id="faq1Name2">Game Name</span> APP APK is an excellent application that offers users a sign-up bonus of ₹<span id="faq1Bonus">700</span> when they join. This game includes a fantastic bonus program, and you can learn more by reading the complete post. Additionally, <span id="faq1Name3">Game Name</span> APK is a popular slots game with a minimum withdrawal amount of ₹100. Referral Bonus: ₹<span id="faq1Ref">25</span></div>
         </div>
-        <div class="faq-box faq-style-2">
+        <div class="faq-box" id="faqBox2">
           <div class="faq-q">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
             2. How to Sign Up for <span id="faq2Name">Game Name</span> APK?
           </div>
           <div class="faq-a" id="faq2Content">To sign up for the <span id="faq2Name2">Game Name</span> APK, follow these steps:<br><strong>•</strong> Click on the Download Button for the <span id="faq2Name3">Game Name</span> APK.<br><strong>•</strong> Select OK to start the download.<br><strong>•</strong> Install the App application on your smartphone.<br><strong>•</strong> Open the new app and click on Play as Guest.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br>After completing these steps, you will receive a sign-up bonus of ₹<span id="faq2Bonus">500</span>. Referral Bonus: ₹<span id="faq2Ref">18</span></div>
         </div>
-        <div class="faq-box faq-style-3">
+        <div class="faq-box" id="faqBox3">
           <div class="faq-q">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
             3. How Many Games Are Available In The <span id="faq3Name">Game Name</span> App?
           </div>
           <div class="faq-a" id="faq3Content">The <span id="faq3Name2">Game Name</span> app offers support for 75+ different types of games. You can enjoy a variety of games such as Rummy, Teen Patti, 7 Up Down, Dragon vs Tiger, and many more.</div>
         </div>
-        <div class="faq-box faq-style-4">
+        <div class="faq-box" id="faqBox4">
           <div class="faq-q">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
             4. What are some of the best features of the <span id="faq4Name">Game Name</span> app APK?
           </div>
           <div class="faq-a" id="faq4Content"><strong>•</strong> Enjoy a bonus of ₹<span id="faq4Bonus">51</span> for free in the APK.<br><strong>•</strong> Access to 20 gaming options.<br><strong>•</strong> Earn up to ₹<span id="faq4Bonus2">150</span> for inviting friends.<br><strong>•</strong> Withdrawals can be made starting from a minimum of ₹<span id="faq4Withdraw">500</span>.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br><strong>•</strong> The minimum deposit required is ₹<span id="faq4Deposit">100</span>. Referral Bonus: ₹<span id="faq4Ref">22</span></div>
@@ -2726,7 +2452,7 @@
     </div>
   </div>
 
-  <!-- ===== YONO GAMES INFORMATION SECTION (Home Page) - NO DOWNLOAD BUTTON ===== -->
+  <!-- ===== YONO GAMES INFORMATION SECTION (Home Page) ===== -->
   <div class="yono-info-section" id="yonoInfoSection">
     <div class="yono-info-title">
       <span class="title-icon">
@@ -2736,347 +2462,41 @@
     </div>
     <div class="yono-tags-container" id="yonoTagsContainer"></div>
   </div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Important Responsible Gaming Notice</title>
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 7px;
-  background: #fff;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #111827;
-}
-
-/* ===== PREMIUM COMPACT CARD ===== */
-
-.responsible-card {
-  width: 100%;
-  max-width: 680px;
-  margin: 6px auto;
-  padding: 10px 10px 12px;
-
-  background: #fff;
-  border: 1px solid #e53935;
-  border-radius: 13px;
-
-  box-shadow:
-    0 3px 14px rgba(229, 57, 53, 0.10),
-    0 1px 4px rgba(0, 0, 0, 0.05);
-
-  overflow: hidden;
-}
-
-/* ===== TITLE ===== */
-
-.notice-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-
-  margin: 0 0 7px;
-
-  color: #111827;
-  font-size: 13px;
-  font-weight: 800;
-  line-height: 1.25;
-  text-align: center;
-}
-
-/* ===== SMALL LED WARNING SVG ===== */
-
-.warning-icon {
-  width: 17px;
-  height: 17px;
-  flex: 0 0 17px;
-
-  pointer-events: none;
-  user-select: none;
-
-  animation: ledPulse 1.8s infinite ease-in-out;
-}
-
-@keyframes ledPulse {
-
-  0% {
-    transform: scale(1);
-    filter:
-      drop-shadow(0 0 2px rgba(255,193,7,.55))
-      drop-shadow(0 0 5px rgba(255,152,0,.30));
-  }
-
-  50% {
-    transform: scale(1.06);
-    filter:
-      drop-shadow(0 0 5px rgba(255,235,59,.85))
-      drop-shadow(0 0 10px rgba(255,152,0,.55));
-  }
-
-  100% {
-    transform: scale(1);
-    filter:
-      drop-shadow(0 0 2px rgba(255,193,7,.55))
-      drop-shadow(0 0 5px rgba(255,152,0,.30));
-  }
-}
-
-/* ===== CONTENT ===== */
-
-.notice-content {
-  font-size: 11.5px;
-  line-height: 1.48;
-  color: #1f2937;
-}
-
-.notice-content p {
-  margin: 0 0 7px;
-}
-
-.notice-content p:last-child {
-  margin-bottom: 0;
-}
-
-/* ===== WEBSITE NAME ===== */
-
-.site-name {
-  font-weight: 800;
-  color: #111827;
-}
-
-/* ===== IMPORTANT TEXT ===== */
-
-.important {
-  font-weight: 800;
-  color: #111827;
-}
-
-/* ===== SMALL PREMIUM TAGS ===== */
-
-.info-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px;
-  margin: 7px 0;
-}
-
-.info-tag {
-  display: inline-flex;
-  align-items: center;
-
-  padding: 3px 5px;
-
-  background: #fff;
-  border: 1px solid #e53935;
-  border-radius: 4px;
-
-  color: #b71c1c;
-  font-size: 8.5px;
-  font-weight: 700;
-  line-height: 1.2;
-
-  box-shadow:
-    0 1px 4px rgba(229,57,53,.07);
-}
-
-/* ===== DISCLAIMER ===== */
-
-.disclaimer-link {
-  color: #c62828;
-  font-weight: 800;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* ===== MOBILE ===== */
-
-@media (max-width: 480px) {
-
-  body {
-    padding: 6px;
-  }
-
-  .responsible-card {
-    margin: 5px auto;
-    padding: 9px 9px 11px;
-    border-width: 1px;
-    border-radius: 12px;
-  }
-
-  .notice-title {
-    gap: 5px;
-    margin-bottom: 6px;
-    font-size: 12.5px;
-  }
-
-  .warning-icon {
-    width: 16px;
-    height: 16px;
-    flex-basis: 16px;
-  }
-
-  .notice-content {
-    font-size: 11px;
-    line-height: 1.46;
-  }
-
-  .notice-content p {
-    margin-bottom: 6px;
-  }
-
-  .info-tags {
-    gap: 3px;
-    margin: 6px 0;
-  }
-
-  .info-tag {
-    padding: 2.5px 5px;
-    border-radius: 4px;
-    font-size: 8px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<section class="responsible-card">
-
-  <!-- NON-CLICKABLE WARNING ICON + TITLE -->
-  <h2 class="notice-title">
-
-    <svg
-      class="warning-icon"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      focusable="false">
-
-      <path
-        d="M12 2L1 21H23L12 2Z"
-        fill="url(#grad-amber)"
-        stroke="#FFC107"
-        stroke-width="1.5"
-        stroke-linejoin="round"/>
-
-      <path
-        d="M12 8V13"
-        stroke="#0f172a"
-        stroke-width="2.2"
-        stroke-linecap="round"/>
-
-      <circle
-        cx="12"
-        cy="16.5"
-        r="1.2"
-        fill="#0f172a"/>
-
-      <defs>
-        <linearGradient
-          id="grad-amber"
-          x1="12"
-          y1="2"
-          x2="12"
-          y2="21"
-          gradientUnits="userSpaceOnUse">
-
-          <stop stop-color="#FFEB3B"/>
-          <stop offset="1" stop-color="#FF9800"/>
-
-        </linearGradient>
-      </defs>
-
-    </svg>
-
-    <span>IMPORTANT RESPONSIBLE GAMING NOTICE</span>
-
-  </h2>
-
-
-  <div class="notice-content">
-
-    <p>
-      <span class="site-name">allyonogamesinfo.com</span>
-      is an independent informational website only.
-    </p>
-
-    <p>
-      We do not own, operate, manage, sponsor, or control any
-      Yono-style game app, wallet, deposit system, withdrawal system,
-      bonus system, referral program, or related platform.
-    </p>
-
-
-    <!-- PREMIUM INFORMATION TAGS -->
-
-    <div class="info-tags">
-
-      <span class="info-tag">18+ Only</span>
-
-      <span class="info-tag">Financial Risk</span>
-
-      <span class="info-tag">Independent Information</span>
-
-      <span class="info-tag">Play Responsibly</span>
-
-      <span class="info-tag">Check Local Laws</span>
-
+  <!-- RESPONSIBLE GAMING NOTICE -->
+  <section class="responsible-card">
+    <h2 class="notice-title">
+      <svg class="warning-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <path d="M12 2L1 21H23L12 2Z" fill="url(#grad-amber)" stroke="#FFC107" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M12 8V13" stroke="#0f172a" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="12" cy="16.5" r="1.2" fill="#0f172a"/>
+        <defs>
+          <linearGradient id="grad-amber" x1="12" y1="2" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFEB3B"/>
+            <stop offset="1" stop-color="#FF9800"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span>IMPORTANT RESPONSIBLE GAMING NOTICE</span>
+    </h2>
+    <div class="notice-content">
+      <p><span class="site-name">allyonogamesinfo.com</span> is an independent informational website only.</p>
+      <p>We do not own, operate, manage, sponsor, or control any Yono-style game app, wallet, deposit system, withdrawal system, bonus system, referral program, or related platform.</p>
+      <div class="info-tags">
+        <span class="info-tag">18+ Only</span>
+        <span class="info-tag">Financial Risk</span>
+        <span class="info-tag">Independent Information</span>
+        <span class="info-tag">Play Responsibly</span>
+        <span class="info-tag">Check Local Laws</span>
+      </div>
+      <p>Real-money gaming may involve <span class="important">financial risk</span> and may become addictive. Users who choose to access such platforms should be <span class="important">18+ years old</span>, legally permitted to do so in their region, and capable of making independent financial decisions.</p>
+      <p>Never use borrowed money, loan money, or emergency savings. Always check the laws and regulations applicable to your location before using any third-party platform.</p>
+      <p>Please read our full <span class="disclaimer-link">Disclaimer</span>, privacy policy, and each app's own terms and conditions before using any platform.</p>
+      <p>Bonus, deposit, withdrawal, account restriction, KYC, transaction, customer support, and account-related decisions are controlled solely by the respective app or platform operators.</p>
+      <p><span class="site-name">allyonogamesinfo.com</span> does not guarantee the availability, accuracy, security, performance, withdrawals, bonuses, or services of any third-party platform.</p>
     </div>
+  </section>
 
-
-    <p>
-      Real-money gaming may involve
-      <span class="important">financial risk</span>
-      and may become addictive. Users who choose to access such
-      platforms should be
-      <span class="important">18+ years old</span>,
-      legally permitted to do so in their region, and capable of
-      making independent financial decisions.
-    </p>
-
-    <p>
-      Never use borrowed money, loan money, or emergency savings.
-      Always check the laws and regulations applicable to your
-      location before using any third-party platform.
-    </p>
-
-    <p>
-      Please read our full
-      <span class="disclaimer-link">Disclaimer</span>,
-      privacy policy, and each app's own terms and conditions
-      before using any platform.
-    </p>
-
-    <p>
-      Bonus, deposit, withdrawal, account restriction, KYC,
-      transaction, customer support, and account-related decisions
-      are controlled solely by the respective app or platform
-      operators.
-    </p>
-
-    <p>
-      <span class="site-name">allyonogamesinfo.com</span>
-      does not guarantee the availability, accuracy, security,
-      performance, withdrawals, bonuses, or services of any
-      third-party platform.
-    </p>
-
-  </div>
-
-</section>
-
-</body>
-</html>
   <!-- ===== NEW FOOTER SCROLL TAGS SECTION ===== -->
   <div class="footer-scroll-section">
     <div class="scroll-tags-wrapper">
@@ -3687,89 +3107,70 @@ body {
       return { refBonus: refBonus, refCode: code };
     }
 
-    // ===== UPDATED: UNIQUE TAG STYLES FOR EACH APP =====
     function generateTopOfferTags(gameName, bonus, altName) {
       var seed = gameName.length * 7 + (gameName.charCodeAt(0) || 10);
       var bonusNum = parseInt(bonus.replace('₹', '')) || 45;
-      
-      // Different icon sets for variety
-      const iconSets = [
-        // Set 1: Gift/Star
-        ['<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'],
-        // Set 2: Crown/Diamond
-        ['<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M2 19L12 4L22 19"/><path d="M2 19h20"/><circle cx="8" cy="19" r="2"/><circle cx="16" cy="19" r="2"/></svg>'],
-        // Set 3: Rocket/Boost
-        ['<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>'],
-        // Set 4: Wallet/Cash
-        ['<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>'],
-        // Set 5: Trophy/Award
-        ['<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 9V3h12v6"/><path d="M18 9a4 4 0 0 1-8 0"/><path d="M6 9a4 4 0 0 0 8 0"/><path d="M10 21v-4a4 4 0 0 0-4-4"/><path d="M14 17a4 4 0 0 0-4-4"/><path d="M18 13h4v4a4 4 0 0 1-4-4z"/><path d="M6 13H2v4a4 4 0 0 0 4-4z"/></svg>'],
-        // Set 6: Fire/Hot
-        ['<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2C10 8 4 12 4 16a8 8 0 0 0 16 0c0-4-6-8-8-14z"/><path d="M12 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>']
+      var icons = [
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M6 7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/><line x1="12" y1="2" x2="12" y2="7"/><path d="M8 12h8"/></svg>',
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+        '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
       ];
-
-      // Different style classes for each tag
-      const styleClasses = ['style-1', 'style-2', 'style-3', 'style-4', 'style-5'];
-      
-      // Generate 5 unique tags with different content
-      const tagTemplates = [
+      var b1 = '₹' + (bonusNum + (seed * 3) % 50 + 10);
+      var b2 = '₹' + (bonusNum + (seed * 7) % 40 + 20);
+      var b3 = '₹' + (bonusNum + (seed * 2) % 30 + 30);
+      var b4 = '₹' + (bonusNum + (seed * 5) % 60 + 5);
+      var b5 = '₹' + (bonusNum + (seed * 11) % 45 + 15);
+      var tagTemplates = [
         {
-          title: function(n, b) { return '🎯 ' + n + ' – Claim ' + b + ' Welcome Bonus!'; },
-          content: function(n, b, w) { return 'Play ' + n + ' and get ' + b + ' instant bonus. Enjoy slots, rummy, and more. Minimum withdrawal ₹' + w + '. Refer friends for extra rewards.'; }
+          title: function(n) { return n + ' APK – Get ' + b1 + ' Welcome Bonus!'; },
+          content: function(n) { return 'Play ' + n + ' and claim ' + b1 + ' instantly. Enjoy slots, rummy & more. Refer friends for extra rewards. Start winning today!'; }
         },
         {
-          title: function(n, b) { return '🚀 Download ' + n + ' – ' + b + ' Free for New Users'; },
-          content: function(n, b, w) { return 'Install ' + n + ' APK and receive ' + b + ' free. Play rummy, teen patti, slots. Safe withdrawals from ₹' + w + '. Join today!'; }
+          title: function(n) { return 'Install ' + n + ' – ' + b2 + ' Bonus for New Users'; },
+          content: function(n) { return 'Download ' + n + ' APK, get ' + b2 + ' free. Play rummy, teen patti, slots. Safe withdrawals from ₹100. Join now!'; }
         },
         {
-          title: function(n, b) { return '💰 Sign Up & Get ' + b + ' Bonus in ' + n; },
-          content: function(n, b, w) { return 'New users get ' + b + ' signup bonus in ' + n + '. Play 20+ games including slots and rummy. Fast UPI withdrawals from ₹' + w + '.'; }
+          title: function(n) { return 'Sign Up & Claim ' + b3 + ' Bonus in ' + n; },
+          content: function(n) { return 'New users get ' + b3 + ' signup bonus in ' + n + '. Play 20+ games including slots and rummy. Fast payouts via UPI.'; }
         },
         {
-          title: function(n, b) { return '⭐ ' + n + ' – Free ' + b + ' Jackpot Bonus!'; },
-          content: function(n, b, w) { return 'Get ' + b + ' free bonus in ' + n + '. Daily jackpots, lucky spins, and cash rewards. Minimum withdrawal ₹' + w + '. Install now!'; }
+          title: function(n) { return n + ' – Free ' + b4 + ' Jackpot Bonus!'; },
+          content: function(n) { return 'Get ' + b4 + ' free bonus in ' + n + '. Daily jackpots, lucky spins and cash rewards. Install now and start earning!'; }
         },
         {
-          title: function(n, b) { return '🎁 Claim ' + b + ' Welcome Gift on ' + n; },
-          content: function(n, b, w) { return 'Join ' + n + ' and receive ' + b + ' instant bonus. Play rummy, slots, and teen patti. Withdraw from ₹' + w + ' via UPI.'; }
+          title: function(n) { return 'Claim ' + b5 + ' Welcome Gift on ' + n; },
+          content: function(n) { return 'Join ' + n + ' and receive ' + b5 + ' instant bonus. Play rummy, slots, and teen patti. Minimum withdrawal ₹100.'; }
         }
       ];
-
-      // Shuffle templates for variety
-      const shuffled = tagTemplates.slice();
-      for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      var shuffled = tagTemplates.slice();
+      for (var i = shuffled.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = shuffled[i];
+        shuffled[i] = shuffled[j];
+        shuffled[j] = temp;
       }
-
-      // Generate bonus amounts for each tag
-      const bonusAmounts = [
-        bonus,
-        '₹' + (bonusNum + (seed % 30) + 10),
-        '₹' + (bonusNum + (seed % 40) + 5),
-        '₹' + (bonusNum + (seed % 25) + 15),
-        '₹' + (bonusNum + (seed % 35) + 8)
-      ];
-
-      const results = [];
-      const nameToUse = altName || gameName;
-      const withdrawAmount = '100';
-
-      for (let k = 0; k < 5; k++) {
-        const tpl = shuffled[k % shuffled.length];
-        const iconIdx = (seed + k) % iconSets.length;
-        const styleIdx = (seed + k * 3) % styleClasses.length;
-        const bAmount = bonusAmounts[k % bonusAmounts.length];
-        
-        results.push({
-          icon: iconSets[iconIdx][0],
-          style: styleClasses[styleIdx],
-          title: tpl.title(nameToUse, bAmount),
-          content: tpl.content(nameToUse, bAmount, withdrawAmount)
+      var iconOrder = [0,1,2,3,0,1];
+      var result = [];
+      var nameToUse = altName || gameName;
+      for (var k = 0; k < 5; k++) {
+        var tpl = shuffled[k % shuffled.length];
+        var iconIdx = iconOrder[k % iconOrder.length];
+        var titleText = tpl.title(nameToUse);
+        var contentText = tpl.content(nameToUse);
+        var extraBonus = ['₹' + (bonusNum + (seed * 13) % 30 + 10), '₹' + (bonusNum + (seed * 17) % 25 + 15)];
+        if (k % 2 === 0 && contentText.indexOf(extraBonus[0]) === -1) {
+          contentText = contentText.replace('free', extraBonus[0] + ' free');
+        } else if (k % 3 === 0 && contentText.indexOf(extraBonus[1]) === -1) {
+          contentText = contentText.replace('bonus', 'bonus including ' + extraBonus[1]);
+        }
+        result.push({
+          icon: icons[iconIdx % icons.length],
+          title: titleText,
+          content: contentText
         });
       }
-      
-      return results;
+      return result;
     }
 
     function renderGrid() {
@@ -3798,7 +3199,6 @@ body {
         card.dataset.metaBonus = metaBonus;
         card.dataset.version = version;
 
-        // ===== EXACT SVG ICONS (unchanged) =====
         const giftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display:block; width:100%; height:100%;">
           <path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/>
           <rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/>
@@ -3817,7 +3217,6 @@ body {
           <rect x="2" y="19" width="20" height="2" fill="#1b5e20"/>
         </svg>`;
 
-        // CHANGES 3 & 4: Colors are now applied via CSS (card-bonus and card-withdraw classes)
         const bonusIcon = `<span class="icon-svg">${giftSvg}</span>`;
         const withdrawIcon = `<span class="icon-svg">${bankSvg}</span>`;
 
@@ -3890,13 +3289,12 @@ body {
       var linkUrl = refLinkText.querySelector('.link-url');
       linkUrl.textContent = 'https://www.earntp.com/m/jm9n7r';
 
-      // ===== GENERATE UNIQUE TAG BOXES =====
       var tagContainer = document.getElementById('tagGridContainer');
       tagContainer.innerHTML = '';
       var tagItems = generateTopOfferTags(game.name, game.bonus, game.altName);
-      tagItems.forEach(function(item, idx) {
+      tagItems.forEach(function(item) {
         var box = document.createElement('div');
-        box.className = 'tag-box ' + (item.style || 'style-1');
+        box.className = 'tag-box';
         box.innerHTML = `
           <div class="tag-head">
             <span class="svg-icon">${item.icon}</span>
@@ -3907,14 +3305,34 @@ body {
         tagContainer.appendChild(box);
       });
 
+      // ===== GAME TAGS CONTAINER - NOW VISIBLE =====
       var tagsContainer = document.getElementById('gameTagsContainer');
       tagsContainer.innerHTML = '';
+      // Show related tags for this game (can be customized)
+      var relatedTags = uniqueGames.filter(g => g.name !== game.name).slice(0, 12);
+      relatedTags.forEach(function(g) {
+        var tag = document.createElement('span');
+        tag.className = 'game-tag';
+        tag.textContent = g.name;
+        tag.dataset.name = g.name;
+        tag.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var gData = gameDataMap[this.dataset.name];
+          if (gData) {
+            showDetail(gData);
+          }
+        });
+        tagsContainer.appendChild(tag);
+      });
 
+      // ===== ALL GAMES TAGS - 74 UNIQUE PREMIUM TAGS =====
       var allTagsContainer = document.getElementById('allGamesTagsContainer');
       allTagsContainer.innerHTML = '';
-      uniqueGames.forEach(function(g) {
+      uniqueGames.forEach(function(g, idx) {
         var tag = document.createElement('span');
-        tag.className = 'all-game-tag';
+        // Assign unique style based on index
+        var styleIndex = idx % 20;
+        tag.className = 'all-game-tag tag-style-' + styleIndex;
         tag.textContent = g.name;
         tag.dataset.name = g.name;
         tag.addEventListener('click', function(e) {
@@ -3926,6 +3344,22 @@ body {
         });
         allTagsContainer.appendChild(tag);
       });
+
+      // ===== UNIQUE TOC ITEMS =====
+      for (var i = 1; i <= 5; i++) {
+        var tocItem = document.getElementById('tocItem' + i);
+        if (tocItem) {
+          tocItem.className = 'toc-item unique-toc-' + ((i - 1) % 5);
+        }
+      }
+
+      // ===== UNIQUE FAQ BOXES =====
+      for (var f = 1; f <= 4; f++) {
+        var faqBox = document.getElementById('faqBox' + f);
+        if (faqBox) {
+          faqBox.className = 'faq-box unique-faq-' + ((f - 1) % 4);
+        }
+      }
 
       var gName = game.name;
       var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
