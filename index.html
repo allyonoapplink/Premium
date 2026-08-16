@@ -587,19 +587,84 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-    }
-    .info-row .svg-icon svg {
       width: 18px;
       height: 18px;
-      stroke-width: 2;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    }
+    .info-row .svg-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
     .info-row .label { color: #64748b; font-weight: 500; }
     .info-row .value { font-weight: 700; color: #0b1e33; }
     .info-row.signup .svg-icon svg { stroke: #dc2626; fill: #dc2626; }
     .info-row.withdraw .svg-icon svg { stroke: #16a34a; fill: none; }
+
+    /* PREMIUM GIFT — FAST ₹ → $ → € MONEY POP */
+    .gift-money-icon {
+      width: 120px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+    .gift-money-icon svg {
+      display: block;
+      overflow: visible;
+      width: 100%;
+      height: 100%;
+    }
+    .gift-lid-x {
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+      animation: openFirst .95s ease-in-out infinite;
+    }
+    @keyframes openFirst {
+      0%,18% { transform: rotate(0); }
+      30%,70% { transform: rotate(-22deg); }
+      82%,100% { transform: rotate(0); }
+    }
+    .cash {
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .cash1 { animation: fastMoney .95s ease-out infinite; }
+    .cash2 { animation: fastMoney .95s ease-out infinite; animation-delay: .24s; }
+    .cash3 { animation: fastMoney .95s ease-out infinite; animation-delay: .48s; }
+    @keyframes fastMoney {
+      0%,30% {
+        opacity: 0;
+        transform: translateY(18px) scale(.65) rotate(-3deg);
+      }
+      40% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      65% {
+        opacity: 1;
+        transform: translateY(-22px) scale(1.05) rotate(2deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-42px) scale(.75) rotate(-2deg);
+      }
+    }
+
+    /* SUPER PREMIUM COLORFUL BANK SVG ICON — STATIC */
+    .premium-bank-icon {
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .premium-bank-icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
 
     /* UPDATED VERSION BADGE — shows "Update Version X.Y New" */
     .update-version{
@@ -1410,14 +1475,13 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      width: 16px;
-      height: 16px;
+      width: 20px;
+      height: 20px;
     }
     .card-bonus .icon-svg svg, .card-withdraw .icon-svg svg {
       width: 100%;
       height: 100%;
-      stroke: none;
-      fill: none;
+      display: block;
     }
     .card-bonus { color: #dc2626; }
     .card-bonus .label { color: #dc2626; font-weight: 600; }
@@ -1477,7 +1541,7 @@
       .card-withdraw { font-size: 0.45rem; }
       .card-download-sm { padding: 8px 16px 8px 12px !important; font-size: 0.65rem !important; gap: 6px !important; min-width: 80px; }
       .card-download-sm::before { width: 15px; height: 15px; }
-      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 14px; height: 14px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 18px; height: 18px; }
     }
     @media (max-width: 360px) {
       .card-img { width: 52px; height: 46px; margin-left: 22px; margin-right: 14px; }
@@ -1487,13 +1551,13 @@
       .card-withdraw { font-size: 0.4rem; }
       .card-download-sm { padding: 6px 12px 6px 10px !important; font-size: 0.55rem !important; gap: 4px !important; min-width: 65px; }
       .card-download-sm::before { width: 12px; height: 12px; }
-      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 12px; height: 12px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 16px; height: 16px; }
     }
     @media (min-width: 769px) {
       .card-img { width: 76px; height: 68px; margin-left: 32px; margin-right: 24px; }
       .card-download-sm { padding: 12px 28px 12px 20px !important; font-size: 0.85rem !important; gap: 10px !important; min-width: 130px; }
       .card-download-sm::before { width: 20px; height: 20px; }
-      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 18px; height: 18px; }
+      .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 22px; height: 22px; }
     }
     .footer-note {
       padding: 10px 10px 8px 10px;
@@ -2060,14 +2124,115 @@
           <div class="game-sub">
             <div class="info-row signup">
               <span class="svg-icon">
-                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/></svg>
+                <!-- PREMIUM GIFT SVG — FAST ₹ → $ → € MONEY POP -->
+                <svg viewBox="0 0 120 140" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="giftGoldX" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#FFE66D"/>
+                      <stop offset="50%" stop-color="#FFB300"/>
+                      <stop offset="100%" stop-color="#E88900"/>
+                    </linearGradient>
+                    <linearGradient id="giftRedX" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#FF5278"/>
+                      <stop offset="100%" stop-color="#C90035"/>
+                    </linearGradient>
+                    <linearGradient id="moneyGreenX" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#B8FFD9"/>
+                      <stop offset="50%" stop-color="#00D978"/>
+                      <stop offset="100%" stop-color="#008B50"/>
+                    </linearGradient>
+                    <linearGradient id="moneyBlueX" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#B9E8FF"/>
+                      <stop offset="50%" stop-color="#2196F3"/>
+                      <stop offset="100%" stop-color="#0756C9"/>
+                    </linearGradient>
+                    <linearGradient id="moneyGoldX" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#FFF2A8"/>
+                      <stop offset="50%" stop-color="#FFD000"/>
+                      <stop offset="100%" stop-color="#D88900"/>
+                    </linearGradient>
+                  </defs>
+                  <g class="cash cash1">
+                    <rect x="47" y="40" width="26" height="14" rx="3" fill="url(#moneyGreenX)" stroke="#E8FFF2" stroke-width="1.5"/>
+                    <circle cx="60" cy="47" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+                    <text x="60" y="49.5" text-anchor="middle" font-size="6" font-weight="900" fill="#FFFFFF">₹</text>
+                  </g>
+                  <g class="cash cash2">
+                    <rect x="47" y="40" width="26" height="14" rx="3" fill="url(#moneyBlueX)" stroke="#E8F7FF" stroke-width="1.5"/>
+                    <circle cx="60" cy="47" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+                    <text x="60" y="49.5" text-anchor="middle" font-size="7" font-weight="900" fill="#FFFFFF">$</text>
+                  </g>
+                  <g class="cash cash3">
+                    <rect x="47" y="40" width="26" height="14" rx="3" fill="url(#moneyGoldX)" stroke="#FFFBE0" stroke-width="1.5"/>
+                    <circle cx="60" cy="47" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+                    <text x="60" y="49.5" text-anchor="middle" font-size="7" font-weight="900" fill="#FFFFFF">€</text>
+                  </g>
+                  <rect x="25" y="62" width="70" height="50" rx="7" fill="url(#giftGoldX)" stroke="#FFF1A8" stroke-width="2"/>
+                  <rect x="55" y="62" width="10" height="50" rx="2" fill="url(#giftRedX)"/>
+                  <rect x="25" y="75" width="70" height="10" rx="2" fill="url(#giftRedX)"/>
+                  <g class="gift-lid-x">
+                    <rect x="24" y="43" width="72" height="20" rx="5" fill="url(#giftGoldX)" stroke="#FFF1A8" stroke-width="2"/>
+                    <rect x="55" y="43" width="10" height="20" rx="2" fill="url(#giftRedX)"/>
+                    <path d="M60 43C45 31 35 35 39 43 C43 50 52 47 60 43Z" fill="url(#giftRedX)"/>
+                    <path d="M60 43C75 31 85 35 81 43 C77 50 68 47 60 43Z" fill="url(#giftRedX)"/>
+                  </g>
+                  <path d="M34 91V103" stroke="#FFF8D0" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+                </svg>
               </span>
               <span class="label">Sign Up Bonus</span>
               <span class="value" id="detailSignupText">₹45</span>
             </div>
             <div class="info-row withdraw">
               <span class="svg-icon">
-                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/></svg>
+                <!-- SUPER PREMIUM COLORFUL BANK SVG ICON — STATIC -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" aria-label="Premium Bank">
+                  <defs>
+                    <linearGradient id="roofRainbow" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#00E5FF"/>
+                      <stop offset="30%" stop-color="#4169FF"/>
+                      <stop offset="65%" stop-color="#9C42FF"/>
+                      <stop offset="100%" stop-color="#FF3CAC"/>
+                    </linearGradient>
+                    <linearGradient id="buildingRainbow" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#00D4FF"/>
+                      <stop offset="35%" stop-color="#007BFF"/>
+                      <stop offset="70%" stop-color="#6C3BFF"/>
+                      <stop offset="100%" stop-color="#B51EFF"/>
+                    </linearGradient>
+                    <linearGradient id="goldPremium" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#FFF7A8"/>
+                      <stop offset="35%" stop-color="#FFD84D"/>
+                      <stop offset="70%" stop-color="#FF9F1C"/>
+                      <stop offset="100%" stop-color="#E05A00"/>
+                    </linearGradient>
+                    <linearGradient id="columnGlass" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#FFFFFF"/>
+                      <stop offset="45%" stop-color="#B8F7FF"/>
+                      <stop offset="100%" stop-color="#6CDEFF"/>
+                    </linearGradient>
+                    <filter id="premiumGlow">
+                      <feGaussianBlur stdDeviation="2" result="blur"/>
+                      <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path d="M10 35L50 10L90 35Z" fill="url(#roofRainbow)" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" filter="url(#premiumGlow)"/>
+                  <path d="M21 31L50 14L79 31" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+                  <rect x="14" y="34" width="72" height="48" rx="6" fill="url(#buildingRainbow)" stroke="#8FEFFF" stroke-width="2.5"/>
+                  <rect x="20" y="42" width="12" height="31" rx="3" fill="url(#columnGlass)" stroke="#FFFFFF" stroke-width="1.5"/>
+                  <rect x="44" y="42" width="12" height="31" rx="3" fill="url(#columnGlass)" stroke="#FFFFFF" stroke-width="1.5"/>
+                  <rect x="68" y="42" width="12" height="31" rx="3" fill="url(#columnGlass)" stroke="#FFFFFF" stroke-width="1.5"/>
+                  <path d="M23 45V68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+                  <path d="M47 45V68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+                  <path d="M71 45V68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+                  <rect x="8" y="75" width="84" height="10" rx="4" fill="url(#goldPremium)" stroke="#FFF4A0" stroke-width="2"/>
+                  <circle cx="50" cy="23" r="9" fill="url(#goldPremium)" stroke="#FFF8C4" stroke-width="2" filter="url(#premiumGlow)"/>
+                  <text x="50" y="27" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6B25B8">₹</text>
+                  <path d="M12 48L16 52L12 56L8 52Z" fill="#00FFD5"/>
+                  <path d="M88 48L92 52L88 56L84 52Z" fill="#FFD84D"/>
+                </svg>
               </span>
               <span class="label">Min. Withdraw</span>
               <span class="value" id="detailWithdrawText">₹100</span>
@@ -3244,22 +3409,109 @@
         card.dataset.metaBonus = metaBonus;
         card.dataset.version = version;
 
-        const giftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display:block; width:100%; height:100%;">
-          <path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/>
-          <rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/>
-          <rect x="4" y="11" width="16" height="10" rx="1" fill="#F44336"/>
-          <rect x="11" y="8" width="2" height="13" fill="#FFD700"/>
-          <rect x="3" y="9" width="18" height="1" fill="#FFD700"/>
+        // PREMIUM GIFT SVG — FAST ₹ → $ → € MONEY POP (scaled for card)
+        const giftSvg = `<svg viewBox="0 0 120 140" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="giftGoldX_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFE66D"/>
+              <stop offset="50%" stop-color="#FFB300"/>
+              <stop offset="100%" stop-color="#E88900"/>
+            </linearGradient>
+            <linearGradient id="giftRedX_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FF5278"/>
+              <stop offset="100%" stop-color="#C90035"/>
+            </linearGradient>
+            <linearGradient id="moneyGreenX_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B8FFD9"/>
+              <stop offset="50%" stop-color="#00D978"/>
+              <stop offset="100%" stop-color="#008B50"/>
+            </linearGradient>
+            <linearGradient id="moneyBlueX_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B9E8FF"/>
+              <stop offset="50%" stop-color="#2196F3"/>
+              <stop offset="100%" stop-color="#0756C9"/>
+            </linearGradient>
+            <linearGradient id="moneyGoldX_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFF2A8"/>
+              <stop offset="50%" stop-color="#FFD000"/>
+              <stop offset="100%" stop-color="#D88900"/>
+            </linearGradient>
+          </defs>
+          <g class="cash cash1">
+            <rect x="47" y="40" width="26" height="14" rx="3" fill="url(#moneyGreenX_${index})" stroke="#E8FFF2" stroke-width="1.5"/>
+            <circle cx="60" cy="47" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+            <text x="60" y="49.5" text-anchor="middle" font-size="6" font-weight="900" fill="#FFFFFF">₹</text>
+          </g>
+          <g class="cash cash2">
+            <rect x="47" y="40" width="26" height="14" rx="3" fill="url(#moneyBlueX_${index})" stroke="#E8F7FF" stroke-width="1.5"/>
+            <circle cx="60" cy="47" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+            <text x="60" y="49.5" text-anchor="middle" font-size="7" font-weight="900" fill="#FFFFFF">$</text>
+          </g>
+          <g class="cash cash3">
+            <rect x="47" y="40" width="26" height="14" rx="3" fill="url(#moneyGoldX_${index})" stroke="#FFFBE0" stroke-width="1.5"/>
+            <circle cx="60" cy="47" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+            <text x="60" y="49.5" text-anchor="middle" font-size="7" font-weight="900" fill="#FFFFFF">€</text>
+          </g>
+          <rect x="25" y="62" width="70" height="50" rx="7" fill="url(#giftGoldX_${index})" stroke="#FFF1A8" stroke-width="2"/>
+          <rect x="55" y="62" width="10" height="50" rx="2" fill="url(#giftRedX_${index})"/>
+          <rect x="25" y="75" width="70" height="10" rx="2" fill="url(#giftRedX_${index})"/>
+          <g class="gift-lid-x">
+            <rect x="24" y="43" width="72" height="20" rx="5" fill="url(#giftGoldX_${index})" stroke="#FFF1A8" stroke-width="2"/>
+            <rect x="55" y="43" width="10" height="20" rx="2" fill="url(#giftRedX_${index})"/>
+            <path d="M60 43C45 31 35 35 39 43 C43 50 52 47 60 43Z" fill="url(#giftRedX_${index})"/>
+            <path d="M60 43C75 31 85 35 81 43 C77 50 68 47 60 43Z" fill="url(#giftRedX_${index})"/>
+          </g>
+          <path d="M34 91V103" stroke="#FFF8D0" stroke-width="3" stroke-linecap="round" opacity=".85"/>
         </svg>`;
 
-        const bankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="display:block; width:100%; height:100%;">
-          <path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/>
-          <path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/>
-          <rect x="4" y="11" width="2" height="8" fill="#2e7d32"/>
-          <rect x="9" y="11" width="2" height="8" fill="#2e7d32"/>
-          <rect x="14" y="11" width="2" height="8" fill="#2e7d32"/>
-          <rect x="18" y="11" width="2" height="8" fill="#2e7d32"/>
-          <rect x="2" y="19" width="20" height="2" fill="#1b5e20"/>
+        // SUPER PREMIUM COLORFUL BANK SVG ICON — STATIC (scaled for card)
+        const bankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" aria-label="Premium Bank">
+          <defs>
+            <linearGradient id="roofRainbow_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00E5FF"/>
+              <stop offset="30%" stop-color="#4169FF"/>
+              <stop offset="65%" stop-color="#9C42FF"/>
+              <stop offset="100%" stop-color="#FF3CAC"/>
+            </linearGradient>
+            <linearGradient id="buildingRainbow_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00D4FF"/>
+              <stop offset="35%" stop-color="#007BFF"/>
+              <stop offset="70%" stop-color="#6C3BFF"/>
+              <stop offset="100%" stop-color="#B51EFF"/>
+            </linearGradient>
+            <linearGradient id="goldPremium_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFF7A8"/>
+              <stop offset="35%" stop-color="#FFD84D"/>
+              <stop offset="70%" stop-color="#FF9F1C"/>
+              <stop offset="100%" stop-color="#E05A00"/>
+            </linearGradient>
+            <linearGradient id="columnGlass_${index}" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="45%" stop-color="#B8F7FF"/>
+              <stop offset="100%" stop-color="#6CDEFF"/>
+            </linearGradient>
+            <filter id="premiumGlow_${index}">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <path d="M10 35L50 10L90 35Z" fill="url(#roofRainbow_${index})" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" filter="url(#premiumGlow_${index})"/>
+          <path d="M21 31L50 14L79 31" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+          <rect x="14" y="34" width="72" height="48" rx="6" fill="url(#buildingRainbow_${index})" stroke="#8FEFFF" stroke-width="2.5"/>
+          <rect x="20" y="42" width="12" height="31" rx="3" fill="url(#columnGlass_${index})" stroke="#FFFFFF" stroke-width="1.5"/>
+          <rect x="44" y="42" width="12" height="31" rx="3" fill="url(#columnGlass_${index})" stroke="#FFFFFF" stroke-width="1.5"/>
+          <rect x="68" y="42" width="12" height="31" rx="3" fill="url(#columnGlass_${index})" stroke="#FFFFFF" stroke-width="1.5"/>
+          <path d="M23 45V68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+          <path d="M47 45V68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+          <path d="M71 45V68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+          <rect x="8" y="75" width="84" height="10" rx="4" fill="url(#goldPremium_${index})" stroke="#FFF4A0" stroke-width="2"/>
+          <circle cx="50" cy="23" r="9" fill="url(#goldPremium_${index})" stroke="#FFF8C4" stroke-width="2" filter="url(#premiumGlow_${index})"/>
+          <text x="50" y="27" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6B25B8">₹</text>
+          <path d="M12 48L16 52L12 56L8 52Z" fill="#00FFD5"/>
+          <path d="M88 48L92 52L88 56L84 52Z" fill="#FFD84D"/>
         </svg>`;
 
         const bonusIcon = `<span class="icon-svg">${giftSvg}</span>`;
