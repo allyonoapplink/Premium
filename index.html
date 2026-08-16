@@ -730,70 +730,100 @@
     }
     .meta-item.size .svg-icon svg { stroke: #000000; }
     .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
-    .detail-download {
-      margin-top: 12px;
-      padding: 10px;
-      border-radius: 60px;
-      background: #000000;
-      animation: downloadBgCycle 12s ease-in-out infinite;
-      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+
+    /* OLD DETAIL DOWNLOAD STYLES REMOVED — NEW BUTTON STYLES ADDED BELOW */
+    .apk-download-btn{
+      position:relative;
+      isolation:isolate;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      min-height:58px;
+      padding:11px 27px;
+      background:
+        radial-gradient(circle at 0 0,#00FFFF 0,transparent 42%),
+        radial-gradient(circle at 100% 0,#087CFF 0,transparent 42%),
+        radial-gradient(circle at 0 100%,#00E676 0,transparent 42%),
+        radial-gradient(circle at 100% 100%,#FFD600 0,transparent 42%),
+        #00DDEB;
+      border:2px solid transparent;
+      border-radius:15px;
+      width:100%;
+      cursor:pointer;
+      transition:transform 0.2s ease;
     }
-    @keyframes downloadBgCycle {
-      0% { background: #000000; box-shadow: 0 0 30px rgba(0,0,0,0.3), 0 0 60px rgba(0,0,0,0.1); }
-      16% { background: #00cc44; box-shadow: 0 0 40px rgba(0,204,68,0.4), 0 0 80px rgba(0,204,68,0.15); }
-      33% { background: #00bcd4; box-shadow: 0 0 40px rgba(0,188,212,0.4), 0 0 80px rgba(0,188,212,0.15); }
-      50% { background: #e74c3c; box-shadow: 0 0 40px rgba(231,76,60,0.4), 0 0 80px rgba(231,76,60,0.15); }
-      66% { background: #3498db; box-shadow: 0 0 40px rgba(52,152,219,0.4), 0 0 80px rgba(52,152,219,0.15); }
-      83% { background: #f1c40f; box-shadow: 0 0 40px rgba(241,196,15,0.4), 0 0 80px rgba(241,196,15,0.15); }
-      100% { background: #000000; box-shadow: 0 0 30px rgba(0,0,0,0.3), 0 0 60px rgba(0,0,0,0.1); }
+
+    .apk-download-btn::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      padding:2px;
+      border-radius:17px;
+      background:linear-gradient(
+        90deg,#087CFF,#FFD600,#111,#00FFFF,#FFD600,#087CFF
+      );
+      background-size:300% 100%;
+      animation:hdLine 1.2s linear infinite;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+      z-index:-1;
     }
-    .detail-download .download-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: #000000;
-      color: #ffffff;
-      border: 2px solid #00ff00;
-      padding: 12px 20px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      width: 100%;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      transition: all 0.4s ease;
-      position: relative;
-      box-shadow: 0 0 15px rgba(0,255,0,0.3), 0 0 30px rgba(0,188,212,0.1);
-      animation: ledGlowPulse 3s ease-in-out infinite;
+
+    @keyframes hdLine{
+      to{background-position:300% 0}
     }
-    .detail-download .download-btn::before {
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ff00' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      line-height: 1;
-      flex-shrink: 0;
-      filter: drop-shadow(0 0 6px rgba(0,255,0,0.6));
-      transition: all 0.4s ease;
+
+    .download-icon{
+      flex:none;
+      filter:
+        drop-shadow(0 0 3px #00FFFF)
+        drop-shadow(0 0 6px #00E5FF);
+      animation:svgHDGlow 1.1s ease-in-out infinite alternate;
     }
-    .detail-download .download-btn:hover {
-      transform: scale(1.02) translateY(-2px);
-      border-color: #00ffff;
-      box-shadow: 0 0 30px rgba(0,255,0,0.6), 0 0 60px rgba(0,188,212,0.4), 0 0 90px rgba(0,255,255,0.2);
-      background: #0a0a0a;
+
+    @keyframes svgHDGlow{
+      from{
+        filter:
+          drop-shadow(0 0 2px #00FFFF)
+          drop-shadow(0 0 5px rgba(0,255,255,.55));
+      }
+      to{
+        filter:
+          drop-shadow(0 0 5px #00FFFF)
+          drop-shadow(0 0 11px rgba(0,255,255,.9));
+      }
     }
-    .detail-download .download-btn:hover::before {
-      filter: drop-shadow(0 0 12px rgba(0,255,255,0.9));
-      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+
+    .apk-download-btn span{
+      font-size:18px;
+      font-weight:850;
+      background:linear-gradient(
+        90deg,
+        #00FF66,#00FFFF,#008CFF,#7C3CFF,
+        #FF1493,#FF3030,#FFD600,#00FF66
+      );
+      background-size:400% 100%;
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      animation:nameHD 1.8s linear infinite;
     }
-    .detail-download .download-btn:active { transform: scale(0.96); }
-    @keyframes ledGlowPulse {
-      0% { box-shadow:0 0 15px rgba(0,255,0,0.3),0 0 30px rgba(0,188,212,0.1); border-color:#00ff00; }
-      50% { box-shadow:0 0 30px rgba(0,255,0,0.6),0 0 60px rgba(0,188,212,0.3),0 0 80px rgba(0,255,255,0.15); border-color:#00ffff; }
-      100% { box-shadow:0 0 15px rgba(0,255,0,0.3),0 0 30px rgba(0,188,212,0.1); border-color:#00ff00; }
+
+    @keyframes nameHD{
+      to{background-position:400% 50%}
     }
+
+    .apk-download-btn:hover {
+      transform: scale(1.02);
+    }
+    .apk-download-btn:active {
+      transform: scale(0.98);
+    }
+
     .apk-download-line {
       text-align: center;
       margin-top: 8px;
@@ -804,6 +834,7 @@
     }
     .apk-download-line .apk-label { color: #64748b; font-weight: 500; }
     .apk-download-line .apk-bonus { color: #dc2626; font-weight: 700; font-size: 0.8rem; }
+
     .referral-section {
       padding: 10px;
       background: #f8fafc;
@@ -1557,47 +1588,41 @@
       .info-tag { padding: 2.5px 5px; border-radius: 4px; font-size: 8px; }
     }
 
-    /* System Requirements */
+    /* System Requirements (unchanged) */
     .system-requirements{
       max-width:1100px;
       margin:28px auto;
       padding:0 18px;
       font-family:Inter,Arial,sans-serif
     }
-
     .sr-title{
       display:flex;
       align-items:center;
       gap:13px;
       margin-bottom:22px
     }
-
     .sr-title h2{
       margin:0;
       font-size:42px;
       color:#17243a
     }
-
     .sr-title-icon{
       width:42px;
       height:42px;
       color:#6f35d8
     }
-
     .sr-title-icon svg,
     .sr-icon svg{
       width:100%;
       height:100%;
       display:block
     }
-
     .sr-card{
       padding:30px 68px;
       background:linear-gradient(145deg,#fafafa,#f4f4f4);
       border-radius:28px;
       box-shadow:0 12px 35px #1414280f
     }
-
     .sr-row{
       min-height:78px;
       display:flex;
@@ -1605,7 +1630,6 @@
       justify-content:space-between;
       gap:25px
     }
-
     .sr-label{
       display:flex;
       align-items:center;
@@ -1614,52 +1638,42 @@
       font-weight:650;
       color:#111
     }
-
     .sr-row strong{
       font-size:29px;
       color:#111
     }
-
     .sr-icon{
       width:30px;
       height:30px;
       display:block;
       flex:none
     }
-
     .android-icon{color:#43a047}
     .ram-icon{color:#2563eb}
     .storage-icon{color:#059669}
     .internet-icon{color:#0891b2}
     .screen-icon{color:#d97706}
-
     .sr-line{
       height:3px;
       margin:8px 0;
       border-radius:20px
     }
-
     .l1{background:#8b3ff0}
     .l2{background:#18bde5}
     .l3{background:#20c990}
     .l4{background:#f5b21b}
-
     .w{
       animation:wifi 1.8s ease-in-out infinite
     }
-
     .w2{
       animation-delay:.22s
     }
-
     .w3{
       animation-delay:.44s
     }
-
     .wd{
       animation:dot 1.8s infinite
     }
-
     @keyframes wifi{
       0%,100%{
         transform:translateY(3px);
@@ -1670,7 +1684,6 @@
         opacity:1
       }
     }
-
     @keyframes dot{
       0%{
         transform:scale(.65);
@@ -1685,69 +1698,54 @@
         opacity:.45
       }
     }
-
     @media(max-width:700px){
-
       .system-requirements{
         padding:0 12px;
         margin:20px auto
       }
-
       .sr-title h2{
         font-size:27px
       }
-
       .sr-title-icon{
         width:30px;
         height:30px
       }
-
       .sr-card{
         padding:18px;
         border-radius:20px
       }
-
       .sr-row{
         min-height:64px;
         gap:12px
       }
-
       .sr-label,
       .sr-row strong{
         font-size:16px
       }
-
       .sr-label{
         gap:9px
       }
-
       .sr-icon{
         width:23px;
         height:23px
       }
-
       .sr-line{
         height:2px;
         margin:5px 0
       }
     }
-
     @media(max-width:380px){
-
       .sr-card{
         padding:15px 13px
       }
-
       .sr-label,
       .sr-row strong{
         font-size:14px
       }
-
       .sr-icon{
         width:20px;
         height:20px
       }
-
       .sr-title h2{
         font-size:23px
       }
@@ -1911,9 +1909,39 @@
           </div>
         </div>
       </div>
-      <div class="detail-download">
-        <a href="#" class="download-btn" id="detailDownloadBtn" target="_blank">⬇ Download APK</a>
-      </div>
+
+      <!-- NEW DOWNLOAD BUTTON (replaces old .detail-download) -->
+      <button class="apk-download-btn" id="detailDownloadBtn">
+        <svg class="download-icon" viewBox="0 0 64 64" width="32" height="32"
+             xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="iconHDColor" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%"   stop-color="#00FFFF"/>
+              <stop offset="25%"  stop-color="#00FF88"/>
+              <stop offset="50%"  stop-color="#FFD600"/>
+              <stop offset="75%"  stop-color="#FF3B30"/>
+              <stop offset="100%" stop-color="#087CFF"/>
+            </linearGradient>
+          </defs>
+          <path d="M32 7V39M17 28L32 43L47 28"
+                fill="none"
+                stroke="url(#iconHDColor)"
+                stroke-width="7"
+                stroke-linecap="round"
+                stroke-linejoin="round"/>
+          <path d="M10 45V51
+                   Q10 58 17 58
+                   H47
+                   Q54 58 54 51
+                   V45"
+                fill="none"
+                stroke="url(#iconHDColor)"
+                stroke-width="5"
+                stroke-linecap="round"/>
+        </svg>
+        <span>Download APK</span>
+      </button>
+
       <div class="apk-download-line">
         <span class="apk-label">APK Download – Get</span>
         <span class="apk-bonus" id="apkBonusLine">₹45</span>
@@ -1946,7 +1974,6 @@
       </div>
 
       <div class="sr-card">
-
         <div class="sr-row">
           <div class="sr-label">
             <i class="sr-icon android-icon">
@@ -2041,7 +2068,6 @@
           </div>
           <strong>4.5&quot; or larger</strong>
         </div>
-
       </div>
     </section>
 
@@ -2899,7 +2925,14 @@
       document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
       document.getElementById('detailSize').textContent = game.size;
       document.getElementById('detailVotes').textContent = game.votes;
-      document.getElementById('detailDownloadBtn').href = game.downloadUrl;
+
+      // Set the new button's onclick to open the download URL
+      const downloadBtn = document.getElementById('detailDownloadBtn');
+      downloadBtn.onclick = function(e) {
+        e.preventDefault();
+        window.open(game.downloadUrl, '_blank');
+        return false;
+      };
 
       document.getElementById('apkBonusLine').textContent = game.bonus;
 
