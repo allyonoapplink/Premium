@@ -729,19 +729,47 @@
     }
     /* END ORIGINAL RATING STARS */
 
+    /* VOICE ICON — Speaker with Sound Waves */
+    .voice-box{
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
+      margin-left:2px;
+    }
+    .voice-icon{
+      flex:none;
+      width:22px;
+      height:22px;
+      filter:drop-shadow(0 0 4px rgba(0,180,255,0.3));
+    }
+    .voice-number{
+      font-size:0.7rem;
+      font-weight:700;
+      color:#0b1e33;
+      letter-spacing:0.2px;
+    }
+    /* END VOICE ICON */
+
     /* ORIGINAL APK SIZE — Premium Non-LED SVG Icon */
     .apk-size-box{
       display:inline-flex;
       align-items:center;
-      gap:8px;
+      gap:6px;
       white-space:nowrap;
     }
     .apk-size-icon{
       flex:none;
+      width:28px;
+      height:28px;
       filter:drop-shadow(0 2px 3px rgba(0,0,0,.28));
     }
     .apk-size-name{
-      font-size:0.75rem;
+      font-size:0.7rem;
+      font-weight:700;
+      color:#0b1e33;
+    }
+    .apk-size-value{
+      font-size:0.7rem;
       font-weight:700;
       color:#0b1e33;
     }
@@ -750,7 +778,7 @@
     .meta-block {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
       margin-top: 10px;
       padding-top: 10px;
       border-top: 1px solid #e9edf4;
@@ -783,59 +811,19 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    .meta-row .meta-item .label { color: #64748b; font-weight: 400; }
-    .meta-row .meta-item .value { font-weight: 700; }
+    .meta-row .meta-item .label { color: #64748b; font-weight: 500; }
+    .meta-row .meta-item .value { font-weight: 700; color: #0b1e33; }
     .meta-item.rating .rating-container {
       display: flex;
       align-items: center;
       gap: 4px;
+      flex-wrap: wrap;
     }
     .meta-item.rating .rating-label { font-weight: 600; color: #0b1e33; order: 1; }
     .meta-item.rating .rating-value { font-weight: 700; font-size: 0.75rem; color: #0b1e33; order: 2; }
-    .meta-item.rating .stars { display: flex; gap: 2px; align-items: center; order: 3; }
-    .meta-item.rating .stars .star-wrapper {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      width: 18px;
-      height: 18px;
-      overflow: visible;
-    }
-    .meta-item.rating .stars .star-wrapper svg {
-      width: 100%;
-      height: 100%;
-      stroke: #00cc44;
-      fill: transparent;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      filter: drop-shadow(0 0 3px rgba(0,204,68,0.15));
-      transition: none;
-    }
-    .meta-item.rating .stars .star-wrapper.filled svg {
-      fill: #00cc44;
-      stroke: #00cc44;
-      filter: drop-shadow(0 0 6px rgba(0,204,68,0.5));
-      animation: starFillPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    }
-    .meta-item.rating .stars .star-wrapper.half svg {
-      fill: #00cc44;
-      stroke: #00cc44;
-      filter: drop-shadow(0 0 4px rgba(0,204,68,0.3));
-    }
-    .meta-item.rating .stars .star-wrapper.filled:nth-child(1) { animation-delay: 0s; }
-    .meta-item.rating .stars .star-wrapper.filled:nth-child(2) { animation-delay: 0.08s; }
-    .meta-item.rating .stars .star-wrapper.filled:nth-child(3) { animation-delay: 0.16s; }
-    .meta-item.rating .stars .star-wrapper.filled:nth-child(4) { animation-delay: 0.24s; }
-    .meta-item.rating .stars .star-wrapper.filled:nth-child(5) { animation-delay: 0.32s; }
-    @keyframes starFillPop {
-      0% { transform: scale(0) rotate(-30deg); opacity: 0; fill: transparent; }
-      40% { transform: scale(1.3) rotate(5deg); opacity: 1; fill: #00cc44; filter: drop-shadow(0 0 15px rgba(0,204,68,0.7)); }
-      70% { transform: scale(0.9) rotate(-3deg); }
-      100% { transform: scale(1) rotate(0deg); opacity: 1; fill: #00cc44; filter: drop-shadow(0 0 6px rgba(0,204,68,0.5)); }
-    }
-    .meta-item.size .svg-icon svg { stroke: #000000; }
+    .meta-item.rating .rating-stars { order: 3; }
+    .meta-item.rating .voice-box { order: 4; }
+    .meta-item.size .apk-size-box { display:inline-flex; align-items:center; gap:6px; }
     .meta-item.votes .svg-icon svg { stroke: #6c5ce7; }
 
     /* OLD DETAIL DOWNLOAD STYLES REMOVED — NEW BUTTON STYLES ADDED BELOW */
@@ -2005,6 +1993,7 @@
           </div>
           <div class="meta-block">
             <div class="meta-row">
+              <!-- LINE 1: Rating + number → 4 Star → SVG Voice icon + voice number -->
               <span class="meta-item rating">
                 <span class="rating-container">
                   <span class="rating-label">Rating</span>
@@ -2018,11 +2007,29 @@
                       <span>★</span>
                     </span>
                   </span>
-                  <!-- END ORIGINAL RATING STARS -->
+                  <!-- VOICE ICON + NUMBER -->
+                  <span class="voice-box">
+                    <svg class="voice-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="voiceGrad" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#00E5FF"/>
+                          <stop offset="100%" stop-color="#087CFF"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M11 5L6 9H2V15H6L11 19V5Z" fill="url(#voiceGrad)" stroke="url(#voiceGrad)" stroke-width="1.5" stroke-linejoin="round"/>
+                      <path d="M15.5 8.5C16.8 9.8 16.8 12.2 15.5 13.5" stroke="url(#voiceGrad)" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M18 6C20 8 20 13 18 15" stroke="url(#voiceGrad)" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M12 13V16" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="voice-number" id="detailVoiceNumber">2.4K</span>
+                  </span>
+                  <!-- END VOICE ICON -->
                 </span>
               </span>
+            </div>
+            <div class="meta-row">
+              <!-- LINE 2: Original SVG icon → APK Size name + MB size -->
               <span class="meta-item size">
-                <!-- ORIGINAL APK SIZE — Premium Non-LED SVG Icon -->
                 <span class="apk-size-box">
                   <svg class="apk-size-icon" viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg" aria-label="APK Size">
                     <defs>
@@ -2038,11 +2045,9 @@
                   </svg>
                   <span class="apk-size-name">APK Size</span>
                 </span>
-                <!-- END ORIGINAL APK SIZE -->
-                <span class="value" id="detailSize">55 MB</span>
+                <span class="apk-size-value" id="detailSize">55 MB</span>
               </span>
-            </div>
-            <div class="meta-row">
+              <!-- Votes kept unchanged -->
               <span class="meta-item votes">
                 <span class="svg-icon">
                   <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -2515,9 +2520,40 @@
       versionNumbers.push(version);
     }
 
+    // Generate unique voice numbers (e.g., "1.2K", "3.4K", etc.)
+    const voiceNumbers = [];
+    const usedVoice = new Set();
+    for (let i = 0; i < uniqueGames.length; i++) {
+      let num, voice;
+      let attempts = 0;
+      do {
+        num = (Math.random() * 8 + 0.5).toFixed(1);
+        voice = num + 'K';
+        attempts++;
+      } while (usedVoice.has(voice) && attempts < 100);
+      usedVoice.add(voice);
+      voiceNumbers.push(voice);
+    }
+
+    // Generate unique APK sizes (e.g., "42 MB", "68 MB", etc.)
+    const apkSizes = [];
+    const usedSizes = new Set();
+    for (let i = 0; i < uniqueGames.length; i++) {
+      let size;
+      let attempts = 0;
+      do {
+        size = Math.floor(Math.random() * 60 + 25) + ' MB';
+        attempts++;
+      } while (usedSizes.has(size) && attempts < 100);
+      usedSizes.add(size);
+      apkSizes.push(size);
+    }
+
     var gameDataMap = {};
     uniqueGames.forEach(function(g, idx) {
       var seed = g.name.length * 7 + g.name.charCodeAt(0);
+      var ratingVal = (3 + (seed % 5) / 10).toFixed(1);
+      if (parseFloat(ratingVal) > 4.9) ratingVal = '4.8';
       gameDataMap[g.name] = {
         name: g.name,
         altName: g.altName || g.name,
@@ -2525,11 +2561,12 @@
         withdrawal: g.withdrawal,
         downloadUrl: g.downloadUrl,
         img: g.img,
-        rating: (3 + (seed % 5) / 10).toFixed(1),
-        size: (30 + (seed % 40)) + ' MB',
+        rating: ratingVal,
+        size: apkSizes[idx] || (30 + (seed % 40)) + ' MB',
         votes: Math.floor(100 + (seed * 137) % 49900),
         metaBonus: '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed % 20) + 5),
-        version: versionNumbers[idx] || '1.0'
+        version: versionNumbers[idx] || '1.0',
+        voice: voiceNumbers[idx] || '1.2K'
       };
     });
 
@@ -2904,11 +2941,6 @@
       }
     });
 
-    function generateStars(rating) {
-      // This is kept for compatibility but we now use the round stars animation
-      return '';
-    }
-
     function generateReferralData(gameName, bonus) {
       var seed = gameName.length * 7 + gameName.charCodeAt(0);
       var refBonus = 15 + (seed % 35);
@@ -2990,7 +3022,7 @@
         var seed = game.name.length * 7 + game.name.charCodeAt(0);
         var ratingVal = (3 + (seed % 5) / 10).toFixed(1);
         if (parseFloat(ratingVal) > 4.9) ratingVal = '4.8';
-        var sizeVal = (30 + (seed % 40)) + ' MB';
+        var sizeVal = apkSizes[index] || (30 + (seed % 40)) + ' MB';
         var votesVal = Math.floor(100 + (seed * 137) % 49900);
         var bonusNum = parseInt(game.bonus.replace('₹', '')) || 45;
         var metaBonus = '₹' + (bonusNum + (seed % 20) + 5);
@@ -3081,19 +3113,25 @@
       document.getElementById('detailSignupText').textContent = game.bonus;
       document.getElementById('detailWithdrawText').textContent = game.withdrawal;
 
-      // Set the unique version number in the badge (format X.Y)
+      // Set unique version number
       const versionSpan = document.getElementById('updateNumberSpan');
       if (versionSpan) {
         versionSpan.textContent = game.version;
       }
 
+      // Set unique rating, voice number, APK size
       var ratingVal = parseFloat(game.rating) || 3.0;
-      // We don't need to generate stars via JS anymore, they are static HTML with animation
       document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
       document.getElementById('detailSize').textContent = game.size;
       document.getElementById('detailVotes').textContent = game.votes;
 
-      // Set the new button's onclick to open the download URL
+      // Set unique voice number
+      const voiceSpan = document.getElementById('detailVoiceNumber');
+      if (voiceSpan) {
+        voiceSpan.textContent = game.voice || '1.2K';
+      }
+
+      // Set the download button
       const downloadBtn = document.getElementById('detailDownloadBtn');
       downloadBtn.onclick = function(e) {
         e.preventDefault();
@@ -3136,7 +3174,7 @@
         var seed3 = g.name.length * 7 + g.name.charCodeAt(0);
         var r = (3 + (seed3 % 5) / 10).toFixed(1);
         if (parseFloat(r) > 4.9) r = '4.8';
-        var s = (30 + (seed3 % 40)) + ' MB';
+        var s = apkSizes[uniqueGames.indexOf(g)] || (30 + (seed3 % 40)) + ' MB';
         var v = Math.floor(100 + (seed3 * 137) % 49900);
         var mb = '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed3 % 20) + 5);
         var ver = versionNumbers[uniqueGames.indexOf(g)] || '1.0';
