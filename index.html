@@ -1557,61 +1557,200 @@
       .info-tag { padding: 2.5px 5px; border-radius: 4px; font-size: 8px; }
     }
 
-    /* System Requirements styles - isolated */
-    .system-requirements {
-      padding: 10px 14px;
-      background: #f8fafc;
-      border-top: 1px solid #e9edf4;
-      border-bottom: 1px solid #e9edf4;
-      margin: 0;
+    /* System Requirements */
+    .system-requirements{
+      max-width:1100px;
+      margin:28px auto;
+      padding:0 18px;
+      font-family:Inter,Arial,sans-serif
     }
-    .system-requirements .req-title {
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #0b1e33;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+
+    .sr-title{
+      display:flex;
+      align-items:center;
+      gap:13px;
+      margin-bottom:22px
     }
-    .system-requirements .req-title .req-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
+
+    .sr-title h2{
+      margin:0;
+      font-size:42px;
+      color:#17243a
     }
-    .system-requirements .req-title .req-icon svg {
-      width: 18px;
-      height: 18px;
-      stroke: #2563eb;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+
+    .sr-title-icon{
+      width:42px;
+      height:42px;
+      color:#6f35d8
     }
-    .system-requirements .req-list {
-      list-style: none;
-      padding: 0;
-      margin: 4px 0 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 16px;
+
+    .sr-title-icon svg,
+    .sr-icon svg{
+      width:100%;
+      height:100%;
+      display:block
     }
-    .system-requirements .req-list li {
-      font-size: 0.7rem;
-      color: #1e293b;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+
+    .sr-card{
+      padding:30px 68px;
+      background:linear-gradient(145deg,#fafafa,#f4f4f4);
+      border-radius:28px;
+      box-shadow:0 12px 35px #1414280f
     }
-    .system-requirements .req-list li strong {
-      font-weight: 600;
-      color: #0b1e33;
+
+    .sr-row{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px
     }
-    @media (max-width: 480px) {
-      .system-requirements .req-list li { font-size: 0.6rem; }
+
+    .sr-label{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      font-size:29px;
+      font-weight:650;
+      color:#111
+    }
+
+    .sr-row strong{
+      font-size:29px;
+      color:#111
+    }
+
+    .sr-icon{
+      width:30px;
+      height:30px;
+      display:block;
+      flex:none
+    }
+
+    .android-icon{color:#43a047}
+    .ram-icon{color:#2563eb}
+    .storage-icon{color:#059669}
+    .internet-icon{color:#0891b2}
+    .screen-icon{color:#d97706}
+
+    .sr-line{
+      height:3px;
+      margin:8px 0;
+      border-radius:20px
+    }
+
+    .l1{background:#8b3ff0}
+    .l2{background:#18bde5}
+    .l3{background:#20c990}
+    .l4{background:#f5b21b}
+
+    .w{
+      animation:wifi 1.8s ease-in-out infinite
+    }
+
+    .w2{
+      animation-delay:.22s
+    }
+
+    .w3{
+      animation-delay:.44s
+    }
+
+    .wd{
+      animation:dot 1.8s infinite
+    }
+
+    @keyframes wifi{
+      0%,100%{
+        transform:translateY(3px);
+        opacity:.25
+      }
+      50%{
+        transform:translateY(0);
+        opacity:1
+      }
+    }
+
+    @keyframes dot{
+      0%{
+        transform:scale(.65);
+        opacity:.35
+      }
+      50%{
+        transform:scale(1);
+        opacity:1
+      }
+      100%{
+        transform:scale(.75);
+        opacity:.45
+      }
+    }
+
+    @media(max-width:700px){
+
+      .system-requirements{
+        padding:0 12px;
+        margin:20px auto
+      }
+
+      .sr-title h2{
+        font-size:27px
+      }
+
+      .sr-title-icon{
+        width:30px;
+        height:30px
+      }
+
+      .sr-card{
+        padding:18px;
+        border-radius:20px
+      }
+
+      .sr-row{
+        min-height:64px;
+        gap:12px
+      }
+
+      .sr-label,
+      .sr-row strong{
+        font-size:16px
+      }
+
+      .sr-label{
+        gap:9px
+      }
+
+      .sr-icon{
+        width:23px;
+        height:23px
+      }
+
+      .sr-line{
+        height:2px;
+        margin:5px 0
+      }
+    }
+
+    @media(max-width:380px){
+
+      .sr-card{
+        padding:15px 13px
+      }
+
+      .sr-label,
+      .sr-row strong{
+        font-size:14px
+      }
+
+      .sr-icon{
+        width:20px;
+        height:20px
+      }
+
+      .sr-title h2{
+        font-size:23px
+      }
     }
   </style>
 </head>
@@ -1792,21 +1931,118 @@
       <div class="tag-grid" id="tagGridContainer"></div>
     </div>
 
-    <!-- NEW SYSTEM REQUIREMENTS SECTION (inserted immediately above Refer & Earn) -->
+    <!-- SYSTEM REQUIREMENTS -->
     <section class="system-requirements">
-      <div class="req-title">
-        <span class="req-icon">
-          <svg viewBox="0 0 24 24" stroke="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <div class="sr-title">
+        <span class="sr-title-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Z"
+                  fill="none" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M19.4 13.5a7.7 7.7 0 0 0 0-3l2-1.5-2-3.4-2.3.9a7.5 7.5 0 0 0-2.6-1.5L14.2 2H9.8l-.3 3a7.5 7.5 0 0 0-2.6 1.5l-2.3-.9-2 3.4 2 1.5a7.7 7.7 0 0 0 0 3l-2 1.5 2 3.4 2.3-.9a7.5 7.5 0 0 0 2.6 1.5l.3 3h4.4l.3-3a7.5 7.5 0 0 0 2.6-1.5l2.3.9 2-3.4-2-1.5Z"
+                  fill="none" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
         </span>
-        <span>System Requirements</span>
+        <h2>System Requirements</h2>
       </div>
-      <ul class="req-list">
-        <li><strong>Android</strong> — 5.0 and above</li>
-        <li><strong>Minimum RAM</strong> — 2GB</li>
-        <li><strong>Free Storage</strong> — 100MB Free</li>
-        <li><strong>Internet</strong> — WiFi or 4G/5G</li>
-        <li><strong>Screen Size</strong> — 4.5" or larger</li>
-      </ul>
+
+      <div class="sr-card">
+
+        <div class="sr-row">
+          <div class="sr-label">
+            <i class="sr-icon android-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.5 8.2h9A2.5 2.5 0 0 1 19 10.7v6.1A2.2 2.2 0 0 1 16.8 19H7.2A2.2 2.2 0 0 1 5 16.8v-6.1A2.5 2.5 0 0 1 7.5 8.2Z"
+                      fill="currentColor"/>
+                <path d="M8.2 7.8 6.5 5.3M15.8 7.8l1.7-2.5"
+                      fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="9" cy="11.5" r=".8" fill="#fff"/>
+                <circle cx="15" cy="11.5" r=".8" fill="#fff"/>
+              </svg>
+            </i>
+            Android
+          </div>
+          <strong>5.0 and above</strong>
+        </div>
+
+        <div class="sr-line l1"></div>
+
+        <div class="sr-row">
+          <div class="sr-label">
+            <i class="sr-icon ram-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="4" y="7" width="16" height="10" rx="2"
+                      fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 10h2v4H8zm6 0h2v4h-2zM7 4v3M11 4v3M15 4v3M19 4v3M7 17v3M11 17v3M15 17v3M19 17v3"
+                      fill="none" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </i>
+            Minimum RAM
+          </div>
+          <strong>2GB</strong>
+        </div>
+
+        <div class="sr-line l2"></div>
+
+        <div class="sr-row">
+          <div class="sr-label">
+            <i class="sr-icon storage-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M5 5.5A2.5 2.5 0 0 1 7.5 3h9A2.5 2.5 0 0 1 19 5.5v13A2.5 2.5 0 0 1 16.5 21h-9A2.5 2.5 0 0 1 5 18.5Z"
+                      fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M8 7h8M8 17h8"
+                      stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="16" cy="12" r="1" fill="currentColor"/>
+              </svg>
+            </i>
+            Free Storage
+          </div>
+          <strong>100MB Free</strong>
+        </div>
+
+        <div class="sr-line l3"></div>
+
+        <div class="sr-row">
+          <div class="sr-label">
+            <i class="sr-icon internet-icon">
+              <svg viewBox="0 0 24 24">
+                <path class="w w1"
+                      d="M3.5 9.5a13 13 0 0 1 17 0"
+                      fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round"/>
+                <path class="w w2"
+                      d="M6.5 13a8.5 8.5 0 0 1 11 0"
+                      fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round"/>
+                <path class="w w3"
+                      d="M9.5 16.5a4 4 0 0 1 5 0"
+                      fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round"/>
+                <circle class="wd" cx="12" cy="20" r="1.5"
+                        fill="currentColor"/>
+              </svg>
+            </i>
+            Internet
+          </div>
+          <strong>WiFi or 4G/5G</strong>
+        </div>
+
+        <div class="sr-line l4"></div>
+
+        <div class="sr-row">
+          <div class="sr-label">
+            <i class="sr-icon screen-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="4" y="3" width="16" height="18" rx="3"
+                      fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="17.5" r="1" fill="currentColor"/>
+              </svg>
+            </i>
+            Screen Size
+          </div>
+          <strong>4.5&quot; or larger</strong>
+        </div>
+
+      </div>
     </section>
 
     <div class="referral-section" id="referralSection">
