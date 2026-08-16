@@ -684,6 +684,73 @@
     }
     /* END UPDATE VERSION BADGE */
 
+    /* APK SIZE BOX — ORIGINAL PREMIUM FOLDER ICON */
+    .apk-size-box{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+    .apk-size-icon{
+      flex:none;
+      width: 32px;
+      height: 32px;
+      filter:
+        drop-shadow(0 0 3px rgba(0,232,154,.75))
+        drop-shadow(0 0 8px rgba(0,184,107,.45));
+    }
+    .apk-size-name{
+      font-size:17px;
+      font-weight:850;
+      color:#FFFFFF;
+    }
+    /* END APK SIZE BOX */
+
+    /* RATING STARS — ORIGINAL ROUND MOTION ONE-BY-ONE */
+    .rating-stars{
+      width:125px;
+      height:34px;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+    }
+    .stars{
+      display:flex;
+      gap:3px;
+    }
+    .stars span{
+      width:27px;
+      flex:0 0 27px;
+      text-align:center;
+      font-size:25px;
+      line-height:1;
+      color:#FFD700;
+      opacity:0;
+      transform:translateX(-30px) rotate(-180deg) scale(.55);
+      filter:drop-shadow(0 0 5px rgba(255,210,0,.6));
+    }
+    .stars span.active{
+      animation:roundStar .65s cubic-bezier(.2,.8,.2,1) forwards;
+    }
+    @keyframes roundStar{
+      0%{
+        opacity:0;
+        transform:translateX(-30px) rotate(-180deg) scale(.55);
+      }
+      45%{
+        opacity:1;
+        transform:translateX(6px) rotate(45deg) scale(1.12);
+      }
+      75%{
+        transform:translateX(-2px) rotate(-10deg) scale(1.04);
+      }
+      100%{
+        opacity:1;
+        transform:translateX(0) rotate(0deg) scale(1);
+      }
+    }
+    /* END RATING STARS */
+
     .meta-block {
       display: flex;
       flex-direction: column;
@@ -1946,18 +2013,38 @@
                 <span class="rating-container">
                   <span class="rating-label">Rating</span>
                   <span class="rating-value" id="detailRating">4.5</span>
-                  <span class="stars" id="detailStars"></span>
+                  <!-- ORIGINAL 4-STAR ROUND MOTION -->
+                  <div class="rating-stars">
+                    <div class="stars" id="roundStars">
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                      <span>★</span>
+                    </div>
+                  </div>
+                  <!-- END ORIGINAL 4-STAR -->
                 </span>
               </span>
               <span class="meta-item size">
-                <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:20px; height:20px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="7 10 12 15 17 10"/>
-                    <line x1="12" y1="15" x2="12" y2="3"/>
+                <!-- ORIGINAL APK SIZE BOX — PREMIUM FOLDER ICON -->
+                <div class="apk-size-box">
+                  <svg class="apk-size-icon" viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="apkFileSizeHD" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%"   stop-color="#B8FFE5"/>
+                        <stop offset="35%"  stop-color="#00E89A"/>
+                        <stop offset="65%"  stop-color="#00B86B"/>
+                        <stop offset="100%" stop-color="#007A4D"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M7 18 Q7 13 12 13 H27 L33 20 H52 Q57 20 57 25 V48 Q57 54 51 54 H13 Q7 54 7 48Z"
+                          fill="url(#apkFileSizeHD)" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+                    <path d="M12 25H48" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>
+                    <path d="M32 27V42 M25 36L32 43L39 36" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                </span>
-                <span class="label">APK Size</span>
+                  <span class="apk-size-name">APK File Size</span>
+                </div>
+                <!-- END ORIGINAL APK SIZE -->
                 <span class="value" id="detailSize">55 MB</span>
               </span>
             </div>
@@ -2400,14 +2487,13 @@
 
     // Generate unique version numbers in format X.Y for each game
     const versionNumbers = [];
-    // Create 74 unique version numbers with format X.Y
     const usedVersions = new Set();
     for (let i = 0; i < uniqueGames.length; i++) {
       let major, minor, version;
       let attempts = 0;
       do {
-        major = Math.floor(Math.random() * 9) + 1; // 1-9
-        minor = Math.floor(Math.random() * 10); // 0-9
+        major = Math.floor(Math.random() * 9) + 1;
+        minor = Math.floor(Math.random() * 10);
         version = major + '.' + minor;
         attempts++;
       } while (usedVersions.has(version) && attempts < 100);
@@ -3001,8 +3087,6 @@
       }
 
       var ratingVal = parseFloat(game.rating) || 3.0;
-      document.getElementById('detailStars').innerHTML = generateStars(ratingVal);
-      document.getElementById('detailRating').textContent = ratingVal.toFixed(1);
       document.getElementById('detailSize').textContent = game.size;
       document.getElementById('detailVotes').textContent = game.votes;
 
@@ -3103,6 +3187,22 @@
         pushHistory({ page: 'detail', game: game.name }, game.name, location.href);
       }
     }
+
+    // ORIGINAL ROUND STAR ANIMATION
+    function runRoundStars() {
+      const roundStars = document.querySelectorAll("#roundStars span");
+      roundStars.forEach(star => star.classList.remove("active"));
+      roundStars.forEach((star, i) => {
+        setTimeout(() => {
+          star.classList.add("active");
+        }, 250 + i * 420);
+      });
+      setTimeout(() => {
+        roundStars.forEach(star => star.classList.remove("active"));
+        setTimeout(runRoundStars, 300);
+      }, 250 + 4 * 420 + 1000);
+    }
+    runRoundStars();
 
     var shareClickCount = 0;
     document.getElementById('shareBtn').addEventListener('click', function() {
