@@ -987,49 +987,6 @@
       .ref-link-row .ref-link-text { font-size: 0.7rem; }
       .ref-link-row { padding: 10px 18px 10px 16px; }
     }
-    .game-tags-section {
-      padding: 10px;
-      background: white;
-      border-top: 1px solid #e9edf4;
-    }
-    .game-tags-section .game-tags-title {
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #0b1e33;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .game-tags-container {
-      display: flex !important;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .game-tag {
-      background: #f1f5f9;
-      color: #1e293b;
-      padding: 4px 14px;
-      border-radius: 30px;
-      font-size: 0.55rem;
-      font-weight: 600;
-      border: 1px solid #e2e8f0;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      white-space: nowrap;
-    }
-    .game-tag:hover {
-      background: #1e293b;
-      color: #ffffff;
-      border-color: #1e293b;
-      transform: scale(1.04);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .game-tag:active { transform: scale(0.94); }
     .tag-section { padding: 10px; background: #f8fafc; border-top: 1px solid #e9edf4; }
     .tag-section .tag-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .tag-grid { display: flex; flex-direction: column; gap: 6px; }
@@ -1038,14 +995,6 @@
     .tag-box .tag-head .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; flex-shrink: 0; }
     .tag-box .tag-head .svg-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
     .tag-box .tag-content { font-size: 0.7rem; color: #334155; line-height: 1.6; }
-    .faq-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
-    .faq-section .faq-title { font-weight: 700; font-size: 0.85rem; color: #0b1e33; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .faq-grid { display: flex; flex-direction: column; gap: 6px; }
-    .faq-box { background: #f8fafc; border-radius: 12px; padding: 10px 12px; border: 1px solid #e9edf4; }
-    .faq-box .faq-q { font-weight: 700; font-size: 0.75rem; color: #0b1e33; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
-    .faq-box .faq-q .svg-icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; flex-shrink: 0; }
-    .faq-box .faq-q .svg-icon svg { width: 14px; height: 14px; stroke: #e74c3c; fill: none; stroke-width: 2; }
-    .faq-box .faq-a { font-size: 0.65rem; color: #334155; line-height: 1.5; }
     .related-section { padding: 10px; background: white; border-top: 1px solid #e9edf4; }
     .related-title { font-weight: 700; font-size: 0.8rem; color: #0b1e33; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
     .related-grid { display: flex; flex-direction: column; gap: 5px; }
@@ -1786,45 +1735,6 @@
       <div class="tag-grid" id="tagGridContainer"></div>
     </div>
 
-    <div class="faq-section">
-      <div class="faq-title">
-        <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#f39c12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </span>
-        <span>Frequently Asked Questions</span>
-      </div>
-      <div class="faq-grid">
-        <div class="faq-box" id="faqBox1">
-          <div class="faq-q">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-            1. What Is The <span id="faq1Name">Game Name</span> app APK?
-          </div>
-          <div class="faq-a" id="faq1Content">The <span id="faq1Name2">Game Name</span> APP APK is an excellent application that offers users a sign-up bonus of ₹<span id="faq1Bonus">700</span> when they join. This game includes a fantastic bonus program, and you can learn more by reading the complete post. Additionally, <span id="faq1Name3">Game Name</span> APK is a popular slots game with a minimum withdrawal amount of ₹100. Referral Bonus: ₹<span id="faq1Ref">25</span></div>
-        </div>
-        <div class="faq-box" id="faqBox2">
-          <div class="faq-q">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-            2. How to Sign Up for <span id="faq2Name">Game Name</span> APK?
-          </div>
-          <div class="faq-a" id="faq2Content">To sign up for the <span id="faq2Name2">Game Name</span> APK, follow these steps:<br><strong>•</strong> Click on the Download Button for the <span id="faq2Name3">Game Name</span> APK.<br><strong>•</strong> Select OK to start the download.<br><strong>•</strong> Install the App application on your smartphone.<br><strong>•</strong> Open the new app and click on Play as Guest.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br>After completing these steps, you will receive a sign-up bonus of ₹<span id="faq2Bonus">500</span>. Referral Bonus: ₹<span id="faq2Ref">18</span></div>
-        </div>
-        <div class="faq-box" id="faqBox3">
-          <div class="faq-q">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-            3. How Many Games Are Available In The <span id="faq3Name">Game Name</span> App?
-          </div>
-          <div class="faq-a" id="faq3Content">The <span id="faq3Name2">Game Name</span> app offers support for 75+ different types of games. You can enjoy a variety of games such as Rummy, Teen Patti, 7 Up Down, Dragon vs Tiger, and many more.</div>
-        </div>
-        <div class="faq-box" id="faqBox4">
-          <div class="faq-q">
-            <span class="svg-icon"><svg viewBox="0 0 24 24" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-            4. What are some of the best features of the <span id="faq4Name">Game Name</span> app APK?
-          </div>
-          <div class="faq-a" id="faq4Content"><strong>•</strong> Enjoy a bonus of ₹<span id="faq4Bonus">51</span> for free in the APK.<br><strong>•</strong> Access to 20 gaming options.<br><strong>•</strong> Earn up to ₹<span id="faq4Bonus2">150</span> for inviting friends.<br><strong>•</strong> Withdrawals can be made starting from a minimum of ₹<span id="faq4Withdraw">500</span>.<br><strong>•</strong> Click on the Profile Button and bind your mobile number.<br><strong>•</strong> The minimum deposit required is ₹<span id="faq4Deposit">100</span>. Referral Bonus: ₹<span id="faq4Ref">22</span></div>
-        </div>
-      </div>
-    </div>
-
     <div class="referral-section" id="referralSection">
       <div class="referral-title">
         <span class="title-icon">
@@ -1852,16 +1762,6 @@
           </span>
         </a>
       </div>
-    </div>
-
-    <div class="game-tags-section">
-      <div class="game-tags-title">
-        <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#00cc44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-        </span>
-        <span>Game Tags</span>
-      </div>
-      <div class="game-tags-container" id="gameTagsContainer"></div>
     </div>
 
     <div class="related-section">
@@ -2717,68 +2617,6 @@
         `;
         tagContainer.appendChild(box);
       });
-
-      var tagsContainer = document.getElementById('gameTagsContainer');
-      tagsContainer.innerHTML = '';
-      var relatedTags = uniqueGames.filter(g => g.name !== game.name).slice(0, 12);
-      relatedTags.forEach(function(g) {
-        var tag = document.createElement('span');
-        tag.className = 'game-tag';
-        tag.textContent = g.name;
-        tag.dataset.name = g.name;
-        tag.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var gData = gameDataMap[this.dataset.name];
-          if (gData) {
-            showDetail(gData);
-          }
-        });
-        tagsContainer.appendChild(tag);
-      });
-
-      for (var f = 1; f <= 4; f++) {
-        var faqBox = document.getElementById('faqBox' + f);
-        if (faqBox) {
-          faqBox.className = 'faq-box unique-faq-' + ((f - 1) % 4);
-        }
-      }
-
-      var gName = game.name;
-      var seed = gName.length * 7 + (gName.charCodeAt(0) || 10);
-      var b = {
-        tag1: 20 + (seed * 3) % 880, tag2: 20 + (seed * 7) % 880,
-        tag3: 20 + (seed * 2) % 880, tag3b: 20 + (seed * 4) % 880,
-        tag4: 20 + (seed * 5) % 880, tag5: 20 + (seed * 6) % 880,
-        faq1: 20 + (seed * 11) % 880, faq2: 20 + (seed * 9) % 880,
-        faq4: 20 + (seed * 3) % 880, faq4b: 20 + (seed * 7) % 880,
-        faq4w: 20 + (seed * 8) % 880, faq4d: 20 + (seed * 2) % 880,
-        ref1: 5 + (seed * 2) % 20, ref2: 5 + (seed * 3) % 20,
-        ref3: 5 + (seed * 4) % 20, ref4: 5 + (seed * 5) % 20,
-        ref5: 5 + (seed * 6) % 20, refFaq1: 5 + (seed * 7) % 20,
-        refFaq2: 5 + (seed * 8) % 20, refFaq4: 5 + (seed * 9) % 20,
-        toc1Bonus: 50 + (seed * 3) % 50, toc2Bonus1: 50 + (seed * 4) % 50,
-        toc3Bonus: 50 + (seed * 5) % 50, toc5Bonus1: 50 + (seed * 6) % 50,
-        tocWithdraw: 100 + (seed * 2) % 50
-      };
-
-      document.getElementById('faq1Name').textContent = gName;
-      document.getElementById('faq1Name2').textContent = gName;
-      document.getElementById('faq1Name3').textContent = gName;
-      document.getElementById('faq1Bonus').textContent = b.faq1;
-      document.getElementById('faq1Ref').textContent = b.refFaq1;
-      document.getElementById('faq2Name').textContent = gName;
-      document.getElementById('faq2Name2').textContent = gName;
-      document.getElementById('faq2Name3').textContent = gName;
-      document.getElementById('faq2Bonus').textContent = b.faq2;
-      document.getElementById('faq2Ref').textContent = b.refFaq2;
-      document.getElementById('faq3Name').textContent = gName;
-      document.getElementById('faq3Name2').textContent = gName;
-      document.getElementById('faq4Name').textContent = gName;
-      document.getElementById('faq4Bonus').textContent = b.faq4;
-      document.getElementById('faq4Bonus2').textContent = b.faq4b;
-      document.getElementById('faq4Withdraw').textContent = b.faq4w;
-      document.getElementById('faq4Deposit').textContent = b.faq4d;
-      document.getElementById('faq4Ref').textContent = b.refFaq4;
 
       var relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
