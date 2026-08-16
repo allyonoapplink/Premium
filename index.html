@@ -1556,6 +1556,63 @@
       .info-tags { gap: 3px; margin: 6px 0; }
       .info-tag { padding: 2.5px 5px; border-radius: 4px; font-size: 8px; }
     }
+
+    /* System Requirements styles - isolated */
+    .system-requirements {
+      padding: 10px 14px;
+      background: #f8fafc;
+      border-top: 1px solid #e9edf4;
+      border-bottom: 1px solid #e9edf4;
+      margin: 0;
+    }
+    .system-requirements .req-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #0b1e33;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .system-requirements .req-title .req-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+    .system-requirements .req-title .req-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #2563eb;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .system-requirements .req-list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+    }
+    .system-requirements .req-list li {
+      font-size: 0.7rem;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .system-requirements .req-list li strong {
+      font-weight: 600;
+      color: #0b1e33;
+    }
+    @media (max-width: 480px) {
+      .system-requirements .req-list li { font-size: 0.6rem; }
+    }
   </style>
 </head>
 <body>
@@ -1734,6 +1791,23 @@
       </div>
       <div class="tag-grid" id="tagGridContainer"></div>
     </div>
+
+    <!-- NEW SYSTEM REQUIREMENTS SECTION (inserted immediately above Refer & Earn) -->
+    <section class="system-requirements">
+      <div class="req-title">
+        <span class="req-icon">
+          <svg viewBox="0 0 24 24" stroke="currentColor"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </span>
+        <span>System Requirements</span>
+      </div>
+      <ul class="req-list">
+        <li><strong>Android</strong> — 5.0 and above</li>
+        <li><strong>Minimum RAM</strong> — 2GB</li>
+        <li><strong>Free Storage</strong> — 100MB Free</li>
+        <li><strong>Internet</strong> — WiFi or 4G/5G</li>
+        <li><strong>Screen Size</strong> — 4.5" or larger</li>
+      </ul>
+    </section>
 
     <div class="referral-section" id="referralSection">
       <div class="referral-title">
