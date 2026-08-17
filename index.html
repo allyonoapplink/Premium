@@ -9,78 +9,171 @@
   <meta name="keywords" content="YONO NEW APP, All Yono Apk, All Yono New, All Yono Games, Yono Games, 567 SLOTS, 567 SLOTS Game, JAIHO 91, JAIHO 91 APK, RUMMY LUDO, RUMMY LUDO Game, ABC RUMMY, ABC RUMMY APK, RUMMY 91, RUMMY 91 Game, LOVE RUMMY, LOVE RUMMY APK, BINGO 101, BINGO 101 Game, YONO 777, YONO 777 APK, SAGA SLOTS, SAGA SLOTS Game, SPIN CRUSH, SPIN CRUSH APK, TOP RUMMY, TOP RUMMY Game, Hello Rummy, Hello Rummy APK, RUMMY 365, RUMMY 365 Game, TEEN PATTI GOLD, TEEN PATTI GOLD APK, TEEN PATTI MASTER, TEEN PATTI MASTER Game, YONO RUMMY, YONO RUMMY APK, SLOTS WINNER, SLOTS WINNER Game, GOOD SLOTS, GOOD SLOTS APK, Diwa Slot, Diwa Slot Game, GOGO RUMMY, GOGO RUMMY APK, JOY RUMMY, JOY RUMMY Game, SPIN GOLD, SPIN GOLD APK, YES SPIN, YES SPIN Game, YONO ARCADE, YONO ARCADE APK, SVIP 777, SVIP 777 Game, OK RUMMY, OK RUMMY APK, HINDI 777, HINDI 777 Game, BET 213, BET 213 APK, BOSS RUMMY, BOSS RUMMY Game, YONO 777, YONO 777 APK, Diwa VIP, Diwa VIP Game, Diwa 777, Diwa 777 APK, INR RUMMY, INR RUMMY Game, MBM BET, MBM BET APK, GOA SPIN, GOA SPIN Game, 777 GAME, 777 GAME APK, TEEN PATTI, TEEN PATTI Game, SPIN WINNER, SPIN WINNER APK, YONO All GAMES, YONO All GAMES Game, SPIN LUCKY, SPIN LUCKY APK, MAX RUMMY, RANI SLOTS, 1GO PLUS, RUMMY ULTRA, 789 JACKPOTS, JAIHO WIN, SLOTS SPIN, NETA VIP, JAIHO 777 VIP, DHAN GAME, DIWA GAME, BET 54 GAMES, ALL YONO APPS, T989 APPS, 765 CLUB, MKM BET APK, YN 777, SPIN 777, RUMMY 888, RUMMY 77, MQM BET, MAHA GAMES, IND RUMMY, Hi RUMMY, INR RUMMY, JAIHO SPIN, JAIHO RUMMY, YONO SLOTS, Diwa Win, RUMBLE RUMMY, YONO VIP, best rummy app, top casino games, real cash games, yono games download, rummy apk, teen patti apk, slots game, online earning app, UPI withdrawal, 18+ gaming">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://YonoGamesPoint.com/">
-  
-  <!-- PREMIUM FAST-LOADING IMAGE SETUP -->
   <link rel="preload" as="image" href="https://i.ibb.co/XTFNccf/1785915333592.jpg" fetchpriority="high">
-  <link rel="preconnect" href="https://i.ibb.co">
-  <link rel="dns-prefetch" href="https://i.ibb.co">
+  
+  <!-- Force all images to load immediately, no lazy loading -->
   <style>
-    /* SMOOTH SCROLLING & PREMIUM SCROLL BEHAVIOR */
+    /* Force all images to load immediately */
+    img {
+      loading: eager !important;
+      -webkit-loading: eager !important;
+    }
+    /* Slow scroll speed by 40% */
     html {
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
+      scroll-behavior: auto !important;
     }
     body {
+      scroll-behavior: auto !important;
+    }
+    * {
+      scroll-behavior: auto !important;
+    }
+    /* Ensure header elements are always visible */
+    .fixed-header-wrapper {
+      visibility: visible !important;
+      opacity: 1 !important;
+      display: block !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      z-index: 1000 !important;
       background: #ffffff !important;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      /* Mobile scroll speed control: 40% slower, smooth */
-      scroll-behavior: smooth;
-      -webkit-scroll-behavior: smooth;
-      overflow-y: scroll;
-      scroll-snap-type: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
     }
-    /* Slow down scroll on mobile via custom property and overscroll */
+    .top-header, .nav-row-small, .header-left, .header-right, .header-logo, .header-name-box, .share-btn, .telegram-btn, .nav-small {
+      visibility: visible !important;
+      opacity: 1 !important;
+      display: flex !important;
+    }
+    .nav-small {
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    /* Override any hidden states */
+    .hidden, [hidden] {
+      display: none !important;
+    }
+    /* Ensure home page styling applies immediately */
+    .home-page .top-header {
+      background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
+      background-size: 200% 200% !important;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 80px rgba(0, 230, 118, 0.2), inset 0 0 60px rgba(0, 255, 200, 0.1) !important;
+      border-bottom: 4px solid #00ff88 !important;
+    }
+    .home-page .nav-row-small {
+      background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
+      background-size: 200% 200% !important;
+      border-bottom: 3px solid #00ff88 !important;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 230, 118, 0.1), inset 0 0 30px rgba(0, 255, 200, 0.05) !important;
+    }
+    .home-page .nav-row-small .nav-small {
+      background: rgba(255, 255, 255, 0.15) !important;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff !important;
+    }
+    .home-page .nav-row-small .nav-small.active {
+      background: rgba(255, 255, 255, 0.9) !important;
+      color: #0b1e33 !important;
+      border-color: #ffffff;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    }
+    .home-page .nav-row-small .nav-small .nav-icon-home { stroke: #ffffff !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-home { stroke: #0b1e33 !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-about { stroke: #000000 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-about { stroke: #0b1e33 !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-contact { stroke: #FFD700 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-contact { stroke: #0b1e33 !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-disclaimer { stroke: #FF0000 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer { stroke: #0b1e33 !important; }
+    .home-page .header-name-box {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(4px);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+    .home-page .share-btn {
+      background: rgba(255, 255, 255, 0.9) !important;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+    .home-page .share-btn:hover {
+      background: rgba(255, 255, 255, 0.98) !important;
+    }
+    .home-page .nav-row-small::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(0, 230, 118, 0.3));
+      filter: blur(15px);
+      z-index: -1;
+      opacity: 0.5;
+    }
+    .home-page .top-header::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(0, 230, 118, 0.4));
+      filter: blur(20px);
+      z-index: -1;
+      border-radius: 0;
+      opacity: 0.6;
+    }
+    .home-page .top-header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 50%, rgba(0, 230, 118, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .home-page .top-header .header-left,
+    .home-page .top-header .header-right {
+      position: relative;
+      z-index: 2;
+    }
+    /* Ensure content wrapper has proper margin for fixed header */
+    .content-wrapper {
+      margin-top: 130px !important;
+      width: 100% !important;
+      max-width: 1200px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding: 0 10px !important;
+    }
     @media (max-width: 768px) {
-      body {
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
-      }
-      .container, .content-wrapper {
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-      }
-      /* Additional slowdown via CSS animation on scroll container */
-      .content-wrapper {
-        transition: transform 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
-      }
+      .content-wrapper { margin-top: 110px !important; }
     }
-    /* All images premium fast-loading: block rendering until images load */
-    img {
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      background: #f0f4ff;
-      content-visibility: auto;
-      contain: strict;
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      display: block;
+    @media (max-width: 480px) {
+      .content-wrapper { margin-top: 100px !important; padding: 0 6px !important; }
     }
-    img.loaded {
-      opacity: 1;
+    /* Ensure all images are eager loaded */
+    .card-img img, .detail-img img, .related-item img, .header-logo img {
+      loading: eager !important;
+      -webkit-loading: eager !important;
     }
-    /* Prevent layout shift */
-    .card-img, .detail-img, .related-item img, .header-logo {
-      background: #f0f4ff;
-      contain: strict;
-      content-visibility: auto;
+    /* Smooth scroll with slower speed using JS fallback */
+    .smooth-scroll-container {
+      scroll-behavior: smooth !important;
+      transition: none !important;
     }
-    .header-logo img {
-      opacity: 0;
-    }
-    .header-logo img.loaded {
-      opacity: 1;
-    }
-    .header-logo {
-      background: #000;
-    }
-    /* Existing styles remain untouched below */
+  </style>
+  
+  <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+    body { background: #ffffff !important; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
     .container { width: 100%; max-width: 1200px; margin: 0 auto; background: #ffffff !important; min-height: 100vh; overflow: visible; padding: 0; }
     @media (max-width: 480px) { .container { max-width: 100%; padding: 0; } }
     @media (min-width: 1201px) { .container { padding: 0 20px; } }
@@ -865,7 +958,7 @@
       <div class="top-header" id="topHeader">
         <div class="header-left">
           <div class="header-logo">
-            <img src="https://i.ibb.co/XTFNccf/1785915333592.jpg" alt="YONO NEW APP" loading="eager" fetchpriority="high" width="54" height="54" id="logoImg">
+            <img src="https://i.ibb.co/XTFNccf/1785915333592.jpg" alt="YONO NEW APP" loading="eager" fetchpriority="high" width="54" height="54">
           </div>
           <span class="header-name-box">AllYonoGamesInfo.com</span>
         </div>
@@ -1501,59 +1594,6 @@
 
 <script>
   (function() {
-    // PREMIUM FAST IMAGE LOADING: mark all images as loaded once they are ready
-    function markImageLoaded(img) {
-      if (!img.classList.contains('loaded')) {
-        img.classList.add('loaded');
-      }
-    }
-
-    // Observe all images with IntersectionObserver for fast loading
-    const images = document.querySelectorAll('img');
-    if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.complete) {
-              markImageLoaded(img);
-            } else {
-              img.addEventListener('load', function onLoad() {
-                markImageLoaded(img);
-                img.removeEventListener('load', onLoad);
-              });
-              img.addEventListener('error', function onError() {
-                markImageLoaded(img); // still show fallback
-                img.removeEventListener('error', onError);
-              });
-            }
-            observer.unobserve(img);
-          }
-        });
-      }, { rootMargin: '50px' });
-      images.forEach(img => imageObserver.observe(img));
-    } else {
-      // fallback: load all images immediately
-      images.forEach(img => {
-        if (img.complete) {
-          markImageLoaded(img);
-        } else {
-          img.addEventListener('load', function() { markImageLoaded(img); });
-          img.addEventListener('error', function() { markImageLoaded(img); });
-        }
-      });
-    }
-
-    // Force load logo early
-    const logo = document.getElementById('logoImg');
-    if (logo) {
-      if (logo.complete) markImageLoaded(logo);
-      else {
-        logo.addEventListener('load', function() { markImageLoaded(logo); });
-        logo.addEventListener('error', function() { markImageLoaded(logo); });
-      }
-    }
-
     // Round Stars Animation — Original
     const roundStars = document.querySelectorAll("#roundStars span");
 
@@ -2319,7 +2359,7 @@
 
         card.innerHTML = `
           <div class="card-number">${index + 1}</div>
-          <div class="card-img"><img src="${game.img}" alt="${game.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
+          <div class="card-img"><img src="${game.img}" alt="${game.name}" loading="eager" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'"></div>
           <div class="card-info">
             <div class="card-name">${game.name}</div>
             <div class="card-bonus">${bonusIcon} <span class="label">Sign Up Bonus</span> <span class="value">${game.bonus}</span></div>
@@ -2452,7 +2492,7 @@
         const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedBankSvg}</span>`;
 
         item.innerHTML = `
-          <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
+          <img src="${g.img}" alt="${g.name}" loading="eager" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
           <div class="rinfo">
             <div class="rname">${g.name} <span class="alt">| ${g.altName}</span></div>
             <div class="rbonus">${relatedBonusIcon} Sign Up Bonus ${g.bonus}</div>
@@ -2585,6 +2625,84 @@
     history.replaceState({ state: { page: 'home' } }, 'Home', location.href);
 
     enableHomeHeader();
+
+    // Slower scroll speed by 40% using smooth scrolling with longer duration
+    // Override default scroll behavior with a custom smoother scroll
+    const originalScrollTo = window.scrollTo;
+    const originalScroll = window.scroll;
+    let scrollTimeout = null;
+
+    // Intercept scrollTo and scroll calls to add a slower smooth effect
+    window.scrollTo = function(x, y, options) {
+      if (typeof x === 'object') {
+        // options object
+        const opts = { ...x };
+        if (!opts.behavior) opts.behavior = 'smooth';
+        // Increase duration by 40% for smooth scrolling
+        if (opts.behavior === 'smooth') {
+          // We can't directly control duration, but we can use a custom animation
+          // Fallback: use native smooth with a longer delay via setTimeout
+          const targetY = opts.top || 0;
+          const currentY = window.pageYOffset || document.documentElement.scrollTop;
+          const distance = targetY - currentY;
+          if (Math.abs(distance) < 5) {
+            originalScrollTo.call(window, x, y);
+            return;
+          }
+          const startTime = performance.now();
+          const duration = Math.max(400, Math.min(1200, Math.abs(distance) * 1.2)); // 40% slower
+          const startY = currentY;
+
+          function animateScroll(time) {
+            const elapsed = time - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+            const nextY = startY + distance * ease;
+            window.scrollTo(0, nextY);
+            if (progress < 1) {
+              requestAnimationFrame(animateScroll);
+            } else {
+              window.scrollTo(0, targetY);
+            }
+          }
+          requestAnimationFrame(animateScroll);
+          return;
+        }
+        originalScrollTo.call(window, x, y);
+        return;
+      }
+      // numeric arguments
+      if (y !== undefined && Math.abs(y - window.pageYOffset) > 5) {
+        const targetY = y;
+        const currentY = window.pageYOffset || document.documentElement.scrollTop;
+        const distance = targetY - currentY;
+        const startTime = performance.now();
+        const duration = Math.max(400, Math.min(1200, Math.abs(distance) * 1.2));
+        const startY = currentY;
+
+        function animateScroll(time) {
+          const elapsed = time - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+          const nextY = startY + distance * ease;
+          window.scrollTo(0, nextY);
+          if (progress < 1) {
+            requestAnimationFrame(animateScroll);
+          } else {
+            window.scrollTo(0, targetY);
+          }
+        }
+        requestAnimationFrame(animateScroll);
+        return;
+      }
+      originalScrollTo.call(window, x, y);
+    };
+
+    // Also override scroll method for consistency
+    window.scroll = function(x, y) {
+      window.scrollTo(x, y);
+    };
+
   })();
 </script>
 </body>
