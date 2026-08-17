@@ -11,12 +11,9 @@
   <link rel="canonical" href="https://YonoGamesPoint.com/">
   <link rel="preload" as="image" href="https://i.ibb.co/XTFNccf/1785915333592.jpg" fetchpriority="high">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     body { background: #ffffff !important; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
-    .container { width: 100%; max-width: 1200px; margin: 0 auto; background: #ffffff !important; min-height: 100vh; overflow: visible; padding: 0; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; background: #ffffff !important; min-height: 100vh; overflow: hidden; padding: 0; }
     @media (max-width: 480px) { .container { max-width: 100%; padding: 0; } }
     @media (min-width: 1201px) { .container { padding: 0 20px; } }
     .top-header, .marquee-container, .nav-row-small, #mainGrid, .detail-card, .tag-section, .faq-section, .toc-section, .game-tags-section, .related-section, .footer-note, .static-page, .card, .tag-box, .faq-box, .toc-item, .related-item, .game-tag {
@@ -34,11 +31,9 @@
       padding: 8px 10px;
       background: #ffffff !important;
       border-bottom: 4px solid #00cc44;
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      z-index: 1000 !important;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .home-page .top-header {
       background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
@@ -99,58 +94,10 @@
       padding: 4px 6px;
       border-bottom: 1px solid #e9edf4;
       gap: 2px;
-      position: fixed !important;
-      top: 68px !important;
-      left: 0 !important;
-      right: 0 !important;
-      z-index: 999 !important;
+      position: sticky;
+      top: 68px;
+      z-index: 99;
     }
-    .home-page .nav-row-small {
-      background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
-      background-size: 200% 200% !important;
-      border-bottom: 3px solid #00ff88 !important;
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 230, 118, 0.1), inset 0 0 30px rgba(0, 255, 200, 0.05) !important;
-      position: relative;
-      padding: 6px 8px;
-    }
-    .home-page .nav-row-small::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(0, 230, 118, 0.3));
-      filter: blur(15px);
-      z-index: -1;
-      opacity: 0.5;
-    }
-    .home-page .nav-row-small .nav-small {
-      background: rgba(255, 255, 255, 0.15) !important;
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #ffffff !important;
-      transition: all 0.3s ease;
-    }
-    .home-page .nav-row-small .nav-small:hover {
-      background: rgba(255, 255, 255, 0.3) !important;
-      border-color: rgba(255, 255, 255, 0.6);
-      transform: scale(1.05);
-    }
-    .home-page .nav-row-small .nav-small.active {
-      background: rgba(255, 255, 255, 0.9) !important;
-      color: #0b1e33 !important;
-      border-color: #ffffff;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-    }
-    .home-page .nav-row-small .nav-small .nav-icon-home { stroke: #ffffff !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-home { stroke: #0b1e33 !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-about { stroke: #000000 !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-about { stroke: #0b1e33 !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-contact { stroke: #FFD700 !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-contact { stroke: #0b1e33 !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-disclaimer { stroke: #FF0000 !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer { stroke: #0b1e33 !important; }
     .nav-small {
       font-size: 0.5rem;
       font-weight: 600;
@@ -2098,43 +2045,89 @@
     }
 
     /* ===== FIXED HEADER & NAV — PERMANENTLY AT TOP ===== */
+    .top-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
+    }
+
+    .nav-row-small {
+      position: fixed !important;
+      top: 66px !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 999 !important;
+      background: #ffffff !important;
+      border-bottom: 1px solid #e9edf4 !important;
+      box-shadow: none !important;
+      padding: 4px 6px !important;
+    }
+
     .container {
-      padding-top: 108px !important;
+      padding-top: 102px !important;
     }
 
     @media (max-width: 768px) {
       .nav-row-small {
-        top: 62px !important;
+        top: 54px !important;
       }
       .container {
-        padding-top: 94px !important;
+        padding-top: 86px !important;
       }
     }
 
     @media (max-width: 480px) {
       .nav-row-small {
-        top: 56px !important;
+        top: 48px !important;
       }
       .container {
-        padding-top: 88px !important;
+        padding-top: 80px !important;
       }
     }
 
     @media (max-width: 380px) {
       .nav-row-small {
-        top: 50px !important;
+        top: 42px !important;
       }
       .container {
-        padding-top: 82px !important;
+        padding-top: 74px !important;
       }
     }
 
-    /* Home page nav with gradient — keep background */
+    /* Remove home-page gradient from nav row — restore original */
     .home-page .nav-row-small {
-      background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
-      background-size: 200% 200% !important;
-      border-bottom: 3px solid #00ff88 !important;
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 230, 118, 0.1), inset 0 0 30px rgba(0, 255, 200, 0.05) !important;
+      background: #ffffff !important;
+      background-image: none !important;
+      border-bottom: 1px solid #e9edf4 !important;
+      box-shadow: none !important;
+    }
+
+    /* Ensure home page nav items have original colors */
+    .home-page .nav-row-small .nav-small {
+      background: white !important;
+      color: #1e293b !important;
+      border-color: #e2e8f0 !important;
+      backdrop-filter: none !important;
+    }
+
+    .home-page .nav-row-small .nav-small.active {
+      background: #1e293b !important;
+      color: white !important;
+      border-color: #1e293b !important;
+    }
+
+    .home-page .nav-row-small .nav-small .nav-icon-home { stroke: #2563eb !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-about { stroke: #059669 !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-contact { stroke: #7c3aed !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-disclaimer { stroke: #d97706 !important; }
+
+    .home-page .nav-row-small .nav-small.active .nav-icon-home,
+    .home-page .nav-row-small .nav-small.active .nav-icon-about,
+    .home-page .nav-row-small .nav-small.active .nav-icon-contact,
+    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer {
+      stroke: white !important;
     }
     /* ===== END FIXED HEADER & NAV ===== */
   </style>
@@ -2172,7 +2165,7 @@
     </div>
   </div>
 
-  <!-- NAV ROW — Home • About • Contact • Disclaimer -->
+  <!-- NAV ROW — Original model restored -->
   <div class="nav-row-small" id="navRow">
     <span class="nav-small active" id="homeNav">
       <svg class="nav-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
