@@ -9,11 +9,11 @@
   <meta name="keywords" content="YONO NEW APP, All Yono Apk, All Yono New, All Yono Games, Yono Games, 567 SLOTS, 567 SLOTS Game, JAIHO 91, JAIHO 91 APK, RUMMY LUDO, RUMMY LUDO Game, ABC RUMMY, ABC RUMMY APK, RUMMY 91, RUMMY 91 Game, LOVE RUMMY, LOVE RUMMY APK, BINGO 101, BINGO 101 Game, YONO 777, YONO 777 APK, SAGA SLOTS, SAGA SLOTS Game, SPIN CRUSH, SPIN CRUSH APK, TOP RUMMY, TOP RUMMY Game, Hello Rummy, Hello Rummy APK, RUMMY 365, RUMMY 365 Game, TEEN PATTI GOLD, TEEN PATTI GOLD APK, TEEN PATTI MASTER, TEEN PATTI MASTER Game, YONO RUMMY, YONO RUMMY APK, SLOTS WINNER, SLOTS WINNER Game, GOOD SLOTS, GOOD SLOTS APK, Diwa Slot, Diwa Slot Game, GOGO RUMMY, GOGO RUMMY APK, JOY RUMMY, JOY RUMMY Game, SPIN GOLD, SPIN GOLD APK, YES SPIN, YES SPIN Game, YONO ARCADE, YONO ARCADE APK, SVIP 777, SVIP 777 Game, OK RUMMY, OK RUMMY APK, HINDI 777, HINDI 777 Game, BET 213, BET 213 APK, BOSS RUMMY, BOSS RUMMY Game, YONO 777, YONO 777 APK, Diwa VIP, Diwa VIP Game, Diwa 777, Diwa 777 APK, INR RUMMY, INR RUMMY Game, MBM BET, MBM BET APK, GOA SPIN, GOA SPIN Game, 777 GAME, 777 GAME APK, TEEN PATTI, TEEN PATTI Game, SPIN WINNER, SPIN WINNER APK, YONO All GAMES, YONO All GAMES Game, SPIN LUCKY, SPIN LUCKY APK, MAX RUMMY, RANI SLOTS, 1GO PLUS, RUMMY ULTRA, 789 JACKPOTS, JAIHO WIN, SLOTS SPIN, NETA VIP, JAIHO 777 VIP, DHAN GAME, DIWA GAME, BET 54 GAMES, ALL YONO APPS, T989 APPS, 765 CLUB, MKM BET APK, YN 777, SPIN 777, RUMMY 888, RUMMY 77, MQM BET, MAHA GAMES, IND RUMMY, Hi RUMMY, INR RUMMY, JAIHO SPIN, JAIHO RUMMY, YONO SLOTS, Diwa Win, RUMBLE RUMMY, YONO VIP, best rummy app, top casino games, real cash games, yono games download, rummy apk, teen patti apk, slots game, online earning app, UPI withdrawal, 18+ gaming">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://YonoGamesPoint.com/">
+  <!-- Only essential preload for critical above-the-fold image -->
   <link rel="preload" as="image" href="https://i.ibb.co/XTFNccf/1785915333592.jpg" fetchpriority="high">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     body { background: #ffffff !important; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
-    html { scroll-behavior: smooth; scroll-padding-top: 60px; }
     .container { width: 100%; max-width: 1200px; margin: 0 auto; background: #ffffff !important; min-height: 100vh; overflow: hidden; padding: 0; }
     @media (max-width: 480px) { .container { max-width: 100%; padding: 0; } }
     @media (min-width: 1201px) { .container { padding: 0 20px; } }
@@ -2095,6 +2095,7 @@
   <div class="top-header" id="topHeader">
     <div class="header-left">
       <div class="header-logo">
+        <!-- Critical above-the-fold image with fetchpriority high -->
         <img src="https://i.ibb.co/XTFNccf/1785915333592.jpg" alt="YONO NEW APP" loading="eager" fetchpriority="high" width="54" height="54">
       </div>
       <span class="header-name-box">AllYonoGamesInfo.com</span>
@@ -2863,61 +2864,6 @@
 
 <script>
   (function() {
-    // Slow smooth scroll - 50% slower than default
-    const originalScrollBehavior = document.documentElement.style.scrollBehavior;
-    document.documentElement.style.scrollBehavior = 'smooth';
-
-    // Custom smooth scroll with slower speed
-    function slowSmoothScroll(target, duration) {
-      const start = window.scrollY;
-      const targetPosition = typeof target === 'number' ? target : target.getBoundingClientRect().top + window.scrollY;
-      const distance = targetPosition - start;
-      const startTime = performance.now();
-
-      function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      }
-
-      function scrollStep(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easedProgress = easeInOutCubic(progress);
-        window.scrollTo(0, start + distance * easedProgress);
-        if (progress < 1) {
-          requestAnimationFrame(scrollStep);
-        }
-      }
-      requestAnimationFrame(scrollStep);
-    }
-
-    // Override native scroll with slower version (200% duration = 50% speed)
-    const originalScrollTo = window.scrollTo;
-    window.scrollTo = function(x, y) {
-      if (typeof x === 'number' && typeof y === 'number') {
-        slowSmoothScroll(y, 1500);
-      } else if (x && typeof x === 'object') {
-        const target = x.top !== undefined ? x.top : 0;
-        slowSmoothScroll(target, 1500);
-      } else {
-        originalScrollTo.apply(this, arguments);
-      }
-    };
-
-    // Override anchor clicks for smoother slower scroll
-    document.addEventListener('click', function(e) {
-      const anchor = e.target.closest('a[href^="#"]');
-      if (anchor) {
-        const targetId = anchor.getAttribute('href').substring(1);
-        if (targetId) {
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            e.preventDefault();
-            slowSmoothScroll(targetElement, 1500);
-          }
-        }
-      }
-    });
-
     // Round Stars Animation — Original
     const roundStars = document.querySelectorAll("#roundStars span");
 
@@ -3316,7 +3262,7 @@
     }
 
     function scrollToTop() {
-      slowSmoothScroll(0, 1000);
+      window.scrollTo({ top: 0, behavior: 'auto' });
     }
 
     function showMainGrid() {
@@ -3881,7 +3827,7 @@
         } else if (page === 'disclaimer') {
           disclaimerNav.click();
         }
-        slowSmoothScroll(0, 1000);
+        window.scrollTo({ top: 0, behavior: 'auto' });
       });
     });
 
