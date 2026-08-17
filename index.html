@@ -13,7 +13,16 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     body { background: #ffffff !important; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
-    .container { width: 100%; max-width: 1200px; margin: 0 auto; background: #ffffff !important; min-height: 100vh; overflow: hidden; padding: 0; }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff !important;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: visible;
+      padding: 0;
+    }
     @media (max-width: 480px) { .container { max-width: 100%; padding: 0; } }
     @media (min-width: 1201px) { .container { padding: 0 20px; } }
     .top-header, .marquee-container, .nav-row-small, #mainGrid, .detail-card, .tag-section, .faq-section, .toc-section, .game-tags-section, .related-section, .footer-note, .static-page, .card, .tag-box, .faq-box, .toc-item, .related-item, .game-tag {
@@ -33,7 +42,7 @@
       border-bottom: 4px solid #00cc44;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
     .home-page .top-header {
       background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
