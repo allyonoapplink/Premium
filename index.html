@@ -840,6 +840,88 @@
     }
     /* END ORIGINAL APK SIZE */
 
+    /* INFO BLOCKS — About, How to Download, Safety */
+    .info-blocks-section {
+      padding: 10px 10px 6px 10px;
+      background: #ffffff;
+      border-top: 1px solid #e9edf4;
+    }
+    .info-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border: 1px solid #e9edf4;
+      margin-bottom: 6px;
+      transition: all 0.2s ease;
+      cursor: default;
+      min-height: 50px;
+    }
+    .info-block:last-child { margin-bottom: 0; }
+    .info-block .block-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .info-block .block-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .info-block .block-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .info-block .block-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #0b1e33;
+      letter-spacing: 0.2px;
+    }
+    .info-block .block-title .highlight {
+      color: #2563eb;
+    }
+    .info-block .block-sub {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 2px;
+    }
+    .info-block .block-sub .lock-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .info-block .block-sub .lock-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .info-block .block-sub .sub-text {
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: #64748b;
+    }
+    .info-block .block-right {
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #2563eb;
+      text-align: right;
+      max-width: 50%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    /* END INFO BLOCKS */
+
     .meta-block {
       display: flex;
       flex-direction: column;
@@ -2466,6 +2548,91 @@
       </div>
     </div>
 
+    <!-- REFER & EARN SECTION — stays at top -->
+    <div class="referral-section" id="referralSection">
+      <div class="referral-title">
+        <span class="title-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>
+        </span>
+        <span>Refer & Earn</span>
+      </div>
+      <div class="referral-content" id="referralContent">
+        <span>Invite your friends to <strong id="refGameName">Game Name</strong> and earn</span>
+        <span class="ref-bonus" id="refBonusAmount">₹25</span>
+        <span>for each successful referral! Use your unique referral code:</span>
+        <span class="ref-code" id="refCode">YONO7X9P</span>
+        <span>or share your referral link:</span>
+        <a href="https://www.earntp.com/m/jm9n7r" target="_blank" rel="noopener noreferrer" class="ref-link-row" id="refLinkRow">
+          <span class="ref-link-icon-left">
+            <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </span>
+          <span class="ref-link-text" id="refLinkText">
+            <span class="link-label">Referral Link:</span>
+            <span class="link-url">https://www.earntp.com/m/jm9n7r</span>
+          </span>
+          <span class="ref-link-arrow-right">
+            <span class="arrow-shine"></span>
+            <svg viewBox="0 0 24 24" stroke="currentColor"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- NEW INFO BLOCKS — About, How to Download & Install, Safety & Security -->
+    <div class="info-blocks-section" id="infoBlocksSection">
+      <!-- About Block -->
+      <div class="info-block">
+        <span class="block-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+        </span>
+        <span class="block-content">
+          <span class="block-title">About</span>
+        </span>
+        <span class="block-right" id="aboutGameName">YONO NEW APP</span>
+      </div>
+
+      <!-- How to Download & Install Block -->
+      <div class="info-block">
+        <span class="block-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </span>
+        <span class="block-content">
+          <span class="block-title">How to Download &amp; Install</span>
+          <span class="block-sub">
+            <span class="lock-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </span>
+            <span class="sub-text">Secure &amp; Verified APK</span>
+          </span>
+        </span>
+      </div>
+
+      <!-- Safety & Security Block -->
+      <div class="info-block">
+        <span class="block-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </span>
+        <span class="block-content">
+          <span class="block-title">Safety &amp; Security</span>
+        </span>
+      </div>
+    </div>
+    <!-- END INFO BLOCKS -->
+
     <div class="tag-section">
       <div class="tag-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2587,35 +2754,6 @@
         </div>
       </div>
     </section>
-
-    <div class="referral-section" id="referralSection">
-      <div class="referral-title">
-        <span class="title-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>
-        </span>
-        <span>Refer & Earn</span>
-      </div>
-      <div class="referral-content" id="referralContent">
-        <span>Invite your friends to <strong id="refGameName">Game Name</strong> and earn</span>
-        <span class="ref-bonus" id="refBonusAmount">₹25</span>
-        <span>for each successful referral! Use your unique referral code:</span>
-        <span class="ref-code" id="refCode">YONO7X9P</span>
-        <span>or share your referral link:</span>
-        <a href="https://www.earntp.com/m/jm9n7r" target="_blank" rel="noopener noreferrer" class="ref-link-row" id="refLinkRow">
-          <span class="ref-link-icon-left">
-            <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          </span>
-          <span class="ref-link-text" id="refLinkText">
-            <span class="link-label">Referral Link:</span>
-            <span class="link-url">https://www.earntp.com/m/jm9n7r</span>
-          </span>
-          <span class="ref-link-arrow-right">
-            <span class="arrow-shine"></span>
-            <svg viewBox="0 0 24 24" stroke="currentColor"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
-      </div>
-    </div>
 
     <div class="related-section">
       <div class="related-title">
@@ -3583,6 +3721,12 @@
       const voiceSpan = document.getElementById('detailVoiceNumber');
       if (voiceSpan) {
         voiceSpan.textContent = game.voice || '1.2K';
+      }
+
+      // Update About block with game name
+      const aboutGameName = document.getElementById('aboutGameName');
+      if (aboutGameName) {
+        aboutGameName.textContent = game.name;
       }
 
       // Set the download button
