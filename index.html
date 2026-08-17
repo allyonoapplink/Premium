@@ -31,14 +31,9 @@
       padding: 8px 10px;
       background: #ffffff !important;
       border-bottom: 4px solid #00cc44;
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
+      z-index: 100;
     }
     .home-page .top-header {
       background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
@@ -99,39 +94,56 @@
       padding: 4px 6px;
       border-bottom: 1px solid #e9edf4;
       gap: 2px;
-      position: fixed;
-      top: 62px;
-      left: 0;
-      right: 0;
-      z-index: 999;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
+      position: sticky;
+      top: 68px;
+      z-index: 99;
     }
-    /* No home-page gradient for nav row — keep original white */
     .home-page .nav-row-small {
-      background: #ffffff !important;
-      border-bottom: 1px solid #e9edf4 !important;
-      box-shadow: none !important;
+      background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
+      background-size: 200% 200% !important;
+      border-bottom: 3px solid #00ff88 !important;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 230, 118, 0.1), inset 0 0 30px rgba(0, 255, 200, 0.05) !important;
+      position: relative;
+      padding: 6px 8px;
+    }
+    .home-page .nav-row-small::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(0, 230, 118, 0.3));
+      filter: blur(15px);
+      z-index: -1;
+      opacity: 0.5;
     }
     .home-page .nav-row-small .nav-small {
-      background: rgba(255, 255, 255, 0.9) !important;
-      color: #1e293b !important;
-      border: 1px solid #e2e8f0 !important;
+      background: rgba(255, 255, 255, 0.15) !important;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff !important;
+      transition: all 0.3s ease;
+    }
+    .home-page .nav-row-small .nav-small:hover {
+      background: rgba(255, 255, 255, 0.3) !important;
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: scale(1.05);
     }
     .home-page .nav-row-small .nav-small.active {
-      background: #1e293b !important;
-      color: white !important;
-      border-color: #1e293b !important;
+      background: rgba(255, 255, 255, 0.9) !important;
+      color: #0b1e33 !important;
+      border-color: #ffffff;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
     }
-    .home-page .nav-row-small .nav-small .nav-icon-home { stroke: #2563eb !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-home { stroke: white !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-about { stroke: #059669 !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-about { stroke: white !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-contact { stroke: #7c3aed !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-contact { stroke: white !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-disclaimer { stroke: #d97706 !important; }
-    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer { stroke: white !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-home { stroke: #ffffff !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-home { stroke: #0b1e33 !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-about { stroke: #000000 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-about { stroke: #0b1e33 !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-contact { stroke: #FFD700 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-contact { stroke: #0b1e33 !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-disclaimer { stroke: #FF0000 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer { stroke: #0b1e33 !important; }
     .nav-small {
       font-size: 0.5rem;
       font-weight: 600;
@@ -191,15 +203,11 @@
       .nav-small { font-size: 0.6rem; padding: 4px 12px; gap: 6px; }
       .nav-small svg { width: 20px; height: 20px; }
     }
-    /* Adjust nav top position for different header heights */
-    @media (max-width: 768px) {
-      .nav-row-small { top: 54px; }
-    }
     @media (max-width: 480px) {
-      .nav-row-small { top: 48px; }
+      .nav-row-small { top: 60px; }
     }
     @media (max-width: 380px) {
-      .nav-row-small { top: 42px; }
+      .nav-row-small { top: 54px; }
     }
     .top-header .header-left,
     .top-header .header-right {
@@ -2087,21 +2095,6 @@
       .option-name { font-size: 0.75rem; }
       .option-lock { width: 20px; height: 20px; }
     }
-
-    /* Container padding to avoid fixed header/nav overlap */
-    .container {
-      padding-top: 100px !important;
-    }
-    @media (max-width: 768px) {
-      .container { padding-top: 88px !important; }
-    }
-    @media (max-width: 480px) {
-      .container { padding-top: 80px !important; }
-    }
-    @media (max-width: 380px) {
-      .container { padding-top: 72px !important; }
-    }
-    /* Top header and nav are already fixed; we adjust top values per screen */
   </style>
 </head>
 <body>
