@@ -34,17 +34,13 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
     }
     .home-page .top-header {
       background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
       background-size: 200% 200% !important;
       box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 80px rgba(0, 230, 118, 0.2), inset 0 0 60px rgba(0, 255, 200, 0.1) !important;
       border-bottom: 4px solid #00ff88 !important;
-      position: sticky;
-      top: 0;
+      position: relative;
     }
     .home-page .top-header::before {
       content: '';
@@ -95,8 +91,8 @@
       background-size: 200% 200% !important;
       border-bottom: 3px solid #00ff88 !important;
       box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 230, 118, 0.1), inset 0 0 30px rgba(0, 255, 200, 0.05) !important;
-      position: sticky;
-      top: 0;
+      position: relative;
+      padding: 6px 8px;
     }
     .home-page .nav-row-small::before {
       content: '';
@@ -144,12 +140,6 @@
       padding: 4px 6px;
       border-bottom: 1px solid #e9edf4;
       gap: 2px;
-      position: sticky;
-      top: 0;
-      z-index: 9;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
     }
     .nav-small {
       font-size: 0.5rem;
@@ -2097,23 +2087,69 @@
       .option-lock { width: 20px; height: 20px; }
     }
 
-    /* Sticky header & nav — top fixed */
+    /* ===== FIXED HEADER & NAV — PERMANENTLY AT TOP ===== */
     .top-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
     }
+
     .nav-row-small {
-      position: sticky;
-      top: 0;
-      z-index: 9;
+      position: fixed !important;
+      top: 66px !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 999 !important;
+      background: #ffffff !important;
     }
-    /* The header height is set dynamically via JS, so we use a spacer */
-    #stickySpacer {
-      display: block;
-      width: 100%;
-      height: 0;
+
+    .container {
+      padding-top: 102px !important;
     }
+
+    @media (max-width: 768px) {
+      .nav-row-small {
+        top: 54px !important;
+      }
+      .container {
+        padding-top: 86px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-row-small {
+        top: 48px !important;
+      }
+      .container {
+        padding-top: 80px !important;
+      }
+      .home-page .nav-row-small {
+        top: 48px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .nav-row-small {
+        top: 42px !important;
+      }
+      .container {
+        padding-top: 74px !important;
+      }
+      .home-page .nav-row-small {
+        top: 42px !important;
+      }
+    }
+
+    /* Home page nav with gradient — keep background */
+    .home-page .nav-row-small {
+      background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
+      background-size: 200% 200% !important;
+      border-bottom: 3px solid #00ff88 !important;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 230, 118, 0.1), inset 0 0 30px rgba(0, 255, 200, 0.05) !important;
+    }
+    /* ===== END FIXED HEADER & NAV ===== */
   </style>
 </head>
 <body>
@@ -2181,9 +2217,6 @@
       Disclaimer
     </span>
   </div>
-
-  <!-- Sticky spacer to push content below fixed header+nav -->
-  <div id="stickySpacer"></div>
 
   <!-- HOME PAGE GREEN-LINE BOX -->
   <div id="homeGreenBox" class="home-greenbox show">
@@ -2912,36 +2945,6 @@
     }
 
     runRoundStars();
-
-    // --- STICKY HEADER + NAV FIX ---
-    function fixStickyHeader() {
-      const header = document.getElementById('topHeader');
-      const nav = document.getElementById('navRow');
-      const spacer = document.getElementById('stickySpacer');
-      if (!header || !nav || !spacer) return;
-
-      // Remove any inline top styles that might conflict
-      header.style.top = '0px';
-      nav.style.top = '0px';
-
-      // Get header height (including any borders)
-      const headerHeight = header.offsetHeight;
-
-      // Set nav top to header height so it sits directly below header
-      nav.style.top = headerHeight + 'px';
-
-      // Set spacer height to total height of header + nav
-      const totalHeight = headerHeight + nav.offsetHeight;
-      spacer.style.height = totalHeight + 'px';
-    }
-
-    // Run on load and resize
-    window.addEventListener('load', fixStickyHeader);
-    window.addEventListener('resize', fixStickyHeader);
-
-    // Also run after a small delay to ensure layout is stable
-    setTimeout(fixStickyHeader, 100);
-    setTimeout(fixStickyHeader, 300);
 
     const container = document.getElementById('mainContainer');
 
