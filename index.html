@@ -2086,70 +2086,6 @@
       .option-name { font-size: 0.75rem; }
       .option-lock { width: 20px; height: 20px; }
     }
-
-    /* ===== FIXED HEADER & NAV — PERMANENTLY AT TOP ===== */
-    .top-header {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      z-index: 1000 !important;
-    }
-
-    .nav-row-small {
-      position: fixed !important;
-      top: 68px !important;
-      left: 0 !important;
-      right: 0 !important;
-      z-index: 999 !important;
-      background: #ffffff !important;
-    }
-
-    .container {
-      padding-top: 104px !important;
-    }
-
-    @media (max-width: 768px) {
-      .nav-row-small {
-        top: 56px !important;
-      }
-      .container {
-        padding-top: 88px !important;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .nav-row-small {
-        top: 50px !important;
-      }
-      .container {
-        padding-top: 82px !important;
-      }
-      .home-page .nav-row-small {
-        top: 50px !important;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .nav-row-small {
-        top: 44px !important;
-      }
-      .container {
-        padding-top: 76px !important;
-      }
-      .home-page .nav-row-small {
-        top: 44px !important;
-      }
-    }
-
-    /* Home page nav with gradient — keep background */
-    .home-page .nav-row-small {
-      background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
-      background-size: 200% 200% !important;
-      border-bottom: 3px solid #00ff88 !important;
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 230, 118, 0.1), inset 0 0 30px rgba(0, 255, 200, 0.05) !important;
-    }
-    /* ===== END FIXED HEADER & NAV ===== */
   </style>
 </head>
 <body>
@@ -2185,7 +2121,7 @@
     </div>
   </div>
 
-  <!-- NAV ROW — RESTORED EXACTLY BELOW GREEN HEADER LINE -->
+  <!-- NAV ROW -->
   <div class="nav-row-small" id="navRow">
     <span class="nav-small active" id="homeNav">
       <svg class="nav-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2217,7 +2153,6 @@
       Disclaimer
     </span>
   </div>
-  <!-- END NAV ROW -->
 
   <!-- HOME PAGE GREEN-LINE BOX -->
   <div id="homeGreenBox" class="home-greenbox show">
