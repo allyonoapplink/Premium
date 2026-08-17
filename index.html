@@ -13,7 +13,7 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     body { background: #ffffff !important; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
-    .container { width: 100%; max-width: 1200px; margin: 0 auto; background: #ffffff !important; min-height: 100vh; overflow: hidden; padding: 0; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; background: #ffffff !important; min-height: 100vh; overflow: visible; padding: 0; }
     @media (max-width: 480px) { .container { max-width: 100%; padding: 0; } }
     @media (min-width: 1201px) { .container { padding: 0 20px; } }
     .top-header, .marquee-container, .nav-row-small, #mainGrid, .detail-card, .tag-section, .faq-section, .toc-section, .game-tags-section, .related-section, .footer-note, .static-page, .card, .tag-box, .faq-box, .toc-item, .related-item, .game-tag {
@@ -31,9 +31,14 @@
       padding: 8px 10px;
       background: #ffffff !important;
       border-bottom: 4px solid #00cc44;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 10;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .home-page .top-header {
       background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
@@ -94,10 +99,39 @@
       padding: 4px 6px;
       border-bottom: 1px solid #e9edf4;
       gap: 2px;
-      position: sticky;
-      top: 68px;
-      z-index: 99;
+      position: fixed;
+      top: 62px;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
     }
+    /* No home-page gradient for nav row — keep original white */
+    .home-page .nav-row-small {
+      background: #ffffff !important;
+      border-bottom: 1px solid #e9edf4 !important;
+      box-shadow: none !important;
+    }
+    .home-page .nav-row-small .nav-small {
+      background: rgba(255, 255, 255, 0.9) !important;
+      color: #1e293b !important;
+      border: 1px solid #e2e8f0 !important;
+    }
+    .home-page .nav-row-small .nav-small.active {
+      background: #1e293b !important;
+      color: white !important;
+      border-color: #1e293b !important;
+    }
+    .home-page .nav-row-small .nav-small .nav-icon-home { stroke: #2563eb !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-home { stroke: white !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-about { stroke: #059669 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-about { stroke: white !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-contact { stroke: #7c3aed !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-contact { stroke: white !important; }
+    .home-page .nav-row-small .nav-small .nav-icon-disclaimer { stroke: #d97706 !important; }
+    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer { stroke: white !important; }
     .nav-small {
       font-size: 0.5rem;
       font-weight: 600;
@@ -156,6 +190,16 @@
     @media (min-width: 769px) {
       .nav-small { font-size: 0.6rem; padding: 4px 12px; gap: 6px; }
       .nav-small svg { width: 20px; height: 20px; }
+    }
+    /* Adjust nav top position for different header heights */
+    @media (max-width: 768px) {
+      .nav-row-small { top: 54px; }
+    }
+    @media (max-width: 480px) {
+      .nav-row-small { top: 48px; }
+    }
+    @media (max-width: 380px) {
+      .nav-row-small { top: 42px; }
     }
     .top-header .header-left,
     .top-header .header-right {
@@ -2044,92 +2088,20 @@
       .option-lock { width: 20px; height: 20px; }
     }
 
-    /* ===== FIXED HEADER & NAV — PERMANENTLY AT TOP ===== */
-    .top-header {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      z-index: 1000 !important;
-    }
-
-    .nav-row-small {
-      position: fixed !important;
-      top: 66px !important;
-      left: 0 !important;
-      right: 0 !important;
-      z-index: 999 !important;
-      background: #ffffff !important;
-      border-bottom: 1px solid #e9edf4 !important;
-      box-shadow: none !important;
-      padding: 4px 6px !important;
-    }
-
+    /* Container padding to avoid fixed header/nav overlap */
     .container {
-      padding-top: 102px !important;
+      padding-top: 100px !important;
     }
-
     @media (max-width: 768px) {
-      .nav-row-small {
-        top: 54px !important;
-      }
-      .container {
-        padding-top: 86px !important;
-      }
+      .container { padding-top: 88px !important; }
     }
-
     @media (max-width: 480px) {
-      .nav-row-small {
-        top: 48px !important;
-      }
-      .container {
-        padding-top: 80px !important;
-      }
+      .container { padding-top: 80px !important; }
     }
-
     @media (max-width: 380px) {
-      .nav-row-small {
-        top: 42px !important;
-      }
-      .container {
-        padding-top: 74px !important;
-      }
+      .container { padding-top: 72px !important; }
     }
-
-    /* Remove home-page gradient from nav row — restore original */
-    .home-page .nav-row-small {
-      background: #ffffff !important;
-      background-image: none !important;
-      border-bottom: 1px solid #e9edf4 !important;
-      box-shadow: none !important;
-    }
-
-    /* Ensure home page nav items have original colors */
-    .home-page .nav-row-small .nav-small {
-      background: white !important;
-      color: #1e293b !important;
-      border-color: #e2e8f0 !important;
-      backdrop-filter: none !important;
-    }
-
-    .home-page .nav-row-small .nav-small.active {
-      background: #1e293b !important;
-      color: white !important;
-      border-color: #1e293b !important;
-    }
-
-    .home-page .nav-row-small .nav-small .nav-icon-home { stroke: #2563eb !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-about { stroke: #059669 !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-contact { stroke: #7c3aed !important; }
-    .home-page .nav-row-small .nav-small .nav-icon-disclaimer { stroke: #d97706 !important; }
-
-    .home-page .nav-row-small .nav-small.active .nav-icon-home,
-    .home-page .nav-row-small .nav-small.active .nav-icon-about,
-    .home-page .nav-row-small .nav-small.active .nav-icon-contact,
-    .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer {
-      stroke: white !important;
-    }
-    /* ===== END FIXED HEADER & NAV ===== */
+    /* Top header and nav are already fixed; we adjust top values per screen */
   </style>
 </head>
 <body>
@@ -2165,7 +2137,7 @@
     </div>
   </div>
 
-  <!-- NAV ROW — Original model restored -->
+  <!-- NAV ROW -->
   <div class="nav-row-small" id="navRow">
     <span class="nav-small active" id="homeNav">
       <svg class="nav-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
