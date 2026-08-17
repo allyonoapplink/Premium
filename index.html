@@ -13,7 +13,7 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     body { background: #ffffff !important; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
-    .container { width: 100%; max-width: 1200px; margin: 0 auto; background: #ffffff !important; min-height: 100vh; overflow: visible; padding: 0; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; background: #ffffff !important; min-height: 100vh; overflow: hidden; padding: 0; }
     @media (max-width: 480px) { .container { max-width: 100%; padding: 0; } }
     @media (min-width: 1201px) { .container { padding: 0 20px; } }
     .top-header, .marquee-container, .nav-row-small, #mainGrid, .detail-card, .tag-section, .faq-section, .toc-section, .game-tags-section, .related-section, .footer-note, .static-page, .card, .tag-box, .faq-box, .toc-item, .related-item, .game-tag {
@@ -33,7 +33,7 @@
       border-bottom: 4px solid #00cc44;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 10;
     }
     .home-page .top-header {
       background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
@@ -86,18 +86,6 @@
     .home-page .share-btn:hover {
       background: rgba(255, 255, 255, 0.98) !important;
     }
-    .nav-row-small {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      background: #ffffff !important;
-      padding: 4px 6px;
-      border-bottom: 1px solid #e9edf4;
-      gap: 2px;
-      position: sticky;
-      top: 68px;
-      z-index: 99;
-    }
     .home-page .nav-row-small {
       background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
       background-size: 200% 200% !important;
@@ -144,6 +132,15 @@
     .home-page .nav-row-small .nav-small.active .nav-icon-contact { stroke: #0b1e33 !important; }
     .home-page .nav-row-small .nav-small .nav-icon-disclaimer { stroke: #FF0000 !important; }
     .home-page .nav-row-small .nav-small.active .nav-icon-disclaimer { stroke: #0b1e33 !important; }
+    .nav-row-small {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: #ffffff !important;
+      padding: 4px 6px;
+      border-bottom: 1px solid #e9edf4;
+      gap: 2px;
+    }
     .nav-small {
       font-size: 0.5rem;
       font-weight: 600;
@@ -202,12 +199,6 @@
     @media (min-width: 769px) {
       .nav-small { font-size: 0.6rem; padding: 4px 12px; gap: 6px; }
       .nav-small svg { width: 20px; height: 20px; }
-    }
-    @media (max-width: 480px) {
-      .nav-row-small { top: 60px; }
-    }
-    @media (max-width: 380px) {
-      .nav-row-small { top: 54px; }
     }
     .top-header .header-left,
     .top-header .header-right {
@@ -2095,6 +2086,70 @@
       .option-name { font-size: 0.75rem; }
       .option-lock { width: 20px; height: 20px; }
     }
+
+    /* ===== FIXED HEADER & NAV — PERMANENTLY AT TOP ===== */
+    .top-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
+    }
+
+    .nav-row-small {
+      position: fixed !important;
+      top: 68px !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 999 !important;
+      background: #ffffff !important;
+    }
+
+    .container {
+      padding-top: 104px !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-row-small {
+        top: 56px !important;
+      }
+      .container {
+        padding-top: 88px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-row-small {
+        top: 50px !important;
+      }
+      .container {
+        padding-top: 82px !important;
+      }
+      .home-page .nav-row-small {
+        top: 50px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .nav-row-small {
+        top: 44px !important;
+      }
+      .container {
+        padding-top: 76px !important;
+      }
+      .home-page .nav-row-small {
+        top: 44px !important;
+      }
+    }
+
+    /* Home page nav with gradient — keep background */
+    .home-page .nav-row-small {
+      background: linear-gradient(135deg, #00d4ff 0%, #00e676 50%, #00d4ff 100%) !important;
+      background-size: 200% 200% !important;
+      border-bottom: 3px solid #00ff88 !important;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 230, 118, 0.1), inset 0 0 30px rgba(0, 255, 200, 0.05) !important;
+    }
+    /* ===== END FIXED HEADER & NAV ===== */
   </style>
 </head>
 <body>
@@ -2130,7 +2185,7 @@
     </div>
   </div>
 
-  <!-- NAV ROW -->
+  <!-- NAV ROW — RESTORED EXACTLY BELOW GREEN HEADER LINE -->
   <div class="nav-row-small" id="navRow">
     <span class="nav-small active" id="homeNav">
       <svg class="nav-icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2162,6 +2217,7 @@
       Disclaimer
     </span>
   </div>
+  <!-- END NAV ROW -->
 
   <!-- HOME PAGE GREEN-LINE BOX -->
   <div id="homeGreenBox" class="home-greenbox show">
