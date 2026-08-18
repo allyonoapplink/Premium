@@ -2121,7 +2121,8 @@
         font-size:16px
       }
       .sr-label{
-        gap:9px      }
+        gap:9px
+      }
       .sr-icon{
         width:23px;
         height:23px
@@ -3004,7 +3005,7 @@
     function disableHomeHeader() { removeHomeHeaderStyle(); }
 
     // --------------------------------------------------------------
-    // 74 Original Games — Fully preserved with all existing data
+    // 74 Original Games — Updated with unique details
     // --------------------------------------------------------------
     const games = [
       { name: "YONO NEW APP", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/0RZPw4wH/Screenshot-20260814-093236.jpg" },
@@ -3153,14 +3154,14 @@
     });
 
     // --------------------------------------------------------------
-    // DYNAMIC UNIQUE TAG GENERATION — NO REPEATED GAME NAMES
-    // Each position has unique info, and game name is not repeated.
-    // Only the specific requested changes are made.
+    // DYNAMIC UNIQUE TAG GENERATION SYSTEM — 74 games, each unique
+    // 60-80%+ unique content, varied positions, game-specific.
     // --------------------------------------------------------------
     function generateUniqueTags(gameName, altName, bonus) {
       const seed = gameName.length * 7 + gameName.charCodeAt(0) + (altName ? altName.length * 3 : 0);
-      const nameLower = gameName.toLowerCase();
+      const rand = (min, max) => Math.floor((seed * 13 + min * 7) % (max - min + 1)) + min;
 
+      const nameLower = gameName.toLowerCase();
       const isRummy = /rummy/i.test(nameLower);
       const isSlots = /slot/i.test(nameLower) || /spin/i.test(nameLower);
       const isTeenPatti = /teen|patti/i.test(nameLower);
@@ -3177,68 +3178,68 @@
       else if (isVip) gameType = 'vip';
       else gameType = 'casual';
 
-      // Large pool of unique tag sentences — no game names embedded
+      // Large pool of unique tag paragraphs — each game selects a unique combination.
       const tagPools = {
         rummy: [
-          "Classic Points Rummy with fast 5-second deal times and instant score updates using standard 13-card rules with jokers.",
-          "Pool Rummy variant where players compete to stay above the elimination line until the last player standing wins.",
-          "Deals Rummy format with fixed number of rounds per deal; highest total chips at the end wins.",
-          "Daily leaderboard ranks top performances against other players, with bonus rewards for top finishers.",
-          "Streak Bonus system rewards consecutive wins with extra chips and jackpot bonuses.",
-          "Quick matchmaking pairs players of similar skill level within 3 seconds for fair competition.",
-          "Practice mode with free chips allows beginners to learn without risking real money.",
-          "Referral program offers earnings up to ₹100 per successful sign-up and deposit."
+          { text: "Classic Points Rummy with fast 5-second deal times and instant score updates. The game uses standard 13-card rules with jokers and pure sequence requirements." },
+          { text: "Pool Rummy variant where players compete to stay above the elimination line. The last player standing wins the entire pool amount." },
+          { text: "Deals Rummy format where each deal has a fixed number of rounds. The player with the highest total chips at the end wins." },
+          { text: "Daily leaderboard ranks your best performances against other players. Top 10 finishers earn bonus cash rewards every evening." },
+          { text: "Streak Bonus system rewards consecutive wins. Win 3 hands in a row to earn extra chips, win 5 for a jackpot bonus." },
+          { text: "Quick matchmaking pairs you with players of similar skill level within 3 seconds, ensuring fair and competitive games." },
+          { text: "Practice mode with free chips allows beginners to learn the game without risking real money." },
+          { text: "Referral program: invite friends and earn up to ₹100 per successful sign-up and deposit." }
         ],
         slots: [
-          "Vegas-style slot machines with 5 reels and 20 paylines featuring diverse themes like ancient Egypt and pirates.",
-          "Progressive jackpot grows with every bet placed and can be won at any time on any spin.",
-          "Free spin bonus rounds triggered by 3 scatter symbols, offering up to 20 free spins with 3x multipliers.",
-          "Daily spin wheel grants coins, free spins, or jackpot entries for every login.",
-          "Tournament mode pits players against each other on the same slot for guaranteed cash prizes.",
-          "Auto-spin feature lets you set the number of spins and watch the reels turn automatically.",
-          "New slot themes added monthly based on player votes, including space and mythical creatures.",
-          "Bonus buy feature allows direct entry to the bonus round for a fixed price."
+          { text: "Vegas-style slot machines with 5 reels and 20 paylines. Themes include ancient Egypt, pirate adventure, and fruit classics." },
+          { text: "Progressive jackpot grows with every bet placed across the network. The jackpot can be won at any time on any spin." },
+          { text: "Free spin bonus rounds: land 3 scatter symbols to trigger up to 20 free spins with 3x multipliers on all wins." },
+          { text: "Daily spin wheel: every login earns you a chance to spin for coins, free spins, or jackpot entry tickets." },
+          { text: "Tournament mode: compete against 50 other players on the same slot. The highest score wins a guaranteed cash prize." },
+          { text: "Auto-spin feature: set the number of spins and let the reels turn automatically while you relax." },
+          { text: "New slot themes added monthly based on player votes. Current themes include space, mythical creatures, and adventure." },
+          { text: "Bonus buy feature: skip the wait and purchase direct entry to the bonus round for a fixed price." }
         ],
         teenpatti: [
-          "Classic Indian card game with Blind and Seen betting options for players worldwide.",
-          "Side Show feature enables private card comparison between two players for strategic play.",
-          "Joker variant uses a random wild card that changes game dynamics and winning combinations.",
-          "Quick Play mode limits each turn to 10 seconds for fast-paced, exciting rounds.",
-          "Practice mode with free chips lets you learn rules and strategies without real money risk.",
-          "Emoji reactions, chat, and virtual gifts make the game social and interactive.",
-          "Jackpot Tables offer higher entry fees with prize pools up to 100x the buy-in."
+          { text: "Classic Indian card game with Blind and Seen betting options. Play with friends or join tables with players worldwide." },
+          { text: "Side Show feature: challenge another player to compare cards privately, adding a strategic layer to the game." },
+          { text: "Joker variant: a random card is selected as wild, changing the game dynamics and creating new winning combinations." },
+          { text: "Quick Play mode: each turn lasts only 10 seconds, making for fast-paced and exciting rounds." },
+          { text: "Practice mode with free chips: learn the rules and strategies without risking real money." },
+          { text: "Emoji reactions, chat, and virtual gifts make the game social and interactive." },
+          { text: "Jackpot Tables: higher entry fees but prize pools can reach up to 100x the buy-in." }
         ],
         bingo: [
-          "75-ball and 90-ball bingo rooms available with options to play up to 4 cards simultaneously.",
-          "Early Bird and Night Owl specials offer extra prizes for early number markings.",
-          "Chat & Play feature enables social interaction while marking numbers during gameplay.",
-          "Power Up system activates abilities like auto-mark, speed boost, or extra cards per round.",
-          "Community Games pool resources from players to unlock group bonuses and jackpots.",
-          "Happy Hours feature double prizes and reduced card prices at specific times of day."
+          { text: "75-ball and 90-ball bingo rooms available. Choose your preferred style and play with up to 4 cards simultaneously." },
+          { text: "Early Bird and Night Owl specials offer extra prizes for marking off numbers in the first few calls." },
+          { text: "Chat & Play feature: socialize with other players while marking numbers, making the game more interactive." },
+          { text: "Power Up system: activate abilities like auto-mark, speed boost, or extra cards for a single round." },
+          { text: "Community Games: players pool resources to unlock group bonuses and jackpots for everyone." },
+          { text: "Happy Hours: double prizes and reduced card prices at specific times of the day." }
         ],
         arcade: [
-          "Collection of mini-games including puzzle challenges, reaction tests, and memory games.",
-          "Arcade Tokens earned per game can be exchanged for bonus entries in the main game.",
-          "Daily Challenge offers new missions every 24 hours with bonus tokens and exclusive prizes.",
-          "High Score leaderboard enables competition with friends and global players.",
-          "Streak system rewards consistent play with bonus multipliers and daily login rewards.",
-          "Holiday events feature themed games and limited-time prizes during special occasions."
+          { text: "Collection of mini-games including puzzle challenges, reaction tests, and memory games." },
+          { text: "Arcade Tokens earned for each game played, exchangeable for bonus entries in the main game." },
+          { text: "Daily Challenge: new missions every 24 hours offering bonus tokens and exclusive prizes." },
+          { text: "High Score leaderboard: compete with friends and global players across all mini-games." },
+          { text: "Streak system: consistent play earns bonus multipliers and daily login rewards." },
+          { text: "Holiday events: themed games and limited-time prizes during special occasions." }
         ],
         vip: [
-          "Premium gaming platform with exclusive access to high-stakes tables and priority support.",
-          "Cashback on losses, faster withdrawals within 2 hours, and dedicated account managers.",
-          "Loyalty Program with Bronze, Silver, Gold, Platinum, and Diamond tiers with increasing benefits.",
-          "Exclusive Tournaments for VIP members with guaranteed prize pools and minimal competition.",
-          "Birthday Bonuses, Anniversary Rewards, and access to High Roller tables.",
-          "Concierge Service provides 24/7 assistance for game selection and technical support."
+          { text: "Premium gaming platform with exclusive access to high-stakes tables and priority support." },
+          { text: "Cashback on losses, faster withdrawals within 2 hours, and a dedicated account manager for VIP members." },
+          { text: "Loyalty Program: escalate through Bronze, Silver, Gold, Platinum, and Diamond tiers with increasing benefits." },
+          { text: "Exclusive Tournaments: only for VIP members with guaranteed prize pools and minimal competition." },
+          { text: "Birthday Bonuses, Anniversary Rewards, and access to High Roller tables." },
+          { text: "Concierge Service: 24/7 assistance for game selection and technical support." }
         ],
         casual: [
-          "Versatile gaming platform combining multiple game styles into one seamless experience.",
-          "Smart Matchmaking pairs players of similar skill levels for fair and fun matches.",
-          "Daily Rewards include consecutive login bonuses and special gifts.",
-          "Experience Points system unlocks new features and perks as you level up.",
-          "Community features include clubs, events, and achievement sharing with friends.",
-          "Regular updates with new games, features, and events added monthly."
+          { text: "Versatile gaming platform combining multiple game styles into one seamless experience." },
+          { text: "Smart Matchmaking pairs you with players of similar skill levels for fair and fun matches." },
+          { text: "Daily Rewards: log in each day for consecutive bonuses and special gifts." },
+          { text: "Experience Points system: unlock new features and perks as you level up." },
+          { text: "Community features: join clubs, participate in events, and share achievements with friends." },
+          { text: "Regular updates: new games, features, and events added monthly to keep the experience fresh." }
         ]
       };
 
@@ -3246,10 +3247,11 @@
       const selected = [];
       const usedIndices = new Set();
 
+      // Choose a unique starting point based on game name hash
       let start = seed % pool.length;
-      const count = 5 + (seed % 3);
 
-      // Collect unique tags without repeating the game name
+      // Pick 5-7 unique tags (varies per game) to ensure 60-80%+ uniqueness
+      const count = 5 + (seed % 3);
       for (let i = 0; i < count; i++) {
         let idx = (start + i * 3 + seed) % pool.length;
         let attempts = 0;
@@ -3259,14 +3261,22 @@
         }
         usedIndices.add(idx);
         let tagText = pool[idx].text;
+
+        // Ensure the tag includes some reference to the game (but not repeating the name excessively)
+        // Use altName or a generic reference
+        const nameRef = altName || gameName;
+        if (!tagText.includes(nameRef) && i % 2 === 0) {
+          // For every second tag, prepend a game-specific intro
+          tagText = `For ${nameRef}, ${tagText.charAt(0).toLowerCase() + tagText.slice(1)}`;
+        }
         selected.push(tagText);
       }
 
-      // Ensure first tag is a generic intro without repeating game name
+      // Ensure the first tag is a strong "About" style intro
       if (selected.length > 0) {
-        const intro = "This app delivers a premium gaming experience with fast loading times and smooth animations. Players enjoy a wide variety of game modes and daily challenges that keep the gameplay fresh and exciting.";
-        if (!selected[0].includes('app') && !selected[0].includes('game')) {
-          selected[0] = intro;
+        const first = selected[0];
+        if (!first.includes(gameName) && !first.includes(altName || '')) {
+          selected[0] = `${gameName} is a popular gaming app offering a variety of games and features for players of all skill levels.`;
         }
       }
 
@@ -3891,8 +3901,7 @@
       linkUrl.textContent = 'https://www.earntp.com/m/jm9n7r';
 
       // ==============================================================
-      // UNIQUE TAG SECTION — NO REPEATED GAME NAMES
-      // Only the specific requested changes are made here.
+      // UNIQUE TAG SECTION — "About" tags below Top Offers
       // ==============================================================
       const tagContainer = document.getElementById('tagGridContainer');
       tagContainer.innerHTML = '';
@@ -3912,9 +3921,10 @@
         tagContainer.appendChild(box);
       });
 
-      // 2) Unique "About" tags — NO repeated game names, unique info per position
+      // 2) Unique "About" tags for this specific game — Text Only, no icons/SVGs
       const uniqueTags = generateUniqueTags(game.name, game.altName || game.name, game.bonus);
 
+      // Create a clean tag-box with text-only tags
       const aboutBox = document.createElement('div');
       aboutBox.className = 'tag-box';
       aboutBox.style.borderColor = '#2563eb';
@@ -3934,7 +3944,7 @@
       `;
       aboutBox.appendChild(aboutHead);
 
-      // Add the unique tags as text paragraphs — no game name repeated
+      // Add the unique tags as text paragraphs
       uniqueTags.forEach((tagText, idx) => {
         const p = document.createElement('p');
         p.className = 'tag-content';
