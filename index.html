@@ -376,7 +376,7 @@
       .share-btn .share-text { font-size: 0.7rem; }
     }
 
-    /* ===== NEW MENU BUTTON & DROPDOWN ===== */
+    /* ===== FIXED MENU BUTTON with animated lines ===== */
     .menu-btn {
       display: inline-flex;
       align-items: center;
@@ -401,13 +401,28 @@
     }
     .menu-btn:active { transform: scale(0.95); }
     .menu-btn svg {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       stroke: currentColor;
       fill: none;
       stroke-width: 2.2;
       stroke-linecap: round;
       stroke-linejoin: round;
+      transition: transform 0.3s ease;
+    }
+    .menu-btn .menu-line {
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .menu-btn.active .menu-line.top {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .menu-btn.active .menu-line.middle {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .menu-btn.active .menu-line.bottom {
+      transform: translateY(-6px) rotate(-45deg);
     }
     .home-page .menu-btn {
       background: rgba(255, 255, 255, 0.9);
@@ -415,7 +430,7 @@
     }
     @media (max-width: 480px) {
       .menu-btn { padding: 4px 8px; font-size: 0.55rem; }
-      .menu-btn svg { width: 15px; height: 15px; }
+      .menu-btn svg { width: 17px; height: 17px; }
     }
 
     .menu-dropdown {
@@ -486,7 +501,7 @@
     .header-right {
       position: relative;
     }
-    /* ===== END NEW MENU ===== */
+    /* ===== END MENU FIX ===== */
 
     .header-logo {
       width: 48px;
@@ -2233,16 +2248,16 @@
         </svg>
         <span class="share-text">Share</span>
       </button>
-      <!-- NEW MENU BUTTON -->
+      <!-- NEW MENU BUTTON with animated lines -->
       <button class="menu-btn" id="menuBtn" aria-label="Menu">
-        <svg viewBox="0 0 24 24">
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
+        <svg viewBox="0 0 24 24" width="24" height="24" class="menu-icon">
+          <line x1="4" y1="6" x2="20" y2="6" class="menu-line top" />
+          <line x1="4" y1="12" x2="20" y2="12" class="menu-line middle" />
+          <line x1="4" y1="18" x2="20" y2="18" class="menu-line bottom" />
         </svg>
-        MENU
+        <span>MENU</span>
       </button>
-      <!-- NEW DROPDOWN -->
+      <!-- DROPDOWN -->
       <div class="menu-dropdown" id="menuDropdown">
         <div class="menu-item" data-page="home">
           <svg class="icon-home" viewBox="0 0 24 24">
@@ -2277,7 +2292,7 @@
           <span>Disclaimer</span>
         </div>
       </div>
-      <!-- END NEW MENU -->
+      <!-- END MENU -->
     </div>
   </div>
 
@@ -4067,12 +4082,14 @@
 
     menuBtn.addEventListener('click', function(e) {
       e.stopPropagation();
+      menuBtn.classList.toggle('active');
       menuDropdown.classList.toggle('open');
     });
 
     document.addEventListener('click', function(e) {
       if (!menuDropdown.contains(e.target) && e.target !== menuBtn) {
         menuDropdown.classList.remove('open');
+        menuBtn.classList.remove('active');
       }
     });
 
@@ -4080,6 +4097,7 @@
       item.addEventListener('click', function() {
         const page = this.dataset.page;
         menuDropdown.classList.remove('open');
+        menuBtn.classList.remove('active');
         // Trigger corresponding nav click
         if (page === 'home') {
           homeNav.click();
