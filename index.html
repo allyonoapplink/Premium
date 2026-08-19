@@ -1565,23 +1565,24 @@
       position: relative;
     }
     .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .card-img .number-on-photo {
+    .card-img .premium-led-badge {
       position: absolute;
       top: 2px;
       left: 2px;
-      font-weight: 700;
-      font-size: 0.65rem;
+      font-weight: 800;
+      font-size: 0.55rem;
       color: #ffffff;
-      text-shadow: 0 0 8px rgba(255,255,255,0.6), 0 0 16px rgba(255,255,255,0.3);
+      background: #FF0000;
       padding: 1px 6px;
-      border-radius: 3px;
-      line-height: 1.2;
+      border-radius: 6px;
+      line-height: 1.4;
       z-index: 2;
       font-family: system-ui, -apple-system, sans-serif;
-      letter-spacing: 0.2px;
-      background: none !important;
-      border: none !important;
-      box-shadow: none !important;
+      letter-spacing: 0.3px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      box-shadow: 0 0 8px rgba(255,255,255,0.15);
+      min-width: 22px;
+      text-align: center;
     }
     .card-info {
       flex: 1;
@@ -1665,7 +1666,7 @@
     .card-download-sm:active { transform: scale(0.94) !important; box-shadow: 0 0 20px rgba(0,200,83,0.3) !important; }
     @media (max-width: 420px) {
       .card-img { width: 60px; height: 52px; margin-left: 0px; margin-right: 18px; }
-      .card-img .number-on-photo { font-size: 0.55rem; padding: 1px 4px; top: 1px; left: 1px; }
+      .card-img .premium-led-badge { font-size: 0.45rem; padding: 1px 4px; min-width: 18px; top: 1px; left: 1px; border-radius: 4px; }
       .card-name { font-size: 0.6rem; }
       .card-bonus { font-size: 0.5rem; }
       .card-withdraw { font-size: 0.45rem; }
@@ -1675,7 +1676,7 @@
     }
     @media (max-width: 360px) {
       .card-img { width: 52px; height: 46px; margin-left: 0px; margin-right: 14px; }
-      .card-img .number-on-photo { font-size: 0.48rem; padding: 1px 3px; top: 1px; left: 1px; }
+      .card-img .premium-led-badge { font-size: 0.4rem; padding: 1px 3px; min-width: 15px; top: 1px; left: 1px; border-radius: 4px; }
       .card-name { font-size: 0.5rem; }
       .card-bonus { font-size: 0.45rem; }
       .card-withdraw { font-size: 0.4rem; }
@@ -1685,7 +1686,7 @@
     }
     @media (min-width: 769px) {
       .card-img { width: 76px; height: 68px; margin-left: 0px; margin-right: 24px; }
-      .card-img .number-on-photo { font-size: 0.7rem; padding: 2px 7px; top: 3px; left: 3px; }
+      .card-img .premium-led-badge { font-size: 0.6rem; padding: 2px 8px; min-width: 26px; top: 3px; left: 3px; border-radius: 8px; }
       .card-download-sm { padding: 12px 28px 12px 20px !important; font-size: 0.85rem !important; gap: 10px !important; min-width: 130px; }
       .card-download-sm::before { width: 20px; height: 20px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 22px; height: 22px; }
@@ -2072,7 +2073,8 @@
       animation-delay:.44s
     }
     .wd{
-      animation:dot 1.8s infinite    }
+      animation:dot 1.8s infinite
+    }
     @keyframes wifi{
       0%,100%{
         transform:translateY(3px);
@@ -2348,6 +2350,168 @@
       .download-install-section .di-title { font-size: 0.75rem; }
       .download-install-section .di-item { font-size: 0.6rem; gap: 8px; }
       .download-install-section .di-item .di-led { width: 18px; height: 18px; }
+    }
+
+    /* RELATED GRID - HOME PAGE STYLE */
+    .related-grid-home {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 4px 0;
+    }
+    .related-grid-home .card-home {
+      background: white;
+      border-radius: 16px;
+      padding: 8px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      border: 1px solid #e9edf4;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      justify-content: flex-start;
+      width: 100%;
+    }
+    .related-grid-home .card-home:active { transform: scale(0.97); background: #fafcff; }
+    .related-grid-home .card-home .card-img-home {
+      width: 68px;
+      height: 60px;
+      border-radius: 14px;
+      background: #f0f4ff;
+      flex-shrink: 0;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      margin-left: 0px;
+      margin-right: 22px;
+      position: relative;
+    }
+    .related-grid-home .card-home .card-img-home img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .related-grid-home .card-home .card-img-home .premium-led-badge-home {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      font-weight: 800;
+      font-size: 0.55rem;
+      color: #ffffff;
+      padding: 1px 6px;
+      border-radius: 6px;
+      line-height: 1.4;
+      z-index: 2;
+      font-family: system-ui, -apple-system, sans-serif;
+      letter-spacing: 0.3px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      box-shadow: 0 0 8px rgba(255,255,255,0.15);
+      min-width: 22px;
+      text-align: center;
+    }
+    .related-grid-home .card-home .card-info-home {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      min-width: 0;
+      padding-right: 4px;
+    }
+    .related-grid-home .card-home .card-name-home { font-weight: 700; font-size: 0.7rem; color: #0b1e33; display: flex; align-items: center; flex-wrap: wrap; }
+    .related-grid-home .card-home .card-name-home .alt { display: none !important; }
+    .related-grid-home .card-home .card-bonus-home, .related-grid-home .card-home .card-withdraw-home {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.55rem;
+      font-weight: 600;
+    }
+    .related-grid-home .card-home .card-bonus-home .icon-svg-home, .related-grid-home .card-home .card-withdraw-home .icon-svg-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+    }
+    .related-grid-home .card-home .card-bonus-home .icon-svg-home svg, .related-grid-home .card-home .card-withdraw-home .icon-svg-home svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .related-grid-home .card-home .card-bonus-home { color: #dc2626; }
+    .related-grid-home .card-home .card-bonus-home .label { color: #dc2626; font-weight: 600; }
+    .related-grid-home .card-home .card-bonus-home .value { color: #dc2626; font-weight: 700; }
+    .related-grid-home .card-home .card-withdraw-home { color: #16a34a; }
+    .related-grid-home .card-home .card-withdraw-home .label { color: #16a34a; font-weight: 600; }
+    .related-grid-home .card-home .card-withdraw-home .value { color: #16a34a; font-weight: 700; }
+    .related-grid-home .card-home .card-withdraw-home { font-size: 0.5rem; }
+    .related-grid-home .card-home .card-download-sm-home {
+      flex-shrink: 0;
+      background: #00c853 !important;
+      color: #ffffff !important;
+      border: 2px solid #00c853 !important;
+      padding: 10px 22px 10px 16px !important;
+      font-size: 0.75rem !important;
+      font-weight: 700 !important;
+      border-radius: 50px !important;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      box-shadow: 0 0 15px rgba(0,200,83,0.25), 0 0 30px rgba(0,200,83,0.08) !important;
+      transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94) !important;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      margin-left: 4px;
+      margin-right: 4px;
+      min-width: 100px;
+      justify-content: center;
+    }
+    .related-grid-home .card-home .card-download-sm-home::before {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      line-height: 1;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
+    }
+    .related-grid-home .card-home .card-download-sm-home:hover {
+      background: #00e676 !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 25px rgba(0,200,83,0.4), 0 0 50px rgba(0,200,83,0.15) !important;
+      transform: scale(1.04) translateY(-2px) !important;
+      border-color: #00e676 !important;
+    }
+    .related-grid-home .card-home .card-download-sm-home:hover::before {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+    }
+    .related-grid-home .card-home .card-download-sm-home:active { transform: scale(0.94) !important; box-shadow: 0 0 20px rgba(0,200,83,0.3) !important; }
+    @media (max-width: 420px) {
+      .related-grid-home .card-home .card-img-home { width: 60px; height: 52px; margin-left: 0px; margin-right: 18px; }
+      .related-grid-home .card-home .card-img-home .premium-led-badge-home { font-size: 0.45rem; padding: 1px 4px; min-width: 18px; top: 1px; left: 1px; border-radius: 4px; }
+      .related-grid-home .card-home .card-name-home { font-size: 0.6rem; }
+      .related-grid-home .card-home .card-bonus-home { font-size: 0.5rem; }
+      .related-grid-home .card-home .card-withdraw-home { font-size: 0.45rem; }
+      .related-grid-home .card-home .card-download-sm-home { padding: 8px 16px 8px 12px !important; font-size: 0.65rem !important; gap: 6px !important; min-width: 80px; }
+      .related-grid-home .card-home .card-download-sm-home::before { width: 15px; height: 15px; }
+      .related-grid-home .card-home .card-bonus-home .icon-svg-home, .related-grid-home .card-home .card-withdraw-home .icon-svg-home { width: 18px; height: 18px; }
+    }
+    @media (max-width: 360px) {
+      .related-grid-home .card-home .card-img-home { width: 52px; height: 46px; margin-left: 0px; margin-right: 14px; }
+      .related-grid-home .card-home .card-img-home .premium-led-badge-home { font-size: 0.4rem; padding: 1px 3px; min-width: 15px; top: 1px; left: 1px; border-radius: 4px; }
+      .related-grid-home .card-home .card-name-home { font-size: 0.5rem; }
+      .related-grid-home .card-home .card-bonus-home { font-size: 0.45rem; }
+      .related-grid-home .card-home .card-withdraw-home { font-size: 0.4rem; }
+      .related-grid-home .card-home .card-download-sm-home { padding: 6px 12px 6px 10px !important; font-size: 0.55rem !important; gap: 4px !important; min-width: 65px; }
+      .related-grid-home .card-home .card-download-sm-home::before { width: 12px; height: 12px; }
+      .related-grid-home .card-home .card-bonus-home .icon-svg-home, .related-grid-home .card-home .card-withdraw-home .icon-svg-home { width: 16px; height: 16px; }
+    }
+    @media (min-width: 769px) {
+      .related-grid-home .card-home .card-img-home { width: 76px; height: 68px; margin-left: 0px; margin-right: 24px; }
+      .related-grid-home .card-home .card-img-home .premium-led-badge-home { font-size: 0.6rem; padding: 2px 8px; min-width: 26px; top: 3px; left: 3px; border-radius: 8px; }
+      .related-grid-home .card-home .card-download-sm-home { padding: 12px 28px 12px 20px !important; font-size: 0.85rem !important; gap: 10px !important; min-width: 130px; }
+      .related-grid-home .card-home .card-download-sm-home::before { width: 20px; height: 20px; }
+      .related-grid-home .card-home .card-bonus-home .icon-svg-home, .related-grid-home .card-home .card-withdraw-home .icon-svg-home { width: 22px; height: 22px; }
     }
   </style>
 </head>
@@ -2991,7 +3155,8 @@
         </span>
         <span>Other Related Yono Games</span>
       </div>
-      <div class="related-grid" id="relatedGrid"></div>
+      <!-- RELATED GRID - ALL 74 GAMES IN HOME PAGE STYLE -->
+      <div class="related-grid-home" id="relatedGridHome"></div>
     </div>
   </div>
 
@@ -3148,7 +3313,7 @@
 
     // --------------------------------------------------------------
     // 74 Original Games — Updated with unique details
-    // 74 colors array for numbers on photos
+    // 74 colors array for premium LED badges
     // --------------------------------------------------------------
     const numberColors = [
       "#FF0000", "#0000FF", "#008000", "#800080", "#FFA500",
@@ -3973,7 +4138,7 @@
 
         card.innerHTML = `
           <div class="card-img">
-            <span class="number-on-photo" style="color:${numberColors[colorNum]};">${index + 1}</span>
+            <span class="premium-led-badge" style="background:${numberColors[colorNum]};">${index + 1}</span>
             <img src="${game.img}" alt="${game.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
           </div>
           <div class="card-info">
@@ -4004,6 +4169,174 @@
       });
     }
     renderGrid();
+
+    // RENDER RELATED GRID - ALL 74 GAMES IN HOME PAGE STYLE
+    function renderRelatedGridHome() {
+      const relatedGridHome = document.getElementById('relatedGridHome');
+      relatedGridHome.innerHTML = '';
+      uniqueGames.forEach((game, index) => {
+        var seed = game.name.length * 7 + game.name.charCodeAt(0);
+        var ratingVal = (3 + (seed % 5) / 10).toFixed(1);
+        if (parseFloat(ratingVal) > 4.9) ratingVal = '4.8';
+        var sizeVal = apkSizes[index] || (30 + (seed % 40)) + ' MB';
+        var votesVal = Math.floor(100 + (seed * 137) % 49900);
+        var bonusNum = parseInt(game.bonus.replace('₹', '')) || 45;
+        var metaBonus = '₹' + (bonusNum + (seed % 20) + 5);
+        var version = versionNumbers[index] || '1.0';
+        var colorNum = index % numberColors.length;
+
+        const card = document.createElement('div');
+        card.className = 'card-home';
+        card.dataset.name = game.name;
+        card.dataset.altName = game.altName || game.name;
+        card.dataset.bonus = game.bonus;
+        card.dataset.withdrawal = game.withdrawal;
+        card.dataset.downloadUrl = game.downloadUrl;
+        card.dataset.img = game.img;
+        card.dataset.rating = ratingVal;
+        card.dataset.size = sizeVal;
+        card.dataset.votes = votesVal;
+        card.dataset.metaBonus = metaBonus;
+        card.dataset.version = version;
+
+        const giftSvg = `<svg viewBox="0 0 120 140" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="giftGoldX_h_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFE66D"/>
+              <stop offset="50%" stop-color="#FFB300"/>
+              <stop offset="100%" stop-color="#E88900"/>
+            </linearGradient>
+            <linearGradient id="giftRedX_h_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FF5278"/>
+              <stop offset="100%" stop-color="#C90035"/>
+            </linearGradient>
+            <linearGradient id="moneyGreenX_h_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B8FFD9"/>
+              <stop offset="50%" stop-color="#00D978"/>
+              <stop offset="100%" stop-color="#008B50"/>
+            </linearGradient>
+            <linearGradient id="moneyBlueX_h_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B9E8FF"/>
+              <stop offset="50%" stop-color="#2196F3"/>
+              <stop offset="100%" stop-color="#0756C9"/>
+            </linearGradient>
+            <linearGradient id="moneyGoldX_h_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFF2A8"/>
+              <stop offset="50%" stop-color="#FFD000"/>
+              <stop offset="100%" stop-color="#D88900"/>
+            </linearGradient>
+          </defs>
+          <g class="cash cash1">
+            <rect x="47" y="40" width="26" height="14" rx="3" fill="url(#moneyGreenX_h_${index})" stroke="#E8FFF2" stroke-width="1.5"/>
+            <circle cx="60" cy="47" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+            <text x="60" y="49.5" text-anchor="middle" font-size="6" font-weight="900" fill="#FFFFFF">₹</text>
+          </g>
+          <g class="cash cash2">
+            <rect x="47" y="40" width="26" height="14" rx="3" fill="url(#moneyBlueX_h_${index})" stroke="#E8F7FF" stroke-width="1.5"/>
+            <circle cx="60" cy="47" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+            <text x="60" y="49.5" text-anchor="middle" font-size="7" font-weight="900" fill="#FFFFFF">$</text>
+          </g>
+          <g class="cash cash3">
+            <rect x="47" y="40" width="26" height="14" rx="3" fill="url(#moneyGoldX_h_${index})" stroke="#FFFBE0" stroke-width="1.5"/>
+            <circle cx="60" cy="47" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+            <text x="60" y="49.5" text-anchor="middle" font-size="7" font-weight="900" fill="#FFFFFF">€</text>
+          </g>
+          <rect x="25" y="62" width="70" height="50" rx="7" fill="url(#giftGoldX_h_${index})" stroke="#FFF1A8" stroke-width="2"/>
+          <rect x="55" y="62" width="10" height="50" rx="2" fill="url(#giftRedX_h_${index})"/>
+          <rect x="25" y="75" width="70" height="10" rx="2" fill="url(#giftRedX_h_${index})"/>
+          <g class="gift-lid-x">
+            <rect x="24" y="43" width="72" height="20" rx="5" fill="url(#giftGoldX_h_${index})" stroke="#FFF1A8" stroke-width="2"/>
+            <rect x="55" y="43" width="10" height="20" rx="2" fill="url(#giftRedX_h_${index})"/>
+            <path d="M60 43C45 31 35 35 39 43 C43 50 52 47 60 43Z" fill="url(#giftRedX_h_${index})"/>
+            <path d="M60 43C75 31 85 35 81 43 C77 50 68 47 60 43Z" fill="url(#giftRedX_h_${index})"/>
+          </g>
+          <path d="M34 91V103" stroke="#FFF8D0" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+        </svg>`;
+
+        const bankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" aria-label="Premium Bank">
+          <defs>
+            <linearGradient id="roofRainbow_h_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00E5FF"/>
+              <stop offset="30%" stop-color="#4169FF"/>
+              <stop offset="65%" stop-color="#9C42FF"/>
+              <stop offset="100%" stop-color="#FF3CAC"/>
+            </linearGradient>
+            <linearGradient id="buildingRainbow_h_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00D4FF"/>
+              <stop offset="35%" stop-color="#007BFF"/>
+              <stop offset="70%" stop-color="#6C3BFF"/>
+              <stop offset="100%" stop-color="#B51EFF"/>
+            </linearGradient>
+            <linearGradient id="goldPremium_h_${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFF7A8"/>
+              <stop offset="35%" stop-color="#FFD84D"/>
+              <stop offset="70%" stop-color="#FF9F1C"/>
+              <stop offset="100%" stop-color="#E05A00"/>
+            </linearGradient>
+            <linearGradient id="columnGlass_h_${index}" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="45%" stop-color="#B8F7FF"/>
+              <stop offset="100%" stop-color="#6CDEFF"/>
+            </linearGradient>
+            <filter id="premiumGlow_h_${index}">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <path d="M10 35L50 10L90 35Z" fill="url(#roofRainbow_h_${index})" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" filter="url(#premiumGlow_h_${index})"/>
+          <path d="M21 31L50 14L79 31" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+          <rect x="14" y="34" width="72" height="48" rx="6" fill="url(#buildingRainbow_h_${index})" stroke="#8FEFFF" stroke-width="2.5"/>
+          <rect x="20" y="42" width="12" height="31" rx="3" fill="url(#columnGlass_h_${index})" stroke="#FFFFFF" stroke-width="1.5"/>
+          <rect x="44" y="42" width="12" height="31" rx="3" fill="url(#columnGlass_h_${index})" stroke="#FFFFFF" stroke-width="1.5"/>
+          <rect x="68" y="42" width="12" height="31" rx="3" fill="url(#columnGlass_h_${index})" stroke="#FFFFFF" stroke-width="1.5"/>
+          <path d="M23 45V68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+          <path d="M47 45V68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+          <path d="M71 45V68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+          <rect x="8" y="75" width="84" height="10" rx="4" fill="url(#goldPremium_h_${index})" stroke="#FFF4A0" stroke-width="2"/>
+          <circle cx="50" cy="23" r="9" fill="url(#goldPremium_h_${index})" stroke="#FFF8C4" stroke-width="2" filter="url(#premiumGlow_h_${index})"/>
+          <text x="50" y="27" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6B25B8">₹</text>
+          <path d="M12 48L16 52L12 56L8 52Z" fill="#00FFD5"/>
+          <path d="M88 48L92 52L88 56L84 52Z" fill="#FFD84D"/>
+        </svg>`;
+
+        const bonusIcon = `<span class="icon-svg-home">${giftSvg}</span>`;
+        const withdrawIcon = `<span class="icon-svg-home">${bankSvg}</span>`;
+
+        card.innerHTML = `
+          <div class="card-img-home">
+            <span class="premium-led-badge-home" style="background:${numberColors[colorNum]};">${index + 1}</span>
+            <img src="${game.img}" alt="${game.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
+          </div>
+          <div class="card-info-home">
+            <div class="card-name-home">${game.name}</div>
+            <div class="card-bonus-home">${bonusIcon} <span class="label">Sign Up Bonus</span> <span class="value">${game.bonus}</span></div>
+            <div class="card-withdraw-home">${withdrawIcon} <span class="label">Min. Withdraw</span> <span class="value">${game.withdrawal}</span></div>
+          </div>
+          <span class="card-download-sm-home">Download</span>
+        `;
+        relatedGridHome.appendChild(card);
+
+        card.addEventListener('click', function() {
+          const gData = {
+            name: this.dataset.name,
+            altName: this.dataset.altName,
+            bonus: this.dataset.bonus,
+            withdrawal: this.dataset.withdrawal,
+            downloadUrl: this.dataset.downloadUrl,
+            img: this.dataset.img,
+            rating: this.dataset.rating,
+            size: this.dataset.size,
+            votes: this.dataset.votes,
+            metaBonus: this.dataset.metaBonus,
+            version: this.dataset.version
+          };
+          showDetail(gData);
+        });
+      });
+    }
 
     function showDetail(game, fromBack) {
       document.title = game.name + ' – Download ' + game.name + ' APK | YONO NEW APP';
@@ -4117,57 +4450,6 @@
 
       tagContainer.appendChild(aboutBox);
 
-      var relatedGrid = document.getElementById('relatedGrid');
-      relatedGrid.innerHTML = '';
-      uniqueGames.filter(g => g.name !== game.name).forEach(function(g) {
-        var item = document.createElement('div');
-        item.className = 'related-item';
-        var seed3 = g.name.length * 7 + g.name.charCodeAt(0);
-        var r = (3 + (seed3 % 5) / 10).toFixed(1);
-        if (parseFloat(r) > 4.9) r = '4.8';
-        var s = apkSizes[uniqueGames.indexOf(g)] || (30 + (seed3 % 40)) + ' MB';
-        var v = Math.floor(100 + (seed3 * 137) % 49900);
-        var mb = '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed3 % 20) + 5);
-        var ver = versionNumbers[uniqueGames.indexOf(g)] || '1.0';
-        item.dataset.name = g.name;
-        item.dataset.altName = g.altName || g.name;
-        item.dataset.bonus = g.bonus;
-        item.dataset.withdrawal = g.withdrawal;
-        item.dataset.downloadUrl = g.downloadUrl;
-        item.dataset.img = g.img;
-        item.dataset.rating = r;
-        item.dataset.size = s;
-        item.dataset.votes = v;
-        item.dataset.metaBonus = mb;
-        item.dataset.version = ver;
-
-        const relatedGiftSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M12 6.5c-1-1.5-3-2.5-4.5-1s-.5 3.5 1.5 4.5 3-2 3-2 1.5 3 3 2 2-3 1.5-4.5-3.5-.5-4.5 1z" fill="#FFD700"/><rect x="3" y="8" width="18" height="3" rx="1" fill="#D32F2F"/><rect x="4" y="11" width="16" height="10" rx="1" fill="#F44336"/><rect x="11" y="8" width="2" height="13" fill="#FFD700"/><rect x="3" y="9" width="18" height="1" fill="#FFD700"/></svg>`;
-        const relatedBankSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" style="display:block; width:100%; height:100%;"><path d="M2 10L12 3L22 10H2Z" fill="#1b5e20"/><path d="M12 3L22 10H2L12 3Z" stroke="#ffd700" stroke-width="0.5" fill="none"/><rect x="4" y="11" width="2" height="8" fill="#2e7d32"/><rect x="9" y="11" width="2" height="8" fill="#2e7d32"/><rect x="14" y="11" width="2" height="8" fill="#2e7d32"/><rect x="18" y="11" width="2" height="8" fill="#2e7d32"/><rect x="2" y="19" width="20" height="2" fill="#1b5e20"/></svg>`;
-
-        const relatedBonusIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedGiftSvg}</span>`;
-        const relatedWithdrawIcon = `<span style="display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; width:14px; height:14px;">${relatedBankSvg}</span>`;
-
-        item.innerHTML = `
-          <img src="${g.img}" alt="${g.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
-          <div class="rinfo">
-            <div class="rname">${g.name} <span class="alt">| ${g.altName}</span></div>
-            <div class="rbonus">${relatedBonusIcon} Sign Up Bonus ${g.bonus}</div>
-            <div class="rwithdraw">${relatedWithdrawIcon} Min. Withdraw ${g.withdrawal}</div>
-          </div>
-          <span class="rdownload">
-            <svg viewBox="0 0 24 24" stroke="currentColor"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download
-          </span>
-        `;
-        relatedGrid.appendChild(item);
-
-        item.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var gData = gameDataMap[this.dataset.name];
-          if (gData) showDetail(gData);
-        });
-      });
-
       showDetailView();
       hideAllNavActive();
       homeNav.classList.remove('active');
@@ -4248,6 +4530,9 @@
     historyStack.push({ state: { page: 'home' }, title: 'Home', url: location.href });
     history.replaceState({ state: { page: 'home' } }, 'Home', location.href);
     enableHomeHeader();
+
+    // Render the related grid
+    renderRelatedGridHome();
 
     // Menu functionality
     const menuBtn = document.getElementById('menuBtn');
