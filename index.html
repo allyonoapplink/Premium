@@ -1552,7 +1552,6 @@
       width: 100%;
     }
     .card:active { transform: scale(0.97); background: #fafcff; }
-
     .card-img {
       width: 68px;
       height: 60px;
@@ -1561,36 +1560,31 @@
       flex-shrink: 0;
       overflow: hidden;
       border: 1px solid #e2e8f0;
-      margin-left: 4px;
+      margin-left: 0px;
       margin-right: 22px;
       position: relative;
     }
     .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .smooth-radius-badge {
+    .card-img .number-on-photo {
       position: absolute;
       top: 2px;
       left: 2px;
-      background: rgba(0, 0, 0, 0.6);
+      font-weight: 800;
+      font-size: 0.55rem;
       color: #ffffff;
-      font-size: 0.35rem;
-      font-weight: 700;
-      padding: 1px 4px;
-      border-radius: 3px;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      backdrop-filter: blur(2px);
-      border: 1px solid rgba(255,255,255,0.15);
+      text-shadow: 0 0 6px rgba(0,0,0,0.7), 0 0 12px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.25);
+      padding: 1px 5px;
+      border-radius: 4px;
+      line-height: 1.2;
       z-index: 2;
-      font-family: monospace;
+      font-family: system-ui, -apple-system, sans-serif;
+      letter-spacing: 0.3px;
     }
-    @media (max-width: 420px) {
-      .smooth-radius-badge { font-size: 0.3rem; padding: 1px 3px; top: 2px; left: 2px; }
+    .card-img .number-on-photo small {
+      font-size: 0.45rem;
+      opacity: 0.7;
     }
-    @media (min-width: 769px) {
-      .smooth-radius-badge { font-size: 0.4rem; padding: 2px 5px; }
-    }
-
     .card-info {
       flex: 1;
       display: flex;
@@ -1672,7 +1666,8 @@
     }
     .card-download-sm:active { transform: scale(0.94) !important; box-shadow: 0 0 20px rgba(0,200,83,0.3) !important; }
     @media (max-width: 420px) {
-      .card-img { width: 60px; height: 52px; margin-left: 4px; margin-right: 18px; }
+      .card-img { width: 60px; height: 52px; margin-left: 0px; margin-right: 18px; }
+      .card-img .number-on-photo { font-size: 0.45rem; padding: 1px 4px; top: 1px; left: 1px; }
       .card-name { font-size: 0.6rem; }
       .card-bonus { font-size: 0.5rem; }
       .card-withdraw { font-size: 0.45rem; }
@@ -1681,7 +1676,8 @@
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 18px; height: 18px; }
     }
     @media (max-width: 360px) {
-      .card-img { width: 52px; height: 46px; margin-left: 4px; margin-right: 14px; }
+      .card-img { width: 52px; height: 46px; margin-left: 0px; margin-right: 14px; }
+      .card-img .number-on-photo { font-size: 0.4rem; padding: 1px 3px; top: 1px; left: 1px; }
       .card-name { font-size: 0.5rem; }
       .card-bonus { font-size: 0.45rem; }
       .card-withdraw { font-size: 0.4rem; }
@@ -1690,24 +1686,12 @@
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 16px; height: 16px; }
     }
     @media (min-width: 769px) {
-      .card-img { width: 76px; height: 68px; margin-left: 4px; margin-right: 24px; }
+      .card-img { width: 76px; height: 68px; margin-left: 0px; margin-right: 24px; }
+      .card-img .number-on-photo { font-size: 0.6rem; padding: 2px 7px; top: 3px; left: 3px; }
       .card-download-sm { padding: 12px 28px 12px 20px !important; font-size: 0.85rem !important; gap: 10px !important; min-width: 130px; }
       .card-download-sm::before { width: 20px; height: 20px; }
       .card-bonus .icon-svg, .card-withdraw .icon-svg { width: 22px; height: 22px; }
     }
-
-    .card-color-border {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      z-index: 3;
-    }
-    @media (max-width: 480px) {
-      .card-color-border { height: 2px; }
-    }
-
     .footer-note {
       padding: 10px 10px 8px 10px;
       text-align: center;
@@ -3167,7 +3151,26 @@
 
     // --------------------------------------------------------------
     // 74 Original Games — Updated with unique details
+    // 74 colors array for numbers on photos
     // --------------------------------------------------------------
+    const numberColors = [
+      "#FF0000", "#0000FF", "#008000", "#800080", "#FFA500",
+      "#FFD700", "#00FFFF", "#008080", "#FFC0CB", "#4B0082",
+      "#00FF00", "#FFBF00", "#7F00FF", "#FF00FF", "#FF7F50",
+      "#50C878", "#FF007F", "#87CEEB", "#708090", "#000080",
+      "#AAF0D1", "#40E0D0", "#E6E6FA", "#8E4585", "#DC143C",
+      "#E0115F", "#CD7F32", "#B87333", "#7FFFD4", "#7FFF00",
+      "#800000", "#808000", "#3B2F2F", "#4169E1", "#C0C0C0",
+      "#708090", "#B8860B", "#D2691E", "#F0E68C", "#FFDB58",
+      "#FFDAB9", "#FA8072", "#FBCEB1", "#F28500", "#FF2400",
+      "#800020", "#722F37", "#0F52BA", "#007FFF", "#0047AB",
+      "#CCCCFF", "#DA70D6", "#E0B0FF", "#C8A2C8", "#F138FF",
+      "#E30B5C", "#FC5A8D", "#FFF700", "#FFFDD0", "#85BB65",
+      "#228B22", "#00A86B", "#2E8B57", "#0077BE", "#4682B4",
+      "#1560BD", "#36454F", "#414A4C", "#353839", "#A0522D",
+      "#CC5500", "#665D1E", "#E2725B", "#4A2E1B"
+    ];
+
     const games = [
       { name: "YONO NEW APP", altName: "All Yono Games", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://www.earntp.com/m/jm9n7r", img: "https://i.ibb.co/0RZPw4wH/Screenshot-20260814-093236.jpg" },
       { name: "567 SLOTS", altName: "567 SLOTS Game", bonus: "₹45", withdrawal: "₹100", downloadUrl: "https://join567slots0.com/?code=4NYF487URJ6&t=1781505684", img: "https://i.ibb.co/QWVBtNG/Screenshot-20260814-045334.jpg" },
@@ -3253,20 +3256,6 @@
       return true;
     });
 
-    // Color list for 74 apps
-    const colorList = [
-      "#FF0000", "#0000FF", "#008000", "#800080", "#FFA500", "#FFD700", "#00FFFF", "#008080",
-      "#FFC0CB", "#4B0082", "#00FF00", "#FFBF00", "#7F00FF", "#FF00FF", "#FF7F50", "#50C878",
-      "#FF007F", "#87CEEB", "#708090", "#000080", "#AAF0D1", "#40E0D0", "#E6E6FA", "#8E4585",
-      "#DC143C", "#E0115F", "#CD7F32", "#B87333", "#7FFFD4", "#7FFF00", "#800000", "#808000",
-      "#3B2F2F", "#4169E1", "#C0C0C0", "#708090", "#B8860B", "#D2691E", "#F0E68C", "#FFDB58",
-      "#FFDAB9", "#FA8072", "#FBCEB1", "#F28500", "#FF2400", "#800020", "#722F37", "#0F52BA",
-      "#007FFF", "#0047AB", "#CCCCFF", "#DA70D6", "#E0B0FF", "#C8A2C8", "#F138FF", "#E30B5C",
-      "#FC5A8D", "#FFF700", "#FFFDD0", "#85BB65", "#228B22", "#00A86B", "#2E8B57", "#0077BE",
-      "#4682B4", "#1560BD", "#36454F", "#414A4C", "#353839", "#A0522D", "#CC5500", "#665D1E",
-      "#E2725B", "#4A2E1B"
-    ];
-
     // Generate unique version numbers, voice numbers, APK sizes
     const versionNumbers = [];
     const usedVersions = new Set();
@@ -3324,8 +3313,7 @@
         votes: Math.floor(100 + (seed * 137) % 49900),
         metaBonus: '₹' + ((parseInt(g.bonus.replace('₹','')) || 45) + (seed % 20) + 5),
         version: versionNumbers[idx] || '1.0',
-        voice: voiceNumbers[idx] || '1.2K',
-        color: colorList[idx % colorList.length] || '#000000'
+        voice: voiceNumbers[idx] || '1.2K'
       };
     });
 
@@ -3864,7 +3852,7 @@
         var bonusNum = parseInt(game.bonus.replace('₹', '')) || 45;
         var metaBonus = '₹' + (bonusNum + (seed % 20) + 5);
         var version = versionNumbers[index] || '1.0';
-        var color = colorList[index % colorList.length] || '#000000';
+        var colorNum = index % numberColors.length;
 
         const card = document.createElement('div');
         card.className = 'card';
@@ -3986,14 +3974,9 @@
         const bonusIcon = `<span class="icon-svg">${giftSvg}</span>`;
         const withdrawIcon = `<span class="icon-svg">${bankSvg}</span>`;
 
-        // Color border on top of card
-        const colorBorder = document.createElement('div');
-        colorBorder.className = 'card-color-border';
-        colorBorder.style.background = color;
-
         card.innerHTML = `
           <div class="card-img">
-            <span class="smooth-radius-badge">Smooth Card Radius</span>
+            <span class="number-on-photo" style="color:${numberColors[colorNum]};">${index + 1}</span>
             <img src="${game.img}" alt="${game.name}" loading="lazy" onerror="this.src='https://i.ibb.co/LXqV77rd/yono-games.jpg'">
           </div>
           <div class="card-info">
@@ -4003,7 +3986,6 @@
           </div>
           <span class="card-download-sm">Download</span>
         `;
-        card.prepend(colorBorder);
         mainGrid.appendChild(card);
 
         card.addEventListener('click', function() {
@@ -4018,8 +4000,7 @@
             size: this.dataset.size,
             votes: this.dataset.votes,
             metaBonus: this.dataset.metaBonus,
-            version: this.dataset.version,
-            color: color
+            version: this.dataset.version
           };
           showDetail(gData);
         });
