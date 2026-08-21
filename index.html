@@ -1781,7 +1781,16 @@
       }
     }
 
-    /* Registration step tags (new, added at the end) */
+    /* Registration step tags (new, added at the end of related section) */
+    .reg-step-heading {
+      display: block;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1e7e34;
+      padding: 8px 0 4px 0;
+      border-top: 1px solid #e9edf4;
+    }
     .reg-step {
       color: #1e7e34;
       font-weight: 600;
@@ -2046,7 +2055,6 @@
       </div>
     </div>
 
-    <!-- START TAG SECTION (Top Offers + all existing tags) -->
     <div class="tag-section">
       <div class="tag-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2198,23 +2206,6 @@
       </div>
     </div>
 
-    <!-- GAME TAGS SECTION (existing "Open the app after installation completes" + all existing tags) -->
-    <div class="game-tags-section">
-      <div class="game-tags-title">
-        <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#00cc44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px; height:18px;"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-        </span>
-        <span>Open the app after installation completes</span>
-      </div>
-      <div class="game-tags-container" id="gameTagsContainer"></div>
-    </div>
-
-    <!-- NEW REGISTRATION STEP TAGS (added at the end of all existing tags) -->
-    <div class="game-tags-section" style="border-top: none; padding-top: 0;">
-      <div class="game-tags-container" id="regStepTagsContainer" style="margin-top: 4px;"></div>
-    </div>
-    <!-- END NEW REGISTRATION STEP TAGS -->
-
     <div class="related-section">
       <div class="related-title">
         <span class="svg-icon" style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px;">
@@ -2223,6 +2214,11 @@
         <span>Other Related Yono Games</span>
       </div>
       <div class="related-grid" id="relatedGrid"></div>
+      <!-- NEW: Registration steps added at the very end of this section -->
+      <div id="regStepRelatedWrapper" style="margin-top: 12px; border-top: 1px solid #e9edf4; padding-top: 10px;">
+        <div class="reg-step-heading" id="regStepHeading"></div>
+        <div class="game-tags-container" id="regStepRelatedTags"></div>
+      </div>
     </div>
   </div>
 
@@ -3075,61 +3071,7 @@
         tagContainer.appendChild(box);
       });
 
-      // Existing game tags ("Open the app after installation completes" section)
-      var tagsContainer = document.getElementById('gameTagsContainer');
-      tagsContainer.innerHTML = '';
-      var relatedTags = uniqueGames.filter(g => g.name !== game.name).slice(0, 12);
-      relatedTags.forEach(function(g) {
-        var tag = document.createElement('span');
-        tag.className = 'game-tag';
-        tag.textContent = g.name;
-        tag.dataset.name = g.name;
-        tag.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var gData = gameDataMap[this.dataset.name];
-          if (gData) {
-            showDetail(gData);
-          }
-        });
-        tagsContainer.appendChild(tag);
-      });
-
-      // NEW REGISTRATION STEP TAGS (added at the very end)
-      var regContainer = document.getElementById('regStepTagsContainer');
-      regContainer.innerHTML = '';
-
-      // Helper function to create a green SVG for each step
-      function createGreenSvg(paths) {
-        return `<svg viewBox="0 0 24 24" width="20" height="20" style="display:inline-block; vertical-align:middle; margin-right:6px; stroke:#1e7e34; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round;">${paths}</svg>`;
-      }
-
-      var bonusName = game.bonus; // e.g. "₹45"
-
-      // Step 1: Open the app and tap Register
-      var step1 = document.createElement('span');
-      step1.className = 'game-tag reg-step';
-      step1.innerHTML = createGreenSvg('<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>') + 'Open the app and tap Register';
-      regContainer.appendChild(step1);
-
-      // Step 2: Enter your mobile number and get OTP
-      var step2 = document.createElement('span');
-      step2.className = 'game-tag reg-step';
-      step2.innerHTML = createGreenSvg('<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a2 2 0 0 1-2.06 0L2 7"/>') + 'Enter your mobile number and get OTP';
-      regContainer.appendChild(step2);
-
-      // Step 3: Verify OTP — [Original Bonus Name] signup bonus is credited instantly
-      var step3 = document.createElement('span');
-      step3.className = 'game-tag reg-step';
-      step3.innerHTML = createGreenSvg('<path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/>') + 'Verify OTP — <strong>' + bonusName + '</strong> signup bonus is credited instantly';
-      regContainer.appendChild(step3);
-
-      // Step 4: Add UPI / Paytm / PhonePe and withdraw when balance reaches ₹100
-      var step4 = document.createElement('span');
-      step4.className = 'game-tag reg-step';
-      step4.innerHTML = createGreenSvg('<path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/>') + 'Add UPI / Paytm / PhonePe and withdraw when balance reaches ₹100';
-      regContainer.appendChild(step4);
-
-      // Related games
+      // Related games grid
       var relatedGrid = document.getElementById('relatedGrid');
       relatedGrid.innerHTML = '';
       uniqueGames.filter(g => g.name !== game.name).forEach(function(g) {
@@ -3182,6 +3124,32 @@
           }
         });
       });
+
+      // --- NEW: Add registration step tags at the end of related section ---
+      var headingEl = document.getElementById('regStepHeading');
+      var tagContainerReg = document.getElementById('regStepRelatedTags');
+      headingEl.textContent = 'How to Register • ' + game.bonus;
+      tagContainerReg.innerHTML = '';
+
+      // Helper: create green SVG inline (same as used before)
+      function createGreenSvg(paths) {
+        return `<svg viewBox="0 0 24 24" width="20" height="20" style="display:inline-block; vertical-align:middle; margin-right:6px; stroke:#1e7e34; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round;">${paths}</svg>`;
+      }
+
+      var steps = [
+        { text: 'Open the app and tap Register', path: '<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>' },
+        { text: 'Enter your mobile number and get OTP', path: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-8.97 5.7a2 2 0 0 1-2.06 0L2 7"/>' },
+        { text: 'Verify OTP — <strong>' + game.bonus + '</strong> signup bonus is credited instantly', path: '<path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="M12 2v12"/><path d="M8 10l4 4 4-4"/><path d="M4 8h16"/><rect x="8" y="14" width="8" height="2" rx="1"/><path d="M10 6h4"/>' },
+        { text: 'Add UPI / Paytm / PhonePe and withdraw when balance reaches ₹100', path: '<path d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/><path d="M8 6h8"/>' }
+      ];
+
+      steps.forEach(function(step) {
+        var tag = document.createElement('span');
+        tag.className = 'game-tag reg-step';
+        tag.innerHTML = createGreenSvg(step.path) + step.text;
+        tagContainerReg.appendChild(tag);
+      });
+      // --- END NEW ---
 
       showDetailView();
       hideAllNavActive();
