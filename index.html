@@ -1234,6 +1234,57 @@
     .apk-download-line .apk-label { color: #64748b; font-weight: 500; }
     .apk-download-line .apk-bonus { color: #dc2626; font-weight: 700; font-size: 0.8rem; }
 
+    /* ===== NEW REGISTER BLOCK - GREEN ===== */
+    .register-block {
+      margin: 8px 0 6px 0;
+      padding: 10px 14px;
+      border: 2px solid #00cc44;
+      border-radius: 12px;
+      background: #f0faf0;
+    }
+    .register-block .reg-title {
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: #008a2e;
+      margin-bottom: 6px;
+    }
+    .register-block .reg-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      color: #0b1e33;
+      padding: 3px 0;
+      line-height: 1.4;
+    }
+    .register-block .reg-step .reg-num {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #00cc44;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .register-block .reg-step .reg-text {
+      flex: 1;
+    }
+    .register-block .reg-step .reg-highlight {
+      color: #008a2e;
+      font-weight: 700;
+    }
+    @media (max-width: 480px) {
+      .register-block { padding: 8px 10px; }
+      .register-block .reg-title { font-size: 0.7rem; }
+      .register-block .reg-step { font-size: 0.6rem; gap: 6px; }
+      .register-block .reg-step .reg-num { width: 18px; height: 18px; font-size: 0.5rem; }
+    }
+    /* ===== END REGISTER BLOCK ===== */
+
     .referral-section {
       padding: 10px;
       background: #f8fafc;
@@ -2513,55 +2564,6 @@
       .related-grid-home .card-home .card-download-sm-home::before { width: 20px; height: 20px; }
       .related-grid-home .card-home .card-bonus-home .icon-svg-home, .related-grid-home .card-home .card-withdraw-home .icon-svg-home { width: 22px; height: 22px; }
     }
-
-    /* ===== NEW REGISTRATION TAGS ===== */
-    .reg-tag {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.65rem;
-      font-weight: 500;
-      color: #0b1e33;
-      padding: 3px 0;
-      border-top: 1px solid #eef2f6;
-      margin-top: 4px;
-      padding-top: 6px;
-    }
-    .reg-tag .reg-svg {
-      flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .reg-tag .reg-svg svg {
-      width: 100%;
-      height: 100%;
-      fill: none;
-      stroke: #00cc44;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .reg-tag .reg-text {
-      flex: 1;
-      color: #0b1e33;
-    }
-    .reg-tag .reg-text .bonus-name {
-      font-weight: 700;
-      color: #00cc44;
-    }
-    .reg-tag-first {
-      border-top: 1px solid #00cc44;
-      margin-top: 6px;
-      padding-top: 8px;
-    }
-    @media (max-width: 480px) {
-      .reg-tag { font-size: 0.55rem; gap: 6px; }
-      .reg-tag .reg-svg { width: 18px; height: 18px; }
-    }
-    /* ===== END REGISTRATION TAGS ===== */
   </style>
 </head>
 <body>
@@ -3165,6 +3167,28 @@
         </span>
         <span class="option-name">Safety &amp; Security</span>
       </div>
+
+      <!-- ===== NEW REGISTER BLOCK - GREEN (added here) ===== -->
+      <div class="register-block" id="registerBlock">
+        <div class="reg-title" id="regTitle">How to Register • <span id="regBonusName">₹45 Bonus</span></div>
+        <div class="reg-step">
+          <span class="reg-num">1</span>
+          <span class="reg-text">Open the app and tap Register</span>
+        </div>
+        <div class="reg-step">
+          <span class="reg-num">2</span>
+          <span class="reg-text">Enter your mobile number and get OTP</span>
+        </div>
+        <div class="reg-step">
+          <span class="reg-num">3</span>
+          <span class="reg-text">Verify OTP — <span class="reg-highlight" id="regBonusHighlight">₹45</span> signup bonus is credited instantly</span>
+        </div>
+        <div class="reg-step">
+          <span class="reg-num">4</span>
+          <span class="reg-text">Add UPI / Paytm / PhonePe and withdraw when balance reaches <span class="reg-highlight">₹100</span></span>
+        </div>
+      </div>
+      <!-- ===== END REGISTER BLOCK ===== -->
     </div>
     <!-- END APP INFO OPTIONS -->
 
@@ -4152,7 +4176,6 @@
       return { refBonus: refBonus, refCode: code };
     }
 
-    // RENDER GRID (HOME PAGE)
     function renderGrid() {
       mainGrid.innerHTML = '';
       uniqueGames.forEach((game, index) => {
@@ -4320,7 +4343,7 @@
     }
     renderGrid();
 
-    // RENDER RELATED GRID - ALL 74 GAMES IN HOME PAGE STYLE (with REGISTRATION TAGS at the end of each)
+    // RENDER RELATED GRID - ALL 74 GAMES IN HOME PAGE STYLE
     function renderRelatedGridHome() {
       const relatedGridHome = document.getElementById('relatedGridHome');
       relatedGridHome.innerHTML = '';
@@ -4466,30 +4489,6 @@
             <div class="card-withdraw-home">${withdrawIcon} <span class="label">Min. Withdraw</span> <span class="value">${game.withdrawal}</span></div>
           </div>
           <span class="card-download-sm-home">Download</span>
-          <!-- ===== REGISTRATION TAGS (added at the end of each game entry) ===== -->
-          <div style="width:100%; margin-top:6px; border-top:1px solid #00cc44; padding-top:6px;">
-            <div class="reg-tag reg-tag-first">
-              <span class="reg-svg"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-              <span class="reg-text"><strong>How to Register • <span class="bonus-name">${game.bonus}</span></strong> — पूरा name block green color में</span>
-            </div>
-            <div class="reg-tag">
-              <span class="reg-svg"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><rect x="2" y="2" width="20" height="4" rx="1"/></svg></span>
-              <span class="reg-text">Open the app and tap <strong>Register</strong></span>
-            </div>
-            <div class="reg-tag">
-              <span class="reg-svg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-              <span class="reg-text">Enter your mobile number and get <strong>OTP</strong></span>
-            </div>
-            <div class="reg-tag">
-              <span class="reg-svg"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
-              <span class="reg-text">Verify OTP — <span class="bonus-name">${game.bonus}</span> signup bonus is credited <strong>instantly</strong></span>
-            </div>
-            <div class="reg-tag">
-              <span class="reg-svg"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg></span>
-              <span class="reg-text">Add <strong>UPI / Paytm / PhonePe</strong> and withdraw when balance reaches <strong>₹100</strong></span>
-            </div>
-          </div>
-          <!-- ===== END REGISTRATION TAGS ===== -->
         `;
         relatedGridHome.appendChild(card);
 
@@ -4554,6 +4553,13 @@
         return false;
       };
       document.getElementById('apkBonusLine').textContent = game.bonus;
+
+      // ===== UPDATE REGISTER BLOCK with game's bonus =====
+      const regBonusName = document.getElementById('regBonusName');
+      const regBonusHighlight = document.getElementById('regBonusHighlight');
+      if (regBonusName) regBonusName.textContent = game.bonus;
+      if (regBonusHighlight) regBonusHighlight.textContent = game.bonus;
+      // ===== END UPDATE REGISTER BLOCK =====
 
       var refData = generateReferralData(game.name, game.bonus);
       document.getElementById('refGameName').textContent = game.name;
@@ -4708,7 +4714,7 @@
     history.replaceState({ state: { page: 'home' } }, 'Home', location.href);
     enableHomeHeader();
 
-    // Render the related grid (with registration tags at the end of each entry)
+    // Render the related grid
     renderRelatedGridHome();
 
     // Menu functionality
